@@ -8,6 +8,7 @@ class StateShow {
   display() {
     //The title screen
     if (state == "Title") {
+      titleState.display();
     }
   }
 }

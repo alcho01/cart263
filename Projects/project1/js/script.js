@@ -21,6 +21,8 @@ let titleImage3;
 
 //Preparing a class for the states
 let stateShow;
+//Preparing classes for states
+let titleState;
 //Determine what the starting state should be
 let state = "Title";
 
@@ -38,6 +40,8 @@ function setup() {
 
   //Create the class to hold the states
   stateShow = new StateShow();
+  //Create the class for the title state
+  titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
 }
 
 function draw() {
