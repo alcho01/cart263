@@ -17,7 +17,17 @@ const NUM_EASY = 150;
 
 //States
 
+//Title parameters
 let title = {
+  x: 640,
+  y: 360,
+  w: 1280,
+  h: 720,
+  image: undefined,
+};
+
+//Help screen parameters
+let help = {
   x: 640,
   y: 360,
   w: 1280,
@@ -60,6 +70,9 @@ function preload() {
 
   //load the title screen
   title.image = loadImage("assets/images/Screens/titlescreen.png");
+
+  //Load the help screen
+  help.image = loadImage("assets/images/Screens/help.png");
 }
 
 function setup() {
@@ -102,9 +115,12 @@ function createDiamond() {
   diamond = new Diamond(x, y, diamondImage);
 }
 
+//Contains the change of states and what is going on in each state
 function draw() {
   if (state === "title") {
     titleScreen();
+  } else if (state === "help") {
+    helpScreen();
   } else if (state === "simulation") {
     //Setting the background color
     background(bgRed, bgGreen, bgBlue);
@@ -117,6 +133,14 @@ function titleScreen() {
   push();
   imageMode(CENTER);
   image(title.image, title.x, title.y, title.w, title.h);
+  pop();
+}
+
+//Help Screen display
+function helpScreen() {
+  push();
+  imageMode(CENTER);
+  image(help.image, help.x, help.y, help.w, help.h);
   pop();
 }
 
@@ -147,10 +171,27 @@ function mousePressed() {
 
 //Functionality for mouse clicked
 function mouseClicked() {
+  //From title to the simulation
   if (state === "title") {
     if (mouseX > 32 && mouseX < 416) {
       if (mouseY > 109 && mouseY < 210) {
         state = "simulation";
+      }
+    }
+  }
+  //From help back to the title
+  if (state === "help") {
+    if (mouseX > 478 && mouseX < 863) {
+      if (mouseY > 438 && mouseY < 541) {
+        state = "title";
+      }
+    }
+  }
+  //From the title to help screen
+  if (state === "title") {
+    if (mouseX > 32 && mouseX < 416) {
+      if (mouseY > 228 && mouseY < 330) {
+        state = "help";
       }
     }
   }
