@@ -13,7 +13,7 @@ const GEM_IMAGE_PREFIX = `assets/images/Gems/gem`;
 const DIAMOND_IMAGE = `assets/images/Gems/diamond.png`;
 
 // Number of images to display
-const NUM_EASY = 50;
+const NUM_EASY = 100;
 
 //Arrays for gem images
 let gemImages = [];
@@ -92,4 +92,14 @@ function createDiamond() {
 function draw() {
   //Setting the background color
   background(bgRed, bgGreen, bgBlue);
+
+  updateGems();
+}
+
+function updateGems() {
+  // Loop through gems
+  for (let i = 0; i < gems.length; i++) {
+    // Update the gems
+    gems[i].update();
+  }
 }
