@@ -18,6 +18,10 @@ class Diamond extends Gem {
       this.width += this.growth;
       this.height += this.growth;
     }
+
+    if (this.width > 400) {
+      state = "end";
+    }
   }
 
   display() {

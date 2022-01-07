@@ -35,6 +35,15 @@ let help = {
   image: undefined,
 };
 
+//End screen parameters
+let end = {
+  x: 640,
+  y: 360,
+  w: 1280,
+  h: 720,
+  image: undefined,
+};
+
 //Arrays for gem images
 let gemImages = [];
 
@@ -73,6 +82,9 @@ function preload() {
 
   //Load the help screen
   help.image = loadImage("assets/images/Screens/help.png");
+
+  //Load the end screen
+  end.image = loadImage("assets/images/Screens/end.png");
 }
 
 function setup() {
@@ -118,6 +130,7 @@ function createDiamond() {
 //Contains the change of states and what is going on in each state
 function draw() {
   if (state === "title") {
+    reset();
     titleScreen();
   } else if (state === "help") {
     helpScreen();
@@ -125,7 +138,23 @@ function draw() {
     //Setting the background color
     background(bgRed, bgGreen, bgBlue);
     simulation();
+  } else if (state === "end") {
+    endScreen();
   }
+}
+
+//Resets the game
+function reset() {
+  //Reset the position randomly
+  diamond.x = random(0, 1280);
+  diamond.y = random(0, 720);
+  //Reset the boolean
+  diamond.found = false;
+  //Reset the angle
+  diamond.angle = 0;
+  //Reset the dimensions
+  diamond.width = 150;
+  diamond.height = 150;
 }
 
 //Title Screen display
@@ -148,6 +177,14 @@ function helpScreen() {
 function simulation() {
   updateGems();
   updateDiamond();
+}
+
+//Ending screen
+function endScreen() {
+  push();
+  imageMode(CENTER);
+  image(end.image, end.x, end.y, end.w, end.h);
+  pop();
 }
 
 //Update the gems
@@ -192,6 +229,14 @@ function mouseClicked() {
     if (mouseX > 32 && mouseX < 416) {
       if (mouseY > 228 && mouseY < 330) {
         state = "help";
+      }
+    }
+  }
+  //From the end screen to title screen
+  if (state === "end") {
+    if (mouseX > 429 && mouseX < 813) {
+      if (mouseY > 279 && mouseY < 382) {
+        state = "title";
       }
     }
   }
