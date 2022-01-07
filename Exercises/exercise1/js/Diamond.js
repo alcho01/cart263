@@ -5,11 +5,13 @@ class Diamond extends Gem {
 
     this.found = false;
     this.rotationSpeed = 0.25;
-    this.growth = 0.5;
-    this.width = 150;
-    this.height = 150;
+    this.growth = 1;
+    this.width = 80;
+    this.height = 80;
+    this.speed = 5;
   }
 
+  //Perform the action of the diamond
   update() {
     this.display();
 
@@ -19,11 +21,12 @@ class Diamond extends Gem {
       this.height += this.growth;
     }
 
-    if (this.width > 400) {
+    if (this.width > 500) {
       state = "end";
     }
   }
 
+  //Display the diamond
   display() {
     push();
     imageMode(CENTER);
@@ -33,6 +36,7 @@ class Diamond extends Gem {
     pop();
   }
 
+  //Mouse pressed functionality for the diamond
   mousePressed() {
     if (!this.found && this.overlap(mouseX, mouseY)) {
       this.found = true;

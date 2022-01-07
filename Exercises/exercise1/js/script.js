@@ -22,7 +22,7 @@ const GEM_IMAGE_PREFIX = `assets/images/Gems/gem`;
 const DIAMOND_IMAGE = `assets/images/Gems/diamond.png`;
 
 // Number of images to display
-const NUM_EASY = 150;
+const NUM_GEMS = 250;
 
 //States
 
@@ -123,7 +123,7 @@ function setup() {
 // Creates all the gems at random positions with random images
 function createGems() {
   // Create the number of gems
-  for (let i = 0; i < NUM_EASY; i++) {
+  for (let i = 0; i < NUM_GEMS; i++) {
     // Create a random gem
     let gem = createRandomGem();
     // Add it to the array
@@ -174,8 +174,8 @@ function reset() {
   //Reset the angle
   diamond.angle = 0;
   //Reset the dimensions
-  diamond.width = 150;
-  diamond.height = 150;
+  diamond.width = 80;
+  diamond.height = 80;
 }
 
 //Title Screen display
@@ -236,7 +236,7 @@ function mouseClicked() {
     if (mouseX > 32 && mouseX < 416) {
       if (mouseY > 109 && mouseY < 210) {
         state = "simulation";
-        soundtack.play();
+        soundtrack.play();
         soundtrack.loop();
       }
     }
