@@ -36,6 +36,7 @@ class Diamond extends Gem {
   mousePressed() {
     if (!this.found && this.overlap(mouseX, mouseY)) {
       this.found = true;
+      foundSound.play();
     }
   }
 }
