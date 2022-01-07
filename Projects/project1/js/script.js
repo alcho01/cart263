@@ -8,8 +8,39 @@ author, and this description to match your project!
 
 "use strict";
 
-function preload() {}
+//Setting the canvas dimensions
+let canvasDimensions = {
+  w: 800,
+  h: 1000,
+};
 
-function setup() {}
+//Images for the title which will be animated through frameCount
+let titleImage1;
+let titleImage2;
+let titleImage3;
 
-function draw() {}
+//Preparing a class for the states
+let stateShow;
+//Determine what the starting state should be
+let state = "Title";
+
+//Preload sounds/images
+function preload() {
+  //Preloading the title images 1,2,3
+  titleImage1 = loadImage("assets/images/title/titlesequence1.png");
+  titleImage2 = loadImage("assets/images/title/titlesequence2.png");
+  titleImage3 = loadImage("assets/images/title/titlesequence3.png");
+}
+
+function setup() {
+  //Create the canvas
+  createCanvas(canvasDimensions.w, canvasDimensions.h);
+
+  //Create the class to hold the states
+  stateShow = new StateShow();
+}
+
+function draw() {
+  //This will contain what is being displayed based on what state it is in
+  stateShow.display();
+}
