@@ -13,7 +13,7 @@ const GEM_IMAGE_PREFIX = `assets/images/Gems/gem`;
 const DIAMOND_IMAGE = `assets/images/Gems/diamond.png`;
 
 // Number of images to display
-const NUM_EASY = 100;
+const NUM_EASY = 150;
 
 //Arrays for gem images
 let gemImages = [];

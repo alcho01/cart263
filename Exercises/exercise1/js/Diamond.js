@@ -5,6 +5,9 @@ class Diamond extends Gem {
 
     this.found = false;
     this.rotationSpeed = 0.25;
+    this.growth = 0.05;
+    this.width = 150;
+    this.height = 150;
   }
 
   update() {
@@ -12,6 +15,14 @@ class Diamond extends Gem {
     if (this.found) {
       this.angle += this.rotationSpeed;
     }
+  }
+
+  display() {
+    push();
+    imageMode(CENTER);
+    translate(this.x, this.y);
+    image(this.image, 0, 0, this.width, this.height);
+    pop();
   }
 
   mousePressed() {
