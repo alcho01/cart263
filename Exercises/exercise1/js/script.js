@@ -15,6 +15,16 @@ const DIAMOND_IMAGE = `assets/images/Gems/diamond.png`;
 // Number of images to display
 const NUM_EASY = 150;
 
+//States
+
+let title = {
+  x: 640,
+  y: 360,
+  w: 1280,
+  h: 720,
+  image: undefined,
+};
+
 //Arrays for gem images
 let gemImages = [];
 
@@ -47,6 +57,9 @@ function preload() {
 
   // Load the diamond image
   diamondImage = loadImage(`${DIAMOND_IMAGE}`);
+
+  //load the title screen
+  title.image = loadImage("assets/images/Screens/titlescreen.png");
 }
 
 function setup() {
@@ -90,9 +103,25 @@ function createDiamond() {
 }
 
 function draw() {
-  //Setting the background color
-  background(bgRed, bgGreen, bgBlue);
+  if (state === "title") {
+    titleScreen();
+  } else if (state === "simulation") {
+    //Setting the background color
+    background(bgRed, bgGreen, bgBlue);
+    simulation();
+  }
+}
 
+//Title Screen display
+function titleScreen() {
+  push();
+  imageMode(CENTER);
+  image(title.image, title.x, title.y, title.w, title.h);
+  pop();
+}
+
+//The simulation
+function simulation() {
   updateGems();
   updateDiamond();
 }
@@ -114,4 +143,15 @@ function updateDiamond() {
 //Functionality for mouse pressed
 function mousePressed() {
   diamond.mousePressed();
+}
+
+//Functionality for mouse clicked
+function mouseClicked() {
+  if (state === "title") {
+    if (mouseX > 32 && mouseX < 416) {
+      if (mouseY > 109 && mouseY < 210) {
+        state = "simulation";
+      }
+    }
+  }
 }
