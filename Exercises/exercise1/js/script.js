@@ -94,12 +94,24 @@ function draw() {
   background(bgRed, bgGreen, bgBlue);
 
   updateGems();
+  updateDiamond();
 }
 
+//Update the gems
 function updateGems() {
   // Loop through gems
   for (let i = 0; i < gems.length; i++) {
     // Update the gems
     gems[i].update();
   }
+}
+
+//Update the diamond
+function updateDiamond() {
+  diamond.update();
+}
+
+//Functionality for mouse pressed
+function mousePressed() {
+  diamond.mousePressed();
 }
