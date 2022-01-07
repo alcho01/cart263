@@ -1,22 +1,17 @@
 /**
 Gem Hunt - Exercise 1
 Alex Cho
-
 Pretty much the same type of mechanics from the activity. Just enhanced and updated.
 To refamiliarize myself with the concepts
-
 Brief - Add 3 new Features
-
 - Changed image set
 - It grows as well as rotates when found
 - States
 - Reset Function
 - Audio
-
 Credit
 Sound FX FROM https://freesound.org/
 Soundtrack FROM https://davidoreilly.itch.io/external-world-ost?download
-
 */
 
 "use strict";
@@ -42,15 +37,6 @@ let title = {
 
 //Help screen parameters
 let help = {
-  x: 640,
-  y: 360,
-  w: 1280,
-  h: 720,
-  image: undefined,
-};
-
-//level select screen parameters
-let levelSelect = {
   x: 640,
   y: 360,
   w: 1280,
@@ -112,9 +98,6 @@ function preload() {
   //Load the help screen
   help.image = loadImage("assets/images/Screens/help.png");
 
-  //Load the Level select screen
-  levelSelect.image = loadImage("assets/images/Screens/levelselect.png");
-
   //Load the end screen
   end.image = loadImage("assets/images/Screens/end.png");
 
@@ -170,14 +153,12 @@ function draw() {
   if (state === "title") {
     reset();
     titleScreen();
-  } else if (state === "levelSelector") {
-    levelSelectScreen();
   } else if (state === "help") {
     helpScreen();
-  } else if (state === "easySimulation") {
+  } else if (state === "simulation") {
     //Setting the background color
     background(bgRed, bgGreen, bgBlue);
-    easySimulation();
+    simulation();
   } else if (state === "end") {
     endScreen();
   }
@@ -213,22 +194,8 @@ function helpScreen() {
   pop();
 }
 
-//Level Select Screen display
-function levelSelectScreen() {
-  push();
-  imageMode(CENTER);
-  image(
-    levelSelect.image,
-    levelSelect.x,
-    levelSelect.y,
-    levelSelect.w,
-    levelSelect.h
-  );
-  pop();
-}
-
 //The simulation
-function easySimulation() {
+function simulation() {
   updateGems();
   updateDiamond();
 }
@@ -257,7 +224,7 @@ function updateDiamond() {
 
 //Functionality for mouse pressed
 function mousePressed() {
-  if (state === "easySimulation") {
+  if (state === "simulation") {
     diamond.mousePressed();
   }
 }
@@ -268,16 +235,8 @@ function mouseClicked() {
   if (state === "title") {
     if (mouseX > 32 && mouseX < 416) {
       if (mouseY > 109 && mouseY < 210) {
-        state = "levelSelector";
-      }
-    }
-  }
-  if (state === "levelSelector") {
-    if (mouseX > 7 && mouseX < 215) {
-      if (mouseY > 483 && mouseY < 719) {
-        state = "easySimulation";
-        //play the soundtrack
-        soundtrack.play();
+        state = "simulation";
+        soundtack.play();
         soundtrack.loop();
       }
     }
