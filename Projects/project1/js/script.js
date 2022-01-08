@@ -18,8 +18,9 @@ let canvasDimensions = {
 let particles = [];
 let numParticles = 60;
 
-//Preparing a class for the states
+//Preparing a class for p5 functions
 let stateShow;
+let mouseClickedState;
 //Preparing classes for states
 let preTitleState;
 let titleState;
@@ -59,8 +60,9 @@ function setup() {
     particles.push(new Particle(0.05, 8));
   }
 
-  //Create the class to hold the states
+  //Create the class to hold the p5 functions
   stateShow = new StateShow();
+  mouseClickedState = new MouseClickedState();
   //Create the class for the pretitle state
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
@@ -77,4 +79,9 @@ function draw() {
 function keyPressed() {
   //Works only when it is on the pretitle
   preTitleState.keyPressed();
+}
+
+//Mouse clicked functionality
+function mouseClicked() {
+  //This will contain what is being displayed for when a state has a mouse clicked function
 }
