@@ -6,6 +6,10 @@ class StateShow {
 
   //Display the states
   display() {
+    //Pre title state
+    if (state == "PreTitle") {
+      preTitleState.display();
+    }
     //The title screen
     if (state == "Title") {
       titleState.display();

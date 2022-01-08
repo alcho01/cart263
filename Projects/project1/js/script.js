@@ -17,9 +17,10 @@ let canvasDimensions = {
 //Preparing a class for the states
 let stateShow;
 //Preparing classes for states
+let preTitleState;
 let titleState;
 //Determine what the starting state should be
-let state = "Title";
+let state = "PreTitle";
 
 //--Title Entities--//
 
@@ -42,17 +43,29 @@ function preload() {
   titleTheme = loadSound("assets/sounds/title/titlesong.mp3");
 }
 
+//Setting up
 function setup() {
+  userStartAudio();
+
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
 
   //Create the class to hold the states
   stateShow = new StateShow();
+  //Create the class for the pretitle state
+  preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
   titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
 }
 
+//Displaying the states
 function draw() {
   //This will contain what is being displayed based on what state it is in
   stateShow.display();
+}
+
+//Key pressed functionality
+function keyPressed() {
+  //Works only when it is on the pretitle
+  preTitleState.keyPressed();
 }
