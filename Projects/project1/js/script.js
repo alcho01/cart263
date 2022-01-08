@@ -14,6 +14,10 @@ let canvasDimensions = {
   h: 1000,
 };
 
+//Arrays for the floating particles
+let particles = [];
+let numParticles = 60;
+
 //Preparing a class for the states
 let stateShow;
 //Preparing classes for states
@@ -49,6 +53,11 @@ function setup() {
 
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
+
+  //For loop for the particles
+  for (let i = 0; i < numParticles; i++) {
+    particles.push(new Particle(0.05, 8));
+  }
 
   //Create the class to hold the states
   stateShow = new StateShow();
