@@ -81,12 +81,6 @@ let currentCategory2Questions = 0;
 let currentCategory3Questions = 0;
 let currentCategory4Questions = 0;
 
-
-//Background color
-let bgRed = 44;
-let bgGreen = 56;
-let bgBlue = 159;
-
 //variable for the selection board
 let boardSelectionImg;
 
@@ -113,7 +107,11 @@ function setup() {
 }
 
 function draw() {
-  //background(bgRed, bgGreen, bgBlue);
 
   stateShow.display();
+}
+
+
+function mouseClicked() {
+  boardScreen.mouseClicked();
 }
