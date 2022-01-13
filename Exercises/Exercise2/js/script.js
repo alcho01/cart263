@@ -1,12 +1,17 @@
 /**
-Exercise 2
+Exercise 2 - JOEYR!PA
 Alex Cho
 
 Questions and answers from https://jeopardyquestions.com/
+
+Title and end screen
+Scoreboard
+mouse click functionality
+annyang
+responsivevoice
 */
 
 "use strict";
-
 
 //Make an array for the questions and answers
 const category1Questions = [
@@ -65,20 +70,50 @@ const category4Answers = [
   "nighthawk",
 ];
 
+//Display the current answer and question
+let currentCategory1Answer = 0;
+let currentCategory2Answer = 0;
+let currentCategory3Answer = 0;
+let currentCategory4Answer = 0;
+
+let currentCategory1Questions = 0;
+let currentCategory2Questions = 0;
+let currentCategory3Questions = 0;
+let currentCategory4Questions = 0;
 
 
+//Background color
+let bgRed = 44;
+let bgGreen = 56;
+let bgBlue = 159;
+
+//variable for the selection board
+let boardSelectionImg;
+
+//variables for classes
+let stateShow;
+let boardScreen;
+
+//What the starting state is
+let state = 'BoardSelection';
+
+//Loading assets
 function preload() {
-
+  boardSelectionImg = loadImage("assets/images/boardselect.png");
 }
-
-
 
 function setup() {
+  //create the canvas
+  createCanvas(1000, 800);
+
+  //Linking to the board screen class
+  stateShow = new StateShow();
+  boardScreen = new BoardScreen(boardSelectionImg);
 
 }
 
-
-
 function draw() {
+  //background(bgRed, bgGreen, bgBlue);
 
+  stateShow.display();
 }
