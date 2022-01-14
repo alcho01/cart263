@@ -12,6 +12,7 @@ class StateShow {
     //Displays what questions to select
     if (state == 'BoardSelection') {
       boardScreen.display();
+      scoreDisplay.display();
     }
     //Displays the questions for column 1
     if (state == 'Column1') {

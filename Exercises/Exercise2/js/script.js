@@ -55,6 +55,7 @@ let boardSelectionImg;
 //variables for classes
 let stateShow;
 let boardScreen;
+let scoreDisplay;
 
 //Score
 let score = 0;
@@ -74,6 +75,7 @@ function setup() {
   //Linking to the board screen class
   stateShow = new StateShow();
   boardScreen = new BoardScreen(boardSelectionImg);
+  scoreDisplay = new ScoreDisplay();
 
   //Set up annyang
   if (annyang) {
