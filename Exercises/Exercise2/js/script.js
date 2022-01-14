@@ -49,11 +49,13 @@ let currentCategory4Questions = 0;
 
 let currentResponse = '';
 
-//variable for the selection board
+//variable for images
+let titleImg;
 let boardSelectionImg;
 
 //variables for classes
 let stateShow;
+let titleScreen;
 let boardScreen;
 let scoreDisplay;
 
@@ -65,6 +67,7 @@ let state = 'BoardSelection';
 
 //Loading assets
 function preload() {
+  titleImg = loadImage("assets/images/title.png");
   boardSelectionImg = loadImage("assets/images/boardselect.png");
 }
 
@@ -74,6 +77,7 @@ function setup() {
 
   //Linking to the board screen class
   stateShow = new StateShow();
+  titleScreen = new TitleScreen(titleImg);
   boardScreen = new BoardScreen(boardSelectionImg);
   scoreDisplay = new ScoreDisplay();
 

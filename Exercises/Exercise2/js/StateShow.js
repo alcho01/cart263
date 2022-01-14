@@ -5,10 +5,16 @@ class StateShow {
     this.bgRed = 44;
     this.bgGreen = 56;
     this.bgBlue = 159;
+
+    //Score of all points combined
+    this.winningValue = 7200;
   }
 
   //Display the given state
   display() {
+    if (state == 'Title') {
+      titleScreen.display();
+    }
     //Displays what questions to select
     if (state == 'BoardSelection') {
       boardScreen.display();
@@ -42,7 +48,10 @@ class StateShow {
       score = score + boardScreen.scoreValue;
       //Reset the response to blank
       currentResponse = '';
-      console.log(score);
+      //console.log(score);
+    }
+    if (score === this.winningValue) {
+      state = 'End';
     }
   }
 }
