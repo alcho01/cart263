@@ -53,5 +53,9 @@ class StateShow {
     if (score === this.winningValue) {
       state = 'End';
     }
+    if (state == 'End') {
+      background(this.bgRed, this.bgGreen, this.bgBlue);
+      endScreen.display();
+    }
   }
 }

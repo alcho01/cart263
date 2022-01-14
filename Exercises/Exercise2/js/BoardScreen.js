@@ -172,6 +172,7 @@ class BoardScreen {
   mouseClicked() {
     //Column1
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box1.x && mouseX < this.box1.x2) {
       if (mouseY > this.box1.y && mouseY < this.box1.y2) {
         //Say the category aloud
@@ -188,7 +189,9 @@ class BoardScreen {
         this.scoreValue = 200;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box2.x && mouseX < this.box2.x2) {
       if (mouseY > this.box2.y && mouseY < this.box2.y2) {
         //Say the category aloud
@@ -204,7 +207,9 @@ class BoardScreen {
         this.scoreValue = 600;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box3.x && mouseX < this.box3.x2) {
       if (mouseY > this.box3.y && mouseY < this.box3.y2) {
         //Say the category aloud
@@ -221,9 +226,11 @@ class BoardScreen {
         this.scoreValue = 1000;
       }
     }
+  }
 
     //Column 2
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box4.x && mouseX < this.box4.x2) {
       if (mouseY > this.box4.y && mouseY < this.box4.y2) {
         //Say the category aloud
@@ -240,7 +247,9 @@ class BoardScreen {
         this.scoreValue = 200;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box5.x && mouseX < this.box5.x2) {
       if (mouseY > this.box5.y && mouseY < this.box5.y2) {
         //Say the category aloud
@@ -257,7 +266,9 @@ class BoardScreen {
         this.scoreValue = 600;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box6.x && mouseX < this.box6.x2) {
       if (mouseY > this.box6.y && mouseY < this.box6.y2) {
         //Say the category aloud
@@ -274,9 +285,11 @@ class BoardScreen {
         this.scoreValue = 1000;
       }
     }
+  }
 
     //Column 3
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box7.x && mouseX < this.box7.x2) {
       if (mouseY > this.box7.y && mouseY < this.box7.y2) {
         //Say the category aloud
@@ -293,7 +306,9 @@ class BoardScreen {
         this.scoreValue = 200;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box8.x && mouseX < this.box8.x2) {
       if (mouseY > this.box8.y && mouseY < this.box8.y2) {
         //Say the category aloud
@@ -310,7 +325,9 @@ class BoardScreen {
         this.scoreValue = 600;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box9.x && mouseX < this.box9.x2) {
       if (mouseY > this.box9.y && mouseY < this.box9.y2) {
         //Say the category aloud
@@ -327,9 +344,10 @@ class BoardScreen {
         this.scoreValue = 1000;
       }
     }
-
+  }
     //Column 4
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box10.x && mouseX < this.box10.x2) {
       if (mouseY > this.box10.y && mouseY < this.box10.y2) {
         //Say the category aloud
@@ -346,7 +364,9 @@ class BoardScreen {
         this.scoreValue = 200;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box11.x && mouseX < this.box11.x2) {
       if (mouseY > this.box11.y && mouseY < this.box11.y2) {
         //Say the category aloud
@@ -363,7 +383,9 @@ class BoardScreen {
         this.scoreValue = 600;
       }
     }
+  }
     //Set up the click box
+    if (state === 'BoardSelection'){
     if (mouseX > this.box12.x && mouseX < this.box12.x2) {
       if (mouseY > this.box12.y && mouseY < this.box12.y2) {
         //Say the category aloud
@@ -378,6 +400,7 @@ class BoardScreen {
         this.answer = 'nighthawk';
         //What is the score worth
         this.scoreValue = 1000;
+        }
       }
     }
   }

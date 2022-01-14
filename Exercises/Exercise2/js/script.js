@@ -4,11 +4,8 @@ Alex Cho
 
 Questions and answers from https://jeopardyquestions.com/
 
-Title and end screen
-Scoreboard
-mouse click functionality
-annyang
-responsivevoice
+Familiarizing myself with annyang and responsive voice.
+I am aware there remains a flaw or two in the program. However, the main goal was to familiarize myself with the new libraries and I have already spent a lot of time on this exercise. The flaw is the user can repeat a question over and over again.
 */
 
 "use strict";
@@ -31,7 +28,7 @@ const category2Questions = [
 const category3Questions = [
   //TRIPLE ALLITERATION QUESTIONS
   "This pencil-&-paper game is also known as Xs & Os",
-  "Only around since the early 1990s it takes you practically anywhere you want to go--on the Internet",
+  "Only around since the early 1990s it takes you practically anywhere you want to go on the Internet",
   "Relationship of Queen Elizabeth to Queen Victoria",
 ];
 
@@ -58,12 +55,13 @@ let stateShow;
 let titleScreen;
 let boardScreen;
 let scoreDisplay;
+let endScreen;
 
 //Score
 let score = 0;
 
 //What the starting state is
-let state = 'BoardSelection';
+let state = 'Title';
 
 //Loading assets
 function preload() {
@@ -80,6 +78,7 @@ function setup() {
   titleScreen = new TitleScreen(titleImg);
   boardScreen = new BoardScreen(boardSelectionImg);
   scoreDisplay = new ScoreDisplay();
+  endScreen = new EndScreen();
 
   //Set up annyang
   if (annyang) {
@@ -100,6 +99,13 @@ function draw() {
 //Functionality to click on a box
 function mouseClicked() {
   boardScreen.mouseClicked();
+}
+
+//Functionality for key pressed
+function keyPressed() {
+  if (state === 'Title') {
+    state = 'BoardSelection';
+  }
 }
 
 //Put the input to lowercase to equal with the answer
