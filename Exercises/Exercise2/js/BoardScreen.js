@@ -23,6 +23,7 @@ class BoardScreen {
     //Starting question for column 4
     this.question4 = "This fruit may sometimes appear on a peach tree";
 
+
     //Column 1
     this.box1 = {
       x: 7,
@@ -110,6 +111,16 @@ class BoardScreen {
       y: 627,
       y2: 793,
     };
+
+    //Text info
+    //fill white
+    this.white = 255;
+    //Size
+    this.size = 20;
+    //x position
+    this.textX = 500;
+    //y position
+    this.textY = 400;
   }
 
 //Display the image
@@ -120,40 +131,40 @@ class BoardScreen {
     pop();
   }
 
-  //Display the text
+  //Display the text for each question and column
   column1Questions() {
     push();
-    fill(255);
+    fill(this.white);
     textAlign(CENTER);
-    textSize(20);
-    text(this.question, 500, 400);
+    textSize(this.size);
+    text(this.question, this.textX, this.textY);
     pop();
   }
 
   column2Questions() {
     push();
-    fill(255);
+    fill(this.white);
     textAlign(CENTER);
-    textSize(20);
-    text(this.question2, 500, 400);
+    textSize(this.size);
+    text(this.question2, this.textX, this.textY);
     pop();
   }
 
   column3Questions() {
     push();
-    fill(255);
+    fill(this.white);
     textAlign(CENTER);
-    textSize(20);
-    text(this.question3, 500, 400);
+    textSize(this.size);
+    text(this.question3, this.textX, this.textY);
     pop();
   }
 
   column4Questions() {
     push();
-    fill(255);
+    fill(this.white);
     textAlign(CENTER);
-    textSize(20);
-    text(this.question4, 500, 400);
+    textSize(this.size);
+    text(this.question4, this.textX, this.textY);
     pop();
   }
 
@@ -167,7 +178,10 @@ class BoardScreen {
         state = 'Column1';
         //Display the specified question
         this.question = category1Questions[currentCategory1Questions];
+        //Narrate the question
         responsiveVoice.speak("A pestle is used to grind spices & other foods; this pestle's partner is the bowl in which the food is ground");
+        //The answer
+        this.answer = 'mortar';
       }
     }
     if (mouseX > this.box2.x && mouseX < this.box2.x2) {
@@ -175,6 +189,7 @@ class BoardScreen {
         state = 'Column1';
         this.question = category1Questions[currentCategory1Questions + 1];
         responsiveVoice.speak("Despite its name it's a slicing tool not a guitar-like instrument so don't strum it");
+        this.answer = 'mandolin';
       }
     }
     if (mouseX > this.box3.x && mouseX < this.box3.x2) {
@@ -182,6 +197,7 @@ class BoardScreen {
         state = 'Column1';
         this.question = category1Questions[currentCategory1Questions + 2];
         responsiveVoice.speak("This brilliant yellow ultra-spendy spice is sold powdered or as threads, the flower's stigma");
+        this.answer = 'saffron';
       }
     }
 
@@ -191,6 +207,7 @@ class BoardScreen {
         state = 'Column2';
         this.question2 = category2Questions[currentCategory2Questions];
         responsiveVoice.speak("To clear plates");
+        this.answer = 'bus';
       }
     }
     if (mouseX > this.box5.x && mouseX < this.box5.x2) {
@@ -198,6 +215,7 @@ class BoardScreen {
         state = 'Column2';
         this.question2 = category2Questions[currentCategory2Questions + 1];
         responsiveVoice.speak("Cubic kite");
+        this.answer = 'box';
       }
     }
     if (mouseX > this.box6.x && mouseX < this.box6.x2) {
@@ -205,6 +223,7 @@ class BoardScreen {
         state = 'Column2';
         this.question2 = category2Questions[currentCategory2Questions + 2];
         responsiveVoice.speak("Stated goal of taking tricks");
+        this.answer = 'bid';
       }
     }
 
@@ -214,6 +233,7 @@ class BoardScreen {
         state = 'Column3';
         this.question3 = category3Questions[currentCategory3Questions];
         responsiveVoice.speak("This pencil-&-paper game is also known as exes & o's");
+        this.answer = 'tic-tac-toe';
       }
     }
     if (mouseX > this.box8.x && mouseX < this.box8.x2) {
@@ -221,6 +241,7 @@ class BoardScreen {
         state = 'Column3';
         this.question3 = category3Questions[currentCategory3Questions + 1];
         responsiveVoice.speak("Only around since the early 1990s it takes you practically anywhere you want to go--on the Internet");
+        this.answer = 'world wide web';
       }
     }
     if (mouseX > this.box9.x && mouseX < this.box9.x2) {
@@ -228,6 +249,7 @@ class BoardScreen {
         state = 'Column3';
         this.question3 = category3Questions[currentCategory3Questions + 2];
         responsiveVoice.speak("Relationship of Queen Elizabeth to Queen Victoria");
+        this.answer = 'great-great-granddaughter';
       }
     }
 
@@ -237,6 +259,7 @@ class BoardScreen {
         state = 'Column4';
         this.question4 = category4Questions[currentCategory4Questions];
         responsiveVoice.speak("This fruit may sometimes appear on a peach tree");
+        this.answer = 'nectarine';
       }
     }
     if (mouseX > this.box11.x && mouseX < this.box11.x2) {
@@ -244,6 +267,7 @@ class BoardScreen {
         state = 'Column4';
         this.question4 = category4Questions[currentCategory4Questions + 1];
         responsiveVoice.speak("It's a feeling of sentimental yearning for the past");
+        this.answer = 'nostalgia';
       }
     }
     if (mouseX > this.box12.x && mouseX < this.box12.x2) {
@@ -251,6 +275,7 @@ class BoardScreen {
         state = 'Column4';
         this.question4 = category4Questions[currentCategory4Questions + 2];
         responsiveVoice.speak("Name shared by the first operational stealth aircraft & a nocturnal bird --their prey never sees either one coming");
+        this.answer = 'nighthawk';
       }
     }
   }

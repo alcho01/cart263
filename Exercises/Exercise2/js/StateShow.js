@@ -26,5 +26,8 @@ class StateShow {
       background(this.bgRed, this.bgGreen, this.bgBlue);
       boardScreen.column4Questions();
     }
+    if (currentResponse === boardScreen.answer) {
+      state = 'BoardSelection';
+    }
   }
 }
