@@ -10,9 +10,21 @@ class StateShow {
     if (state == 'BoardSelection') {
       boardScreen.display();
     }
-    if (state == 'Questions') {
+    if (state == 'Column1') {
       background(this.bgRed, this.bgGreen, this.bgBlue);
-      boardScreen.displayQ1();
+      boardScreen.column1Questions();
+    }
+    if (state == 'Column2') {
+      background(this.bgRed, this.bgGreen, this.bgBlue);
+      boardScreen.column2Questions();
+    }
+    if (state == 'Column3') {
+      background(this.bgRed, this.bgGreen, this.bgBlue);
+      boardScreen.column3Questions();
+    }
+    if (state == 'Column4') {
+      background(this.bgRed, this.bgGreen, this.bgBlue);
+      boardScreen.column4Questions();
     }
   }
 }
