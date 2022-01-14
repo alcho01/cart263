@@ -56,6 +56,9 @@ let boardSelectionImg;
 let stateShow;
 let boardScreen;
 
+//Score
+let score = 0;
+
 //What the starting state is
 let state = 'BoardSelection';
 
