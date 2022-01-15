@@ -41,6 +41,7 @@ class TitleState {
       if (mouseY > this.buttonY && mouseY < this.buttonY2) {
         state = 'Simulation';
         titleTheme.stop();
+        simulationSong.play();
       }
     }
   }

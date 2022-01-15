@@ -8,6 +8,9 @@ Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
 
 "use strict";
 
+//create to add p5 amplitude
+let amplitude;
+
 //Setting the canvas dimensions
 let canvasDimensions = {
   w: 800,
@@ -16,7 +19,7 @@ let canvasDimensions = {
 
 //Arrays for the floating particles
 let particles = [];
-let numParticles = 60;
+let numParticles = 20;
 
 //Preparing a class for p5 functions
 let stateShow;
@@ -38,6 +41,7 @@ let titleImage3;
 
 //Title Song
 let titleTheme;
+let simulationSong;
 
 //Preload sounds/images
 function preload() {
@@ -48,6 +52,7 @@ function preload() {
 
   //Preloading the title theme song
   titleTheme = loadSound("assets/sounds/title/titlesong.mp3");
+  simulationSong = loadSound("assets/sounds/song.mp3");
 }
 
 //Setting up
@@ -57,9 +62,14 @@ function setup() {
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
 
+  //Add the library
+  amplitude = new p5.Amplitude();
+
+  amplitude.setInput(simulationSong);
+
   //For loop for the particles
   for (let i = 0; i < numParticles; i++) {
-    particles.push(new Particle(0.05, 8));
+    particles.push(new Particle());
   }
 
   //Create the class to hold the p5 functions

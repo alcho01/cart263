@@ -17,6 +17,11 @@ class StateShow {
     //Main part of the simulation
     if (state == "Simulation") {
       simulation.display();
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].display();
+        particles[i].move();
+      }
     }
   }
 }
