@@ -14,5 +14,9 @@ class StateShow {
     if (state == "Title") {
       titleState.display();
     }
+    //Main part of the simulation
+    if (state == "Simulation") {
+      simulation.display();
+    }
   }
 }

@@ -4,5 +4,9 @@ class MouseClickedState {
     //Nothing to do here
   }
 
-  
+  activate() {
+    if (state === 'Title') {
+      titleState.mouseClicked();
+    }
+  }
 }

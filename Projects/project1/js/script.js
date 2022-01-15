@@ -21,9 +21,11 @@ let numParticles = 60;
 //Preparing a class for p5 functions
 let stateShow;
 let mouseClickedState;
+
 //Preparing classes for states
 let preTitleState;
 let titleState;
+let simulation;
 //Determine what the starting state should be
 let state = "PreTitle";
 
@@ -67,6 +69,8 @@ function setup() {
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
   titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
+  //Create the class for the simulation
+  simulation = new Simulation(800, 1000);
 }
 
 //Displaying the states
@@ -84,4 +88,5 @@ function keyPressed() {
 //Mouse clicked functionality
 function mouseClicked() {
   //This will contain what is being displayed for when a state has a mouse clicked function
+  mouseClickedState.activate();
 }
