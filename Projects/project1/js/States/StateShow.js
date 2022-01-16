@@ -11,11 +11,11 @@ class StateShow {
       preTitleState.display();
     }
     //The title screen
-    if (state == "Title") {
+    else if (state == "Title") {
       titleState.display();
     }
     //Main part of the simulation
-    if (state == "Simulation") {
+    else if (state == "Simulation") {
       simulation.display();
       simulation.displayCharacter();
       simulation.characterMovement();

@@ -40,9 +40,7 @@ class PreTitleState {
   }
 
   keyPressed() {
-    if (state == "PreTitle") {
       titleTheme.play();
       state = "Title";
     }
   }
-}

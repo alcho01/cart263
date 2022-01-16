@@ -25,6 +25,7 @@ let numParticles = 20;
 //Preparing a class for p5 functions
 let stateShow;
 let mouseClickedState;
+let keyPressedState;
 
 //Preparing classes for states
 let preTitleState;
@@ -87,6 +88,7 @@ function setup() {
   //Create the class to hold the p5 functions
   stateShow = new StateShow();
   mouseClickedState = new MouseClickedState();
+  keyPressedState = new KeyPressedState();
   //Create the class for the pretitle state
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
@@ -103,10 +105,8 @@ function draw() {
 
 //Key pressed functionality
 function keyPressed() {
-  //Works only when it is on the pretitle
-  preTitleState.keyPressed();
-  //Works only during the simulation
-  simulation.keyPressed();
+  //This will contain what is being done when a key is pressed
+  keyPressedState.activate();
 }
 
 //Mouse clicked functionality
