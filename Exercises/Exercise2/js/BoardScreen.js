@@ -351,7 +351,7 @@ class BoardScreen {
     if (mouseX > this.box10.x && mouseX < this.box10.x2) {
       if (mouseY > this.box10.y && mouseY < this.box10.y2) {
         //Say the category aloud
-        responsiveVoice.speak("A nine letter vowel for 200", "French Male");
+        responsiveVoice.speak("A nine letter noun for 200", "French Male");
         //Change the state
         state = 'Column4';
         //Display the specified question
@@ -370,7 +370,7 @@ class BoardScreen {
     if (mouseX > this.box11.x && mouseX < this.box11.x2) {
       if (mouseY > this.box11.y && mouseY < this.box11.y2) {
         //Say the category aloud
-        responsiveVoice.speak("A nine letter vowel for 600", "French Male");
+        responsiveVoice.speak("A nine letter noun for 600", "French Male");
         //Change the state
         state = 'Column4';
         //Display the specified question
