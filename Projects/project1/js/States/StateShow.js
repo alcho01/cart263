@@ -5,7 +5,7 @@ class StateShow {
   }
 
   //Display the states
-  display() {
+  activate() {
     //Pre title state
     if (state == "PreTitle") {
       preTitleState.display();

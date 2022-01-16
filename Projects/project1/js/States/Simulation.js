@@ -22,7 +22,7 @@ class Simulation {
     this.imageVY = 0;
 
     //Image speed
-    this.imageSpeed = 0.15;
+    this.imageSpeed = 0.45;
 
     //Image dimensions
     this.imageWidth = 500;
@@ -46,7 +46,7 @@ class Simulation {
     pop();
   }
 
-  //Display the character falling 
+  //Display the character falling
   displayCharacter() {
     push();
     imageMode(CENTER);
@@ -61,11 +61,37 @@ class Simulation {
     pop();
   }
 
+  //The movement of the character (not interactive)
   characterMovement() {
     //Give the velocity a random speed
     this.imageVY = this.imageSpeed;
 
     //Add them to the y position for movement
     this.imageY = this.imageY + this.imageVY;
+  }
+
+  //If the key is pressed change the tempo of the soundtrack, change the speed at which the character falls.
+  keyPressed() {
+    //Give a specified key to be pressed
+    if (keyCode === 49 && state === 'Simulation') {
+      //Determine the playback speed (SLOW)
+      simulationSong.rate(0.5);
+      //Determine the speed at which the character falls (SLOW)
+      this.imageSpeed = 0.15;
+    }
+    //Give a specified key to be pressed
+    else if (keyCode === 50 && state === 'Simulation') {
+      //Determine the playback speed (NORMAL)
+      simulationSong.rate(1);
+      //Determine the speed at which the character falls (NORMAL)
+      this.imageSpeed = 0.45;
+    }
+    //Give a specified key to be pressed 
+    else if (keyCode === 51 && state === 'Simulation') {
+      //Determine the playback speed (FAST)
+      simulationSong.rate(1.5);
+      //Determine the speed at which the character falls (FAST)
+      this.imageSpeed = 0.85;
+    }
   }
 }

@@ -98,13 +98,15 @@ function setup() {
 //Displaying the states
 function draw() {
   //This will contain what is being displayed based on what state it is in
-  stateShow.display();
+  stateShow.activate();
 }
 
 //Key pressed functionality
 function keyPressed() {
   //Works only when it is on the pretitle
   preTitleState.keyPressed();
+  //Works only during the simulation
+  simulation.keyPressed();
 }
 
 //Mouse clicked functionality
