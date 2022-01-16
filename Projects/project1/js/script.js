@@ -44,16 +44,27 @@ let titleImage3;
 let titleTheme;
 let simulationSong;
 
+//--Simulation Entities--//
+//The character falling in the sunken place
+let fallingImage1;
+let fallingImage2;
+let fallingImage3;
+
 //Preload sounds/images
 function preload() {
   //Preloading the title images 1,2,3
-  titleImage1 = loadImage("assets/images/Title/titlesequence1.png");
-  titleImage2 = loadImage("assets/images/Title/titlesequence2.png");
-  titleImage3 = loadImage("assets/images/Title/titlesequence3.png");
+  titleImage1 = loadImage("assets/images/title/titlesequence1.png");
+  titleImage2 = loadImage("assets/images/title/titlesequence2.png");
+  titleImage3 = loadImage("assets/images/title/titlesequence3.png");
 
   //Preloading the title theme song
   titleTheme = loadSound("assets/sounds/title/titlesong.mp3");
   simulationSong = loadSound("assets/sounds/song.mp3");
+
+  //Preloading the character falling during the simulation
+  fallingImage1 = loadImage("assets/images/Simulation/falling1.png");
+  fallingImage2 = loadImage("assets/images/Simulation/falling2.png");
+  fallingImage3 = loadImage("assets/images/Simulation/falling3.png");
 }
 
 //Setting up
@@ -63,7 +74,7 @@ function setup() {
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
 
-  //Add the library
+  //Add the p5sound library
   amplitude = new p5.Amplitude();
 
   amplitude.setInput(simulationSong);
@@ -81,7 +92,7 @@ function setup() {
   //Create the class for the title state
   titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
   //Create the class for the simulation
-  simulation = new Simulation(800, 1000);
+  simulation = new Simulation(800, 1000, fallingImage1, fallingImage2, fallingImage3);
 }
 
 //Displaying the states

@@ -25,7 +25,6 @@ class TitleState {
   display() {
     push();
     imageMode(CENTER);
-
     //Depending on frame count will alter the image making it look animated
     if (frameCount % 60 < 10 / 2) {
       image(this.titleImage1, this.x, this.y, this.width, this.height);
@@ -34,6 +33,7 @@ class TitleState {
     } else if (frameCount % 30 < 10 / 2) {
       image(this.titleImage3, this.x, this.y, this.width, this.height);
     }
+    pop();
   }
 
   mouseClicked() {

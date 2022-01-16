@@ -17,6 +17,8 @@ class StateShow {
     //Main part of the simulation
     if (state == "Simulation") {
       simulation.display();
+      simulation.displayCharacter();
+      simulation.characterMovement();
 
       for (let i = 0; i < particles.length; i++) {
         particles[i].display();
