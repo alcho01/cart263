@@ -16,7 +16,7 @@ class Simulation {
 
     //Image position
     this.imageX = 400;
-    this.imageY = 100;
+    this.imageY = -100;
 
     //Image velocity for the y
     this.imageVY = 0;
@@ -72,21 +72,21 @@ class Simulation {
 
   //If the key is pressed change the tempo of the soundtrack, change the speed at which the character falls.
   keyPressed() {
-    //Give a specified key to be pressed
+    //Give a specified key to be pressed (1)
     if (keyCode === 49 && state === 'Simulation') {
       //Determine the playback speed (SLOW)
       simulationSong.rate(0.5);
       //Determine the speed at which the character falls (SLOW)
       this.imageSpeed = 0.15;
     }
-    //Give a specified key to be pressed
+    //Give a specified key to be pressed (2)
     else if (keyCode === 50 && state === 'Simulation') {
       //Determine the playback speed (NORMAL)
       simulationSong.rate(1);
       //Determine the speed at which the character falls (NORMAL)
       this.imageSpeed = 0.45;
     }
-    //Give a specified key to be pressed 
+    //Give a specified key to be pressed (3)
     else if (keyCode === 51 && state === 'Simulation') {
       //Determine the playback speed (FAST)
       simulationSong.rate(1.5);
