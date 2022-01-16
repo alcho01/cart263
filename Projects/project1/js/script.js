@@ -54,9 +54,9 @@ let fallingImage3;
 //Preload sounds/images
 function preload() {
   //Preloading the title images 1,2,3
-  titleImage1 = loadImage("assets/images/title/titlesequence1.png");
-  titleImage2 = loadImage("assets/images/title/titlesequence2.png");
-  titleImage3 = loadImage("assets/images/title/titlesequence3.png");
+  titleImage1 = loadImage("assets/images/Title/titlesequence1.png");
+  titleImage2 = loadImage("assets/images/Title/titlesequence2.png");
+  titleImage3 = loadImage("assets/images/Title/titlesequence3.png");
 
   //Preloading the title theme song
   titleTheme = loadSound("assets/sounds/title/titlesong.mp3");
