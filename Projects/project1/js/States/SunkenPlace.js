@@ -1,5 +1,5 @@
-//This is the main simulation which occurs right after the title screen
-class Simulation {
+//This is the sunken place settings
+class SunkenPlace {
   constructor(w, h, fallingImage1, fallingImage2, fallingImage3) {
     //Position
     this.x = 400;
@@ -73,23 +73,23 @@ class Simulation {
   //If the key is pressed change the tempo of the soundtrack, change the speed at which the character falls.
   keyPressed() {
     //Give a specified key to be pressed (1)
-    if (keyCode === 49 && state === 'Simulation') {
+    if (keyCode === 49 && state === 'SunkenPlace') {
       //Determine the playback speed (SLOW)
-      simulationSong.rate(0.5);
+      sunkenPlaceSong.rate(0.5);
       //Determine the speed at which the character falls (SLOW)
       this.imageSpeed = 0.15;
     }
     //Give a specified key to be pressed (2)
-    else if (keyCode === 50 && state === 'Simulation') {
+    else if (keyCode === 50 && state === 'SunkenPlace') {
       //Determine the playback speed (NORMAL)
-      simulationSong.rate(1);
+      sunkenPlaceSong.rate(1);
       //Determine the speed at which the character falls (NORMAL)
       this.imageSpeed = 0.45;
     }
     //Give a specified key to be pressed (3)
-    else if (keyCode === 51 && state === 'Simulation') {
+    else if (keyCode === 51 && state === 'SunkenPlace') {
       //Determine the playback speed (FAST)
-      simulationSong.rate(1.5);
+      sunkenPlaceSong.rate(1.5);
       //Determine the speed at which the character falls (FAST)
       this.imageSpeed = 0.85;
     }

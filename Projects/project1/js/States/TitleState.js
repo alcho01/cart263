@@ -36,12 +36,13 @@ class TitleState {
     pop();
   }
 
+  //Mouse clicked functionality
   mouseClicked() {
     if (mouseX > this.buttonX && mouseX < this.buttonX2) {
       if (mouseY > this.buttonY && mouseY < this.buttonY2) {
-        state = 'Simulation';
+        state = 'Outside';
         titleTheme.stop();
-        simulationSong.play();
+        windSFX.play();
       }
     }
   }

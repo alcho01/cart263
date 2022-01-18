@@ -5,6 +5,7 @@ Alex Cho
 Sources
 Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
 Simulation Song - https://www.youtube.com/watch?v=8775EWbDokw&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=24&ab_channel=Lumen
+Wind SFX - https://freesound.org/people/florianreichelt/sounds/459977/
 */
 
 "use strict";
@@ -30,7 +31,8 @@ let keyPressedState;
 //Preparing classes for states
 let preTitleState;
 let titleState;
-let simulation;
+let outsideHouse;
+let sunkenPlace;
 //Determine what the starting state should be
 let state = "PreTitle";
 
@@ -43,9 +45,19 @@ let titleImage3;
 
 //Title Song
 let titleTheme;
-let simulationSong;
 
 //--Simulation Entities--//
+
+//ACT 1
+//Wind SFX
+let windSFX;
+
+//Outside of the house image
+let outsideHouseImage;
+
+//SunkenPlace Song
+let sunkenPlaceSong;
+
 //The character falling in the sunken place
 let fallingImage1;
 let fallingImage2;
@@ -53,15 +65,25 @@ let fallingImage3;
 
 //Preload sounds/images
 function preload() {
+
+  //INTRO
+
+  //Preloading the title theme song
+  titleTheme = loadSound("assets/sounds/title/titlesong.mp3");
   //Preloading the title images 1,2,3
   titleImage1 = loadImage("assets/images/Title/titlesequence1.png");
   titleImage2 = loadImage("assets/images/Title/titlesequence2.png");
   titleImage3 = loadImage("assets/images/Title/titlesequence3.png");
 
-  //Preloading the title theme song
-  titleTheme = loadSound("assets/sounds/title/titlesong.mp3");
-  simulationSong = loadSound("assets/sounds/song.mp3");
+  //ACT 1
 
+  //Wind Sound Preload
+  windSFX = loadSound("assets/sounds/wind.mp3");
+  //Preloading the outside of the house image
+  outsideHouseImage = loadImage("assets/images/Simulation/house.png");
+
+  //Song playing while in the sunken place
+  sunkenPlaceSong = loadSound("assets/sounds/song.mp3");
   //Preloading the character falling during the simulation
   fallingImage1 = loadImage("assets/images/Simulation/falling1.png");
   fallingImage2 = loadImage("assets/images/Simulation/falling2.png");
@@ -71,6 +93,8 @@ function preload() {
 //Setting up
 function setup() {
   userStartAudio();
+  //Audio SFX Settings
+  windSFX.loop();
 
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
@@ -78,7 +102,7 @@ function setup() {
   //Add the p5sound library
   amplitude = new p5.Amplitude();
 
-  amplitude.setInput(simulationSong);
+  amplitude.setInput(sunkenPlaceSong);
 
   //For loop for the particles
   for (let i = 0; i < numParticles; i++) {
@@ -93,8 +117,10 @@ function setup() {
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
   titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
+  //Create the class for the outside of the house
+  outsideHouse = new OutsideHouse(800, 1000, outsideHouseImage);
   //Create the class for the simulation
-  simulation = new Simulation(800, 1000, fallingImage1, fallingImage2, fallingImage3);
+  sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
 }
 
 //Displaying the states
