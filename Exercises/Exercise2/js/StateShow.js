@@ -50,9 +50,11 @@ class StateShow {
       currentResponse = '';
       //console.log(score);
     }
+    //Change the state when the score is equal to the winning value
     if (score === this.winningValue) {
       state = 'End';
     }
+    //Display the endscreen when it is the end state
     if (state == 'End') {
       background(this.bgRed, this.bgGreen, this.bgBlue);
       endScreen.display();

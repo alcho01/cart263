@@ -11,6 +11,7 @@ class TitleScreen {
     this.titleImg = titleImg;
   }
 
+  //Display the title image
   display() {
     push();
     imageMode(CENTER);

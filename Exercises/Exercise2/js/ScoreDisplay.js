@@ -10,9 +10,9 @@ class ScoreDisplay {
     this.r = 247;
     this.g = 208;
     this.b = 146;
-
   }
 
+  //Display the score
   display() {
     push();
     textAlign(CENTER);
@@ -21,6 +21,4 @@ class ScoreDisplay {
     text(score, this.x, this.y);
     pop();
   }
-
-
 }

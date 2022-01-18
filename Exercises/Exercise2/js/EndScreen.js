@@ -10,9 +10,9 @@ class EndScreen {
 
     //fill white
     this.white = 255;
-
   }
 
+  //Display the ending text
   display() {
     push();
     textAlign(CENTER);
