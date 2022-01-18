@@ -6,6 +6,7 @@ Sources
 Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
 Simulation Song - https://www.youtube.com/watch?v=8775EWbDokw&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=24&ab_channel=Lumen
 Wind SFX - https://freesound.org/people/florianreichelt/sounds/459977/
+Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
 */
 
 "use strict";
@@ -49,8 +50,9 @@ let titleTheme;
 //--Simulation Entities--//
 
 //ACT 1
-//Wind SFX
+//SFX
 let windSFX;
+let frontDoorSFX;
 
 //Outside of the house image
 let outsideHouseImage;
@@ -79,6 +81,9 @@ function preload() {
 
   //Wind Sound Preload
   windSFX = loadSound("assets/sounds/wind.mp3");
+  //Front Door Sound Preload
+  frontDoorSFX = loadSound("assets/sounds/frontdoor.wav");
+
   //Preloading the outside of the house image
   outsideHouseImage = loadImage("assets/images/Simulation/house.png");
 

@@ -4,7 +4,7 @@ class MouseClickedState {
     //Nothing to do here
   }
 
-  //Know what state it is in to enable the mouseclicked 
+  //Know what state it is in to enable the mouseclicked
   activate() {
     if (state == 'Title') {
       titleState.mouseClicked();

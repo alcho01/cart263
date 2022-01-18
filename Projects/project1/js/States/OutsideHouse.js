@@ -35,6 +35,7 @@ class OutsideHouse {
         state = 'SunkenPlace';
         //sunkenPlaceSong.play();
         windSFX.stop();
+        frontDoorSFX.play();
       }
     }
   }

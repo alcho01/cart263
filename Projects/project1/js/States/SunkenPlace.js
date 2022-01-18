@@ -32,8 +32,6 @@ class SunkenPlace {
     this.fallingImage1 = fallingImage1;
     this.fallingImage2 = fallingImage2;
     this.fallingImage3 = fallingImage3;
-
-
   }
 
   //Display the black rectangle
