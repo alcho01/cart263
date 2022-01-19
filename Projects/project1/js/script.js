@@ -33,6 +33,7 @@ let keyPressedState;
 let preTitleState;
 let titleState;
 let outsideHouse;
+let entranceHouse;
 let sunkenPlace;
 //Determine what the starting state should be
 let state = "PreTitle";
@@ -49,13 +50,14 @@ let titleTheme;
 
 //--Simulation Entities--//
 
-//ACT 1
+//ACT 1 (Includes Outside Of House, Entrance To House)
 //SFX
 let windSFX;
 let frontDoorSFX;
-
 //Outside of the house image
 let outsideHouseImage;
+//Entrance of the house image
+let entranceHouseImage;
 
 //SunkenPlace Song
 let sunkenPlaceSong;
@@ -84,8 +86,9 @@ function preload() {
   //Front Door Sound Preload
   frontDoorSFX = loadSound("assets/sounds/frontdoor.wav");
 
-  //Preloading the outside of the house image
+  //Preloading the outside/entrance of the house image
   outsideHouseImage = loadImage("assets/images/Simulation/house.png");
+  entranceHouseImage = loadImage("assets/images/Simulation/Entrance.png");
 
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");
@@ -124,6 +127,8 @@ function setup() {
   titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
   //Create the class for the outside of the house
   outsideHouse = new OutsideHouse(800, 1000, outsideHouseImage);
+  //Create the class for the entrance of the house which extends to multiple rooms
+  entranceHouse = new EntranceHouse(800, 1000, entranceHouseImage);
   //Create the class for the simulation
   sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
 }

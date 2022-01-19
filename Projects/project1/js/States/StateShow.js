@@ -18,6 +18,10 @@ class StateShow {
     else if (state == "Outside") {
       outsideHouse.display();
     }
+    //Entrance of the house
+    else if (state == "Entrance") {
+      entranceHouse.display();
+    }
     //Main part of the simulation
     else if (state == "SunkenPlace") {
       sunkenPlace.display();
