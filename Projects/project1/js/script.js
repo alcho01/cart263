@@ -53,6 +53,7 @@ let titleTheme;
 //ACT 1 (Includes Outside Of House, Entrance To House)
 //SFX
 let windSFX;
+let footStepSFX;
 let frontDoorSFX;
 let houseSoundTrack
 //Outside of the house image
@@ -84,6 +85,8 @@ function preload() {
 
   //Wind Sound Preload
   windSFX = loadSound("assets/sounds/wind.mp3");
+  //Footstep Sound Preload
+  footStepSFX = loadSound("assets/sounds/footstep.wav");
   //Front Door Sound Preload
   frontDoorSFX = loadSound("assets/sounds/frontdoor.wav");
   //House sound track

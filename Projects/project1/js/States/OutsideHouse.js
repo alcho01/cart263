@@ -47,6 +47,7 @@ class OutsideHouse {
   //Increase the width and height everytime the "W" key is clicked
   keyPressed() {
     if (keyCode === 87) {
+      footStepSFX.play();
       this.width += this.increaseWidth;
       this.height += this.increaseHeight;
     }
@@ -54,7 +55,7 @@ class OutsideHouse {
 
   //Mouse functionality
   mouseClicked() {
-    //If the width is equal or greater to the max width enter the house 
+    //If the width is equal or greater to the max width enter the house
     if (this.width >= this.maxWidth) {
       if (mouseX > this.doorX && mouseX < this.doorX2) {
         if (mouseY > this.doorY && mouseY < this.doorY2) {
