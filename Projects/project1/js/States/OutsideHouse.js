@@ -10,35 +10,62 @@ class OutsideHouse {
     this.width = w;
     this.height = h;
 
+    //Increments
+    this.increaseWidth = 200;
+    this.increaseHeight = 200;
+
+    //Constraints
+    //Width Constraints
+    this.minWidth = 800;
+    this.maxWidth = 2000;
+    //Height Constraints
+    this.minHeight = 1000;
+    this.maxHeight = 2000;
+
     //Image
     this.outsideHouseImage = outsideHouseImage;
 
     //Boundaries for the door
-    this.doorX = 340;
-    this.doorX2 = 470;
-    this.doorY = 439;
-    this.doorY2 = 697;
+    this.doorX = 243;
+    this.doorX2 = 568;
+    this.doorY = 380;
+    this.doorY2 = 946;
   }
 
   //display the outside of the house
   display() {
+    //Add constraints to how close up you can get
+    this.widthConstrain = constrain(this.width, this.minWidth, this.maxWidth);
+    this.heightConstrain = constrain(this.height, this.minHeight, this.maxHeight);
+
     push();
     imageMode(CENTER);
-    image(this.outsideHouseImage, this.x, this.y, this.width, this.height);
+    image(this.outsideHouseImage, this.x, this.y, this.widthConstrain, this.heightConstrain);
     pop();
+  }
+
+  //Increase the width and height everytime the "W" key is clicked
+  keyPressed() {
+    if (keyCode === 87) {
+      this.width += this.increaseWidth;
+      this.height += this.increaseHeight;
+    }
   }
 
   //Mouse functionality
   mouseClicked() {
-    if (mouseX > this.doorX && mouseX < this.doorX2) {
-      if (mouseY > this.doorY && mouseY < this.doorY2) {
-        state = 'Entrance';
-        //Sound Settings
-        //sunkenPlaceSong.play();
-        windSFX.stop();
-        frontDoorSFX.play();
-        houseSoundTrack.play();
-        houseSoundTrack.loop();
+    //If the width is equal or greater to the max width enter the house 
+    if (this.width >= this.maxWidth) {
+      if (mouseX > this.doorX && mouseX < this.doorX2) {
+        if (mouseY > this.doorY && mouseY < this.doorY2) {
+          state = 'Entrance';
+          //Sound Settings
+          //sunkenPlaceSong.play();
+          windSFX.stop();
+          frontDoorSFX.play();
+          houseSoundTrack.play();
+          houseSoundTrack.loop();
+        }
       }
     }
   }

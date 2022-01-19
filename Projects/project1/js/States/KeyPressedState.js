@@ -10,6 +10,9 @@ class KeyPressedState {
       //Works only when it is on the pretitle
       preTitleState.keyPressed();
     }
+    else if (state == 'Outside') {
+      outsideHouse.keyPressed();
+    }
     else if (state == 'SunkenPlace') {
       //Works only during the simulation
       sunkenPlace.keyPressed();
