@@ -54,6 +54,7 @@ let titleTheme;
 //SFX
 let windSFX;
 let frontDoorSFX;
+let houseSoundTrack
 //Outside of the house image
 let outsideHouseImage;
 //Entrance of the house image
@@ -85,6 +86,8 @@ function preload() {
   windSFX = loadSound("assets/sounds/wind.mp3");
   //Front Door Sound Preload
   frontDoorSFX = loadSound("assets/sounds/frontdoor.wav");
+  //House sound track
+  houseSoundTrack = loadSound("assets/sounds/housesoundtrack.mp3");
 
   //Preloading the outside/entrance of the house image
   outsideHouseImage = loadImage("assets/images/Simulation/house.png");
@@ -101,8 +104,6 @@ function preload() {
 //Setting up
 function setup() {
   userStartAudio();
-  //Audio SFX Settings
-  windSFX.loop();
 
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);

@@ -33,9 +33,12 @@ class OutsideHouse {
     if (mouseX > this.doorX && mouseX < this.doorX2) {
       if (mouseY > this.doorY && mouseY < this.doorY2) {
         state = 'Entrance';
+        //Sound Settings
         //sunkenPlaceSong.play();
         windSFX.stop();
         frontDoorSFX.play();
+        houseSoundTrack.play();
+        houseSoundTrack.loop();
       }
     }
   }

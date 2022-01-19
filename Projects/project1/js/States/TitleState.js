@@ -41,8 +41,10 @@ class TitleState {
     if (mouseX > this.buttonX && mouseX < this.buttonX2) {
       if (mouseY > this.buttonY && mouseY < this.buttonY2) {
         state = 'Outside';
+        //Sound Settings 
         titleTheme.stop();
         windSFX.play();
+        windSFX.loop();
       }
     }
   }
