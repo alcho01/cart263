@@ -22,6 +22,10 @@ class StateShow {
     else if (state == "Entrance") {
       entranceHouse.display();
     }
+    //The living room
+    else if (state == "LivingRoom") {
+      livingRoom.display();
+    }
     //Main part of the simulation
     else if (state == "SunkenPlace") {
       sunkenPlace.display();

@@ -11,8 +11,11 @@ Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
 
 "use strict";
 
+//Audio Settings
 //create to add p5 amplitude
 let amplitude;
+//Setting the volume of sounds
+let maxVolume = 0.1;
 
 //Setting the canvas dimensions
 let canvasDimensions = {
@@ -34,6 +37,7 @@ let preTitleState;
 let titleState;
 let outsideHouse;
 let entranceHouse;
+let livingRoom;
 let sunkenPlace;
 //Determine what the starting state should be
 let state = "PreTitle";
@@ -55,11 +59,17 @@ let titleTheme;
 let windSFX;
 let footStepSFX;
 let frontDoorSFX;
+let indoorFootStepSFX;
 let houseSoundTrack
 //Outside of the house image
 let outsideHouseImage;
 //Entrance of the house image
 let entranceHouseImage;
+
+//ACT 2 (Includes The living room, sunken place)
+
+//The living room image
+let livingRoomImage;
 
 //SunkenPlace Song
 let sunkenPlaceSong;
@@ -89,12 +99,18 @@ function preload() {
   footStepSFX = loadSound("assets/sounds/footstep.wav");
   //Front Door Sound Preload
   frontDoorSFX = loadSound("assets/sounds/frontdoor.wav");
+  //Indoor foot step sound Preload
+  indoorFootStepSFX = loadSound("assets/sounds/footstep2.wav");
   //House sound track
   houseSoundTrack = loadSound("assets/sounds/housesoundtrack.mp3");
 
   //Preloading the outside/entrance of the house image
   outsideHouseImage = loadImage("assets/images/Simulation/house.png");
   entranceHouseImage = loadImage("assets/images/Simulation/Entrance.png");
+
+  //ACT 2
+  //Preload the living room image
+  livingRoomImage = loadImage("assets/images/Simulation/livingroom.png");
 
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");
@@ -106,7 +122,9 @@ function preload() {
 
 //Setting up
 function setup() {
+  //Audio Settings
   userStartAudio();
+  indoorFootStepSFX.setVolume(maxVolume);
 
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
@@ -125,6 +143,7 @@ function setup() {
   stateShow = new StateShow();
   mouseClickedState = new MouseClickedState();
   keyPressedState = new KeyPressedState();
+
   //Create the class for the pretitle state
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
@@ -133,6 +152,9 @@ function setup() {
   outsideHouse = new OutsideHouse(800, 1000, outsideHouseImage);
   //Create the class for the entrance of the house which extends to multiple rooms
   entranceHouse = new EntranceHouse(800, 1000, entranceHouseImage);
+
+  //Create the class for the living room
+  livingRoom = new LivingRoom(800, 1000, livingRoomImage);
   //Create the class for the simulation
   sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
 }
