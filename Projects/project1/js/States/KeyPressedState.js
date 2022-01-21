@@ -13,6 +13,9 @@ class KeyPressedState {
     else if (state == 'Outside') {
       outsideHouse.keyPressed();
     }
+    else if (state == 'Entrance') {
+      entranceHouse.keyPressed();
+    }
     else if (state == 'SunkenPlace') {
       //Works only during the simulation
       sunkenPlace.keyPressed();
