@@ -22,6 +22,14 @@ class KeyPressedState {
     else if (state == 'LivingRoom') {
       livingRoom.keyPressed();
     }
+    //Works only when it is in the chair
+    else if (state == 'InChair') {
+      livingRoom.nextScene();
+    }
+    //Works only on hypnosis scene
+    else if (state == 'Hypnosis') {
+      dialogue.keyPressedA();
+    }
     //Works only during the simulation
     else if (state == 'SunkenPlace') {
       sunkenPlace.keyPressed();

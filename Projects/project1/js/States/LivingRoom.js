@@ -18,9 +18,6 @@ class LivingRoom {
     this.missyArmitageImage2 = missyArmitageImage2;
     this.missyArmitageImage3 = missyArmitageImage3;
 
-    //Timer - how long should a image display 3 seconds
-    this.timer = 3;
-
     //Boundaries for the chair
     this.chairX = 30;
     this.chairX2 = 336;
@@ -58,20 +55,20 @@ class LivingRoom {
     pop();
   }
 
-  //Is the timer done
-  checkTime() {
-    this.timer -= 1 / 60;
-    if (this.timer <= 0) {
-      this.timer = 0;
-      state = 'Hypnosis';
-    }
-  }
-
   //keypressed functionality
   keyPressed() {
     if (keyCode === 68) {
       state = 'Entrance';
       indoorFootStepSFX.play();
+    }
+  }
+
+  //Spacebar to go to the next scene
+  nextScene() {
+    if (keyCode === 32) {
+      state = 'Hypnosis';
+      houseSoundTrack.stop();
+      hypnosisSong.play();
     }
   }
 

@@ -39,6 +39,7 @@ let titleState;
 let outsideHouse;
 let entranceHouse;
 let livingRoom;
+let dialogue;
 let sunkenPlace;
 //Determine what the starting state should be
 let state = "PreTitle";
@@ -76,6 +77,20 @@ let inChairImage;
 let missyArmitageImage;
 let missyArmitageImage2;
 let missyArmitageImage3;
+//Sequence of dialogue images
+let dialogueAImage;
+let dialogueA2Image;
+let dialogueBImage;
+let dialogueB2Image;
+let dialogueCImage;
+let dialogueC2Image;
+let dialogueDImage;
+let dialogueD2Image;
+let dialogueEImage;
+let dialogueE2Image;
+
+//Hypnosis song
+let hypnosisSong;
 
 //SunkenPlace Song
 let sunkenPlaceSong;
@@ -124,6 +139,21 @@ function preload() {
   missyArmitageImage2 = loadImage("assets/images/Simulation/hypnosis2.png");
   missyArmitageImage3 = loadImage("assets/images/Simulation/hypnosis3.png");
 
+  //Song playing during the hypnosis scene
+  hypnosisSong = loadSound("assets/sounds/hypnosis.mp3");
+
+  //Preload the sequence of dialogue
+  dialogueAImage = loadImage("assets/images/Dialogue/dialogueA.png");
+  dialogueA2Image = loadImage("assets/images/Dialogue/dialogueA2.png");
+  dialogueBImage = loadImage("assets/images/Dialogue/dialogueB.png");
+  dialogueB2Image = loadImage("assets/images/Dialogue/dialogueB2.png");
+  dialogueCImage = loadImage("assets/images/Dialogue/dialogueC.png");
+  dialogueC2Image = loadImage("assets/images/Dialogue/dialogueC2.png");
+  dialogueDImage = loadImage("assets/images/Dialogue/dialogueD.png");
+  dialogueD2Image = loadImage("assets/images/Dialogue/dialogueD2.png");
+  dialogueEImage = loadImage("assets/images/Dialogue/dialogueE.png");
+  dialogueE2Image = loadImage("assets/images/Dialogue/dialogueE2.png");
+
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");
   //Preloading the character falling during the simulation
@@ -168,6 +198,8 @@ function setup() {
 
   //Create the class for the living room
   livingRoom = new LivingRoom(800, 1000, livingRoomImage, inChairImage);
+  //Create the class for the dialogue scenes
+  dialogue = new Dialogue(800, 1000);
   //Create the class for the simulation
   sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
 }
