@@ -72,6 +72,7 @@ class EntranceHouse {
     }
     //If x position is equal to the maximum x position change states to the living room
     else if (keyCode === 65 && this.x >= this.maxX) {
+      indoorFootStepSFX.play();
       state = 'LivingRoom';
     }
     //If the "D" key is pressed move to the right

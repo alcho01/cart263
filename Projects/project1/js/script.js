@@ -16,6 +16,7 @@ Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
 let amplitude;
 //Setting the volume of sounds
 let maxVolume = 0.1;
+let maxMusicVolume = 0.3;
 
 //Setting the canvas dimensions
 let canvasDimensions = {
@@ -70,6 +71,7 @@ let entranceHouseImage;
 
 //The living room image
 let livingRoomImage;
+let inChairImage;
 
 //SunkenPlace Song
 let sunkenPlaceSong;
@@ -111,6 +113,8 @@ function preload() {
   //ACT 2
   //Preload the living room image
   livingRoomImage = loadImage("assets/images/Simulation/livingroom.png");
+  //Preload the protagonist in the chair
+  inChairImage = loadImage("assets/images/Simulation/inchair.png");
 
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");
@@ -124,6 +128,7 @@ function preload() {
 function setup() {
   //Audio Settings
   userStartAudio();
+  houseSoundTrack.setVolume(maxMusicVolume);
   indoorFootStepSFX.setVolume(maxVolume);
 
   //Create the canvas
@@ -154,7 +159,7 @@ function setup() {
   entranceHouse = new EntranceHouse(800, 1000, entranceHouseImage);
 
   //Create the class for the living room
-  livingRoom = new LivingRoom(800, 1000, livingRoomImage);
+  livingRoom = new LivingRoom(800, 1000, livingRoomImage, inChairImage);
   //Create the class for the simulation
   sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
 }

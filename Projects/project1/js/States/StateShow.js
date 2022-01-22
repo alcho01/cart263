@@ -26,6 +26,10 @@ class StateShow {
     else if (state == "LivingRoom") {
       livingRoom.display();
     }
+    //In the Chair
+    else if (state == "InChair") {
+      livingRoom.displayInChair();
+    }
     //Main part of the simulation
     else if (state == "SunkenPlace") {
       sunkenPlace.display();
