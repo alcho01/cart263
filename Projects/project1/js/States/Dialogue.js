@@ -9,6 +9,9 @@ class Dialogue {
     this.width = w;
     this.height = h;
 
+    //Timer
+    this.timer = 18;
+
     //Images
     this.dialogueAImage = dialogueAImage;
     this.dialogueA2Image = dialogueA2Image;
@@ -20,6 +23,10 @@ class Dialogue {
     this.dialogueD2Image = dialogueD2Image;
     this.dialogueEImage = dialogueEImage;
     this.dialogueE2Image = dialogueE2Image;
+
+    //teary eye
+    this.tearyEyeImage = tearyEyeImage;
+    this.tearyEyeImage2 = tearyEyeImage2;
   }
 
   //Display the first piece of dialogue
@@ -78,6 +85,34 @@ class Dialogue {
     pop();
   }
 
+  //Display the teary eye sequence
+  displayTearyEye() {
+    push();
+    imageMode(CENTER);
+    if (frameCount % 60 < 10 / 2) {
+      image(this.tearyEyeImage, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 40 < 10 / 2) {
+      image(this.tearyEyeImage2, this.x, this.y, this.width, this.height);
+    }
+    pop();
+  }
+
+  //If the timer hits 0
+  checkTime() {
+    this.timer -= 1 / 60;
+    if (this.timer <= 0) {
+      this.timer = 0;
+      state = 'SunkenPlace';
+      dialogueASFX.stop();
+      dialogueBSFX.stop();
+      dialogueCSFX.stop();
+      dialogueDSFX.stop();
+      dialogueESFX.stop();
+      hypnosisSong.stop();
+      sunkenPlaceSong.play();
+    }
+  }
+
   //Key pressed for dialogue A
   keyPressed() {
     if (keyCode === 32) {
@@ -116,6 +151,12 @@ class Dialogue {
       dialogueCSFX.stop();
     }
   }
+  //Key pressed on close up of eye
+  keyPressedEye() {
+    if (keyCode === 32) {
+      state = 'TearyEye';
+  }
+}
   //Key pressed for dialogue E
   keyPressedE() {
     if (keyCode === 32) {

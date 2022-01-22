@@ -30,20 +30,24 @@ class KeyPressedState {
     else if (state == 'Hypnosis') {
       dialogue.keyPressed();
     }
-    //Works only on hypnosis scene
+    //Works only on Dialogue A
     else if (state == 'DialogueA') {
       dialogue.keyPressedB();
     }
-    //Works only on hypnosis scene
+    //Works only on Dialogue B
     else if (state == 'DialogueB') {
       dialogue.keyPressedC();
     }
-    //Works only on hypnosis scene
+    //Works only on Dialogue C
     else if (state == 'DialogueC') {
       dialogue.keyPressedD();
     }
-    //Works only on hypnosis scene
+    //Works only on Dialogue D
     else if (state == 'DialogueD') {
+      dialogue.keyPressedEye();
+    }
+    //Works only on Teary Eyed scene
+    else if (state == 'TearyEye') {
       dialogue.keyPressedE();
     }
     //Works only during the simulation

@@ -50,9 +50,14 @@ class StateShow {
     else if (state == "DialogueD") {
       dialogue.displayDialogueD();
     }
+    //Close up on eye
+    else if (state == "TearyEye") {
+      dialogue.displayTearyEye();
+    }
     //Dialogue E
     else if (state == "DialogueE") {
       dialogue.displayDialogueE();
+      dialogue.checkTime();
     }
     //Main part of the simulation
     else if (state == "SunkenPlace") {

@@ -88,6 +88,9 @@ let dialogueDImage;
 let dialogueD2Image;
 let dialogueEImage;
 let dialogueE2Image;
+//Close up of teary eye
+let tearyEyeImage;
+let tearyEyeImage2;
 
 //Dialogue Audio
 let dialogueASFX;
@@ -167,6 +170,10 @@ function preload() {
   dialogueCSFX = loadSound("assets/sounds/line3.wav");
   dialogueDSFX = loadSound("assets/sounds/line4.wav");
   dialogueESFX = loadSound("assets/sounds/line5.wav");
+
+  //Teary Eye Image Sequence
+  tearyEyeImage = loadImage("assets/images/Simulation/eye1.png");
+  tearyEyeImage2 = loadImage("assets/images/Simulation/eye2.png");
 
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");
