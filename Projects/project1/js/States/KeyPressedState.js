@@ -28,7 +28,23 @@ class KeyPressedState {
     }
     //Works only on hypnosis scene
     else if (state == 'Hypnosis') {
-      dialogue.keyPressedA();
+      dialogue.keyPressed();
+    }
+    //Works only on hypnosis scene
+    else if (state == 'DialogueA') {
+      dialogue.keyPressedB();
+    }
+    //Works only on hypnosis scene
+    else if (state == 'DialogueB') {
+      dialogue.keyPressedC();
+    }
+    //Works only on hypnosis scene
+    else if (state == 'DialogueC') {
+      dialogue.keyPressedD();
+    }
+    //Works only on hypnosis scene
+    else if (state == 'DialogueD') {
+      dialogue.keyPressedE();
     }
     //Works only during the simulation
     else if (state == 'SunkenPlace') {

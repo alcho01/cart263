@@ -89,6 +89,13 @@ let dialogueD2Image;
 let dialogueEImage;
 let dialogueE2Image;
 
+//Dialogue Audio
+let dialogueASFX;
+let dialogueBSFX;
+let dialogueCSFX;
+let dialogueDSFX;
+let dialogueESFX;
+
 //Hypnosis song
 let hypnosisSong;
 
@@ -153,6 +160,13 @@ function preload() {
   dialogueD2Image = loadImage("assets/images/Dialogue/dialogueD2.png");
   dialogueEImage = loadImage("assets/images/Dialogue/dialogueE.png");
   dialogueE2Image = loadImage("assets/images/Dialogue/dialogueE2.png");
+
+  //Dialogue Audio
+  dialogueASFX = loadSound("assets/sounds/line1.wav");
+  dialogueBSFX = loadSound("assets/sounds/line2.wav");
+  dialogueCSFX = loadSound("assets/sounds/line3.wav");
+  dialogueDSFX = loadSound("assets/sounds/line4.wav");
+  dialogueESFX = loadSound("assets/sounds/line5.wav");
 
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");

@@ -38,6 +38,22 @@ class StateShow {
     else if (state == "DialogueA") {
       dialogue.displayDialogueA();
     }
+    //Dialogue B
+    else if (state == "DialogueB") {
+      dialogue.displayDialogueB();
+    }
+    //Dialogue C
+    else if (state == "DialogueC") {
+      dialogue.displayDialogueC();
+    }
+    //Dialogue D
+    else if (state == "DialogueD") {
+      dialogue.displayDialogueD();
+    }
+    //Dialogue E
+    else if (state == "DialogueE") {
+      dialogue.displayDialogueE();
+    }
     //Main part of the simulation
     else if (state == "SunkenPlace") {
       sunkenPlace.display();

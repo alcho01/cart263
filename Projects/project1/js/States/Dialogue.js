@@ -33,11 +33,99 @@ class Dialogue {
     }
     pop();
   }
+  //Display the second piece of dialogue
+  displayDialogueB() {
+    push();
+    imageMode(CENTER);
+    if (frameCount % 60 < 10 / 2) {
+      image(this.dialogueBImage, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 40 < 10 / 2) {
+      image(this.dialogueB2Image, this.x, this.y, this.width, this.height);
+    }
+    pop();
+  }
+  //Display the third piece of dialogue
+  displayDialogueC() {
+    push();
+    imageMode(CENTER);
+    if (frameCount % 60 < 10 / 2) {
+      image(this.dialogueCImage, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 40 < 10 / 2) {
+      image(this.dialogueC2Image, this.x, this.y, this.width, this.height);
+    }
+    pop();
+  }
+  //Display the fourth piece of dialogue
+  displayDialogueD() {
+    push();
+    imageMode(CENTER);
+    if (frameCount % 60 < 10 / 2) {
+      image(this.dialogueDImage, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 40 < 10 / 2) {
+      image(this.dialogueD2Image, this.x, this.y, this.width, this.height);
+    }
+    pop();
+  }
+  //Display the fifth piece of dialogue
+  displayDialogueE() {
+    push();
+    imageMode(CENTER);
+    if (frameCount % 60 < 10 / 2) {
+      image(this.dialogueEImage, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 40 < 10 / 2) {
+      image(this.dialogueE2Image, this.x, this.y, this.width, this.height);
+    }
+    pop();
+  }
 
-  //Key pressed for dialogue A 
-  keyPressedA() {
+  //Key pressed for dialogue A
+  keyPressed() {
     if (keyCode === 32) {
       state = 'DialogueA';
+      //hypnosisSong.stop();
+      dialogueASFX.play();
+    }
+  }
+  //Key pressed for dialogue B
+  keyPressedB() {
+    if (keyCode === 32) {
+      state = 'DialogueB';
+      //hypnosisSong.stop();
+      dialogueBSFX.play();
+      dialogueASFX.stop();
+    }
+  }
+  //Key pressed for dialogue C
+  keyPressedC() {
+    if (keyCode === 32) {
+      state = 'DialogueC';
+      //hypnosisSong.stop();
+      dialogueCSFX.play();
+      dialogueASFX.stop();
+      dialogueBSFX.stop();
+    }
+  }
+  //Key pressed for dialogue D
+  keyPressedD() {
+    if (keyCode === 32) {
+      state = 'DialogueD';
+      //hypnosisSong.stop();
+      dialogueDSFX.play();
+      dialogueASFX.stop();
+      dialogueBSFX.stop();
+      dialogueCSFX.stop();
+    }
+  }
+  //Key pressed for dialogue E
+  keyPressedE() {
+    if (keyCode === 32) {
+      state = 'DialogueE';
+      //hypnosisSong.stop();
+      dialogueESFX.play();
+      dialogueASFX.stop();
+      dialogueBSFX.stop();
+      dialogueCSFX.stop();
+      dialogueDSFX.stop();
     }
   }
 }
