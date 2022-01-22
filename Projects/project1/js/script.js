@@ -153,16 +153,16 @@ function preload() {
   hypnosisSong = loadSound("assets/sounds/hypnosis.mp3");
 
   //Preload the sequence of dialogue
-  dialogueAImage = loadImage("assets/images/Dialogue/dialogueA.png");
-  dialogueA2Image = loadImage("assets/images/Dialogue/dialogueA2.png");
-  dialogueBImage = loadImage("assets/images/Dialogue/dialogueB.png");
-  dialogueB2Image = loadImage("assets/images/Dialogue/dialogueB2.png");
-  dialogueCImage = loadImage("assets/images/Dialogue/dialogueC.png");
-  dialogueC2Image = loadImage("assets/images/Dialogue/dialogueC2.png");
-  dialogueDImage = loadImage("assets/images/Dialogue/dialogueD.png");
-  dialogueD2Image = loadImage("assets/images/Dialogue/dialogueD2.png");
-  dialogueEImage = loadImage("assets/images/Dialogue/dialogueE.png");
-  dialogueE2Image = loadImage("assets/images/Dialogue/dialogueE2.png");
+  dialogueAImage = loadImage("assets/images/Dialogue/DialogueA.png");
+  dialogueA2Image = loadImage("assets/images/Dialogue/DialogueA2.png");
+  dialogueBImage = loadImage("assets/images/Dialogue/DialogueB.png");
+  dialogueB2Image = loadImage("assets/images/Dialogue/DialogueB2.png");
+  dialogueCImage = loadImage("assets/images/Dialogue/DialogueC.png");
+  dialogueC2Image = loadImage("assets/images/Dialogue/DialogueC2.png");
+  dialogueDImage = loadImage("assets/images/Dialogue/DialogueD.png");
+  dialogueD2Image = loadImage("assets/images/Dialogue/DialogueD2.png");
+  dialogueEImage = loadImage("assets/images/Dialogue/DialogueE.png");
+  dialogueE2Image = loadImage("assets/images/Dialogue/DialogueE2.png");
 
   //Dialogue Audio
   dialogueASFX = loadSound("assets/sounds/line1.wav");
