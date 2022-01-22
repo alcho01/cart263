@@ -13,6 +13,13 @@ class LivingRoom {
     this.livingRoomImage = livingRoomImage;
     //When the chair is clicked
     this.inChairImage = inChairImage;
+    //missy armitage sequence images
+    this.missyArmitageImage = missyArmitageImage;
+    this.missyArmitageImage2 = missyArmitageImage2;
+    this.missyArmitageImage3 = missyArmitageImage3;
+
+    //Timer - how long should a image display 3 seconds
+    this.timer = 3;
 
     //Boundaries for the chair
     this.chairX = 30;
@@ -35,6 +42,29 @@ class LivingRoom {
     imageMode(CENTER);
     image(this.inChairImage, this.x, this.y, this.width, this.height);
     pop();
+  }
+
+  //Display the missy Armitage sequence
+  displayMissyArmitage() {
+    push();
+    imageMode(CENTER);
+    if (frameCount % 60 < 10 / 2) {
+      image(this.missyArmitageImage, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 40 < 10 / 2) {
+      image(this.missyArmitageImage2, this.x, this.y, this.width, this.height);
+    } else if (frameCount % 30 < 10 / 2) {
+      image(this.missyArmitageImage3, this.x, this.y, this.width, this.height);
+    }
+    pop();
+  }
+
+  //Is the timer done
+  checkTime() {
+    this.timer -= 1 / 60;
+    if (this.timer <= 0) {
+      this.timer = 0;
+      state = 'Hypnosis';
+    }
   }
 
   //keypressed functionality

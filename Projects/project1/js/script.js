@@ -72,6 +72,10 @@ let entranceHouseImage;
 //The living room image
 let livingRoomImage;
 let inChairImage;
+//Sequence of missy armitage stirring the cup
+let missyArmitageImage;
+let missyArmitageImage2;
+let missyArmitageImage3;
 
 //SunkenPlace Song
 let sunkenPlaceSong;
@@ -115,6 +119,10 @@ function preload() {
   livingRoomImage = loadImage("assets/images/Simulation/livingroom.png");
   //Preload the protagonist in the chair
   inChairImage = loadImage("assets/images/Simulation/inchair.png");
+  //Preload the sequence of missy armitage
+  missyArmitageImage = loadImage("assets/images/Simulation/hypnosis.png");
+  missyArmitageImage2 = loadImage("assets/images/Simulation/hypnosis2.png");
+  missyArmitageImage3 = loadImage("assets/images/Simulation/hypnosis3.png");
 
   //Song playing while in the sunken place
   sunkenPlaceSong = loadSound("assets/sounds/song.mp3");

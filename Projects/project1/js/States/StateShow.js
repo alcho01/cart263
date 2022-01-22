@@ -29,6 +29,11 @@ class StateShow {
     //In the Chair
     else if (state == "InChair") {
       livingRoom.displayInChair();
+      livingRoom.checkTime();
+    }
+    //Missy Armitage performing hypnosis
+    else if (state == "Hypnosis") {
+      livingRoom.displayMissyArmitage();
     }
     //Main part of the simulation
     else if (state == "SunkenPlace") {
