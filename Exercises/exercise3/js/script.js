@@ -25,11 +25,17 @@ let profile = {
   password: 'xxxxxx'
 };
 
+//Variables for the JSON DATA
+let hospitalData;
+let symptomsData;
+let nounsData;
+
 
 function preload() {
-
+  hospitalData = loadJSON(HOSPITAL_DATA_URL);
+  symptomsData = loadJSON(SYMPTOMS_DATA_URL);
+  nounsData = loadJSON(NOUNS_DATA_URL);
 }
-
 
 function setup() {
   //Create the canvas
