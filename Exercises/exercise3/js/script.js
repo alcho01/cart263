@@ -1,9 +1,14 @@
 /**
-Exercise 3 -
+Exercise 3 - Patient Form
 Alex Cho
 
+Fairly straight forward exercise. Went with the theme of a medical form.
 
-
+Brief
+- Added a username
+- Added more categories
+- Regenerate aspects of profile by clicking the category
+- Improve Aesthetics
 */
 
 "use strict";
@@ -12,38 +17,53 @@ Alex Cho
 const bgColor = 255;
 
 //JSON DATA
+const FIRSTNAMES_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/firstNames.json`;
+const LASTNAMES_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/lastNames.json`;
 const HOSPITAL_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/medicine/hospitals.json`;
+const DRUGS_DATAT_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/medicine/drugs.json`;
 const SYMPTOMS_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/medicine/symptoms.json`;
+const DIAGNOSES_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/medicine/cancer.json`;
 const NOUNS_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/words/nouns.json`;
 //Save and load the data
 const PROFILE_DATA_KEY = `profile-data`;
 
 //Profile Entities
 let profile = {
-  name: 'xxxxxx',
+  date: 'xxxxxx',
+  firstName: 'xxxxxx',
+  lastName: 'xxxxxx',
   hospital: 'xxxxxx',
+  drug: 'xxxxxx',
   symptoms: 'xxxxxx',
+  diagnoses: 'xxxxxx',
   username: 'xxxxxx',
   password: 'xxxxxx'
 };
 
 //Text settings
 let textSettings = {
-  x: 0,
+  x: 10,
   y: 0,
   size: 32,
   fill: 0,
 };
 
 //Variables for the JSON DATA
+let firstNameData;
+let lastNameData;
 let hospitalData;
+let drugData;
 let symptomsData;
+let diagnosesData;
 let nounsData;
 
-
 function preload() {
+  firstNameData = loadJSON(FIRSTNAMES_DATA_URL);
+  lastNameData = loadJSON(LASTNAMES_DATA_URL);
   hospitalData = loadJSON(HOSPITAL_DATA_URL);
+  drugData = loadJSON(DRUGS_DATAT_URL);
   symptomsData = loadJSON(SYMPTOMS_DATA_URL);
+  diagnosesData = loadJSON(DIAGNOSES_DATA_URL);
   nounsData = loadJSON(NOUNS_DATA_URL);
 }
 
@@ -75,9 +95,13 @@ function setup() {
 
 //Assign the data to the profile
 function setupProfile(data) {
-  profile.name = data.name;
+  profile.date = data.date;
+  profile.firstName = data.firstName;
+  profile.lastName = data.lastName;
   profile.hospital = data.hospital;
+  profile.drug = data.drug;
   profile.symptoms = data.symptoms;
+  profile.diagnoses = data.diagnoses;
   profile.username = data.username;
   profile.password = data.password;
 }
@@ -85,11 +109,19 @@ function setupProfile(data) {
 //Generating the profile from the JSON DATA
 function generateProfile() {
   //Prompts for the user to input their name
-  profile.name = prompt('Enter the patients name.');
+  profile.date = prompt('Enter the date.');
+  //Generates the first name
+  profile.firstName = `${random(firstNameData.firstNames)}`;
+  //Generates the last name
+  profile.lastName = `${random(lastNameData.lastNames)}`;
   //Generates what hospital they are currently constituted in
   profile.hospital = `${random(hospitalData.hospitals)}`;
+  //Generates the prescribed drug for the patient
+  profile.drug = `${random(drugData.drugs)}`;
   //Generate what symptoms the patient currently has
   profile.symptoms = `${random(symptomsData.symptoms)}`;
+  //Generate a random diagnoses
+  profile.diagnoses = `${random(diagnosesData.cancers)}`;
   //Generate a username and password from a random noun
   profile.username = `${random(nounsData.nouns)}`;
   profile.password = `${random(nounsData.nouns)}`;
@@ -103,8 +135,12 @@ function draw() {
   //Create the header + Profile info
   let patientInfo = `Patient Information
 
-Name: ${profile.name}
+Date: ${profile.date}
+Forename: ${profile.firstName}
+Surname: ${profile.lastName}
 Hospital: ${profile.hospital}
+Diagnoses: ${profile.diagnoses}
+Prescribed Drug: ${profile.drug}
 Symptoms: ${profile.symptoms}
 Username: ${profile.username}
 Password: ${profile.password}`;
