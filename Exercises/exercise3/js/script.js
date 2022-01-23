@@ -23,6 +23,7 @@ let profile = {
   name: 'xxxxxx',
   hospital: 'xxxxxx',
   symptoms: 'xxxxxx',
+  username: 'xxxxxx',
   password: 'xxxxxx'
 };
 
@@ -49,7 +50,36 @@ function preload() {
 function setup() {
   //Create the canvas
   createCanvas(windowWidth, windowHeight);
+  //load the data
+  let data = JSON.parse(localStorage.getItem(PROFILE_DATA_KEY));
+  //Was there data to load?
+  if (data) {
+    //If there is ask for the username
+    let username = prompt(`What is the username?`);
+    //Check if the username is correct
+    if (username === data.username) {
+      //Ask for the password next
+      let password = prompt(`What is the password?`);
+      //Check if the password is correct
+      if (password === data.password) {
+        //If data loaded, setup the profile
+        setupProfile(data);
+      }
+    }
+  }
+  else {
+    //If there is no data generate a brand new profile
+    generateProfile();
+  }
+}
 
+//Assign the data to the profile
+function setupProfile(data) {
+  profile.name = data.name;
+  profile.hospital = data.hospital;
+  profile.symptoms = data.symptoms;
+  profile.username = data.username;
+  profile.password = data.password;
 }
 
 //Generating the profile from the JSON DATA
@@ -60,9 +90,9 @@ function generateProfile() {
   profile.hospital = `${random(hospitalData.hospitals)}`;
   //Generate what symptoms the patient currently has
   profile.symptoms = `${random(symptomsData.symptoms)}`;
-  //Generate a password from a random noun
-  let noun = random(nounsData.nouns);
-  profile.password = random(noun.nouns);
+  //Generate a username and password from a random noun
+  profile.username = `${random(nounsData.nouns)}`;
+  profile.password = `${random(nounsData.nouns)}`;
   //Save the profile to local storage to remember
   localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(profile));
 }
@@ -76,6 +106,7 @@ function draw() {
 Name: ${profile.name}
 Hospital: ${profile.hospital}
 Symptoms: ${profile.symptoms}
+Username: ${profile.username}
 Password: ${profile.password}`;
 
   //Display the profile info and header
