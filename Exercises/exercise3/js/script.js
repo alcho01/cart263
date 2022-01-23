@@ -2,13 +2,14 @@
 Exercise 3 -
 Alex Cho
 
-Required files
-https://github.com/dariusk/corpora/blob/master/data/humans/firstNames.json
-https://github.com/dariusk/corpora/blob/master/data/humans/lastNames.json
+
 
 */
 
 "use strict";
+
+//Background Color
+const bgColor = 255;
 
 //JSON DATA
 const HOSPITAL_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/medicine/hospitals.json`;
@@ -23,6 +24,14 @@ let profile = {
   hospital: 'xxxxxx',
   symptoms: 'xxxxxx',
   password: 'xxxxxx'
+};
+
+//Text settings
+let textSettings = {
+  x: 0,
+  y: 0,
+  size: 32,
+  fill: 0,
 };
 
 //Variables for the JSON DATA
@@ -41,9 +50,27 @@ function setup() {
   //Create the canvas
   createCanvas(windowWidth, windowHeight);
 
+  profile.name = prompt('Enter the patients name.');
 }
 
 
 function draw() {
+  background(bgColor);
 
+  //Create the header + Profile info
+  let patientInfo = `Patient Information
+
+Name: ${profile.name}
+Hospital: ${profile.hospital}
+Symptoms: ${profile.symptoms}
+Password: ${profile.password}`;
+
+  //Display the profile info and header
+  push();
+  textSize(textSettings.size);
+  textAlign(LEFT, TOP);
+  textFont(`Courier, monospace`);
+  fill(textSettings.fill);
+  text(patientInfo, textSettings.x, textSettings.y);
+  pop();
 }
