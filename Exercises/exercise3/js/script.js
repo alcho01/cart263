@@ -50,9 +50,22 @@ function setup() {
   //Create the canvas
   createCanvas(windowWidth, windowHeight);
 
-  profile.name = prompt('Enter the patients name.');
 }
 
+//Generating the profile from the JSON DATA
+function generateProfile() {
+  //Prompts for the user to input their name
+  profile.name = prompt('Enter the patients name.');
+  //Generates what hospital they are currently constituted in
+  profile.hospital = `${random(hospitalData.hospitals)}`;
+  //Generate what symptoms the patient currently has
+  profile.symptoms = `${random(symptomsData.symptoms)}`;
+  //Generate a password from a random noun
+  let noun = random(nounsData.nouns);
+  profile.password = random(noun.nouns);
+  //Save the profile to local storage to remember
+  localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(profile));
+}
 
 function draw() {
   background(bgColor);
