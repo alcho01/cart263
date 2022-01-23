@@ -56,6 +56,9 @@ let button = {
   y2: 580,
 };
 
+//Create a boolean to determine if the user is signed in or not
+let signedIn = false;
+
 //Variables for the JSON DATA
 let firstNameData;
 let lastNameData;
@@ -87,17 +90,21 @@ function setup() {
     //Check if the username is correct
     if (username === data.username) {
       //Ask for the password next
-      let password = prompt(`What is the password?`);
+    let password = prompt(`What is the password?`);
       //Check if the password is correct
       if (password === data.password) {
         //If data loaded, setup the profile
         setupProfile(data);
+        //The user is signed in
+        signedIn = true;
       }
     }
   }
   else {
     //If there is no data generate a brand new profile
     generateProfile();
+    //The user is signed in 
+    signedIn = true;
   }
 }
 
@@ -144,7 +151,7 @@ function draw() {
   let patientInfo = `Patient Information
 
 Date: ${profile.date}
-Forename: ${profile.firstName} 
+Forename: ${profile.firstName}
 Surname: ${profile.lastName}
 Hospital: ${profile.hospital}
 Diagnoses: ${profile.diagnoses}
@@ -167,26 +174,29 @@ Click Here for a New Patient`;
 
 //To generate a new medical form
 function mouseClicked() {
-  //Make sure it is being clicked in the constraints
-  if (mouseX > button.x && mouseX < button.x2) {
-    if (mouseY > button.y && mouseY < button.y2) {
-      //Generates the first name
-      profile.firstName = `${random(firstNameData.firstNames)}`;
-      //Generates the last name
-      profile.lastName = `${random(lastNameData.lastNames)}`;
-      //Generates what hospital they are currently constituted in
-      profile.hospital = `${random(hospitalData.hospitals)}`;
-      //Generates the prescribed drug for the patient
-      profile.drug = `${random(drugData.drugs)}`;
-      //Generate what symptoms the patient currently has
-      profile.symptoms = `${random(symptomsData.symptoms)}`;
-      //Generate a random diagnoses
-      profile.diagnoses = `${random(diagnosesData.cancers)}`;
-      //Generate a username and password from a random noun
-      profile.username = `${random(nounsData.nouns)}`;
-      profile.password = `${random(nounsData.nouns)}`;
-      //Save the profile to local storage to remember
-      localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(profile));
+  //If signed in is true allow to look at different profiles
+  if (signedIn === true) {
+    //Make sure it is being clicked in the constraints
+    if (mouseX > button.x && mouseX < button.x2) {
+      if (mouseY > button.y && mouseY < button.y2) {
+        //Generates the first name
+        profile.firstName = `${random(firstNameData.firstNames)}`;
+        //Generates the last name
+        profile.lastName = `${random(lastNameData.lastNames)}`;
+        //Generates what hospital they are currently constituted in
+        profile.hospital = `${random(hospitalData.hospitals)}`;
+        //Generates the prescribed drug for the patient
+        profile.drug = `${random(drugData.drugs)}`;
+        //Generate what symptoms the patient currently has
+        profile.symptoms = `${random(symptomsData.symptoms)}`;
+        //Generate a random diagnoses
+        profile.diagnoses = `${random(diagnosesData.cancers)}`;
+        //Generate a username and password from a random noun
+        profile.username = `${random(nounsData.nouns)}`;
+        profile.password = `${random(nounsData.nouns)}`;
+        //Save the profile to local storage to remember
+        localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(profile));
+      }
     }
   }
 }
