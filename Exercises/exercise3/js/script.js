@@ -5,9 +5,9 @@ Alex Cho
 Fairly straight forward exercise. Went with the theme of a medical form.
 
 Brief
-- Added a username
-- Added more categories
-- Regenerate aspects of profile by clicking the category
+[DONE] Added a username
+[DONE] Added more categories
+[DONE] Regenerate aspects of profile by clicking the category
 - Improve Aesthetics
 */
 
@@ -48,6 +48,14 @@ let textSettings = {
   fill: 0,
 };
 
+//Boundaries of the "New Patient" Button
+let button = {
+  x: 0,
+  x2: 630,
+  y: 470,
+  y2: 580,
+};
+
 //Variables for the JSON DATA
 let firstNameData;
 let lastNameData;
@@ -75,7 +83,7 @@ function setup() {
   //Was there data to load?
   if (data) {
     //If there is ask for the username
-    let username = prompt(`What is the username?`);
+    let username = prompt(`What is the Worker ID?`);
     //Check if the username is correct
     if (username === data.username) {
       //Ask for the password next
@@ -136,14 +144,16 @@ function draw() {
   let patientInfo = `Patient Information
 
 Date: ${profile.date}
-Forename: ${profile.firstName}
+Forename: ${profile.firstName} 
 Surname: ${profile.lastName}
 Hospital: ${profile.hospital}
 Diagnoses: ${profile.diagnoses}
 Prescribed Drug: ${profile.drug}
 Symptoms: ${profile.symptoms}
-Username: ${profile.username}
-Password: ${profile.password}`;
+Worker ID: ${profile.username}
+Password: ${profile.password}
+
+Click Here for a New Patient`;
 
   //Display the profile info and header
   push();
@@ -153,4 +163,30 @@ Password: ${profile.password}`;
   fill(textSettings.fill);
   text(patientInfo, textSettings.x, textSettings.y);
   pop();
+}
+
+//To generate a new medical form
+function mouseClicked() {
+  //Make sure it is being clicked in the constraints
+  if (mouseX > button.x && mouseX < button.x2) {
+    if (mouseY > button.y && mouseY < button.y2) {
+      //Generates the first name
+      profile.firstName = `${random(firstNameData.firstNames)}`;
+      //Generates the last name
+      profile.lastName = `${random(lastNameData.lastNames)}`;
+      //Generates what hospital they are currently constituted in
+      profile.hospital = `${random(hospitalData.hospitals)}`;
+      //Generates the prescribed drug for the patient
+      profile.drug = `${random(drugData.drugs)}`;
+      //Generate what symptoms the patient currently has
+      profile.symptoms = `${random(symptomsData.symptoms)}`;
+      //Generate a random diagnoses
+      profile.diagnoses = `${random(diagnosesData.cancers)}`;
+      //Generate a username and password from a random noun
+      profile.username = `${random(nounsData.nouns)}`;
+      profile.password = `${random(nounsData.nouns)}`;
+      //Save the profile to local storage to remember
+      localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(profile));
+    }
+  }
 }
