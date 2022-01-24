@@ -13,6 +13,9 @@ It is a play on the gameshow Jeopardy!
 I wanted to familiarize myself with these new libraries and do something completely different from the activity.
 There is a lot more that could be added like deducting points or adding sound, but I am pleased with how this turned out.
 
+*Note
+Sometimes it is required for the user to say the answer multiple times even if it is correct. It usually is able to decrypt what the user says but in the case that it doesn't, just say it again. You can also use the web console to see what he comprehends.
+
 Here are the answers
 
 IN THE KITCHEN
