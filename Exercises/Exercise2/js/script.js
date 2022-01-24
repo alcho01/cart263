@@ -1,16 +1,18 @@
 /**
-Exercise 2 - JOEYR!PA
+Exercise 2 - JOEY R!PA
 Alex Cho
 
 Questions and answers from https://jeopardyquestions.com/
 
 Familiarizing myself with annyang and responsive voice.
-I am aware there remains a flaw or two in the program. However, the main goal was to familiarize myself with the new libraries and I have already spent a lot of time on this exercise. The flaw is the user can repeat a question over and over again.
+I am aware there remains a flaw or two in the program. However, the main goal was to familiarize myself with the new libraries and I feel as if I've spent a good portion of time on this exercise. The flaw is the user can repeat a question over and over again.
+
+Basically just Jeopardy! remember to say "what is" before giving an answer.
 */
 
 "use strict";
 
-//Make an array for the questions
+//Make an array for the questions for category 1
 const category1Questions = [
   //IN THE KITCHEN QUESTIONS
   "A pestle is used to grind spices & other foods; this pestle's partner is the bowl in which the food is ground",
@@ -18,6 +20,7 @@ const category1Questions = [
   "This brilliant yellow ultra-spendy spice is sold powdered or as threads (the flower's stigma)",
 ];
 
+//Make an array for the questions for category 2
 const category2Questions = [
   //B + 2 LETTERS QUESTIONS
   "To clear plates",
@@ -25,6 +28,7 @@ const category2Questions = [
   "Stated goal of taking tricks",
 ];
 
+//Make an array for the questions for category 3
 const category3Questions = [
   //TRIPLE ALLITERATION QUESTIONS
   "This pencil-&-paper game is also known as Xs & Os",
@@ -32,6 +36,7 @@ const category3Questions = [
   "Relationship of Queen Elizabeth to Queen Victoria",
 ];
 
+//Make an array for the questions for category 4
 const category4Questions = [
   //A 9-LETTER NOUN QUESTIONS
   "This fruit may sometimes appear on a peach tree",
@@ -39,11 +44,13 @@ const category4Questions = [
   "Name shared by the first operational stealth aircraft & a nocturnal bird their prey never sees either one coming",
 ];
 
+//What question it should start on
 let currentCategory1Questions = 0;
 let currentCategory2Questions = 0;
 let currentCategory3Questions = 0;
 let currentCategory4Questions = 0;
 
+//Set the current response to nothing
 let currentResponse = '';
 
 //variable for images
@@ -57,7 +64,7 @@ let boardScreen;
 let scoreDisplay;
 let endScreen;
 
-//Score
+//Keep Track of Score
 let score = 0;
 
 //What the starting state is
@@ -69,6 +76,7 @@ function preload() {
   boardSelectionImg = loadImage("assets/images/boardselect.png");
 }
 
+//Set up the canvas/classes/annyang
 function setup() {
   //create the canvas
   createCanvas(1000, 800);
@@ -108,7 +116,7 @@ function keyPressed() {
   }
 }
 
-//Put the input to lowercase to equal with the answer
+//Put the input to lowercase to equal out with the answer
 function guessAnswer(answer) {
   currentResponse = answer.toLowerCase();
   console.log(currentResponse);

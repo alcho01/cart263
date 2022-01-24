@@ -1,4 +1,8 @@
 //Everything related to the board selection screen
+//Display the board
+//Create the mouse functionality for clicking a category
+//Apply responsive voice
+//Add points to the score 
 class BoardScreen {
   constructor(boardSelectionImg) {
     //Position
@@ -141,6 +145,7 @@ class BoardScreen {
     pop();
   }
 
+  //Column 2
   column2Questions() {
     push();
     fill(this.white);
@@ -150,6 +155,7 @@ class BoardScreen {
     pop();
   }
 
+  //Column 3
   column3Questions() {
     push();
     fill(this.white);
@@ -159,6 +165,7 @@ class BoardScreen {
     pop();
   }
 
+  //Column 4
   column4Questions() {
     push();
     fill(this.white);

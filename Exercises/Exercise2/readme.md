@@ -5,7 +5,7 @@ Alex Cho
 HOW TO PLAY?
 
 Click on any box to display a question. The cheaper boxes are easier while the more expensive ones are more difficult.
-To Answer a question the user needs to start of by saying "What is" and then finish the clue. Do not say "The", or "A" because it won't recognize the answer.
+To answer a question the user needs to start of by saying "What is" and then finish the clue. Do not say "The", or "A" because it won't recognize the answer.
 When the user accumulates $7200 they win. (Basically answer every clue correctly)
 
 It is a play on the gameshow Jeopardy!
@@ -19,7 +19,7 @@ IN THE KITCHEN
 MORTAR, MANDOLINE, SAFFRON
 
 B + 2 LETTERS
-BUS, BOX, BID 
+BUS, BOX, BID
 
 TRIPLE ALLITERATION
 TIC TAC TOE, WORLD WIDE WEB, GREAT GREAT GRANDDAUGHTER

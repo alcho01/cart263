@@ -1,4 +1,5 @@
 //Where the state switch occurs
+//Organize what entities display in the given state 
 class StateShow {
   constructor() {
     //Define background colors
