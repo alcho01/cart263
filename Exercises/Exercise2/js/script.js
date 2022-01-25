@@ -1,13 +1,19 @@
 /**
-Exercise 2 - JOEY R!PA
+Exercise 2 - JOEY DR!PA
 Alex Cho
 
 Questions and answers from https://jeopardyquestions.com/
 
+MAIN GOAL
 Familiarizing myself with annyang and responsive voice.
-I am aware there remains a flaw or two in the program. However, the main goal was to familiarize myself with the new libraries and I feel as if I've spent a good portion of time on this exercise. The flaw is the user can repeat a question over and over again.
 
+READY TO TEST YOUR KNOWLEDGE?
+
+JOEY DR!PA = JEOPARDY!
+The game is...
 Basically just Jeopardy! remember to say "what is" before giving an answer.
+Answer all questions to beat the game.
+Unsure of an answer, refer to the readme.
 */
 
 "use strict";
@@ -49,6 +55,25 @@ let currentCategory1Questions = 0;
 let currentCategory2Questions = 0;
 let currentCategory3Questions = 0;
 let currentCategory4Questions = 0;
+
+//Check if the question is answered
+//Q is for question - Cat is for category
+//Category 1
+let q1Cat1Answered = false;
+let q2Cat1Answered = false;
+let q3Cat1Answered = false;
+//Category 2
+let q1Cat2Answered = false;
+let q2Cat2Answered = false;
+let q3Cat2Answered = false;
+//Category 3
+let q1Cat3Answered = false;
+let q2Cat3Answered = false;
+let q3Cat3Answered = false;
+//Category 4
+let q1Cat4Answered = false;
+let q2Cat4Answered = false;
+let q3Cat4Answered = false;
 
 //Set the current response to nothing
 let currentResponse = '';
