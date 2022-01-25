@@ -64,6 +64,7 @@ class StateShow {
       sunkenPlace.display();
       sunkenPlace.displayCharacter();
       sunkenPlace.characterMovement();
+      sunkenPlace.characterPosition();
 
       //Display the Particles
       for (let i = 0; i < particles.length; i++) {
