@@ -2,14 +2,14 @@
 Exercise 3 - Medical Form
 Alex Cho
 
-Fairly straight forward exercise. Went with the theme of a medical form.
+Simple creation of a medical form. I added more functionality in the sense that the user is able to toggle between different patient profiles by the use of mouse clicked. In addition if the user forgets the username and/or password
+they can press the delete key to generate a new profile.
 
 Brief
-[DONE] Added a username
+[DONE] Added a username/Work ID
 [DONE] Added more categories
-[DONE] Regenerate aspects of profile by clicking the category
-[DONE] Added A delete key to "Punch Out" and delete currently saved profile 
-- Improve Aesthetics
+[DONE] Regenerate aspects of profile by using mouse clicked
+[DONE] Added a delete key to "Punch Out" and delete currently saved profile
 */
 
 "use strict";
