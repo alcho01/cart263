@@ -41,6 +41,7 @@ let entranceHouse;
 let livingRoom;
 let dialogue;
 let sunkenPlace;
+let bedRoom;
 //Determine what the starting state should be
 let state = "PreTitle";
 
@@ -109,6 +110,9 @@ let sunkenPlaceSong;
 let fallingImage1;
 let fallingImage2;
 let fallingImage3;
+
+//The bedroom image
+let bedRoomImage;
 
 //Preload sounds/images
 function preload() {
@@ -180,6 +184,9 @@ function preload() {
   fallingImage1 = loadImage("assets/images/Simulation/falling1.png");
   fallingImage2 = loadImage("assets/images/Simulation/falling2.png");
   fallingImage3 = loadImage("assets/images/Simulation/falling3.png");
+
+  //Preloading the bedroom image
+  bedRoomImage = loadImage("assets/images/Simulation/bedroom.png");
 }
 
 //Setting up
@@ -222,6 +229,8 @@ function setup() {
   dialogue = new Dialogue(800, 1000);
   //Create the class for the simulation
   sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
+  //Create the class for the bedroom
+  bedRoom = new BedRoom(800, 1000, bedRoomImage);
 }
 
 //Displaying the states

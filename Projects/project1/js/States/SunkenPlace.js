@@ -81,7 +81,7 @@ class SunkenPlace {
   characterPosition() {
     if (this.imageY >= this.onImpact) {
       //Change States
-      state = '';
+      state = 'BedRoom';
       //Resume/Pause music
       sunkenPlaceSong.stop();
       houseSoundTrack.play();

@@ -72,5 +72,9 @@ class StateShow {
         particles[i].move();
       }
     }
+    //Bedroom
+    else if (state == "BedRoom") {
+      bedRoom.display();
+    }
   }
 }
