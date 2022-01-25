@@ -62,7 +62,7 @@ let windSFX;
 let footStepSFX;
 let frontDoorSFX;
 let indoorFootStepSFX;
-let houseSoundTrack
+let houseSoundTrack;
 //Outside of the house image
 let outsideHouseImage;
 //Entrance of the house image
@@ -112,7 +112,6 @@ let fallingImage3;
 
 //Preload sounds/images
 function preload() {
-
   //INTRO
 
   //Preloading the title theme song

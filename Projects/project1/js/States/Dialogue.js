@@ -155,8 +155,8 @@ class Dialogue {
   keyPressedEye() {
     if (keyCode === 32) {
       state = 'TearyEye';
+    }
   }
-}
   //Key pressed for dialogue E
   keyPressedE() {
     if (keyCode === 32) {
