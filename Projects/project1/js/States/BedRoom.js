@@ -15,8 +15,8 @@ class BedRoom {
     //Boundaries for the radio
     this.radioX = 254;
     this.radioX2 = 375;
-    this.radioY = 364;
-    this.radioY2 = 415;
+    this.radioY = 400;
+    this.radioY2 = 460;
 
     //Boundaries for the door
     this.doorX = 555;
@@ -39,7 +39,7 @@ class BedRoom {
     if (mouseX > this.radioX && mouseX < this.radioX2) {
       if (mouseY > this.radioY && mouseY < this.radioY2) {
         //Will play sound with responsive voice and static
-        responsiveVoice.speak("Keycode, Deer");
+        responsiveVoice.speak("Keycode, Rotten");
       }
     }
     //Box Collision for door
