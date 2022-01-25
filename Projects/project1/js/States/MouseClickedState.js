@@ -15,6 +15,8 @@ class MouseClickedState {
     else if (state == 'LivingRoom') {
       livingRoom.mouseClicked();
     }
-
+    else if (state == 'BedRoom') {
+      bedRoom.mouseClicked();
+    }
   }
 }
