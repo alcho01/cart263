@@ -1,5 +1,5 @@
 /**
-Exercise 3 - Patient Form
+Exercise 3 - Medical Form
 Alex Cho
 
 Fairly straight forward exercise. Went with the theme of a medical form.
@@ -8,13 +8,18 @@ Brief
 [DONE] Added a username
 [DONE] Added more categories
 [DONE] Regenerate aspects of profile by clicking the category
+[DONE] Added A delete key to "Punch Out" and delete currently saved profile 
 - Improve Aesthetics
 */
 
 "use strict";
 
 //Background Color
-const bgColor = 255;
+const bgColor = {
+  r: 242,
+  g: 238,
+  b: 203,
+};
 
 //JSON DATA
 const FIRSTNAMES_DATA_URL = `https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/firstNames.json`;
@@ -68,6 +73,7 @@ let symptomsData;
 let diagnosesData;
 let nounsData;
 
+//Preload the json information
 function preload() {
   firstNameData = loadJSON(FIRSTNAMES_DATA_URL);
   lastNameData = loadJSON(LASTNAMES_DATA_URL);
@@ -103,7 +109,7 @@ function setup() {
   else {
     //If there is no data generate a brand new profile
     generateProfile();
-    //The user is signed in 
+    //The user is signed in
     signedIn = true;
   }
 }
@@ -145,10 +151,11 @@ function generateProfile() {
 }
 
 function draw() {
-  background(bgColor);
+  //Set Background
+  background(bgColor.r, bgColor.g, bgColor.b);
 
   //Create the header + Profile info
-  let patientInfo = `Patient Information
+  let patientInfo = `Patient Information - Press Delete Key To Punch Out
 
 Date: ${profile.date}
 Forename: ${profile.firstName}
@@ -170,6 +177,17 @@ Click Here for a New Patient`;
   fill(textSettings.fill);
   text(patientInfo, textSettings.x, textSettings.y);
   pop();
+}
+
+//Reload the page when delete key is pressed, clear the profile.
+function keyPressed() {
+  //See if delete key is pressed
+  if (keyCode === 8) {
+    //Clear the profile
+    localStorage.clear(profile);
+    //Reload the page
+    window.location.reload();
+  }
 }
 
 //To generate a new medical form
