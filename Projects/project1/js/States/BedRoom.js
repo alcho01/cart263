@@ -40,6 +40,7 @@ class BedRoom {
       if (mouseY > this.radioY && mouseY < this.radioY2) {
         //Will play sound with responsive voice and static
         responsiveVoice.speak("Keycode, Rotten");
+        radioStaticSFX.play();
       }
     }
     //Box Collision for door

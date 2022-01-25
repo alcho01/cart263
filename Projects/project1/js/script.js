@@ -17,6 +17,7 @@ let amplitude;
 //Setting the volume of sounds
 let maxVolume = 0.1;
 let maxMusicVolume = 0.3;
+let radioVolume = 2;
 
 //Setting the canvas dimensions
 let canvasDimensions = {
@@ -43,7 +44,7 @@ let dialogue;
 let sunkenPlace;
 let bedRoom;
 //Determine what the starting state should be
-let state = "PreTitle";
+let state = "BedRoom";
 
 //--Title Entities--//
 
@@ -113,6 +114,8 @@ let fallingImage3;
 
 //The bedroom image
 let bedRoomImage;
+//Radio Static sfx
+let radioStaticSFX;
 
 //Preload sounds/images
 function preload() {
@@ -187,6 +190,8 @@ function preload() {
 
   //Preloading the bedroom image
   bedRoomImage = loadImage("assets/images/Simulation/bedroom.png");
+  //radioStaticSFX
+  radioStaticSFX = loadSound("assets/sounds/radiostatic.wav");
 }
 
 //Setting up
@@ -195,6 +200,7 @@ function setup() {
   userStartAudio();
   houseSoundTrack.setVolume(maxMusicVolume);
   indoorFootStepSFX.setVolume(maxVolume);
+  radioStaticSFX.setVolume(radioVolume);
 
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
