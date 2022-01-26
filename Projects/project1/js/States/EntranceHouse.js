@@ -24,11 +24,11 @@ class EntranceHouse {
     this.decreaseWidth = 100;
     this.decreaseHeight = 100;
 
+    //Constraints
     //Position Constraint
     this.minX = 50;
     this.maxX = 600;
 
-    //Constraints
     //Width Constraints
     this.minWidth = 800;
     this.maxWidth = 1500;
@@ -38,6 +38,13 @@ class EntranceHouse {
 
     //Image
     this.entranceHouseImage = entranceHouseImage;
+
+    //Boundaries for the opening of the bedroom
+    this.stairsX = 165;
+    this.stairsX2 = 575;
+    this.stairsY = 0;
+    this.stairsY2 = 670;
+
   }
 
   //Display the entrance
@@ -82,6 +89,20 @@ class EntranceHouse {
     else if (keyCode === 68 && this.width === this.maxWidth && this.x > this.minX) {
       indoorFootStepSFX.play();
       this.x -= this.incrementX;
+    }
+  }
+
+  //Mouse Pressed functionality
+  mouseClicked() {
+    //If the user has been hypnotized permit the use of mouse clicked
+    if (hypnotized === true) {
+      //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
+      if (mouseX > this.stairsX && mouseX < this.stairsX2 && this.width === this.maxWidth && this.x === this.maxX) {
+        if (mouseY > this.stairsY && mouseY < this.stairsY2) {
+          //Change states to the bed room 
+          state = 'BedRoom';
+        }
+      }
     }
   }
 }

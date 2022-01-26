@@ -12,6 +12,9 @@ class MouseClickedState {
     else if (state == 'Outside') {
       outsideHouse.mouseClicked();
     }
+    else if (state == 'Entrance') {
+      entranceHouse.mouseClicked();
+    }
     else if (state == 'LivingRoom') {
       livingRoom.mouseClicked();
     }

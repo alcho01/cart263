@@ -82,6 +82,8 @@ class SunkenPlace {
     if (this.imageY >= this.onImpact) {
       //Change States
       state = 'BedRoom';
+      //Change hypnotized to true
+      hypnotized = true;
       //Resume/Pause music
       sunkenPlaceSong.stop();
       houseSoundTrack.play();

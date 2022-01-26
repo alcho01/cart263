@@ -108,6 +108,9 @@ let hypnosisSong;
 //SunkenPlace Song
 let sunkenPlaceSong;
 
+//Check if the user has been hypnotized
+let hypnotized = false;
+
 //The character falling in the sunken place
 let fallingImage1;
 let fallingImage2;
