@@ -7,6 +7,7 @@ Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
 Simulation Song - https://www.youtube.com/watch?v=8775EWbDokw&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=24&ab_channel=Lumen
 Wind SFX - https://freesound.org/people/florianreichelt/sounds/459977/
 Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
+Radio SFX - https://freesound.org/people/eddy15/sounds/91999/
 */
 
 "use strict";
@@ -44,7 +45,7 @@ let dialogue;
 let sunkenPlace;
 let bedRoom;
 //Determine what the starting state should be
-let state = "BedRoom";
+let state = "PreTitle";
 
 //--Title Entities--//
 

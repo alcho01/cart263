@@ -9,6 +9,9 @@ class EntranceHouse {
     //dimensions
     this.width = w;
     this.height = h;
+    //Reset Dimensions
+    this.resetWidth = 800;
+    this.resetHeight = 1000;
 
     //Position Increment
     this.incrementX = 50;

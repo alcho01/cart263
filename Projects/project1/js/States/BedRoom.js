@@ -40,6 +40,7 @@ class BedRoom {
       if (mouseY > this.radioY && mouseY < this.radioY2) {
         //Will play sound with responsive voice and static
         responsiveVoice.speak("Keycode, Rotten");
+        //Play the radio SFX
         radioStaticSFX.play();
       }
     }
@@ -48,6 +49,14 @@ class BedRoom {
       if (mouseY > this.doorY && mouseY < this.doorY2) {
         //Change state to the entrance
         state = 'Entrance';
+        //Play the door SFX
+        frontDoorSFX.play();
+        //Reset the position of this room so it isn't zoomed in
+        entranceHouse.width = entranceHouse.resetWidth;
+        entranceHouse.height = entranceHouse.resetHeight;
+        entranceHouse.x = entranceHouse.origin;
+        //Enable the movement
+        entranceHouse.keyPressed();
       }
     }
   }
