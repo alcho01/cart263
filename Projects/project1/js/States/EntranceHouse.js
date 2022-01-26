@@ -44,7 +44,6 @@ class EntranceHouse {
     this.stairsX2 = 575;
     this.stairsY = 0;
     this.stairsY2 = 670;
-
   }
 
   //Display the entrance
@@ -99,8 +98,18 @@ class EntranceHouse {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
       if (mouseX > this.stairsX && mouseX < this.stairsX2 && this.width === this.maxWidth && this.x === this.maxX) {
         if (mouseY > this.stairsY && mouseY < this.stairsY2) {
-          //Change states to the bed room 
+          //Change states to the bed room
           state = 'BedRoom';
+        }
+      }
+    }
+    //The user has not been hypnotized
+    else if (hypnotized === false) {
+      //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
+      if (mouseX > this.stairsX && mouseX < this.stairsX2 && this.width === this.maxWidth && this.x === this.maxX) {
+        if (mouseY > this.stairsY && mouseY < this.stairsY2) {
+          //play the locked door sfx
+          lockedDoorSFX.play();
         }
       }
     }

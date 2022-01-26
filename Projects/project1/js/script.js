@@ -120,6 +120,8 @@ let fallingImage3;
 let bedRoomImage;
 //Radio Static sfx
 let radioStaticSFX;
+//Locked Door sfx
+let lockedDoorSFX;
 
 //Preload sounds/images
 function preload() {
@@ -196,6 +198,8 @@ function preload() {
   bedRoomImage = loadImage("assets/images/Simulation/bedroom.png");
   //radioStaticSFX
   radioStaticSFX = loadSound("assets/sounds/radiostatic.wav");
+  //Locked Door SFX
+  lockedDoorSFX = loadSound("assets/sounds/lockeddoor.wav");
 }
 
 //Setting up
