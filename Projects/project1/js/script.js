@@ -139,6 +139,9 @@ let secretCodeImage;
 //Current Response of voice input
 let currentResponse = '';
 
+//Door unlocked SFX
+let doorUnlockedSFX;
+
 //Preload sounds/images
 function preload() {
   //INTRO
@@ -220,6 +223,9 @@ function preload() {
   //Act 3
   //Load the secret code image
   secretCodeImage = loadImage("assets/images/Simulation/secretcode.png");
+
+  //Load the door unlocked SFX
+  doorUnlockedSFX = loadSound("assets/sounds/doorunlocked.wav");
 }
 
 //Setting up

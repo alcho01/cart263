@@ -79,6 +79,12 @@ class StateShow {
     //Speaker
     else if (state == "Speaker") {
       secretCode.display();
+      if (currentResponse === entranceHouse.answer) {
+        state = "Entrance";
+        currentResponse = '';
+        doorUnlockedSFX.play();
+        doorLocked = false;
+      }
     }
   }
 }

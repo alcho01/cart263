@@ -140,6 +140,9 @@ class EntranceHouse {
       if (mouseY > this.speakerY && mouseY < this.speakerY2) {
         //Change states to the close up of the speaker
         state = 'Speaker';
+        //Speaker gives off a message
+        responsiveVoice.speak("What is the secret Code", "French Male");
+        this.answer = 'rotten';
       }
     }
   }
