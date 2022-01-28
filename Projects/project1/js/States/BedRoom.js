@@ -39,7 +39,7 @@ class BedRoom {
     if (mouseX > this.radioX && mouseX < this.radioX2) {
       if (mouseY > this.radioY && mouseY < this.radioY2) {
         //Will play sound with responsive voice and static
-        responsiveVoice.speak("Keycode, Rotten");
+        responsiveVoice.speak("Secret Code, Rotten");
         //Play the radio SFX
         radioStaticSFX.play();
       }

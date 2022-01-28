@@ -54,5 +54,9 @@ class KeyPressedState {
     else if (state == 'SunkenPlace') {
       sunkenPlace.keyPressed();
     }
+    //Works only during the secret code
+    else if (state == 'Speaker') {
+      secretCode.keyPressed();
+    }
   }
 }

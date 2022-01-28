@@ -47,6 +47,8 @@ let livingRoom;
 let dialogue;
 let sunkenPlace;
 let bedRoom;
+let secretCode;
+
 //Determine what the starting state should be
 let state = "PreTitle";
 
@@ -131,6 +133,9 @@ let lockedDoorSFX;
 
 //Act 3
 
+//Secret Code Image
+let secretCodeImage;
+
 //Current Response of voice input
 let currentResponse = '';
 
@@ -211,6 +216,10 @@ function preload() {
   radioStaticSFX = loadSound("assets/sounds/radiostatic.wav");
   //Locked Door SFX
   lockedDoorSFX = loadSound("assets/sounds/lockeddoor.wav");
+
+  //Act 3
+  //Load the secret code image
+  secretCodeImage = loadImage("assets/images/Simulation/secretcode.png");
 }
 
 //Setting up
@@ -226,7 +235,6 @@ function setup() {
 
   //Add the p5sound library
   amplitude = new p5.Amplitude();
-
   amplitude.setInput(sunkenPlaceSong);
 
   //Setup Annyang
@@ -266,6 +274,9 @@ function setup() {
   sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
   //Create the class for the bedroom
   bedRoom = new BedRoom(800, 1000, bedRoomImage);
+
+  //Create the class for the secret code
+  secretCode = new SecretCode(800, 1000, secretCodeImage);
 }
 
 //Displaying the states

@@ -76,5 +76,9 @@ class StateShow {
     else if (state == "BedRoom") {
       bedRoom.display();
     }
+    //Speaker
+    else if (state == "Speaker") {
+      secretCode.display();
+    }
   }
 }

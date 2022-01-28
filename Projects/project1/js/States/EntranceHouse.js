@@ -50,6 +50,12 @@ class EntranceHouse {
     this.basementX2 = 800;
     this.basementY = 0;
     this.basementY2 = 667;
+
+    //Boundaries for speaker
+    this.speakerX = 249;
+    this.speakerX2 = 352;
+    this.speakerY = 255;
+    this.speakerY2 = 308;
   }
 
   //Display the entrance
@@ -127,6 +133,13 @@ class EntranceHouse {
           //play the locked door sfx
           lockedDoorSFX.play();
         }
+      }
+    }
+    //Interact with the speaker
+    if (mouseX > this.speakerX && mouseX < this.speakerX2 && this.width === this.maxWidth && this.x === this.minX) {
+      if (mouseY > this.speakerY && mouseY < this.speakerY2) {
+        //Change states to the close up of the speaker
+        state = 'Speaker';
       }
     }
   }
