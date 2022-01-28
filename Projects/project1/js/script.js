@@ -131,6 +131,9 @@ let lockedDoorSFX;
 
 //Act 3
 
+//Current Response of voice input
+let currentResponse = '';
+
 //Preload sounds/images
 function preload() {
   //INTRO
@@ -226,6 +229,16 @@ function setup() {
 
   amplitude.setInput(sunkenPlaceSong);
 
+  //Setup Annyang
+  if (annyang) {
+    let commands = {
+      '*answer' : guessAnswer
+    };
+
+    annyang.addCommands(commands);
+    annyang.start();
+  }
+
   //For loop for the particles
   for (let i = 0; i < numParticles; i++) {
     particles.push(new Particle());
@@ -271,4 +284,10 @@ function keyPressed() {
 function mouseClicked() {
   //This will contain what is being displayed for when a state has a mouse clicked function
   mouseClickedState.activate();
+}
+
+//Put the voice input to lower case to avoid errors
+function guessAnswer(answer) {
+  currentResponse = answer.toLowerCase();
+  console.log(currentResponse);
 }
