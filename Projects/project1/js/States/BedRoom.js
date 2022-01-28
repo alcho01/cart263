@@ -45,7 +45,7 @@ class BedRoom {
       }
     }
     //Box Collision for door
-    else if (mouseX > this.doorX && mouseX < this.doorX2) {
+    if (mouseX > this.doorX && mouseX < this.doorX2) {
       if (mouseY > this.doorY && mouseY < this.doorY2) {
         //Change state to the entrance
         state = 'Entrance';

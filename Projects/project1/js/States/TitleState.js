@@ -18,7 +18,7 @@ class TitleState {
     this.buttonX = 269;
     this.buttonX2 = 534;
     this.buttonY = 299;
-    this.buttonY2 = 403;
+    this.buttonY2 = 453;
   }
 
   //Display the title sequence
@@ -41,7 +41,7 @@ class TitleState {
     if (mouseX > this.buttonX && mouseX < this.buttonX2) {
       if (mouseY > this.buttonY && mouseY < this.buttonY2) {
         state = 'Outside';
-        //Sound Settings 
+        //Sound Settings
         titleTheme.stop();
         windSFX.play();
         windSFX.loop();

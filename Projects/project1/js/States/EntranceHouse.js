@@ -44,6 +44,12 @@ class EntranceHouse {
     this.stairsX2 = 575;
     this.stairsY = 0;
     this.stairsY2 = 670;
+
+    //Boundaries for basement door
+    this.basementX = 360;
+    this.basementX2 = 800;
+    this.basementY = 0;
+    this.basementY2 = 667;
   }
 
   //Display the entrance
@@ -104,10 +110,20 @@ class EntranceHouse {
       }
     }
     //The user has not been hypnotized
-    else if (hypnotized === false) {
+    if (hypnotized === false) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
       if (mouseX > this.stairsX && mouseX < this.stairsX2 && this.width === this.maxWidth && this.x === this.maxX) {
         if (mouseY > this.stairsY && mouseY < this.stairsY2) {
+          //play the locked door sfx
+          lockedDoorSFX.play();
+        }
+      }
+    }
+    //The basement door is locked at the start
+    if (doorLocked === true) {
+      //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
+      if (mouseX > this.basementX && mouseX < this.basementX2 && this.width === this.maxWidth && this.x === this.minX) {
+        if (mouseY > this.basementY && mouseY < this.basementY2) {
           //play the locked door sfx
           lockedDoorSFX.play();
         }

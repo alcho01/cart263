@@ -5,9 +5,12 @@ Alex Cho
 Sources
 Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
 Simulation Song - https://www.youtube.com/watch?v=8775EWbDokw&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=24&ab_channel=Lumen
+Hypnosis Song - https://www.youtube.com/watch?v=ZPkZNfh-9II&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=13&ab_channel=Lumen
+Dialogue - https://www.youtube.com/watch?v=kBwVWrBk_uo&ab_channel=Movieclips
 Wind SFX - https://freesound.org/people/florianreichelt/sounds/459977/
 Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
 Radio SFX - https://freesound.org/people/eddy15/sounds/91999/
+Locked Door SFX - https://freesound.org/people/BenjaminNelan/sounds/321087/
 */
 
 "use strict";
@@ -111,6 +114,9 @@ let sunkenPlaceSong;
 //Check if the user has been hypnotized
 let hypnotized = false;
 
+//Check if the basement door is locked
+let doorLocked = true;
+
 //The character falling in the sunken place
 let fallingImage1;
 let fallingImage2;
@@ -122,6 +128,8 @@ let bedRoomImage;
 let radioStaticSFX;
 //Locked Door sfx
 let lockedDoorSFX;
+
+//Act 3
 
 //Preload sounds/images
 function preload() {
