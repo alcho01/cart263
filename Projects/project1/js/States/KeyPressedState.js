@@ -1,9 +1,9 @@
 //This will handle all key pressed events
+//Depending on states where a key is needed for interactivity 
 class KeyPressedState {
   constructor() {
-
+    //Nothing needed
   }
-
   //Know what state it is on, to handle key pressed events
   activate() {
     //Works only when it is on the pretitle

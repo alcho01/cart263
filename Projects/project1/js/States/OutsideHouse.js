@@ -1,4 +1,7 @@
 //Everything related to "Outside House"
+//Display the outside of the house
+//Enable mouse clicked events
+//Enable key pressed events 
 class OutsideHouse {
   constructor(w, h, outsideHouseImage) {
     //PARAMETERS FOR OUTSIDE OF HOUSE

@@ -1,19 +1,24 @@
 //This contains the floating particles during the simulation
+//Display the particle
+//Give it the ability to move
 class Particle {
-  //Rate stands for the rate of speed, and space stands for the space between each particle
   constructor() {
     //Position
     this.x = random(0, 800);
     this.y = random(0, 1000);
+
     //Velocities
     this.vx = 0;
     this.vy = 0;
+
     //speed
     this.speed = random(3, 10);
+
     //the color
     this.r = 255;
     this.g = 255;
     this.b = 255;
+
     //map points
     //Lower current range
     this.lowCurrent = 0;
@@ -33,7 +38,6 @@ class Particle {
     let level = amplitude.getLevel();
     //Map how big and small the particles will be
     let size = map(level, this.lowCurrent, this.maxCurrent, this.lowTarget, this.maxTarget);
-
     //Fill them white
     fill(this.r, this.g, this.b);
     //Add the parameters to a circle to create a single particle

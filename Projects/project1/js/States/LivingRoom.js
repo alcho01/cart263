@@ -1,4 +1,9 @@
 //This will include everything related to the living room
+//The living room is the room on the left
+//Display the cutscene of missyArmitage
+//Display the user in the chair
+//Key pressed events to toggle the next scene
+//Mouse clicked event to enable clicking the chair 
 class LivingRoom {
   constructor(w, h, livingRoomImage, inChairImage) {
     //position

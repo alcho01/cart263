@@ -1,4 +1,6 @@
 //This class coresponds to the bedroom
+//Display the bedroom image
+//Give mouse functionality 
 class BedRoom {
   constructor(w, h, bedRoomImage) {
     //position

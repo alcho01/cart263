@@ -11,6 +11,7 @@ Wind SFX - https://freesound.org/people/florianreichelt/sounds/459977/
 Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
 Radio SFX - https://freesound.org/people/eddy15/sounds/91999/
 Locked Door SFX - https://freesound.org/people/BenjaminNelan/sounds/321087/
+Door Unlocked SFX - https://freesound.org/people/angelkunev/sounds/519065/
 */
 
 "use strict";
@@ -51,6 +52,8 @@ let secretCode;
 
 //Determine what the starting state should be
 let state = "PreTitle";
+
+//Every variable is organized by the order of the story from the title to each act to the end.
 
 //--Title Entities--//
 
@@ -228,7 +231,7 @@ function preload() {
   doorUnlockedSFX = loadSound("assets/sounds/doorunlocked.wav");
 }
 
-//Setting up
+//Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
 function setup() {
   //Audio Settings
   userStartAudio();

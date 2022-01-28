@@ -1,4 +1,7 @@
 //Class containing the display of the entrance of the house
+//Add key pressed events which correspond to the movement
+//Add mouse clicked events which correspond to interacting with objects/rooms
+
 class EntranceHouse {
   constructor(w, h, entranceHouseImage) {
     //position
@@ -142,6 +145,7 @@ class EntranceHouse {
         state = 'Speaker';
         //Speaker gives off a message
         responsiveVoice.speak("What is the secret Code", "French Male");
+        //The answer output for annyang 
         this.answer = 'rotten';
       }
     }

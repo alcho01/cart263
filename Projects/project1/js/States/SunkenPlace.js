@@ -1,4 +1,9 @@
 //This is the sunken place settings
+//Display the sunkenplace
+//Display the character falling
+//Enable the character's movement
+//Calculate the character's position
+//Activate key pressed events to interact with the soundtrack and visuals of the sunken place
 class SunkenPlace {
   constructor(w, h, fallingImage1, fallingImage2, fallingImage3) {
     //Position

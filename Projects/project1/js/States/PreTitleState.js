@@ -1,4 +1,6 @@
 //This is the pre title state class
+//Display the pretitle
+//Enable key pressed events 
 class PreTitleState {
   constructor(w, h, x, y) {
     //Dimensions

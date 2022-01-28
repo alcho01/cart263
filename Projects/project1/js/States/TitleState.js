@@ -1,4 +1,6 @@
 //This is the class for the title state
+//Displays the title screen
+//Enable mouse clicked events to press the start button 
 class TitleState {
   constructor(w, h, titleImage1, titleImage2, titleImage3) {
     //Dimensions
