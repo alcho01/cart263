@@ -84,6 +84,7 @@ function preload() {
   nounsData = loadJSON(NOUNS_DATA_URL);
 }
 
+//Set up the canvas/ Load the data/run an if statement to determine if a new profile neeeds to be generated
 function setup() {
   //Create the canvas
   createCanvas(windowWidth, windowHeight);
@@ -150,6 +151,7 @@ function generateProfile() {
   localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(profile));
 }
 
+//Draw the background/ Set up how the information will look 
 function draw() {
   //Set Background
   background(bgColor.r, bgColor.g, bgColor.b);
