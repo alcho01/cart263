@@ -3,7 +3,7 @@
 //Display the cutscene of missyArmitage
 //Display the user in the chair
 //Key pressed events to toggle the next scene
-//Mouse clicked event to enable clicking the chair 
+//Mouse clicked event to enable clicking the chair
 class LivingRoom {
   constructor(w, h, livingRoomImage, inChairImage) {
     //position
@@ -28,6 +28,14 @@ class LivingRoom {
     this.chairX2 = 336;
     this.chairY = 546;
     this.chairY2 = 825;
+
+    //text
+    this.text = {
+      x: 500,
+      y: 150,
+      size: 20,
+      black: 0,
+    };
   }
 
   //Display the living room
@@ -43,6 +51,17 @@ class LivingRoom {
     push();
     imageMode(CENTER);
     image(this.inChairImage, this.x, this.y, this.width, this.height);
+    pop();
+  }
+
+  //Display the fact that the spacebar needs to be pressed to scroll through scenes
+  displayAlert() {
+    push();
+    noStroke();
+    textAlign(CENTER);
+    fill(this.text.black);
+    textSize(this.text.size);
+    text('Press the spacebar, to scroll through scenes', this.text.x, this.text.y);
     pop();
   }
 

@@ -30,6 +30,7 @@ class StateShow {
     //In the Chair
     else if (state == "InChair") {
       livingRoom.displayInChair();
+      livingRoom.displayAlert();
     }
     //Missy Armitage performing hypnosis
     else if (state == "Hypnosis") {
