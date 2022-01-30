@@ -147,6 +147,7 @@ let doorUnlockedSFX;
 
 //Preload sounds/images
 function preload() {
+
   //INTRO
 
   //Preloading the title theme song

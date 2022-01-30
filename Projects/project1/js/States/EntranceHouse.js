@@ -18,11 +18,9 @@ class EntranceHouse {
 
     //Position Increment
     this.incrementX = 50;
-
     //Increments
     this.increaseWidth = 100;
     this.increaseHeight = 100;
-
     //Decrements
     this.decreaseWidth = 100;
     this.decreaseHeight = 100;
@@ -59,6 +57,18 @@ class EntranceHouse {
     this.speakerX2 = 352;
     this.speakerY = 255;
     this.speakerY2 = 308;
+
+    //Text
+    this.text = {
+      size: 20,
+      x: 300,
+      y: 250,
+      //X and Y for downstairs alert sign
+      downX: 595,
+      downY: 310,
+      //Color Black
+      black: 0,
+    };
   }
 
   //Display the entrance
@@ -73,6 +83,38 @@ class EntranceHouse {
     imageMode(CENTER);
     image(this.entranceHouseImage, this.horizontalConstrain, this.y, this.widthConstrain, this.heightConstrain);
     pop();
+  }
+
+  //Display Alert to notify user that they can interact with the item
+  displayAlert() {
+    //Check if the with is equal to the max width and the x is at the minimum position
+   if (this.width === this.maxWidth && this.x === this.minX) {
+     //Display the alert
+     push();
+     noStroke();
+     textAlign(CENTER);
+     textSize(this.text.size);
+     fill(this.text.black);
+     text('Click me', this.text.x, this.text.y);
+    }
+   if (hypnotized === true && this.width === this.maxWidth && this.x === this.maxX) {
+     //Display the alert
+     push();
+     noStroke();
+     textAlign(CENTER);
+     textSize(this.text.size);
+     fill(this.text.black);
+     text('Click me to go upstairs', this.text.x, this.text.y);
+    }
+   if (doorLocked === false && this.width === this.maxWidth && this.x === this.minX) {
+     //Display the alert
+     push();
+     noStroke();
+     textAlign(CENTER);
+     textSize(this.text.size);
+     fill(this.text.black);
+     text('Click me to go downstairs', this.text.downX, this.text.downY);
+    }
   }
 
   //Keypressed functionality
@@ -145,7 +187,7 @@ class EntranceHouse {
         state = 'Speaker';
         //Speaker gives off a message
         responsiveVoice.speak("What is the secret Code", "French Male");
-        //The answer output for annyang 
+        //The answer output for annyang
         this.answer = 'rotten';
       }
     }

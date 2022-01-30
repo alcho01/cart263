@@ -21,6 +21,7 @@ class StateShow {
     //Entrance of the house
     else if (state == "Entrance") {
       entranceHouse.display();
+      entranceHouse.displayAlert();
     }
     //The living room
     else if (state == "LivingRoom") {
@@ -86,7 +87,7 @@ class StateShow {
         currentResponse = '';
         //play this sound cue that identifies that the basement door is now able to be clicked
         doorUnlockedSFX.play();
-        //Change the boolean of doorLocked to false 
+        //Change the boolean of doorLocked to false
         doorLocked = false;
       }
     }
