@@ -4,15 +4,11 @@
 //Display the user in the chair
 //Key pressed events to toggle the next scene
 //Mouse clicked event to enable clicking the chair
-class LivingRoom {
-  constructor(w, h, livingRoomImage, inChairImage) {
-    //position
-    this.x = 400;
-    this.y = 500;
+class LivingRoom extends Universal {
+  constructor(w, h, x, y, livingRoomImage, inChairImage) {
 
-    //dimensions
-    this.width = w;
-    this.height = h;
+    //extended from the universal class
+    super(w, h, x, y);
 
     //images
     this.livingRoomImage = livingRoomImage;

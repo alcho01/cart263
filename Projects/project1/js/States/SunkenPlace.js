@@ -4,15 +4,11 @@
 //Enable the character's movement
 //Calculate the character's position
 //Activate key pressed events to interact with the soundtrack and visuals of the sunken place
-class SunkenPlace {
-  constructor(w, h, fallingImage1, fallingImage2, fallingImage3) {
-    //Position
-    this.x = 400;
-    this.y = 500;
+class SunkenPlace extends Universal {
+  constructor(w, h, x, y, fallingImage1, fallingImage2, fallingImage3) {
 
-    //Dimensions
-    this.width = w;
-    this.height = h;
+    //extended from the universal class
+    super(w, h, x, y);
 
     //Fill black
     this.black = 0;

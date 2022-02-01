@@ -1,17 +1,13 @@
 //Everything related to the dialogue scenes
 //Need to create a display for each piece of dialogue as well as a key Pressed
 //Add a timer for the last line of dialogue to switch states when missy Armitage is done speaking
-class Dialogue {
-  constructor(w, h) {
-    //position
-    this.x = 400;
-    this.y = 500;
+class Dialogue extends Universal {
+  constructor(w, h, x, y) {
 
-    //dimensions
-    this.width = w;
-    this.height = h;
+    //extended from the universal class
+    super(w, h, x, y);
 
-    //Timer of 18 seconds 
+    //Timer of 18 seconds
     this.timer = 18;
 
     //Images

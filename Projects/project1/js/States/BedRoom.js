@@ -1,15 +1,11 @@
 //This class coresponds to the bedroom
 //Display the bedroom image
-//Give mouse functionality 
-class BedRoom {
-  constructor(w, h, bedRoomImage) {
-    //position
-    this.x = 400;
-    this.y = 500;
+//Give mouse functionality
+class BedRoom extends Universal {
+  constructor(w, h, x, y, bedRoomImage) {
 
-    //dimensions
-    this.width = w;
-    this.height = h;
+    //extended from the universal class
+    super(w, h, x, y);
 
     //Image
     this.bedRoomImage = bedRoomImage;

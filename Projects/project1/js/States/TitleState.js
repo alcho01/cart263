@@ -1,15 +1,11 @@
 //This is the class for the title state
 //Displays the title screen
 //Enable mouse clicked events to press the start button
-class TitleState {
-  constructor(w, h, titleImage1, titleImage2, titleImage3) {
-    //Dimensions
-    this.width = w;
-    this.height = h;
+class TitleState extends Universal {
+  constructor(w, h, x, y, titleImage1, titleImage2, titleImage3) {
 
-    //Position
-    this.x = 400;
-    this.y = 500;
+    //extended from the universal class
+    super(w, h, x, y);
 
     //Images
     this.titleImage1 = titleImage1;

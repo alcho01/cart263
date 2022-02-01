@@ -270,23 +270,23 @@ function setup() {
   //Create the class for the pretitle state
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
-  titleState = new TitleState(800, 1000, titleImage1, titleImage2, titleImage3);
+  titleState = new TitleState(800, 1000, 400, 500, titleImage1, titleImage2, titleImage3);
   //Create the class for the outside of the house
-  outsideHouse = new OutsideHouse(800, 1000, outsideHouseImage);
+  outsideHouse = new OutsideHouse(800, 1000, 400, 500, outsideHouseImage);
   //Create the class for the entrance of the house which extends to multiple rooms
-  entranceHouse = new EntranceHouse(800, 1000, entranceHouseImage);
+  entranceHouse = new EntranceHouse(800, 1000, 400, 500, entranceHouseImage);
 
   //Create the class for the living room
-  livingRoom = new LivingRoom(800, 1000, livingRoomImage, inChairImage);
+  livingRoom = new LivingRoom(800, 1000, 400, 500, livingRoomImage, inChairImage);
   //Create the class for the dialogue scenes
-  dialogue = new Dialogue(800, 1000);
+  dialogue = new Dialogue(800, 1000, 400, 500);
   //Create the class for the simulation
-  sunkenPlace = new SunkenPlace(800, 1000, fallingImage1, fallingImage2, fallingImage3);
+  sunkenPlace = new SunkenPlace(800, 1000, 400, 500, fallingImage1, fallingImage2, fallingImage3);
   //Create the class for the bedroom
-  bedRoom = new BedRoom(800, 1000, bedRoomImage);
+  bedRoom = new BedRoom(800, 1000, 400, 500, bedRoomImage);
 
   //Create the class for the secret code
-  secretCode = new SecretCode(800, 1000, secretCodeImage);
+  secretCode = new SecretCode(800, 1000, 400, 500, secretCodeImage);
 }
 
 //Displaying the states

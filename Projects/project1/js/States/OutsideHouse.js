@@ -1,17 +1,12 @@
 //Everything related to "Outside House"
 //Display the outside of the house
 //Enable mouse clicked events
-//Enable key pressed events 
-class OutsideHouse {
-  constructor(w, h, outsideHouseImage) {
-    //PARAMETERS FOR OUTSIDE OF HOUSE
-    //position
-    this.x = 400;
-    this.y = 500;
+//Enable key pressed events
+class OutsideHouse extends Universal{
+  constructor(w, h, x, y, outsideHouseImage) {
 
-    //dimensions
-    this.width = w;
-    this.height = h;
+    //extended from the universal class
+    super(w, h, x, y);
 
     //Increments
     this.increaseWidth = 200;

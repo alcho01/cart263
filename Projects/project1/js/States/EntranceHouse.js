@@ -2,16 +2,15 @@
 //Add key pressed events which correspond to the movement
 //Add mouse clicked events which correspond to interacting with objects/rooms
 
-class EntranceHouse {
-  constructor(w, h, entranceHouseImage) {
+class EntranceHouse extends Universal{
+  constructor(w, h, x, y, entranceHouseImage) {
+
+    //extended from the universal class
+    super(w, h, x, y);
+
     //position
-    this.x = 400;
-    this.y = 500;
     this.origin = 400;
 
-    //dimensions
-    this.width = w;
-    this.height = h;
     //Reset Dimensions
     this.resetWidth = 800;
     this.resetHeight = 1000;

@@ -2,15 +2,11 @@
 //Display the secret code.
 //Exit out of the secret code screen.
 //Unlock the basement door.
-class SecretCode {
-  constructor(w, h, secretCodeImage) {
-    //position
-    this.x = 400;
-    this.y = 500;
+class SecretCode extends Universal {
+  constructor(w, h, x, y, secretCodeImage) {
 
-    //dimensions
-    this.width = w;
-    this.height = h;
+    //extended from the universal class
+    super(w, h, x, y);
 
     //image
     this.secretCodeImage = secretCodeImage;

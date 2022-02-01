@@ -1,14 +1,12 @@
 //This is the pre title state class
 //Display the pretitle
-//Enable key pressed events 
-class PreTitleState {
+//Enable key pressed events
+class PreTitleState extends Universal {
   constructor(w, h, x, y) {
-    //Dimensions
-    this.width = w;
-    this.height = h;
-    //Position
-    this.x = x;
-    this.y = y;
+
+    //extended from the universal class 
+    super(w, h, x, y);
+
     //black color
     this.black = 0;
 
