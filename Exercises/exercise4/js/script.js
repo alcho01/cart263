@@ -66,8 +66,8 @@ function setup() {
   //Create the bubble
   bubble = {
     settings: {
-      x: 80,
-      y: 80,
+      x: random(width),
+      y: height,
       size: 100,
       vx: 0,
       vy: -2,
@@ -83,6 +83,28 @@ function setup() {
 
 function draw() {
 
+}
+
+
+
+//Movement for the bubble
+function moveBubble() {
+  bubble.x += bubble.vx;
+  bubble.y += bubble.vy;
+}
+
+//Resets the bubble position at the bottom of the canvas with a random x position 
+function resetBubble() {
+  bubble.x = random(width);
+  bubble.y = height;
+}
+
+//Check if the bubble is off the screen
+function offCanvas() {
+  if (bubble < 0) {
+    //Calls function to reset position
+    resetBubble();
+  }
 }
 
 //Display the bubble
