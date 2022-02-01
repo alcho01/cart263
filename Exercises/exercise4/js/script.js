@@ -2,8 +2,8 @@
 Exercise 4 - Bubble Popper ++
 Alex Cho
 
-Didn't want to do a whole lot for this exercise considering it interfers with project time. Therefore, I kept a similar aesthetic and incorporated small elements to make it a more complete game. I added a score counter, increased difficulty everytime
-the use hits an increment of 5 the speed of the bubbles gets a little faster. As well as sound, and a health system. 
+Didn't want to do a whole lot for this exercise considering it interferes with project time. Therefore, I kept the same aesthetic and incorporated small elements to make it a more complete game. I added a score counter, increased difficulty everytime
+the use hits an increment of 5 the speed of the bubbles gets a little faster. As well as sound, and a health system.
 
 Brief
 [DONE]Add Score Counter
