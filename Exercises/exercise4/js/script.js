@@ -39,10 +39,17 @@ let pin = {
   }
 };
 
-function preload() {
+//loading text size
+let loadingTextSize = 30;
 
+//Starting state
+let state = 'load';
+
+function preload() {
+//////////////////////
 }
 
+//Setup the canvas/ Setup the handpose model/ bubble parameters
 function setup() {
   //Setup the canvas
   createCanvas(canvasWidth, canvasHeight);
@@ -55,7 +62,8 @@ function setup() {
   handpose = ml5.handpose(video, {
     flipHorizontal: true
   }, function() {
-
+    //switch to the simulation
+    state = 'simulation';
   });
 
   //Listen for predictions from handpose
@@ -81,8 +89,23 @@ function setup() {
   };
 }
 
+//Handle the states
 function draw() {
+  if (state === 'load') {
+    loadScreen();
+  }
+  else if (state === 'simulation') {
+    simulation();
+  }
+}
 
+//Display a loadscreen while the entities generate
+function loadScreen() {
+  push();
+  textSize(loadingTextSize);
+  textAlign(CENTER);
+  text(`Loading`, width / 2, height / 2);
+  pop();
 }
 
 //Runs the simulation
@@ -95,8 +118,8 @@ function simulation() {
     updatePin(predictions[0]);
 
     //Check if the tip of the pin intersects with the bubble
-    let d = dist(pin.tip.x, pin.tip.y, bubble.x, bubble.y);
-    if (d < bubble.size / 2) {
+    let d = dist(pin.tip.x, pin.tip.y, bubble.settings.x, bubble.settings.y);
+    if (d < bubble.settings.size / 2) {
       //If it does reset the bubble
       resetBubble();
     }
@@ -110,7 +133,6 @@ function simulation() {
   displayBubble();
 }
 
-
 //Update the position of the pin based on the previous prediction
 function updatePin(prediction) {
   pin.tip.x = prediction.annotations.indexFinger[3][0];
@@ -121,14 +143,14 @@ function updatePin(prediction) {
 
 //Movement for the bubble
 function moveBubble() {
-  bubble.x += bubble.vx;
-  bubble.y += bubble.vy;
+  bubble.settings.x += bubble.settings.vx;
+  bubble.settings.y += bubble.settings.vy;
 }
 
 //Resets the bubble position at the bottom of the canvas with a random x position
 function resetBubble() {
-  bubble.x = random(width);
-  bubble.y = height;
+  bubble.settings.x = random(width);
+  bubble.settings.y = height;
 }
 
 //Check if the bubble is off the screen
