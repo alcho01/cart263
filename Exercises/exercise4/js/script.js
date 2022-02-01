@@ -24,6 +24,13 @@ let handpose;
 //Predictions made from handpose
 let predictions = [];
 
+//The Score to win
+let scoreGoal = 5;
+//The Score Initial Value
+let scoreStart = 0;
+//The value to increase the score by
+let scoreIncrease = 1;
+
 //Score Settings
 let score = {
   text: {
@@ -31,8 +38,7 @@ let score = {
     y: 35,
     size: 30,
     white: 255,
-  },
-  value: 0,
+  }
 };
 
 //Bubble pop SFX
@@ -59,8 +65,8 @@ let pin = {
   }
 };
 
-//loading text size
-let loadingTextSize = 30;
+//text size
+let textDimensions = 30;
 
 //Starting state
 let state = 'load';
@@ -118,12 +124,15 @@ function draw() {
   else if (state === 'simulation') {
     simulation();
   }
+  else if (state === 'end') {
+    endScreen();
+  }
 }
 
 //Display a loadscreen while the entities generate
 function loadScreen() {
   push();
-  textSize(loadingTextSize);
+  textSize(textDimensions);
   textAlign(CENTER);
   text(`Loading`, width / 2, height / 2);
   pop();
@@ -157,13 +166,36 @@ function simulation() {
   offCanvas();
   displayBubble();
 
+  //Check the score
+  checkScore();
+
   //Display the score
   displayScore();
 }
 
+//End state
+function endScreen() {
+  background(255);
+
+  //Text
+  push();
+  textSize(textDimensions);
+  textAlign(CENTER);
+  text(`Thanks For Playing`, width / 2, height / 2);
+  pop();
+}
+
+
 //Increase the score by 1
 function increaseScore() {
-  score.value = score.value += 1;
+  scoreStart = scoreStart + scoreIncrease;
+}
+
+//Check the score to see if it can end
+function checkScore() {
+  if (scoreStart === scoreGoal) {
+    state = 'end';
+  }
 }
 
 //Update the position of the pin based on the previous prediction
@@ -226,6 +258,6 @@ function displayScore() {
   textAlign(CENTER);
   fill(score.text.white);
   textSize(score.text.size);
-  text(score.value, score.text.x, score.text.y  );
+  text(scoreStart, score.text.x, score.text.y  );
   pop();
 }
