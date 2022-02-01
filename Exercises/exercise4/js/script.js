@@ -7,8 +7,10 @@ Brief
 [DONE]Add Sound
 [DONE]Add Ending
 [DONE]Increase Difficulty
+[DONE]ADD Health System
 
 Bubble pop sound - https://freesound.org/people/DuffyBro/sounds/319107/
+Lives Lost Cue - https://freesound.org/people/JustInvoke/sounds/446118/
 */
 
 "use strict";
@@ -40,6 +42,15 @@ let score = {
     white: 255,
   }
 };
+
+//Lose a life SFX
+let loseLifeCue;
+//Amount of lives
+let lives = 3;
+//Decrease life
+let decreaseLife = -1;
+//lost the game
+let lost = 0;
 
 //Bubble pop SFX
 let bubblePop;
@@ -74,6 +85,7 @@ let state = 'load';
 //Load sound
 function preload() {
 bubblePop = loadSound("assets/sounds/pop.wav");
+loseLifeCue = loadSound("assets/sounds/loselifecue.wav");
 }
 
 //Setup the canvas/ Setup the handpose model/ bubble parameters
@@ -127,6 +139,9 @@ function draw() {
   else if (state === 'end') {
     endScreen();
   }
+  else if (state === 'badEnd') {
+    badEndScreen();
+  }
 }
 
 //Display a loadscreen while the entities generate
@@ -171,9 +186,11 @@ function simulation() {
 
   //Check the score
   checkScore();
-
   //Display the score
   displayScore();
+
+  //Check the user's health
+  checkHealth();
 }
 
 //Good end state
@@ -185,7 +202,20 @@ function endScreen() {
   push();
   textSize(textDimensions);
   textAlign(CENTER);
-  text(`Thanks For Playing`, width / 2, height / 2);
+  text(`You Win!`, width / 2, height / 2);
+  pop();
+}
+
+//Bad end state
+function badEndScreen() {
+  //set a new background
+  background(255);
+
+  //Text
+  push();
+  textSize(textDimensions);
+  textAlign(CENTER);
+  text(`You Lost!`, width / 2, height / 2);
   pop();
 }
 
@@ -200,6 +230,18 @@ function toggleDifficulty() {
   if (scoreStart >= 10) {
     //If it is change the speed of the bubble to be even faster
     bubble.settings.y = bubble.settings.y + bubble.settings.vy * 2.3;
+  }
+}
+
+//remove lives
+function decreaseHealth() {
+  lives = lives + decreaseLife;
+}
+
+//Checks how many lives remain
+function checkHealth() {
+  if (lives === lost) {
+    state = 'badEnd';
   }
 }
 
@@ -238,6 +280,10 @@ function resetBubble() {
 //Check if the bubble is off the screen
 function offCanvas() {
   if (bubble.settings.y < 0) {
+    //Lose a life
+    decreaseHealth();
+    //SFX
+    loseLifeCue.play();
     //Calls function to reset position
     resetBubble();
   }
