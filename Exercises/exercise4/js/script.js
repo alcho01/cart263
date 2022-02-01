@@ -12,9 +12,10 @@ const canvasHeight = 480;
 
 //Webcam
 let video;
-
 //Handpose object
 let handpose;
+//Predictions made from handpose
+let predictions = [];
 
 function preload() {
 
@@ -32,7 +33,12 @@ function setup() {
   handpose = ml5.handpose(video, {
     flipHorizontal: true
   }, function() {
-    
+
+  });
+
+  //Listen for predictions from handpose 
+  handpose.on(`predict`, function (results) {
+    predictions = results;
   });
 
 }
