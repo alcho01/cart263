@@ -85,7 +85,39 @@ function draw() {
 
 }
 
+//Runs the simulation
+function simulation() {
+  background(0);
 
+  //Is there a prediction to display
+  if (predictions.length > 0) {
+    //If there is - get the position of the index finger
+    updatePin(predictions[0]);
+
+    //Check if the tip of the pin intersects with the bubble
+    let d = dist(pin.tip.x, pin.tip.y, bubble.x, bubble.y);
+    if (d < bubble.size / 2) {
+      //If it does reset the bubble
+      resetBubble();
+    }
+    //Display the pin
+    displayPin();
+  }
+
+  //Handle the bubble movement and position
+  moveBubble();
+  offCanvas();
+  displayBubble();
+}
+
+
+//Update the position of the pin based on the previous prediction
+function updatePin(prediction) {
+  pin.tip.x = prediction.annotations.indexFinger[3][0];
+  pin.tip.y = prediction.annotations.indexFinger[3][1];
+  pin.head.x = prediction.annotations.indexFinger[0][0];
+  pin.head.y = prediction.annotations.indexFinger[0][1];
+}
 
 //Movement for the bubble
 function moveBubble() {
@@ -93,7 +125,7 @@ function moveBubble() {
   bubble.y += bubble.vy;
 }
 
-//Resets the bubble position at the bottom of the canvas with a random x position 
+//Resets the bubble position at the bottom of the canvas with a random x position
 function resetBubble() {
   bubble.x = random(width);
   bubble.y = height;
