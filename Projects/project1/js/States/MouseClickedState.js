@@ -4,26 +4,35 @@ class MouseClickedState {
   constructor() {
     //Nothing to do here
   }
+
   //Know what state it is in to enable the mouseclicked
-  activate() {
+  titleActivate() {
     //Mouse clicked ready for the title
-    if (state == 'Title') {
+    if (state === 'Title') {
       titleState.mouseClicked();
     }
+  }
+
+  //Act 1
+  act1Activate() {
     //Mouse clicked ready for the Outside
-    else if (state == 'Outside') {
+    if (state === 'Outside') {
       outsideHouse.mouseClicked();
     }
     //Mouse clicked ready for the Entrance
-    else if (state == 'Entrance') {
+    else if (state === 'Entrance') {
       entranceHouse.mouseClicked();
     }
-    //Mouse clicked ready for the Living Room 
-    else if (state == 'LivingRoom') {
+  }
+
+  //Act 2
+  act2Activate() {
+    //Mouse clicked ready for the Living Room
+    if (state === 'LivingRoom') {
       livingRoom.mouseClicked();
     }
     //Mouse clicked ready for the Bed Room
-    else if (state == 'BedRoom') {
+    else if (state === 'BedRoom') {
       bedRoom.mouseClicked();
     }
   }

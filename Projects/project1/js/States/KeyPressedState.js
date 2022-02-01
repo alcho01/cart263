@@ -1,61 +1,73 @@
 //This will handle all key pressed events
-//Depending on states where a key is needed for interactivity 
+//Depending on states where a key is needed for interactivity
 class KeyPressedState {
   constructor() {
     //Nothing needed
   }
   //Know what state it is on, to handle key pressed events
-  activate() {
+  titleActivate() {
     //Works only when it is on the pretitle
-    if (state == 'PreTitle') {
+    if (state === 'PreTitle') {
       preTitleState.keyPressed();
     }
+  }
+
+  //Act 1
+  act1Activate() {
     //Works only when it is outside
-    else if (state == 'Outside') {
+    if (state === 'Outside') {
       outsideHouse.keyPressed();
     }
     //Works only when it is on the entrance
-    else if (state == 'Entrance') {
+    else if (state === 'Entrance') {
       entranceHouse.keyPressed();
     }
+  }
+
+  //Act 2
+  act2Activate() {
     //Works only when it is in the living room
-    else if (state == 'LivingRoom') {
+    if (state === 'LivingRoom') {
       livingRoom.keyPressed();
     }
     //Works only when it is in the chair
-    else if (state == 'InChair') {
+    else if (state === 'InChair') {
       livingRoom.nextScene();
     }
     //Works only on hypnosis scene
-    else if (state == 'Hypnosis') {
+    else if (state === 'Hypnosis') {
       dialogue.keyPressed();
     }
     //Works only on Dialogue A
-    else if (state == 'DialogueA') {
+    else if (state === 'DialogueA') {
       dialogue.keyPressedB();
     }
     //Works only on Dialogue B
-    else if (state == 'DialogueB') {
+    else if (state === 'DialogueB') {
       dialogue.keyPressedC();
     }
     //Works only on Dialogue C
-    else if (state == 'DialogueC') {
+    else if (state === 'DialogueC') {
       dialogue.keyPressedD();
     }
     //Works only on Dialogue D
-    else if (state == 'DialogueD') {
+    else if (state === 'DialogueD') {
       dialogue.keyPressedEye();
     }
     //Works only on Teary Eyed scene
-    else if (state == 'TearyEye') {
+    else if (state === 'TearyEye') {
       dialogue.keyPressedE();
     }
     //Works only during the simulation
-    else if (state == 'SunkenPlace') {
+    else if (state === 'SunkenPlace') {
       sunkenPlace.keyPressed();
     }
+  }
+
+  //Act 3
+  act3Activate() {
     //Works only during the secret code
-    else if (state == 'Speaker') {
+    if (state === 'Speaker') {
       secretCode.keyPressed();
     }
   }

@@ -292,19 +292,27 @@ function setup() {
 //Displaying the states
 function draw() {
   //This will contain what is being displayed based on what state it is in
-  stateShow.activate();
+  stateShow.titleActivate();
+  stateShow.act1Activate();
+  stateShow.act2Activate();
+  stateShow.act3Activate();
 }
 
 //Key pressed functionality
 function keyPressed() {
   //This will contain what is being done when a key is pressed
-  keyPressedState.activate();
+  keyPressedState.titleActivate();
+  keyPressedState.act1Activate();
+  keyPressedState.act2Activate();
+  keyPressedState.act3Activate();
 }
 
 //Mouse clicked functionality
 function mouseClicked() {
   //This will contain what is being displayed for when a state has a mouse clicked function
-  mouseClickedState.activate();
+  mouseClickedState.titleActivate();
+  mouseClickedState.act1Activate();
+  mouseClickedState.act2Activate();
 }
 
 //Put the voice input to lower case to avoid errors
