@@ -7,11 +7,14 @@ Alex Cho
 "use strict";
 
 //Canvas Dimensions
-let canvasWidth = 640;
-let canvasHeight = 480;
+const canvasWidth = 640;
+const canvasHeight = 480;
 
 //Webcam
 let video;
+
+//Handpose object
+let handpose;
 
 function preload() {
 
@@ -24,6 +27,13 @@ function setup() {
   //Setup the video //Hide it
   video = createCapture(VIDEO);
   video.hide();
+
+  //Setup the handpose model
+  handpose = ml5.handpose(video, {
+    flipHorizontal: true
+  }, function() {
+    
+  });
 
 }
 
