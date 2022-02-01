@@ -1,7 +1,14 @@
 /**
-Exercise 4 -
+Exercise 4 - Bubble Popper ++
 Alex Cho
 
+Brief
+[]Add Score Counter
+[DONE]Add Sound
+[]Add Ending
+[]Increase Difficulty
+
+Bubble pop sound - https://freesound.org/people/DuffyBro/sounds/319107/
 */
 
 "use strict";
@@ -17,6 +24,19 @@ let handpose;
 //Predictions made from handpose
 let predictions = [];
 
+//Score Settings
+let score = {
+  text: {
+    x: 20,
+    y: 35,
+    size: 30,
+    white: 255,
+  },
+  value: 0,
+};
+
+//Bubble pop SFX
+let bubblePop;
 //The bubble to pop
 let bubble;
 //The pin
@@ -45,8 +65,9 @@ let loadingTextSize = 30;
 //Starting state
 let state = 'load';
 
+//Load sound
 function preload() {
-//////////////////////
+bubblePop = loadSound("assets/sounds/pop.wav");
 }
 
 //Setup the canvas/ Setup the handpose model/ bubble parameters
@@ -120,6 +141,10 @@ function simulation() {
     //Check if the tip of the pin intersects with the bubble
     let d = dist(pin.tip.x, pin.tip.y, bubble.settings.x, bubble.settings.y);
     if (d < bubble.settings.size / 2) {
+      //Play the popping sound
+      bubblePop.play();
+      //Call the function increase score to increase the score by 1
+      increaseScore();
       //If it does reset the bubble
       resetBubble();
     }
@@ -131,6 +156,14 @@ function simulation() {
   moveBubble();
   offCanvas();
   displayBubble();
+
+  //Display the score
+  displayScore();
+}
+
+//Increase the score by 1
+function increaseScore() {
+  score.value = score.value += 1;
 }
 
 //Update the position of the pin based on the previous prediction
@@ -155,7 +188,7 @@ function resetBubble() {
 
 //Check if the bubble is off the screen
 function offCanvas() {
-  if (bubble < 0) {
+  if (bubble.settings.y < 0) {
     //Calls function to reset position
     resetBubble();
   }
@@ -184,5 +217,15 @@ function displayPin() {
   fill(pin.fill.r, pin.fill.g, pin.fill.b);
   noStroke();
   ellipse(pin.head.x, pin.head.y, pin.head.size);
+  pop();
+}
+
+//Display the score
+function displayScore() {
+  push();
+  textAlign(CENTER);
+  fill(score.text.white);
+  textSize(score.text.size);
+  text(score.value, score.text.x, score.text.y  );
   pop();
 }
