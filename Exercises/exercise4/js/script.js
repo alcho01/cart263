@@ -3,10 +3,10 @@ Exercise 4 - Bubble Popper ++
 Alex Cho
 
 Brief
-[]Add Score Counter
+[DONE]Add Score Counter
 [DONE]Add Sound
-[]Add Ending
-[]Increase Difficulty
+[DONE]Add Ending
+[DONE]Increase Difficulty
 
 Bubble pop sound - https://freesound.org/people/DuffyBro/sounds/319107/
 */
@@ -25,7 +25,7 @@ let handpose;
 let predictions = [];
 
 //The Score to win
-let scoreGoal = 5;
+let scoreGoal = 15;
 //The Score Initial Value
 let scoreStart = 0;
 //The value to increase the score by
@@ -166,6 +166,9 @@ function simulation() {
   offCanvas();
   displayBubble();
 
+  //Check the difficulty
+  toggleDifficulty();
+
   //Check the score
   checkScore();
 
@@ -173,8 +176,9 @@ function simulation() {
   displayScore();
 }
 
-//End state
+//Good end state
 function endScreen() {
+  //set a new background
   background(255);
 
   //Text
@@ -185,6 +189,19 @@ function endScreen() {
   pop();
 }
 
+//Change difficulty of game when an amount of bubbles is popped
+function toggleDifficulty() {
+  //Check if score is greater or equal to 5
+  if (scoreStart >= 5) {
+    //If it is change the speed of the bubble to be a bit faster
+    bubble.settings.y = bubble.settings.y + bubble.settings.vy * 1.5;
+  }
+  //Check if score is greater or equal to 10
+  if (scoreStart >= 10) {
+    //If it is change the speed of the bubble to be even faster
+    bubble.settings.y = bubble.settings.y + bubble.settings.vy * 2.3;
+  }
+}
 
 //Increase the score by 1
 function increaseScore() {
