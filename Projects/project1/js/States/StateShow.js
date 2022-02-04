@@ -86,7 +86,7 @@ class StateShow {
       bedRoom.display();
     }
   }
-  
+
     //Display Act 3 States
     act3Activate() {
     //Speaker
@@ -103,6 +103,10 @@ class StateShow {
         //Change the boolean of doorLocked to false
         doorLocked = false;
       }
+    }
+    //Display the hallway
+    else if (state === "Hallway") {
+      hallway.display();
     }
   }
 }

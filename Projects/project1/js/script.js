@@ -12,6 +12,7 @@ Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
 Radio SFX - https://freesound.org/people/eddy15/sounds/91999/
 Locked Door SFX - https://freesound.org/people/BenjaminNelan/sounds/321087/
 Door Unlocked SFX - https://freesound.org/people/angelkunev/sounds/519065/
+White Noise SFX - https://freesound.org/people/seth-m/sounds/269721/
 */
 
 "use strict";
@@ -49,6 +50,7 @@ let dialogue;
 let sunkenPlace;
 let bedRoom;
 let secretCode;
+let hallway;
 
 //Determine what the starting state should be
 let state = "PreTitle";
@@ -112,13 +114,11 @@ let dialogueESFX;
 
 //Hypnosis song
 let hypnosisSong;
-
 //SunkenPlace Song
 let sunkenPlaceSong;
 
 //Check if the user has been hypnotized
 let hypnotized = false;
-
 //Check if the basement door is locked
 let doorLocked = true;
 
@@ -138,12 +138,15 @@ let lockedDoorSFX;
 
 //Secret Code Image
 let secretCodeImage;
-
 //Current Response of voice input
 let currentResponse = '';
-
 //Door unlocked SFX
 let doorUnlockedSFX;
+
+//Hallway Image
+let hallwayImage;
+//Whitenoise SFX
+let whiteNoiseSFX;
 
 //Preload sounds/images
 function preload() {
@@ -227,9 +230,13 @@ function preload() {
   //Act 3
   //Load the secret code image
   secretCodeImage = loadImage("assets/images/Simulation/secretcode.png");
-
   //Load the door unlocked SFX
   doorUnlockedSFX = loadSound("assets/sounds/doorunlocked.wav");
+
+  //Load the hallway image
+  hallwayImage = loadImage("assets/images/Simulation/hallway.png");
+  //Load the whiteNoiseSFX
+  whiteNoiseSFX = loadSound("assets/sounds/whitenoise.wav");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -287,6 +294,8 @@ function setup() {
 
   //Create the class for the secret code
   secretCode = new SecretCode(800, 1000, 400, 500, secretCodeImage);
+  //Create the class for the hallway
+  hallway = new Hallway(800, 1000, 400, 500, hallwayImage);
 }
 
 //Displaying the states

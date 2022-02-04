@@ -179,6 +179,21 @@ class EntranceHouse extends Universal{
         }
       }
     }
+    //Check if the basement door is unlocked
+    if (doorLocked === false) {
+      //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
+      if (mouseX > this.basementX && mouseX < this.basementX2 && this.width === this.maxWidth && this.x === this.minX) {
+        if (mouseY > this.basementY && mouseY < this.basementY2) {
+          //Change the state to the basement hallway
+          state = 'Hallway';
+          //Play white noise
+          whiteNoiseSFX.play();
+          whiteNoiseSFX.loop();
+          //stop the previous soundtrack
+          houseSoundTrack.stop();
+        }
+      }
+    }
     //Interact with the speaker
     if (mouseX > this.speakerX && mouseX < this.speakerX2 && this.width === this.maxWidth && this.x === this.minX) {
       if (mouseY > this.speakerY && mouseY < this.speakerY2) {
