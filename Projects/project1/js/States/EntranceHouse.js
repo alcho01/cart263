@@ -147,6 +147,13 @@ class EntranceHouse extends Universal{
     }
   }
 
+  //Reset the position of the entrance upon entrance of another room
+  resetPosition() {
+    this.width = this.resetWidth;
+    this.height = this.resetHeight;
+    this.x = this.origin;
+  }
+
   //Mouse Pressed functionality
   mouseClicked() {
     //If the user has been hypnotized permit the use of mouse clicked

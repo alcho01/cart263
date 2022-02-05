@@ -50,9 +50,7 @@ class BedRoom extends Universal {
         //Play the door SFX
         frontDoorSFX.play();
         //Reset the position of this room so it isn't zoomed in
-        entranceHouse.width = entranceHouse.resetWidth;
-        entranceHouse.height = entranceHouse.resetHeight;
-        entranceHouse.x = entranceHouse.origin;
+        entranceHouse.resetPosition();
         //Enable the movement
         entranceHouse.keyPressed();
       }

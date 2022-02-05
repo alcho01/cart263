@@ -15,4 +15,19 @@ class Hallway extends Universal {
     image(this.hallwayImage, this.x, this.y, this.width, this.height);
     pop();
   }
+
+  //key pressed functionality
+  keyPressed() {
+    if (keyCode === 83) {
+      //Return to entrance
+      state = 'Entrance';
+      //Reset the room position
+      entranceHouse.resetPosition();
+      //Stop the white noise
+      whiteNoiseSFX.stop();
+      //Resume the house sound track 
+      houseSoundTrack.play();
+      houseSoundTrack.loop();
+    }
+  }
 }

@@ -70,5 +70,8 @@ class KeyPressedState {
     if (state === 'Speaker') {
       secretCode.keyPressed();
     }
+    else if (state === 'Hallway') {
+      hallway.keyPressed();
+    }
   }
 }
