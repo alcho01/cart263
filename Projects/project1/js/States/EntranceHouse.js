@@ -86,7 +86,7 @@ class EntranceHouse extends Universal{
 
   //Display Alert to notify user that they can interact with the item
   displayAlert() {
-    //Check if the with is equal to the max width and the x is at the minimum position
+    //Check if the width is equal to the max width and the x is at the minimum position
    if (this.width === this.maxWidth && this.x === this.minX) {
      //Display the alert
      push();

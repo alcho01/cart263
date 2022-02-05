@@ -53,7 +53,7 @@ let secretCode;
 let hallway;
 
 //Determine what the starting state should be
-let state = "PreTitle";
+let state = "Hallway";
 
 //Every variable is organized by the order of the story from the title to each act to the end.
 

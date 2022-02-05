@@ -26,6 +26,7 @@ class StateShow {
     else if (state === "Entrance") {
       entranceHouse.display();
       entranceHouse.displayAlert();
+      hallway.resetPosition();
     }
   }
 
