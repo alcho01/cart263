@@ -107,7 +107,17 @@ class StateShow {
     }
     //Display the hallway
     else if (state === "Hallway") {
+      //Display the hallway
       hallway.display();
+      //Check if walked through entrance
+      hallway.checkPosition();
+    }
+    //Display chris in the chair
+    else if (state === "Basement") {
+      //Stop the whiteNoise
+      whiteNoiseSFX.stop();
+      //Display the basement
+      basement.display();
     }
   }
 }

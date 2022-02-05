@@ -51,6 +51,7 @@ let sunkenPlace;
 let bedRoom;
 let secretCode;
 let hallway;
+let basement;
 
 //Determine what the starting state should be
 let state = "Hallway";
@@ -148,6 +149,10 @@ let hallwayImage;
 //Whitenoise SFX
 let whiteNoiseSFX;
 
+//basement Images
+let basementImage1;
+let basementImage2;
+
 //Preload sounds/images
 function preload() {
 
@@ -237,6 +242,10 @@ function preload() {
   hallwayImage = loadImage("assets/images/Simulation/hallway.png");
   //Load the whiteNoiseSFX
   whiteNoiseSFX = loadSound("assets/sounds/whitenoise.wav");
+
+  //Load the basement images
+  basementImage1 = loadImage("assets/images/Simulation/stucktochair.png");
+  basementImage2 = loadImage("assets/images/Simulation/stucktochair2.png");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -296,6 +305,8 @@ function setup() {
   secretCode = new SecretCode(800, 1000, 400, 500, secretCodeImage);
   //Create the class for the hallway
   hallway = new Hallway(800, 1000, 400, 500, hallwayImage);
+  //Create the class for the basement
+  basement = new Basement(800, 1000, 400, 500, basementImage1, basementImage2);
 }
 
 //Displaying the states

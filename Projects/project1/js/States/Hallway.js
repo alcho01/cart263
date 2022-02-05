@@ -1,4 +1,6 @@
 //This class contains the hallway scene.
+//Displays the hallway
+//Add the user movement with constraints
 class Hallway extends Universal {
   constructor(w, h, x, y, hallwayImage) {
     //Same parameters as the universal class
@@ -45,6 +47,13 @@ class Hallway extends Universal {
     imageMode(CENTER);
     image(this.hallwayImage, this.xConstrain, this.yConstrain, this.widthConstrain, this.heightConstrain);
     pop();
+  }
+
+  //Check if the user is close enough to the entrance
+  checkPosition() {
+    if (this.width >= this.maxWidth) {
+      state = 'Basement';
+    }
   }
 
   //Reset the hall's position
