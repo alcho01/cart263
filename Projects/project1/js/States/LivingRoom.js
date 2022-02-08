@@ -75,7 +75,7 @@ class LivingRoom extends Universal {
     pop();
   }
 
-  //keypressed functionality
+  //If the D key is pressed go back to the entrance
   keyPressed() {
     if (keyCode === 68) {
       state = 'Entrance';
@@ -89,6 +89,14 @@ class LivingRoom extends Universal {
       state = 'Hypnosis';
       houseSoundTrack.stop();
       hypnosisSong.play();
+    }
+  }
+
+  //Get up from the chair
+  upFromChair() {
+    //Escape Key
+    if (keyCode === 27) {
+      state = 'LivingRoom';
     }
   }
 
