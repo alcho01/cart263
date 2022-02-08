@@ -45,7 +45,7 @@ class Basement extends Universal {
   cubeDisplay() {
     //Display the cube
     push();
-    fill(255);
+    noFill();
     stroke(this.cube.stroke);
     rectMode(CENTER);
     rect(this.cube.x, this.cube.y, this.cube.width, this.cube.height);
