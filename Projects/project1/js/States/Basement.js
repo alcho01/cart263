@@ -33,7 +33,7 @@ class Basement extends Universal {
   tvZoomIn() {
     if (mouseX > this.television.x && mouseX < this.television.x2) {
       if (mouseY > this.television.y && mouseY < this.television.y2) {
-        //console.log('hello');
+        
       }
     }
   }
