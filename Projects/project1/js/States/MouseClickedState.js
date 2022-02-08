@@ -36,4 +36,12 @@ class MouseClickedState {
       bedRoom.mouseClicked();
     }
   }
+
+  //Act 3
+  act3Activate() {
+    //Mouse Clicked ready for when the tv is clicked
+    if (state === 'Basement') {
+
+    }
+  }
 }

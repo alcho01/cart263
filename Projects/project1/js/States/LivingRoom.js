@@ -20,10 +20,12 @@ class LivingRoom extends Universal {
     this.missyArmitageImage3 = missyArmitageImage3;
 
     //Boundaries for the chair
-    this.chairX = 30;
-    this.chairX2 = 336;
-    this.chairY = 546;
-    this.chairY2 = 825;
+    this.chair = {
+      x: 30,
+      x2: 336,
+      y: 546,
+      y2: 825,
+    };
 
     //text
     this.text = {
@@ -75,7 +77,7 @@ class LivingRoom extends Universal {
     pop();
   }
 
-  //keypressed functionality
+  //If the D key is pressed go back to the entrance
   keyPressed() {
     if (keyCode === 68) {
       state = 'Entrance';
@@ -92,10 +94,18 @@ class LivingRoom extends Universal {
     }
   }
 
+  //Get up from the chair
+  upFromChair() {
+    //Escape Key
+    if (keyCode === 27) {
+      state = 'LivingRoom';
+    }
+  }
+
   //mouseclicked functionality
   mouseClicked() {
-    if (mouseX > this.chairX && mouseX < this.chairX2) {
-      if (mouseY > this.chairY && mouseY < this.chairY2) {
+    if (mouseX > this.chair.x && mouseX < this.chair.x2) {
+      if (mouseY > this.chair.y && mouseY < this.chair.y2) {
         state = 'InChair';
       }
     }

@@ -54,7 +54,7 @@ let hallway;
 let basement;
 
 //Determine what the starting state should be
-let state = "Hallway";
+let state = "PreTitle"; //pretitle
 
 //Every variable is organized by the order of the story from the title to each act to the end.
 
@@ -333,6 +333,7 @@ function mouseClicked() {
   mouseClickedState.titleActivate();
   mouseClickedState.act1Activate();
   mouseClickedState.act2Activate();
+  mouseClickedState.act3Activate();
 }
 
 //Put the voice input to lower case to avoid errors

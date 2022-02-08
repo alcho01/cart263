@@ -13,10 +13,12 @@ class TitleState extends Universal {
     this.titleImage3 = titleImage3;
 
     //Boundaries for the start button
-    this.buttonX = 269;
-    this.buttonX2 = 534;
-    this.buttonY = 299;
-    this.buttonY2 = 453;
+    this.button = {
+      x: 269,
+      x2: 534,
+      y: 299,
+      y2: 453,
+    };
   }
 
   //Display the title sequence
@@ -36,8 +38,8 @@ class TitleState extends Universal {
 
   //Mouse clicked functionality
   mouseClicked() {
-    if (mouseX > this.buttonX && mouseX < this.buttonX2) {
-      if (mouseY > this.buttonY && mouseY < this.buttonY2) {
+    if (mouseX > this.button.x && mouseX < this.button.x2) {
+      if (mouseY > this.button.y && mouseY < this.button.y2) {
         state = 'Outside';
         //Sound Settings
         titleTheme.stop();

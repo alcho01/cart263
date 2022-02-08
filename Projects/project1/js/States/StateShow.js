@@ -118,6 +118,8 @@ class StateShow {
       whiteNoiseSFX.stop();
       //Display the basement
       basement.display();
+      //Display the cube //And movement
+      basement.cubeDisplay();
     }
   }
 }

@@ -24,10 +24,12 @@ class OutsideHouse extends Universal{
     this.outsideHouseImage = outsideHouseImage;
 
     //Boundaries for the door
-    this.doorX = 243;
-    this.doorX2 = 568;
-    this.doorY = 380;
-    this.doorY2 = 946;
+    this.door = {
+      x: 243,
+      x2: 568,
+      y: 380,
+      y2: 946,
+    };
   }
 
   //display the outside of the house
@@ -55,8 +57,8 @@ class OutsideHouse extends Universal{
   mouseClicked() {
     //If the width is equal or greater to the max width enter the house
     if (this.width >= this.maxWidth) {
-      if (mouseX > this.doorX && mouseX < this.doorX2) {
-        if (mouseY > this.doorY && mouseY < this.doorY2) {
+      if (mouseX > this.door.x && mouseX < this.door.x2) {
+        if (mouseY > this.door.y && mouseY < this.door.y2) {
           state = 'Entrance';
           //Sound Settings
           //sunkenPlaceSong.play();

@@ -53,6 +53,7 @@ class Hallway extends Universal {
   checkPosition() {
     if (this.width >= this.maxWidth) {
       state = 'Basement';
+      //Play a soundtrack
     }
   }
 
@@ -66,8 +67,8 @@ class Hallway extends Universal {
 
   //key pressed functionality
   keyPressed() {
-    //S key
-    if (keyCode === 83) {
+    //Escape key
+    if (keyCode === 27) {
       //Return to entrance
       state = 'Entrance';
       //Reset the room position and the hallway position

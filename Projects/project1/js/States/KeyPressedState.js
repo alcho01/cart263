@@ -33,6 +33,7 @@ class KeyPressedState {
     //Works only when it is in the chair
     else if (state === 'InChair') {
       livingRoom.nextScene();
+      livingRoom.upFromChair();
     }
     //Works only on hypnosis scene
     else if (state === 'Hypnosis') {
