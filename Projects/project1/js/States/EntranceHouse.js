@@ -40,22 +40,28 @@ class EntranceHouse extends Universal{
     this.entranceHouseImage = entranceHouseImage;
 
     //Boundaries for the opening of the bedroom
-    this.stairsX = 165;
-    this.stairsX2 = 575;
-    this.stairsY = 0;
-    this.stairsY2 = 670;
+    this.stairs = {
+      x: 165,
+      x2: 575,
+      y: 0,
+      y2: 670,
+    };
 
     //Boundaries for basement door
-    this.basementX = 360;
-    this.basementX2 = 800;
-    this.basementY = 0;
-    this.basementY2 = 667;
+    this.basement = {
+      x: 360,
+      x2: 800,
+      y: 0,
+      y2: 667,
+    };
 
     //Boundaries for speaker
-    this.speakerX = 249;
-    this.speakerX2 = 352;
-    this.speakerY = 255;
-    this.speakerY2 = 308;
+    this.speaker = {
+      x: 249,
+      x2: 352,
+      y: 255,
+      y2: 308,
+    };
 
     //Text
     this.text = {
@@ -159,8 +165,8 @@ class EntranceHouse extends Universal{
     //If the user has been hypnotized permit the use of mouse clicked
     if (hypnotized === true) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
-      if (mouseX > this.stairsX && mouseX < this.stairsX2 && this.width === this.maxWidth && this.x === this.maxX) {
-        if (mouseY > this.stairsY && mouseY < this.stairsY2) {
+      if (mouseX > this.stairs.x && mouseX < this.stairs.x2 && this.width === this.maxWidth && this.x === this.maxX) {
+        if (mouseY > this.stairs.y && mouseY < this.stairs.y2) {
           //Change states to the bed room
           state = 'BedRoom';
         }
@@ -169,8 +175,8 @@ class EntranceHouse extends Universal{
     //The user has not been hypnotized
     if (hypnotized === false) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
-      if (mouseX > this.stairsX && mouseX < this.stairsX2 && this.width === this.maxWidth && this.x === this.maxX) {
-        if (mouseY > this.stairsY && mouseY < this.stairsY2) {
+      if (mouseX > this.stairs.x && mouseX < this.stairs.x2 && this.width === this.maxWidth && this.x === this.maxX) {
+        if (mouseY > this.stairs.y && mouseY < this.stairs.y2) {
           //play the locked door sfx
           lockedDoorSFX.play();
         }
@@ -179,8 +185,8 @@ class EntranceHouse extends Universal{
     //The basement door is locked at the start
     if (doorLocked === true) {
       //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
-      if (mouseX > this.basementX && mouseX < this.basementX2 && this.width === this.maxWidth && this.x === this.minX) {
-        if (mouseY > this.basementY && mouseY < this.basementY2) {
+      if (mouseX > this.basement.x && mouseX < this.basement.x2 && this.width === this.maxWidth && this.x === this.minX) {
+        if (mouseY > this.basement.y && mouseY < this.basement.y2) {
           //play the locked door sfx
           lockedDoorSFX.play();
         }
@@ -189,8 +195,8 @@ class EntranceHouse extends Universal{
     //Check if the basement door is unlocked
     if (doorLocked === false) {
       //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
-      if (mouseX > this.basementX && mouseX < this.basementX2 && this.width === this.maxWidth && this.x === this.minX) {
-        if (mouseY > this.basementY && mouseY < this.basementY2) {
+      if (mouseX > this.basement.x && mouseX < this.basement.x2 && this.width === this.maxWidth && this.x === this.minX) {
+        if (mouseY > this.basement.y && mouseY < this.basement.y2) {
           //Change the state to the basement hallway
           state = 'Hallway';
           //Play white noise
@@ -202,8 +208,8 @@ class EntranceHouse extends Universal{
       }
     }
     //Interact with the speaker
-    if (mouseX > this.speakerX && mouseX < this.speakerX2 && this.width === this.maxWidth && this.x === this.minX) {
-      if (mouseY > this.speakerY && mouseY < this.speakerY2) {
+    if (mouseX > this.speaker.x && mouseX < this.speaker.x2 && this.width === this.maxWidth && this.x === this.minX) {
+      if (mouseY > this.speaker.y && mouseY < this.speaker.y2) {
         //Change states to the close up of the speaker
         state = 'Speaker';
         //Speaker gives off a message

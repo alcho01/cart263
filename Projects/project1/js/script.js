@@ -333,6 +333,7 @@ function mouseClicked() {
   mouseClickedState.titleActivate();
   mouseClickedState.act1Activate();
   mouseClickedState.act2Activate();
+  mouseClickedState.act3Activate();
 }
 
 //Put the voice input to lower case to avoid errors
