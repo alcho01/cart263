@@ -51,13 +51,4 @@ class Basement extends Universal {
     rect(this.cube.x, this.cube.y, this.cube.width, this.cube.height);
     pop();
   }
-
-  //Zoom into the tv
-  tvZoomIn() {
-    if (mouseX > this.television.x && mouseX < this.television.x2) {
-      if (mouseY > this.television.y && mouseY < this.television.y2) {
-
-      }
-    }
-  }
 }

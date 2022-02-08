@@ -41,7 +41,7 @@ class MouseClickedState {
   act3Activate() {
     //Mouse Clicked ready for when the tv is clicked
     if (state === 'Basement') {
-      basement.tvZoomIn();
+
     }
   }
 }
