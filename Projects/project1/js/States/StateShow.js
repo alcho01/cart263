@@ -120,7 +120,6 @@ class StateShow {
       basement.display();
       //Display the cube //And movement
       basement.cubeDisplay();
-      basement.cubeMovement();
     }
   }
 }

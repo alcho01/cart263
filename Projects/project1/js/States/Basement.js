@@ -26,12 +26,6 @@ class Basement extends Universal {
       width: 20,
       height: 20,
       stroke: 255,
-      //Min Constrain
-      minX: 299,
-      minY: 60,
-      //Max Constrain
-      maxX: 463,
-      maxY: 190,
     };
   }
 
@@ -49,32 +43,13 @@ class Basement extends Universal {
 
   //Cube on the TV screen
   cubeDisplay() {
-    //Add constrains to the cube so it can't go off the tv
-    this.cubeHorizontalConstrain = constrain(this.cube.x, this.cube.minX, this.cube.maxX);
-    this.cubeVerticalConstrain = constrain(this.cube.y, this.cube.minY, this.cube.maxY);
     //Display the cube
     push();
-    noFill();
+    fill(255);
     stroke(this.cube.stroke);
     rectMode(CENTER);
-    rect(this.cubeHorizontalConstrain, this.cubeVerticalConstrain, this.cube.width, this.cube.height);
+    rect(this.cube.x, this.cube.y, this.cube.width, this.cube.height);
     pop();
-  }
-
-  //Cube movement
-  cubeMovement() {
-    if (keyIsDown(RIGHT_ARROW)) {
-      this.cube.x = this.cube.x += this.cube.vx;
-    }
-    else if (keyIsDown(DOWN_ARROW)) {
-      this.cube.y = this.cube.y += this.cube.vy;
-    }
-    else if (keyIsDown(UP_ARROW)) {
-      this.cube.y = this.cube.y -= this.cube.vy;
-    }
-    else if (keyIsDown(LEFT_ARROW)) {
-      this.cube.x = this.cube.x -= this.cube.vx;
-    }
   }
 
   //Zoom into the tv
