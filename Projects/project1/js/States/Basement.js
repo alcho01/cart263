@@ -1,6 +1,6 @@
 //This class contains the basement info and interaction
 //Display the basement as an animation flickering between both images
-//Display the cube on the tv screen 
+//Display the cube on the tv screen
 class Basement extends Universal {
   constructor (w, h, x, y, basementImage1, basementImage2) {
     //extend from the universal class
@@ -22,8 +22,6 @@ class Basement extends Universal {
     this.cube = {
       x: 383,
       y: 120,
-      vx: 3,
-      vy: 3,
       width: 20,
       height: 20,
       stroke: 255,
