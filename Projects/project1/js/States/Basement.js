@@ -17,15 +17,6 @@ class Basement extends Universal {
       y: 350,
       y2: 530,
     };
-
-    //Cube parameters
-    this.cube = {
-      x: 383,
-      y: 120,
-      width: 20,
-      height: 20,
-      stroke: 255,
-    };
   }
 
   //Display the basement image as animated
@@ -37,17 +28,6 @@ class Basement extends Universal {
     } else if (frameCount % 30 < 15 / 2) {
       image(this.basementImage2, this.x, this.y, this.width, this.height);
     }
-    pop();
-  }
-
-  //Cube on the TV screen
-  cubeDisplay() {
-    //Display the cube
-    push();
-    noFill();
-    stroke(this.cube.stroke);
-    rectMode(CENTER);
-    rect(this.cube.x, this.cube.y, this.cube.width, this.cube.height);
     pop();
   }
 

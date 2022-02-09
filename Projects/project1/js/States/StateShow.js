@@ -118,8 +118,6 @@ class StateShow {
       whiteNoiseSFX.stop();
       //Display the basement
       basement.display();
-      //Display the cube //And movement
-      basement.cubeDisplay();
     }
     //Display the state of undoing the left arm
     else if (state === "UntieLeftArm") {

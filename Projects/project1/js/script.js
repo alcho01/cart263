@@ -13,6 +13,8 @@ Radio SFX - https://freesound.org/people/eddy15/sounds/91999/
 Locked Door SFX - https://freesound.org/people/BenjaminNelan/sounds/321087/
 Door Unlocked SFX - https://freesound.org/people/angelkunev/sounds/519065/
 White Noise SFX - https://freesound.org/people/seth-m/sounds/269721/
+Breath SFX - https://freesound.org/people/Juandamb/sounds/430627/
+Struggle SFX - https://freesound.org/people/greenlinker/sounds/484995/
 */
 
 "use strict";
