@@ -121,5 +121,10 @@ class StateShow {
       //Display the cube //And movement
       basement.cubeDisplay();
     }
+    //Display the state of undoing the left arm
+    else if (state === "UntieLeftArm") {
+      //Display the left arm
+      leftArm.display();
+    }
   }
 }

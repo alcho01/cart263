@@ -24,6 +24,7 @@ let amplitude;
 let maxVolume = 0.1;
 let maxMusicVolume = 0.3;
 let radioVolume = 2;
+let struggleVolume = 2.5;
 
 //Setting the canvas dimensions
 let canvasDimensions = {
@@ -52,9 +53,10 @@ let bedRoom;
 let secretCode;
 let hallway;
 let basement;
+let leftArm;
 
 //Determine what the starting state should be
-let state = "PreTitle"; //pretitle
+let state = "Hallway"; //pretitle
 
 //Every variable is organized by the order of the story from the title to each act to the end.
 
@@ -153,6 +155,15 @@ let whiteNoiseSFX;
 let basementImage1;
 let basementImage2;
 
+//Untying SFX
+let struggleSFX;
+let breathSFX;
+
+//Unshackling left arm images
+let leftArmImage1;
+let leftArmImage2;
+let leftArmImage3;
+
 //Preload sounds/images
 function preload() {
 
@@ -246,6 +257,16 @@ function preload() {
   //Load the basement images
   basementImage1 = loadImage("assets/images/Simulation/stucktochair.png");
   basementImage2 = loadImage("assets/images/Simulation/stucktochair2.png");
+
+  //Load the untying SFX
+  struggleSFX = loadSound("assets/sounds/struggle.wav");
+  breathSFX = loadSound("assets/sounds/breath.wav");
+
+  //Load the left arm Images
+  leftArmImage1 = loadImage("assets/images/Simulation/untie.png");
+  leftArmImage2 = loadImage("assets/images/Simulation/untie2.png");
+  leftArmImage3 = loadImage("assets/images/Simulation/untie3.png");
+
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -255,6 +276,7 @@ function setup() {
   houseSoundTrack.setVolume(maxMusicVolume);
   indoorFootStepSFX.setVolume(maxVolume);
   radioStaticSFX.setVolume(radioVolume);
+  struggleSFX.setVolume(struggleVolume);
 
   //Create the canvas
   createCanvas(canvasDimensions.w, canvasDimensions.h);
@@ -307,6 +329,8 @@ function setup() {
   hallway = new Hallway(800, 1000, 400, 500, hallwayImage);
   //Create the class for the basement
   basement = new Basement(800, 1000, 400, 500, basementImage1, basementImage2);
+  //Create the class for the left arm
+  leftArm = new LeftArm(800, 1000, 400, 500, leftArmImage1, leftArmImage2, leftArmImage3);
 }
 
 //Displaying the states

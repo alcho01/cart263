@@ -10,12 +10,12 @@ class Basement extends Universal {
     this.basementImage1 = basementImage1;
     this.basementImage2 = basementImage2;
 
-    //TV Constraints
-    this.television = {
-      x: 270,
-      x2: 530,
-      y: 0,
-      y2: 210,
+    //Left Arm Constraints
+    this.leftArm = {
+      x: 262,
+      x2: 363,
+      y: 350,
+      y2: 530,
     };
 
     //Cube parameters
@@ -49,5 +49,14 @@ class Basement extends Universal {
     rectMode(CENTER);
     rect(this.cube.x, this.cube.y, this.cube.width, this.cube.height);
     pop();
+  }
+
+  //mouse functionality
+  mouseClicked() {
+    if (mouseX > this.leftArm.x && mouseX < this.leftArm.x2 ) {
+      if (mouseY > this.leftArm.y && mouseY < this.leftArm.y2) {
+        state = 'UntieLeftArm';
+      }
+    }
   }
 }

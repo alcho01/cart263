@@ -71,8 +71,13 @@ class KeyPressedState {
     if (state === 'Speaker') {
       secretCode.keyPressed();
     }
+    //Works only in the hallway
     else if (state === 'Hallway') {
       hallway.keyPressed();
+    }
+    //Works only when undoing the left arm 
+    else if (state === 'UntieLeftArm') {
+      leftArm.keyPressed();
     }
   }
 }

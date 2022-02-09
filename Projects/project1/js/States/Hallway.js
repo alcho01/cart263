@@ -53,7 +53,9 @@ class Hallway extends Universal {
   checkPosition() {
     if (this.width >= this.maxWidth) {
       state = 'Basement';
-      //Play a soundtrack
+      //Resume the soundtrack
+      houseSoundTrack.play();
+      houseSoundTrack.loop();
     }
   }
 
