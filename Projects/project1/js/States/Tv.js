@@ -6,6 +6,14 @@ class Tv extends Universal {
 
     //Image
     this.tvImage = tvImage;
+
+    //tv play button Constraints
+    this.button = {
+      x: 663,
+      x2: 773,
+      y: 350,
+      y2: 460,
+    };
   }
 
   //Display the tv
@@ -14,5 +22,18 @@ class Tv extends Universal {
     imageMode(CENTER);
     image(this.tvImage, this.x, this.y, this.width, this.height);
     pop();
+  }
+
+  //mouse clicked functionality
+  mouseClicked() {
+    //Calculate the tv's play button position
+    if (mouseX > this.button.x && mouseX < this.button.x2) {
+      if (mouseY > this.button.y && mouseY < this.button.y2) {
+        //Change state to the coagula
+        state = "Coagula";
+        //Play the narration voice
+        narrationSFX.play();
+      }
+    }
   }
 }

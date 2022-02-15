@@ -43,5 +43,9 @@ class MouseClickedState {
     if (state === 'Basement') {
       basement.mouseClicked();
     }
+    //Mouse Clicked ready for when the tv play button is clicked
+    else if (state === 'Tv') {
+      tv.mouseClicked();
+    }
   }
 }

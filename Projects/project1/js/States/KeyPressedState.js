@@ -87,5 +87,8 @@ class KeyPressedState {
     else if (state === 'Boots') {
       boots.keyPressed();
     }
+    else if (state === 'Coagula') {
+      coagula.keyPressed();
+    }
   }
 }

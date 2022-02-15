@@ -139,5 +139,10 @@ class StateShow {
       //Display the boots
       tv.display();
     }
+    //Display the state of the coagula
+    else if (state === "Coagula") {
+      //Display the coagula
+      coagula.display();
+    }
   }
 }

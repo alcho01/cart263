@@ -18,6 +18,8 @@ Struggle SFX - https://freesound.org/people/greenlinker/sounds/484995/
 tvNoise SFX - https://freesound.org/people/TRP/sounds/616850/
 squelch SFX - https://freesound.org/people/magnuswaker/sounds/524952/
 Narrative Speech on Tv - https://www.youtube.com/watch?v=vuXi8e93khU&ab_channel=038529CHK
+
+Blob concept - https://editor.p5js.org/codingtrain/sketches/L_ME8qKmQ
 */
 
 "use strict";
@@ -62,6 +64,7 @@ let leftArm;
 let rightArm;
 let boots;
 let tv;
+let coagula;
 
 //Determine what the starting state should be
 let state = "Hallway"; //pretitle
@@ -185,6 +188,11 @@ let tvImage;
 //Tv noise
 let tvSFX;
 
+//Squelch noise
+let squelchSFX;
+//Narration voice
+let narrationSFX;
+
 //Preload sounds/images
 function preload() {
 
@@ -300,6 +308,11 @@ function preload() {
   tvImage = loadImage("assets/images/Simulation/tv.png");
   //Load the TV noise SFX
   tvSFX = loadSound("assets/sounds/tvnoise.wav");
+
+  //Load the squelching SFX
+  squelchSFX = loadSound("assets/sounds/squelch.wav");
+  //Load the narration SFX
+  narrationSFX = loadSound("assets/sounds/narrationOnTv.wav");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -370,6 +383,8 @@ function setup() {
   boots = new Boots(800, 1000, 400, 500, bootsImage1, bootsImage2, bootsImage3);
   //Create the class for the tv
   tv = new Tv(800, 1000, 400, 500, tvImage);
+  //Create the coagula(blob) that is seen in the tv
+  coagula = new Coagula(800, 1000, 400, 500);
 }
 
 //Displaying the states
