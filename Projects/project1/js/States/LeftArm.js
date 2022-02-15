@@ -41,8 +41,8 @@ class LeftArm extends Universal {
 
   //Key pressed functionality
   keyPressed() {
-    //Right key
-    if (keyCode === 39) {
+    //D key
+    if (keyCode === 68) {
       //Check if the right key is pressed to display this image
       this.currentImage = this.leftArmImage1;
       //Add a progress point when this key is pressed
@@ -50,14 +50,19 @@ class LeftArm extends Universal {
       //Play the struggleSFX
       struggleSFX.play();
     }
-    //Left key
-    else if (keyCode === 37) {
+    //A key
+    else if (keyCode === 65) {
       //Check if the left key is pressed to display the image
       this.currentImage = this.leftArmImage2;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;
       //Play the struggleSFX
       struggleSFX.play();
+    }
+    //Left Arrow Key
+    else if (keyCode === 39) {
+      //Go to the right arm
+      state = '';
     }
   }
 }
