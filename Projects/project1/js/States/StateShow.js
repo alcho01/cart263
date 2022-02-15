@@ -14,6 +14,10 @@ class StateShow {
     else if (state === "Title") {
       titleState.display();
     }
+    //Instructions
+    else if (state === "Instructions")  {
+      instructions.display();
+    }
   }
 
   //Display Act 1 states
@@ -144,6 +148,15 @@ class StateShow {
       //Display the coagula
       coagula.display();
       coagula.checkTimer();
+    }
+  }
+
+  //Display the ending
+  endingActivate() {
+    //Credits
+    if (state === "Credits") {
+      credits.display();
+      credits.rollUp();
     }
   }
 }

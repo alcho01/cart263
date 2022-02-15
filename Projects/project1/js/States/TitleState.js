@@ -40,11 +40,7 @@ class TitleState extends Universal {
   mouseClicked() {
     if (mouseX > this.button.x && mouseX < this.button.x2) {
       if (mouseY > this.button.y && mouseY < this.button.y2) {
-        state = 'Outside';
-        //Sound Settings
-        titleTheme.stop();
-        windSFX.play();
-        windSFX.loop();
+        state = 'Instructions';
       }
     }
   }

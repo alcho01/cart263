@@ -10,6 +10,10 @@ class KeyPressedState {
     if (state === 'PreTitle') {
       preTitleState.keyPressed();
     }
+    //Works only when it is on the instructions
+    else if (state === 'Instructions') {
+      instructions.keyPressed();
+    }
   }
 
   //Act 1

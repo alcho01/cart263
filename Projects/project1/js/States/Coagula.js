@@ -1,9 +1,13 @@
 //The class containing the coagula or blob shape.
-class Coagula extends Universal {
+//Display the coagula
+//Check the time
+//Use key pressed to increase or decrease size.
+class Coagula extends Universal{
   constructor(w, h, x, y) {
     //Same parameters as the universal class
     super(w, h, x, y);
-
+    //Coagula Color
+    this.white = 255;
     //background color
     this.bgColor = 0;
     //Offset
@@ -33,6 +37,8 @@ class Coagula extends Universal {
     translate(width / 2, height / 2);
     //Begin the shape
     push();
+    //fill white
+    fill(this.white);
     beginShape();
     //X offset
     this.xOffset = 5;
@@ -61,7 +67,7 @@ class Coagula extends Universal {
     //Decrease the time by a second
     this.timer -= 1/60;
     //When the timer is near the end start ramping up the speed of its motion
-    if (this.timer <= 15) {
+    if (this.timer <= 18) {
       this.yOffset += this.yOffIncrease2;
     }
     //When the timer is a second before the end make it grow big to fill the screen and transition to the next state

@@ -65,10 +65,12 @@ class Boots extends Universal {
       //Play the struggleSFX
       struggleSFX.play();
     }
-    //Down Arrow Key
+    //Up Arrow Key
     else if (keyCode === 38) {
-      //Go to 
-      state = "";
+      //Roll the Credits
+      state = "Credits";
+      //Play the intro/outro music
+      titleTheme.play();
     }
   }
 }

@@ -2,6 +2,16 @@
 Project 1 - Get Out
 Alex Cho
 
+Brief
+Place in a film [DONE]
+Interactive Scenes [DONE]
+Film Experience [DONE]
+Tell a part of the film [DONE]
+Interactive[DONE]
+Uses p5.js [DONE]
+Uses other libraries (P5.sound, responsiveVoice, and Annyang) [DONE]
+Include Artist Statement in readme [DONE]
+
 Sources
 Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
 Simulation Song - https://www.youtube.com/watch?v=8775EWbDokw&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=24&ab_channel=Lumen
@@ -51,6 +61,7 @@ let keyPressedState;
 //Preparing classes for states
 let preTitleState;
 let titleState;
+let instructions
 let outsideHouse;
 let entranceHouse;
 let livingRoom;
@@ -65,9 +76,10 @@ let rightArm;
 let boots;
 let tv;
 let coagula;
+let credits;
 
 //Determine what the starting state should be
-let state = "Hallway"; //pretitle
+let state = "PreTitle"; //pretitle
 
 //Every variable is organized by the order of the story from the title to each act to the end.
 
@@ -80,6 +92,9 @@ let titleImage3;
 
 //Title Song
 let titleTheme;
+
+//Instructions
+let instructionsImage;
 
 //--Simulation Entities--//
 
@@ -193,6 +208,11 @@ let squelchSFX;
 //Narration voice
 let narrationSFX;
 
+//Ending
+
+//Credits image
+let creditsImage;
+
 //Preload sounds/images
 function preload() {
 
@@ -204,6 +224,8 @@ function preload() {
   titleImage1 = loadImage("assets/images/Title/titlesequence1.png");
   titleImage2 = loadImage("assets/images/Title/titlesequence2.png");
   titleImage3 = loadImage("assets/images/Title/titlesequence3.png");
+  //Preload the instructions image
+  instructionsImage = loadImage("assets/images/Title/instructions.png");
 
   //ACT 1
 
@@ -313,6 +335,10 @@ function preload() {
   squelchSFX = loadSound("assets/sounds/squelch.wav");
   //Load the narration SFX
   narrationSFX = loadSound("assets/sounds/narrationOnTv.wav");
+
+  //Ending
+  //Load the credits
+  creditsImage = loadImage("assets/images/Simulation/credits.png");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -355,6 +381,8 @@ function setup() {
   preTitleState = new PreTitleState(800, 1000, 400, 500);
   //Create the class for the title state
   titleState = new TitleState(800, 1000, 400, 500, titleImage1, titleImage2, titleImage3);
+  //Create the class for the instructions
+  instructions = new Instructions(800, 1000, 400, 500, instructionsImage);
   //Create the class for the outside of the house
   outsideHouse = new OutsideHouse(800, 1000, 400, 500, outsideHouseImage);
   //Create the class for the entrance of the house which extends to multiple rooms
@@ -385,6 +413,9 @@ function setup() {
   tv = new Tv(800, 1000, 400, 500, tvImage);
   //Create the coagula(blob) that is seen in the tv
   coagula = new Coagula(800, 1000, 400, 500);
+
+  //Create the class for the credis
+  credits = new Credits(800, 1000, 400, 2500, creditsImage);
 }
 
 //Displaying the states
@@ -394,6 +425,7 @@ function draw() {
   stateShow.act1Activate();
   stateShow.act2Activate();
   stateShow.act3Activate();
+  stateShow.endingActivate();
 }
 
 //Key pressed functionality
