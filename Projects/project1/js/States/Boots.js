@@ -67,8 +67,8 @@ class Boots extends Universal {
     }
     //Down Arrow Key
     else if (keyCode === 38) {
-      //Go to the right arm
-      state = '';
+      //Go to 
+      state = "";
     }
   }
 }

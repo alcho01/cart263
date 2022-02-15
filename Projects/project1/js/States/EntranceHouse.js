@@ -2,9 +2,8 @@
 //Add key pressed events which correspond to the movement
 //Add mouse clicked events which correspond to interacting with objects/rooms
 
-class EntranceHouse extends Universal{
+class EntranceHouse extends Universal {
   constructor(w, h, x, y, entranceHouseImage) {
-
     //extended from the universal class
     super(w, h, x, y);
 
@@ -93,32 +92,40 @@ class EntranceHouse extends Universal{
   //Display Alert to notify user that they can interact with the item
   displayAlert() {
     //Check if the width is equal to the max width and the x is at the minimum position
-   if (this.width === this.maxWidth && this.x === this.minX) {
-     //Display the alert
-     push();
-     noStroke();
-     textAlign(CENTER);
-     textSize(this.text.size);
-     fill(this.text.black);
-     text('Click me', this.text.x, this.text.y);
+    if (this.width === this.maxWidth && this.x === this.minX) {
+      //Display the alert
+      push();
+      noStroke();
+      textAlign(CENTER);
+      textSize(this.text.size);
+      fill(this.text.black);
+      text("Click me", this.text.x, this.text.y);
     }
-   if (hypnotized === true && this.width === this.maxWidth && this.x === this.maxX) {
-     //Display the alert
-     push();
-     noStroke();
-     textAlign(CENTER);
-     textSize(this.text.size);
-     fill(this.text.black);
-     text('Click me to go upstairs', this.text.x, this.text.y);
+    if (
+      hypnotized === true &&
+      this.width === this.maxWidth &&
+      this.x === this.maxX
+    ) {
+      //Display the alert
+      push();
+      noStroke();
+      textAlign(CENTER);
+      textSize(this.text.size);
+      fill(this.text.black);
+      text("Click me to go upstairs", this.text.x, this.text.y);
     }
-   if (doorLocked === false && this.width === this.maxWidth && this.x === this.minX) {
-     //Display the alert
-     push();
-     noStroke();
-     textAlign(CENTER);
-     textSize(this.text.size);
-     fill(this.text.black);
-     text('Click me to go downstairs', this.text.downX, this.text.downY);
+    if (
+      doorLocked === false &&
+      this.width === this.maxWidth &&
+      this.x === this.minX
+    ) {
+      //Display the alert
+      push();
+      noStroke();
+      textAlign(CENTER);
+      textSize(this.text.size);
+      fill(this.text.black);
+      text("Click me to go downstairs", this.text.downX, this.text.downY);
     }
   }
 
@@ -131,23 +138,35 @@ class EntranceHouse extends Universal{
       this.height += this.increaseHeight;
     }
     //If the "S" key is pressed and the initial width is more than the minimum width decrease both width and height. (Must be at center of room to back up)
-    else if (keyCode === 83 && this.width > this.minWidth && this.x === this.origin) {
+    else if (
+      keyCode === 83 &&
+      this.width > this.minWidth &&
+      this.x === this.origin
+    ) {
       indoorFootStepSFX.play();
       this.width -= this.decreaseWidth;
       this.height -= this.decreaseHeight;
     }
     //If the "A" key is pressed move to the left
-    else if (keyCode === 65 && this.width === this.maxWidth && this.x < this.maxX) {
+    else if (
+      keyCode === 65 &&
+      this.width === this.maxWidth &&
+      this.x < this.maxX
+    ) {
       indoorFootStepSFX.play();
       this.x += this.incrementX;
     }
     //If x position is equal to the maximum x position change states to the living room
     else if (keyCode === 65 && this.x >= this.maxX) {
       indoorFootStepSFX.play();
-      state = 'LivingRoom';
+      state = "LivingRoom";
     }
     //If the "D" key is pressed move to the right
-    else if (keyCode === 68 && this.width === this.maxWidth && this.x > this.minX) {
+    else if (
+      keyCode === 68 &&
+      this.width === this.maxWidth &&
+      this.x > this.minX
+    ) {
       indoorFootStepSFX.play();
       this.x -= this.incrementX;
     }
@@ -165,17 +184,27 @@ class EntranceHouse extends Universal{
     //If the user has been hypnotized permit the use of mouse clicked
     if (hypnotized === true) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
-      if (mouseX > this.stairs.x && mouseX < this.stairs.x2 && this.width === this.maxWidth && this.x === this.maxX) {
+      if (
+        mouseX > this.stairs.x &&
+        mouseX < this.stairs.x2 &&
+        this.width === this.maxWidth &&
+        this.x === this.maxX
+      ) {
         if (mouseY > this.stairs.y && mouseY < this.stairs.y2) {
           //Change states to the bed room
-          state = 'BedRoom';
+          state = "BedRoom";
         }
       }
     }
     //The user has not been hypnotized
     if (hypnotized === false) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
-      if (mouseX > this.stairs.x && mouseX < this.stairs.x2 && this.width === this.maxWidth && this.x === this.maxX) {
+      if (
+        mouseX > this.stairs.x &&
+        mouseX < this.stairs.x2 &&
+        this.width === this.maxWidth &&
+        this.x === this.maxX
+      ) {
         if (mouseY > this.stairs.y && mouseY < this.stairs.y2) {
           //play the locked door sfx
           lockedDoorSFX.play();
@@ -185,7 +214,12 @@ class EntranceHouse extends Universal{
     //The basement door is locked at the start
     if (doorLocked === true) {
       //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
-      if (mouseX > this.basement.x && mouseX < this.basement.x2 && this.width === this.maxWidth && this.x === this.minX) {
+      if (
+        mouseX > this.basement.x &&
+        mouseX < this.basement.x2 &&
+        this.width === this.maxWidth &&
+        this.x === this.minX
+      ) {
         if (mouseY > this.basement.y && mouseY < this.basement.y2) {
           //play the locked door sfx
           lockedDoorSFX.play();
@@ -195,10 +229,15 @@ class EntranceHouse extends Universal{
     //Check if the basement door is unlocked
     if (doorLocked === false) {
       //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
-      if (mouseX > this.basement.x && mouseX < this.basement.x2 && this.width === this.maxWidth && this.x === this.minX) {
+      if (
+        mouseX > this.basement.x &&
+        mouseX < this.basement.x2 &&
+        this.width === this.maxWidth &&
+        this.x === this.minX
+      ) {
         if (mouseY > this.basement.y && mouseY < this.basement.y2) {
           //Change the state to the basement hallway
-          state = 'Hallway';
+          state = "Hallway";
           //Play white noise
           whiteNoiseSFX.play();
           whiteNoiseSFX.loop();
@@ -208,14 +247,19 @@ class EntranceHouse extends Universal{
       }
     }
     //Interact with the speaker
-    if (mouseX > this.speaker.x && mouseX < this.speaker.x2 && this.width === this.maxWidth && this.x === this.minX) {
+    if (
+      mouseX > this.speaker.x &&
+      mouseX < this.speaker.x2 &&
+      this.width === this.maxWidth &&
+      this.x === this.minX
+    ) {
       if (mouseY > this.speaker.y && mouseY < this.speaker.y2) {
         //Change states to the close up of the speaker
-        state = 'Speaker';
+        state = "Speaker";
         //Speaker gives off a message
         responsiveVoice.speak("What is the secret Code", "French Male");
         //The answer output for annyang
-        this.answer = 'rotten';
+        this.answer = "rotten";
       }
     }
   }

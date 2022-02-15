@@ -3,7 +3,6 @@
 //Give mouse functionality
 class BedRoom extends Universal {
   constructor(w, h, x, y, bedRoomImage) {
-
     //extended from the universal class
     super(w, h, x, y);
 
@@ -50,7 +49,7 @@ class BedRoom extends Universal {
     if (mouseX > this.door.x && mouseX < this.door.x2) {
       if (mouseY > this.door.y && mouseY < this.door.y2) {
         //Change state to the entrance
-        state = 'Entrance';
+        state = "Entrance";
         //Play the door SFX
         frontDoorSFX.play();
         //Reset the position of this room so it isn't zoomed in

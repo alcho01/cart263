@@ -15,6 +15,9 @@ Door Unlocked SFX - https://freesound.org/people/angelkunev/sounds/519065/
 White Noise SFX - https://freesound.org/people/seth-m/sounds/269721/
 Breath SFX - https://freesound.org/people/Juandamb/sounds/430627/
 Struggle SFX - https://freesound.org/people/greenlinker/sounds/484995/
+tvNoise SFX - https://freesound.org/people/TRP/sounds/616850/
+squelch SFX - https://freesound.org/people/magnuswaker/sounds/524952/
+Narrative Speech on Tv - https://www.youtube.com/watch?v=vuXi8e93khU&ab_channel=038529CHK
 */
 
 "use strict";
@@ -179,6 +182,8 @@ let bootsImage3;
 
 //Tv image
 let tvImage;
+//Tv noise
+let tvSFX;
 
 //Preload sounds/images
 function preload() {
@@ -293,6 +298,8 @@ function preload() {
 
   //Load the TV screen image
   tvImage = loadImage("assets/images/Simulation/tv.png");
+  //Load the TV noise SFX
+  tvSFX = loadSound("assets/sounds/tvnoise.wav");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes

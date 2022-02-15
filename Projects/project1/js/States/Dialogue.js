@@ -3,7 +3,6 @@
 //Add a timer for the last line of dialogue to switch states when missy Armitage is done speaking
 class Dialogue extends Universal {
   constructor(w, h, x, y) {
-
     //extended from the universal class
     super(w, h, x, y);
 
@@ -100,7 +99,7 @@ class Dialogue extends Universal {
     this.timer -= 1 / 60;
     if (this.timer <= 0) {
       this.timer = 0;
-      state = 'SunkenPlace';
+      state = "SunkenPlace";
       dialogueASFX.stop();
       dialogueBSFX.stop();
       dialogueCSFX.stop();
@@ -114,7 +113,7 @@ class Dialogue extends Universal {
   //Key pressed for dialogue A
   keyPressed() {
     if (keyCode === 32) {
-      state = 'DialogueA';
+      state = "DialogueA";
       //hypnosisSong.stop();
       dialogueASFX.play();
     }
@@ -122,7 +121,7 @@ class Dialogue extends Universal {
   //Key pressed for dialogue B
   keyPressedB() {
     if (keyCode === 32) {
-      state = 'DialogueB';
+      state = "DialogueB";
       //hypnosisSong.stop();
       dialogueBSFX.play();
       dialogueASFX.stop();
@@ -131,7 +130,7 @@ class Dialogue extends Universal {
   //Key pressed for dialogue C
   keyPressedC() {
     if (keyCode === 32) {
-      state = 'DialogueC';
+      state = "DialogueC";
       //hypnosisSong.stop();
       dialogueCSFX.play();
       dialogueASFX.stop();
@@ -141,7 +140,7 @@ class Dialogue extends Universal {
   //Key pressed for dialogue D
   keyPressedD() {
     if (keyCode === 32) {
-      state = 'DialogueD';
+      state = "DialogueD";
       //hypnosisSong.stop();
       dialogueDSFX.play();
       dialogueASFX.stop();
@@ -152,13 +151,13 @@ class Dialogue extends Universal {
   //Key pressed on close up of eye
   keyPressedEye() {
     if (keyCode === 32) {
-      state = 'TearyEye';
+      state = "TearyEye";
     }
   }
   //Key pressed for dialogue E
   keyPressedE() {
     if (keyCode === 32) {
-      state = 'DialogueE';
+      state = "DialogueE";
       //hypnosisSong.stop();
       dialogueESFX.play();
       dialogueASFX.stop();
