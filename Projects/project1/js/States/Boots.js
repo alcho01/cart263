@@ -49,7 +49,7 @@ class Boots extends Universal {
   keyPressed() {
     //W key
     if (keyCode === 87 && this.goalMet === false) {
-      //Check if the D key is pressed to display this image
+      //Check if the W key is pressed to display this image
       this.currentImage = this.bootsImage2;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;
@@ -58,7 +58,7 @@ class Boots extends Universal {
     }
     //S key
     else if (keyCode === 83 && this.goalMet === false) {
-      //Check if the A key is pressed to display the image
+      //Check if the S key is pressed to display the image
       this.currentImage = this.bootsImage1;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;

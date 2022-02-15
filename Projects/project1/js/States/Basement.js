@@ -1,6 +1,5 @@
 //This class contains the basement info and interaction
 //Display the basement as an animation flickering between both images
-//Display the cube on the tv screen
 class Basement extends Universal {
   constructor (w, h, x, y, basementImage1, basementImage2) {
     //extend from the universal class
@@ -10,12 +9,12 @@ class Basement extends Universal {
     this.basementImage1 = basementImage1;
     this.basementImage2 = basementImage2;
 
-    //Left Arm Constraints
-    this.leftArm = {
-      x: 262,
-      x2: 363,
-      y: 350,
-      y2: 530,
+    //tv Constraints
+    this.tv = {
+      x: 268,
+      x2: 528,
+      y: 0,
+      y2: 220,
     };
   }
 
@@ -31,11 +30,14 @@ class Basement extends Universal {
     pop();
   }
 
-  //mouse functionality
+  //mouse clicked functionality
   mouseClicked() {
-    if (mouseX > this.leftArm.x && mouseX < this.leftArm.x2 ) {
-      if (mouseY > this.leftArm.y && mouseY < this.leftArm.y2) {
-        state = 'UntieLeftArm';
+    //Calculate the tv's position
+    if (mouseX > this.tv.x && mouseX < this.tv.x2) {
+      if (mouseY > this.tv.y && mouseY < this.tv.y2) {
+        //console.log('tv');
+        //Switch states
+        state = 'Tv';
       }
     }
   }
