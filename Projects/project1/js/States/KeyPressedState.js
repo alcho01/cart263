@@ -83,5 +83,9 @@ class KeyPressedState {
     else if (state === 'UntieRightArm') {
       rightArm.keyPressed();
     }
+    //Works only when undoing the boots
+    else if (state === 'Boots') {
+      boots.keyPressed();
+    }
   }
 }

@@ -57,6 +57,7 @@ let hallway;
 let basement;
 let leftArm;
 let rightArm;
+let boots;
 
 //Determine what the starting state should be
 let state = "Hallway"; //pretitle
@@ -170,6 +171,10 @@ let leftArmImage3;
 let rightArmImage1;
 let rightArmImage2;
 let rightArmImage3;
+//Unshackling boots images
+let bootsImage1;
+let bootsImage2;
+let bootsImage3;
 
 //Preload sounds/images
 function preload() {
@@ -277,6 +282,10 @@ function preload() {
   rightArmImage1 = loadImage("assets/images/Simulation/rightarm.png");
   rightArmImage2 = loadImage("assets/images/Simulation/rightarm2.png");
   rightArmImage3 = loadImage("assets/images/Simulation/rightarm3.png");
+  //Load the boots Images
+  bootsImage1 = loadImage("assets/images/Simulation/boots.png");
+  bootsImage2 = loadImage("assets/images/Simulation/boots2.png");
+  bootsImage3 = loadImage("assets/images/Simulation/boots3.png");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -343,6 +352,8 @@ function setup() {
   leftArm = new LeftArm(800, 1000, 400, 500, leftArmImage1, leftArmImage2, leftArmImage3);
   //Create the class for the right arm
   rightArm = new RightArm(800, 1000, 400, 500, rightArmImage1, rightArmImage2, rightArmImage3);
+  //Create the class for the boots
+  boots = new Boots(800, 1000, 400, 500, bootsImage1, bootsImage2, bootsImage3);
 }
 
 //Displaying the states

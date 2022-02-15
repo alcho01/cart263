@@ -126,8 +126,13 @@ class StateShow {
     }
     //Display the state of undoing the right arm
     else if (state === "UntieRightArm") {
-      //Display the left arm
+      //Display the right arm
       rightArm.display();
+    }
+    //Display the state of undoing the boots
+    else if (state === "Boots") {
+      //Display the boots
+      boots.display();
     }
   }
 }

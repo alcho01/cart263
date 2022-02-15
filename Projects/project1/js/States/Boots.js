@@ -1,9 +1,6 @@
-//Class that contains thr right arm
-//Displays the right arm images
-//Track the progress of when a key is pressed
-//Key pressed functionality
-class RightArm extends Universal {
-  constructor(w, h, x, y, rightArmImage1, rightArmImage2, rightArmImage3) {
+//Class containing the image and functionality of the boots
+class Boots extends Universal {
+  constructor(w, h, x, y, bootsImage1, bootsImage2, bootsImage3) {
     //Same parameters as the universal class
     super(w, h, x, y);
 
@@ -17,13 +14,13 @@ class RightArm extends Universal {
     this.goalMet = false;
 
     //Images
-    this.rightArmImage1 = rightArmImage1;
-    this.rightArmImage2 = rightArmImage2;
-    this.rightArmImage3 = rightArmImage3;
-    this.currentImage = rightArmImage1;
+    this.bootsImage1 = bootsImage1;
+    this.bootsImage2 = bootsImage2;
+    this.bootsImage3 = bootsImage3;
+    this.currentImage = bootsImage1;
   }
 
-  //Display the right arm
+  //Display the boots
   display() {
     push();
     imageMode(CENTER);
@@ -40,7 +37,7 @@ class RightArm extends Universal {
     if (this.progress === this.progressGoal) {
       this.progress = 0;
       //If it is display this image
-      this.currentImage = this.rightArmImage3;
+      this.currentImage = this.bootsImage3;
       //Check if the goal is met
       this.goalMet = true;
       //Play the breathing SFX
@@ -50,28 +47,28 @@ class RightArm extends Universal {
 
   //Key pressed functionality
   keyPressed() {
-    //D key
-    if (keyCode === 68 && this.goalMet === false) {
+    //W key
+    if (keyCode === 87 && this.goalMet === false) {
       //Check if the D key is pressed to display this image
-      this.currentImage = this.rightArmImage1;
+      this.currentImage = this.bootsImage2;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;
       //Play the struggleSFX
       struggleSFX.play();
     }
-    //A key
-    else if (keyCode === 65 && this.goalMet === false) {
+    //S key
+    else if (keyCode === 83 && this.goalMet === false) {
       //Check if the A key is pressed to display the image
-      this.currentImage = this.rightArmImage2;
+      this.currentImage = this.bootsImage1;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;
       //Play the struggleSFX
       struggleSFX.play();
     }
     //Down Arrow Key
-    else if (keyCode === 40) {
+    else if (keyCode === 38) {
       //Go to the right arm
-      state = 'Boots';
+      state = '';
     }
   }
 }
