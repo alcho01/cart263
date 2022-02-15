@@ -11,10 +11,14 @@ class Coagula extends Universal {
     //Increments
     this.xOffIncrease = 0.1;
     this.yOffIncrease = 0.01;
+    //Another part where the y offset needs to be increase. However, by a bit more.
+    this.yOffIncrease2 = 0.04;
     this.iIncrease = 0.1;
     //Increase/decrease the coagula size
     this.coagulaIncrease = 5
     this.coagulaDecrease = -5
+    //Increase the radius to a flash
+    this.flash = 500;
     //Give the shape a radius
     this.radius = 50;
     //Timer in seconds
@@ -50,6 +54,28 @@ class Coagula extends Universal {
     //Add coagulation. don't even know if that's a word. In other words add a little jiggle to the shape's yOffset
     this.yOffset += this.yOffIncrease;
     pop();
+  }
+
+  //Checks if the time is done
+  checkTimer() {
+    //Decrease the time by a second
+    this.timer -= 1/60;
+    //When the timer is near the end start ramping up the speed of its motion
+    if (this.timer <= 15) {
+      this.yOffset += this.yOffIncrease2;
+    }
+    //When the timer is a second before the end make it grow big to fill the screen and transition to the next state
+    if (this.timer <= 1) {
+      this.yOffset += this.yOffIncrease2;
+      this.radius += this.flash;
+    }
+    //When the timer hits 0...
+    if (this.timer <= 0) {
+      this.timer = 0;
+      //Change the state to Chris struggling
+      state = 'UntieLeftArm';
+      houseSoundTrack.play();
+    }
   }
 
   //Play with the size of the coagula

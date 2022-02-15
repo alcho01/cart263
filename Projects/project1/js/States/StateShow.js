@@ -143,6 +143,7 @@ class StateShow {
     else if (state === "Coagula") {
       //Display the coagula
       coagula.display();
+      coagula.checkTimer();
     }
   }
 }
