@@ -11,25 +11,6 @@ Interactive[DONE]
 Uses p5.js [DONE]
 Uses other libraries (P5.sound, responsiveVoice, and Annyang) [DONE]
 Include Artist Statement in readme [DONE]
-
-Sources
-Title Song - https://www.youtube.com/watch?v=FGpT9KDPMtI&ab_channel=AlwaysMusic
-Simulation Song - https://www.youtube.com/watch?v=8775EWbDokw&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=24&ab_channel=Lumen
-Hypnosis Song - https://www.youtube.com/watch?v=ZPkZNfh-9II&list=PLuF78wm0RiGbXe4idoJNeDu6EmN60KMeK&index=13&ab_channel=Lumen
-Dialogue - https://www.youtube.com/watch?v=kBwVWrBk_uo&ab_channel=Movieclips
-Wind SFX - https://freesound.org/people/florianreichelt/sounds/459977/
-Door SFX - https://freesound.org/people/InspectorJ/sounds/431117/
-Radio SFX - https://freesound.org/people/eddy15/sounds/91999/
-Locked Door SFX - https://freesound.org/people/BenjaminNelan/sounds/321087/
-Door Unlocked SFX - https://freesound.org/people/angelkunev/sounds/519065/
-White Noise SFX - https://freesound.org/people/seth-m/sounds/269721/
-Breath SFX - https://freesound.org/people/Juandamb/sounds/430627/
-Struggle SFX - https://freesound.org/people/greenlinker/sounds/484995/
-tvNoise SFX - https://freesound.org/people/TRP/sounds/616850/
-squelch SFX - https://freesound.org/people/magnuswaker/sounds/524952/
-Narrative Speech on Tv - https://www.youtube.com/watch?v=vuXi8e93khU&ab_channel=038529CHK
-
-Blob concept - https://editor.p5js.org/codingtrain/sketches/L_ME8qKmQ
 */
 
 "use strict";
