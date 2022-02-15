@@ -20,6 +20,7 @@ class RightArm extends Universal {
     this.currentImage = rightArmImage1;
   }
 
+  //Display the right arm
   display() {
     push();
     imageMode(CENTER);
@@ -30,6 +31,7 @@ class RightArm extends Universal {
     this.trackProgress();
   }
 
+  //Keep track of the progress to determine if the goal is met
   trackProgress() {
     //Check if the progress is equal to the goal
     if (this.progress === this.progressGoal) {
@@ -46,7 +48,7 @@ class RightArm extends Universal {
   //Key pressed functionality
   keyPressed() {
     //D key
-    if (keyCode === 68 & this.goalMet === false) {
+    if (keyCode === 68 && this.goalMet === false) {
       //Check if the D key is pressed to display this image
       this.currentImage = this.rightArmImage1;
       //Add a progress point when this key is pressed
@@ -55,7 +57,7 @@ class RightArm extends Universal {
       struggleSFX.play();
     }
     //A key
-    else if (keyCode === 65 & this.goalMet === false) {
+    else if (keyCode === 65 && this.goalMet === false) {
       //Check if the A key is pressed to display the image
       this.currentImage = this.rightArmImage2;
       //Add a progress point when this key is pressed

@@ -48,7 +48,7 @@ class LeftArm extends Universal {
   //Key pressed functionality
   keyPressed() {
     //D key
-    if (keyCode === 68 & this.goalMet === false) {
+    if (keyCode === 68 && this.goalMet === false) {
       //Check if the D key is pressed to display this image
       this.currentImage = this.leftArmImage1;
       //Add a progress point when this key is pressed
@@ -57,7 +57,7 @@ class LeftArm extends Universal {
       struggleSFX.play();
     }
     //A key
-    else if (keyCode === 65 & this.goalMet === false) {
+    else if (keyCode === 65 && this.goalMet === false) {
       //Check if the A key is pressed to display the image
       this.currentImage = this.leftArmImage2;
       //Add a progress point when this key is pressed
