@@ -2,6 +2,8 @@ Alex Cho
 Project 1 - A Night at the Movies
 Due Feb 15 - Feb 22
 
+Quick Note - I hope this doesn't affect the aesthetic. The canvas is made to be 800 x 1000. Hopefully it doesn't look squashed on other screens. 
+
 Artist Statement
 
 Why did I choose Get Out?
