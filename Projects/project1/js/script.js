@@ -56,6 +56,7 @@ let secretCode;
 let hallway;
 let basement;
 let leftArm;
+let rightArm;
 
 //Determine what the starting state should be
 let state = "Hallway"; //pretitle
@@ -165,6 +166,10 @@ let breathSFX;
 let leftArmImage1;
 let leftArmImage2;
 let leftArmImage3;
+//Unshackling right arm images
+let rightArmImage1;
+let rightArmImage2;
+let rightArmImage3;
 
 //Preload sounds/images
 function preload() {
@@ -268,7 +273,10 @@ function preload() {
   leftArmImage1 = loadImage("assets/images/Simulation/untie.png");
   leftArmImage2 = loadImage("assets/images/Simulation/untie2.png");
   leftArmImage3 = loadImage("assets/images/Simulation/untie3.png");
-
+  //Load the right arm Images
+  rightArmImage1 = loadImage("assets/images/Simulation/rightarm.png");
+  rightArmImage2 = loadImage("assets/images/Simulation/rightarm2.png");
+  rightArmImage3 = loadImage("assets/images/Simulation/rightarm3.png");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -333,6 +341,8 @@ function setup() {
   basement = new Basement(800, 1000, 400, 500, basementImage1, basementImage2);
   //Create the class for the left arm
   leftArm = new LeftArm(800, 1000, 400, 500, leftArmImage1, leftArmImage2, leftArmImage3);
+  //Create the class for the right arm
+  rightArm = new RightArm(800, 1000, 400, 500, rightArmImage1, rightArmImage2, rightArmImage3);
 }
 
 //Displaying the states

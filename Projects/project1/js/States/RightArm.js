@@ -1,6 +1,6 @@
-//This Class contains information related to the left arm
-class LeftArm extends Universal {
-  constructor(w, h, x, y, leftArmImage1, leftArmImage2, leftArmImage3) {
+//Class that contains thr right arm
+class RightArm extends Universal {
+  constructor(w, h, x, y, rightArmImage1, rightArmImage2, rightArmImage3) {
     //Same parameters as the universal class
     super(w, h, x, y);
 
@@ -14,13 +14,12 @@ class LeftArm extends Universal {
     this.goalMet = false;
 
     //Images
-    this.leftArmImage1 = leftArmImage1;
-    this.leftArmImage2 = leftArmImage2;
-    this.leftArmImage3 = leftArmImage3;
-    this.currentImage = leftArmImage1;
+    this.rightArmImage1 = rightArmImage1;
+    this.rightArmImage2 = rightArmImage2;
+    this.rightArmImage3 = rightArmImage3;
+    this.currentImage = rightArmImage1;
   }
 
-  //Display the left arm tied
   display() {
     push();
     imageMode(CENTER);
@@ -31,13 +30,12 @@ class LeftArm extends Universal {
     this.trackProgress();
   }
 
-  //Track the progress to check if the goal is met
   trackProgress() {
     //Check if the progress is equal to the goal
     if (this.progress === this.progressGoal) {
       this.progress = 0;
       //If it is display this image
-      this.currentImage = this.leftArmImage3;
+      this.currentImage = this.rightArmImage3;
       //Check if the goal is met
       this.goalMet = true;
       //Play the breathing SFX
@@ -50,7 +48,7 @@ class LeftArm extends Universal {
     //D key
     if (keyCode === 68 & this.goalMet === false) {
       //Check if the D key is pressed to display this image
-      this.currentImage = this.leftArmImage1;
+      this.currentImage = this.rightArmImage1;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;
       //Play the struggleSFX
@@ -59,16 +57,16 @@ class LeftArm extends Universal {
     //A key
     else if (keyCode === 65 & this.goalMet === false) {
       //Check if the A key is pressed to display the image
-      this.currentImage = this.leftArmImage2;
+      this.currentImage = this.rightArmImage2;
       //Add a progress point when this key is pressed
       this.progress = this.progress + this.addProgress;
       //Play the struggleSFX
       struggleSFX.play();
     }
-    //Left Arrow Key
-    else if (keyCode === 39) {
+    //Down Arrow Key
+    else if (keyCode === 40) {
       //Go to the right arm
-      state = 'UntieRightArm';
+      state = '';
     }
   }
 }

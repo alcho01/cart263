@@ -124,5 +124,10 @@ class StateShow {
       //Display the left arm
       leftArm.display();
     }
+    //Display the state of undoing the right arm
+    else if (state === "UntieRightArm") {
+      //Display the left arm
+      rightArm.display();
+    }
   }
 }

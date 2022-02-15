@@ -75,9 +75,13 @@ class KeyPressedState {
     else if (state === 'Hallway') {
       hallway.keyPressed();
     }
-    //Works only when undoing the left arm 
+    //Works only when undoing the left arm
     else if (state === 'UntieLeftArm') {
       leftArm.keyPressed();
+    }
+    //Works only when undoing the right arm
+    else if (state === 'UntieRightArm') {
+      rightArm.keyPressed();
     }
   }
 }
