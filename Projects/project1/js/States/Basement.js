@@ -38,6 +38,8 @@ class Basement extends Universal {
         //console.log('tv');
         //Switch states
         state = 'Tv';
+        //Stop the music
+        houseSoundTrack.stop();
       }
     }
   }

@@ -58,6 +58,7 @@ let basement;
 let leftArm;
 let rightArm;
 let boots;
+let tv;
 
 //Determine what the starting state should be
 let state = "Hallway"; //pretitle
@@ -176,6 +177,9 @@ let bootsImage1;
 let bootsImage2;
 let bootsImage3;
 
+//Tv image
+let tvImage;
+
 //Preload sounds/images
 function preload() {
 
@@ -286,6 +290,9 @@ function preload() {
   bootsImage1 = loadImage("assets/images/Simulation/boots.png");
   bootsImage2 = loadImage("assets/images/Simulation/boots2.png");
   bootsImage3 = loadImage("assets/images/Simulation/boots3.png");
+
+  //Load the TV screen image
+  tvImage = loadImage("assets/images/Simulation/tv.png");
 }
 
 //Setting up audio settings/preparing the canvas/adding different libraries/setting up classes
@@ -354,6 +361,8 @@ function setup() {
   rightArm = new RightArm(800, 1000, 400, 500, rightArmImage1, rightArmImage2, rightArmImage3);
   //Create the class for the boots
   boots = new Boots(800, 1000, 400, 500, bootsImage1, bootsImage2, bootsImage3);
+  //Create the class for the tv
+  tv = new Tv(800, 1000, 400, 500, tvImage);
 }
 
 //Displaying the states

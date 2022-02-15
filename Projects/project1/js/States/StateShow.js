@@ -134,5 +134,10 @@ class StateShow {
       //Display the boots
       boots.display();
     }
+    //Display the state of the tv homescreen
+    else if (state === "Tv") {
+      //Display the boots
+      tv.display();
+    }
   }
 }
