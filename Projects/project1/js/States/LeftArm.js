@@ -1,4 +1,7 @@
 //This Class contains information related to the left arm
+//Display the left arm
+//Track the progress
+//Key pressed event
 class LeftArm extends Universal {
   constructor(w, h, x, y, leftArmImage1, leftArmImage2, leftArmImage3) {
     //Same parameters as the universal class

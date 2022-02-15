@@ -1,6 +1,8 @@
 //This class contains the hallway scene.
 //Displays the hallway
 //Add the user movement with constraints
+//Check the position of the user
+//Reset the position if needed
 class Hallway extends Universal {
   constructor(w, h, x, y, hallwayImage) {
     //Same parameters as the universal class

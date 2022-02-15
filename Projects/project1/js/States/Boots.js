@@ -1,4 +1,7 @@
 //Class containing the image and functionality of the boots
+//Display the boots
+//track the progress
+//Key pressed event
 class Boots extends Universal {
   constructor(w, h, x, y, bootsImage1, bootsImage2, bootsImage3) {
     //Same parameters as the universal class
@@ -71,6 +74,8 @@ class Boots extends Universal {
       state = "Credits";
       //Play the intro/outro music
       titleTheme.play();
+      //Stop the houseSoundTrack
+      houseSoundTrack.stop();
     }
   }
 }

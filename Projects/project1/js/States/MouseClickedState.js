@@ -1,5 +1,6 @@
 //This holds all functionality for mouse clicked events
 //Depending on states where the mouse is needed for interactivity
+//Each mouse clicked event divided based on act
 class MouseClickedState {
   constructor() {
     //Nothing to do here

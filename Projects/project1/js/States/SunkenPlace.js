@@ -84,7 +84,7 @@ class SunkenPlace extends Universal {
       //Change States
       state = 'BedRoom';
       //Change hypnotized to true
-      hypnotized = true;
+      entranceHouse.hypnotized = true;
       //Resume/Pause music
       sunkenPlaceSong.stop();
       houseSoundTrack.play();

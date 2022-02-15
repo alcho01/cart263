@@ -1,7 +1,8 @@
 //Class containing the display of the entrance of the house
 //Add key pressed events which correspond to the movement
 //Add mouse clicked events which correspond to interacting with objects/rooms
-
+//Reset the position if needed
+//Alert the user of what is interactive
 class EntranceHouse extends Universal {
   constructor(w, h, x, y, entranceHouseImage) {
     //extended from the universal class
@@ -34,6 +35,12 @@ class EntranceHouse extends Universal {
     //Height Constraints
     this.minHeight = 1000;
     this.maxHeight = 1500;
+
+    //Is the door locked
+    this.doorLocked = true;
+
+    //Has the user been hypnotized
+    this.hypnotized = false;
 
     //Image
     this.entranceHouseImage = entranceHouseImage;
@@ -102,7 +109,7 @@ class EntranceHouse extends Universal {
       text("Click me", this.text.x, this.text.y);
     }
     if (
-      hypnotized === true &&
+      this.hypnotized === true &&
       this.width === this.maxWidth &&
       this.x === this.maxX
     ) {
@@ -115,7 +122,7 @@ class EntranceHouse extends Universal {
       text("Click me to go upstairs", this.text.x, this.text.y);
     }
     if (
-      doorLocked === false &&
+      this.doorLocked === false &&
       this.width === this.maxWidth &&
       this.x === this.minX
     ) {
@@ -182,7 +189,7 @@ class EntranceHouse extends Universal {
   //Mouse Pressed functionality
   mouseClicked() {
     //If the user has been hypnotized permit the use of mouse clicked
-    if (hypnotized === true) {
+    if (this.hypnotized === true) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
       if (
         mouseX > this.stairs.x &&
@@ -197,7 +204,7 @@ class EntranceHouse extends Universal {
       }
     }
     //The user has not been hypnotized
-    if (hypnotized === false) {
+    if (this.hypnotized === false) {
       //Make sure it is withing the stairs boundaries and is max width and furthest on the x position
       if (
         mouseX > this.stairs.x &&
@@ -212,7 +219,7 @@ class EntranceHouse extends Universal {
       }
     }
     //The basement door is locked at the start
-    if (doorLocked === true) {
+    if (this.doorLocked === true) {
       //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
       if (
         mouseX > this.basement.x &&
@@ -227,7 +234,7 @@ class EntranceHouse extends Universal {
       }
     }
     //Check if the basement door is unlocked
-    if (doorLocked === false) {
+    if (this.doorLocked === false) {
       //Make sure it is withing the basement door boundaries and is max width and furthest on the x position
       if (
         mouseX > this.basement.x &&

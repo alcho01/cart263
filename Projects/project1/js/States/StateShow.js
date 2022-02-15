@@ -1,5 +1,6 @@
 //This class will determine what state the simulation is in and what will be displayed for each state
 //Created in its own class for organization purposes
+//Each function holds what is needed depending on the act
 class StateShow {
   constructor() {
     //Nothing needed
@@ -106,7 +107,7 @@ class StateShow {
         //play this sound cue that identifies that the basement door is now able to be clicked
         doorUnlockedSFX.play();
         //Change the boolean of doorLocked to false
-        doorLocked = false;
+        entranceHouse.doorLocked = false;
       }
     }
     //Display the hallway

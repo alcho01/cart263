@@ -1,4 +1,6 @@
 //The class for the credits
+//Display the credits
+//Roll them bottom to top
 class Credits extends Universal {
   constructor(w, h, x, y, creditsImage) {
     //Same parameters as the universal class

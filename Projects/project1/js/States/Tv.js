@@ -1,4 +1,6 @@
 //Class For the tv title screen
+//Display the tv
+//Mouse clicked event
 class Tv extends Universal {
   constructor(w, h, x, y, tvImage) {
     //Same parameters as the universal class

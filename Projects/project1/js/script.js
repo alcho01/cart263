@@ -127,11 +127,6 @@ let hypnosisSong;
 //SunkenPlace Song
 let sunkenPlaceSong;
 
-//Check if the user has been hypnotized
-let hypnotized = false;
-//Check if the basement door is locked
-let doorLocked = true;
-
 //The character falling in the sunken place
 let fallingImage1;
 let fallingImage2;
@@ -430,5 +425,5 @@ function mouseClicked() {
 //Put the voice input to lower case to avoid errors
 function guessAnswer(answer) {
   currentResponse = answer.toLowerCase();
-  console.log(currentResponse);
+  //console.log(currentResponse);
 }

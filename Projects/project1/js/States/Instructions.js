@@ -1,4 +1,6 @@
 //Class for the controls
+//Display the controls
+//Key pressed event
 class Instructions extends Universal {
   constructor(w, h, x, y, instructionsImage) {
     //extended from the universal class

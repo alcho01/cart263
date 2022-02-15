@@ -1,5 +1,6 @@
 //This will handle all key pressed events
 //Depending on states where a key is needed for interactivity
+//Key pressed events divided into their own sections
 class KeyPressedState {
   constructor() {
     //Nothing needed
