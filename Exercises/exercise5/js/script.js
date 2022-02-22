@@ -4,7 +4,7 @@ Alex Cho
 
 [DONE] IMPROVE CSS
 [DONE] SONNET GENERATOR INSTEAD
-[] PRINT BUTTON
+[]
 
 */
 
@@ -93,6 +93,9 @@ let line12 = document.getElementById('line-12');
 let line13 = document.getElementById('line-13');
 let line14 = document.getElementById('line-14');
 
+//The voice over
+let voiceOver = document.getElementById('voice-over');
+
 //Setting up the lines
 setupLines();
 //Check if a click is performed
@@ -132,6 +135,14 @@ function addListeners() {
   line12.addEventListener('click', changeLine);
   line13.addEventListener('click', changeLine);
   line14.addEventListener('click', changeLine);
+
+  //For the voice over
+  voiceOver.addEventListener('click', speakUp);
+}
+
+//Responsive voice should activate
+function speakUp() {
+    responsiveVoice.speak('Click a specific line to replace it for another');
 }
 
 //Change the line with a fade out
