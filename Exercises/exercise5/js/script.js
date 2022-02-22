@@ -90,6 +90,27 @@ let line12 = document.getElementById('line-12');
 let line13 = document.getElementById('line-13');
 let line14 = document.getElementById('line-14');
 
+//Setting up the lines
+setupLines();
+
+//Puts a random line of text in the poem
+function setupLines() {
+  line1.innerText = random(sonnetLines.aLines);
+  line2.innerText = random(sonnetLines.bLines);
+  line3.innerText = random(sonnetLines.aLines);
+  line4.innerText = random(sonnetLines.bLines);
+  line5.innerText = random(sonnetLines.cLines);
+  line6.innerText = random(sonnetLines.dLines);
+  line7.innerText = random(sonnetLines.cLines);
+  line8.innerText = random(sonnetLines.dLines);
+  line9.innerText = random(sonnetLines.eLines);
+  line10.innerText = random(sonnetLines.fLines);
+  line11.innerText = random(sonnetLines.eLines);
+  line12.innerText = random(sonnetLines.fLines);
+  line13.innerText = random(sonnetLines.gLines);
+  line14.innerText = random(sonnetLines.gLines);
+}
+
 //Returns a random element from the array
 function random(array) {
   return array[Math.floor(Math.random() * array.length)];
