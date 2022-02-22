@@ -74,6 +74,22 @@ let sonnetLines = {
   ]
 };
 
+//Elements of the poem
+let line1 = document.getElementById('line-1');
+let line2 = document.getElementById('line-2');
+let line3 = document.getElementById('line-3');
+let line4 = document.getElementById('line-4');
+let line5 = document.getElementById('line-5');
+let line6 = document.getElementById('line-6');
+let line7 = document.getElementById('line-7');
+let line8 = document.getElementById('line-8');
+let line9 = document.getElementById('line-9');
+let line10 = document.getElementById('line-10');
+let line11 = document.getElementById('line-11');
+let line12 = document.getElementById('line-12');
+let line13 = document.getElementById('line-13');
+let line14 = document.getElementById('line-14');
+
 //Returns a random element from the array
 function random(array) {
   return array[Math.floor(Math.random() * array.length)];
