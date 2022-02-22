@@ -95,6 +95,8 @@ let line14 = document.getElementById('line-14');
 
 //Setting up the lines
 setupLines();
+//Check if a click is performed
+addListeners();
 
 //Puts a random line of text in the poem
 function setupLines() {
@@ -114,27 +116,87 @@ function setupLines() {
   line14.innerText = random(sonnetLines.gLines);
 }
 
+//Add event listeners to change lines
+function addListeners() {
+  line1.addEventListener('click', changeLine);
+  line2.addEventListener('click', changeLine);
+  line3.addEventListener('click', changeLine);
+  line4.addEventListener('click', changeLine);
+  line5.addEventListener('click', changeLine);
+  line6.addEventListener('click', changeLine);
+  line7.addEventListener('click', changeLine);
+  line8.addEventListener('click', changeLine);
+  line9.addEventListener('click', changeLine);
+  line10.addEventListener('click', changeLine);
+  line11.addEventListener('click', changeLine);
+  line12.addEventListener('click', changeLine);
+  line13.addEventListener('click', changeLine);
+  line14.addEventListener('click', changeLine);
+}
+
+//Change the line with a fade out
+function changeLine(event) {
+  fadeOut(event.target, 1);
+}
+
+//Reduce the opacity to then change the line
+function fadeOut(element, opacity) {
+  // Change the opacity
+  opacity -= 0.01;
+  element.style['opacity'] = opacity;
+  // Check the opacity value
+  if (opacity > 0) {
+    //Keep fading
+    requestAnimationFrame(function() {
+      fadeOut(element, opacity);
+    });
+  }
+  else {
+    //Fade in and bring a new line
+    swapLine(element);
+    // Trigger a fade in
+    fadeIn(element, 0);
+  }
+}
+
+//Fade in function
+function fadeIn(element, opacity) {
+  // Increase the opacity
+  opacity += 0.01;
+  element.style[`opacity`] = opacity;
+  // Check the opacity value
+  if (opacity < 1) {
+    // Keep fading
+    requestAnimationFrame(function() {
+      fadeIn(element, opacity);
+    });
+  }
+  else {
+    // nothing
+  }
+}
+
 //Switch the lines
 function swapLine(element) {
-  if (element === line1 || line3) {
+  if (element === line1 || element === line3) {
     element.innerText = random(sonnetLines.aLines);
   }
-  else if (element === line2 || line4) {
+  else if (element === line2 || element === line4) {
     element.innerText = random(sonnetLines.bLines);
   }
-  else if (element === line5 || line7) {
+  else if (element === line5 || element === line7) {
     element.innerText = random(sonnetLines.cLines);
   }
-  else if (element === line6 || line8) {
+  else if (element === line6 || element === line8) {
     element.innerText = random(sonnetLines.dLines);
   }
-  else if (element === line9 || line11) {
+  else if  (element === line9 || element === line11) {
     element.innerText = random(sonnetLines.eLines);
   }
-  else if (element === line10 || line12) {
+  else if (element === line10 || element === line12) {
     element.innerText = random(sonnetLines.fLines);
   }
-  else if (element === line13 || line14) {
+  else if (element === line13 || element === line14) {
     element.innerText = random(sonnetLines.gLines);
   }
 }
