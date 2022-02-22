@@ -2,6 +2,9 @@
 Exercise 5 - Sad Sonnet Generator
 Alex Cho
 
+[DONE] IMPROVE CSS
+[DONE] SONNET GENERATOR INSTEAD
+[] PRINT BUTTON
 
 */
 
@@ -109,6 +112,31 @@ function setupLines() {
   line12.innerText = random(sonnetLines.fLines);
   line13.innerText = random(sonnetLines.gLines);
   line14.innerText = random(sonnetLines.gLines);
+}
+
+//Switch the lines
+function swapLine(element) {
+  if (element === line1 || line3) {
+    element.innerText = random(sonnetLines.aLines);
+  }
+  else if (element === line2 || line4) {
+    element.innerText = random(sonnetLines.bLines);
+  }
+  else if (element === line5 || line7) {
+    element.innerText = random(sonnetLines.cLines);
+  }
+  else if (element === line6 || line8) {
+    element.innerText = random(sonnetLines.dLines);
+  }
+  else if (element === line9 || line11) {
+    element.innerText = random(sonnetLines.eLines);
+  }
+  else if (element === line10 || line12) {
+    element.innerText = random(sonnetLines.fLines);
+  }
+  else if (element === line13 || line14) {
+    element.innerText = random(sonnetLines.gLines);
+  }
 }
 
 //Returns a random element from the array
