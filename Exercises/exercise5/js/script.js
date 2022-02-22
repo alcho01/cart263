@@ -74,14 +74,7 @@ let sonnetLines = {
   ]
 };
 
-function preload() {
-
-}
-
-function setup() {
-
-}
-
-function draw() {
-
+//Returns a random element from the array
+function random(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
