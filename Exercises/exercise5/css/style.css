@@ -3,7 +3,7 @@ Create a gradient background with css
 **********************************************/
 
 body {
-  background: linear-gradient(to bottom, #fff3f2, #fcb2ac, #ff5547);
+  background: linear-gradient(to bottom, #5cc0ed, #01415e, #01415e);
   background-size: 400% 400%;
 }
 
