@@ -7,18 +7,21 @@ body {
   background-size: 400% 400%;
 }
 
+/*Style the title*/
 #title {
   font-family: fantasy;
   font-size: 25px;
   text-align: center;
 }
 
+/*Style the voice over text*/
 #voice-over {
   font-family: fantasy;
   text-align: center;
   padding: 10px;
 }
 
+/*Style the sonnet lines*/
 #sonnet {
   font-family: fantasy;
   font-size: 18px;

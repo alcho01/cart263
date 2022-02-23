@@ -7,7 +7,6 @@ Alex Cho
 [DONE] ADD MOUSE HOVER
 [DONE] RESPONSIVE VOICE
 
-
 */
 
 "use strict";
