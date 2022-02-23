@@ -16,8 +16,18 @@ let canvas = {
 //set the background color to black
 let bgColor = 0;
 
-function preload() {
+//load in an image to test around the prototype
+let sketch = {
+  x: 640,
+  y: 360,
+  width: 1280,
+  height: 720,
+  image: undefined,
+};
 
+function preload() {
+  //Load up the image
+  sketch.image = loadImage("assets/images/lookingout.png");
 }
 
 function setup() {
@@ -26,6 +36,12 @@ function setup() {
 }
 
 function draw() {
-  //set the background 
+  //set the background
   background(bgColor);
+
+  //display the image
+  push();
+  imageMode(CENTER);
+  image(sketch.image, sketch.x, sketch.y, sketch.width, sketch.height);
+  pop();
 }
