@@ -2,6 +2,8 @@
 Project 2 - Proposal
 Alex Cho
 
+Proposal elements to do
+
 
 */
 
@@ -16,32 +18,31 @@ let canvas = {
 //set the background color to black
 let bgColor = 0;
 
-//load in an image to test around the prototype
-let sketch = {
-  x: 640,
-  y: 360,
-  width: 1280,
-  height: 720,
-  image: undefined,
-};
+let heartMonitor;
+let stateDisplayer;
+
+//Set the heartbeat sound
+let heartbeatSFX;
+
+let state = 'heartbeat';
 
 function preload() {
-  //Load up the image
-  sketch.image = loadImage("assets/images/lookingout.png");
 }
 
 function setup() {
+  //Audio Settings
+  userStartAudio();
+
   //create the canvas
   createCanvas(canvas.width, canvas.height);
+  //Classes
+  stateDisplayer = new StateDisplayer();
+  heartMonitor = new HeartMonitor();
 }
 
 function draw() {
   //set the background
   background(bgColor);
-
-  //display the image
-  push();
-  imageMode(CENTER);
-  image(sketch.image, sketch.x, sketch.y, sketch.width, sketch.height);
-  pop();
+  //Display the entities
+  stateDisplayer.activate();
 }
