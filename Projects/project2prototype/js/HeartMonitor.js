@@ -1,27 +1,61 @@
-//Heart Monitor Setup
+//Heart Monitor Setup - TASK DIFFICULTY - INTERMEDIATE
+//The heart monitor task involves the user to rapidly use the mouse and zig zag from top to bottom / bottom to top and reach the goal before times run out.
+//If time runs out, the progress bar will reset and force the user to start again. 
+//The goal is 80 points. 2 points per "touch". The user has 8 seconds.
+//This class contains all functions necessary for the heart monitor to work.
 class HeartMonitor {
   constructor() {
     //Array
     this.line = [];
+
     //Control
     this.control = 0;
+
+    //Timer
+    this.timer = 8;
+    //Reset the time back to 8 seconds
+    this.timerReset = 8;
+
+    //Handle time sequence
+    this.timeManagement = {
+      //Seconds
+      sec: 1,
+      //Minutes
+      min: 60,
+      //Checks to see if the timer is less than the checker which is 0
+      checker: 0,
+      //If the timer is less than the checker give it the value being 0
+      value: 0,
+    };
 
     //Point Value
     //Blue point system
     this.pointSystemBlue = {
+        //How many points are accumulated
         value: 0,
+        //Reset the point value if the user fails
+        valueReset: 0,
+        //Check to see if the task is complete
         completeProgress: false,
+        //Point increments
         addPoint: 2,
+        //Toggle when to turn the point activation on or off (Meaning having to zig zag between red and blue)
         toggleMode: true,
     };
     //Red point system
     this.pointSystemRed = {
+        //How many points are accumulated
         value: 0,
+        //Reset the point value if the user fails
+        valueReset: 0,
+        //Check to see if the task is complete
         completeProgress: false,
+        //Point increments
         addPoint: 2,
+        //Toggle when to turn the point activation on or off (Meaning having to zig zag between red and blue)
         toggleMode: true,
     };
-    //Point Goals
+    //Point Goals to reach
     this.pointGoal = {
       achievment1: 10,
       achievment2: 30,
@@ -30,7 +64,9 @@ class HeartMonitor {
     };
 
     //Mouse Position
+    //Where the line turns blue
     this.mouseYBlue = 120;
+    //Where the line turns red
     this.mouseYRed = 650;
 
     //Rectangle Progress Bars
@@ -40,6 +76,8 @@ class HeartMonitor {
       y: 640,
       w: 10,
       h: 10,
+      //Reset the height if the user fails
+      hReset: 10,
     };
 
     //Red progress bar
@@ -48,6 +86,8 @@ class HeartMonitor {
       y: 640,
       w: 10,
       h: 10,
+      //Reset the height if the user fails
+      hReset: 10,
     };
 
     //Progress bar increaser
@@ -86,6 +126,7 @@ class HeartMonitor {
 
   //Display the entire functionality of the line
   displayLine() {
+    //The line
     this.createLineShape();
     this.controlLineOutcome();
     this.controlStrokeColor();
@@ -98,6 +139,11 @@ class HeartMonitor {
     this.displayProgress();
     this.increaseProgress();
 
+    //Timer
+    this.checkTimer();
+
+    //Check for Win
+    this.activateWin();
   }
 
 //Create the shape of the line
@@ -121,7 +167,7 @@ class HeartMonitor {
     this.control = mouseY;
     //If the line length is less than the canvas width keep it moving forward
     if (this.line.length < width) this.line.push(this.control);
-    //If the line reaches the end of the canvas continue to keep it moving. Don't make it stop.
+    //If the line reaches the end of the canvas continue to keep it moving. Don't make it stop at the end of the canvas.
     else this.line.shift();
   }
 
@@ -168,7 +214,32 @@ class HeartMonitor {
     pop();
   }
 
+  //Keep track of the point value
+  //If the mouse position of the Y axis is in the required zone and the toggle mode is activated to true add a point and reset the toggle mode to false
+  pointValueSystem() {
+    if (mouseY <= this.mouseYBlue && this.pointSystemBlue.toggleMode === true) {
+      this.pointSystemBlue.value = this.pointSystemBlue.value += this.pointSystemBlue.addPoint;
+      this.pointSystemBlue.toggleMode = false;
+      console.log(this.pointSystemBlue.value);
+    }
+    else if (mouseY >= this.mouseYRed && this.pointSystemRed.toggleMode === true) {
+      this.pointSystemRed.value = this.pointSystemRed.value += this.pointSystemRed.addPoint;
+      this.pointSystemRed.toggleMode = false;
+      console.log(this.pointSystemRed.value);
+    }
+  }
+
+  //Check to see if the booleans are false
+  //If both booleans are false reset the toggle modes to true
+  pointCheck() {
+    if (this.pointSystemBlue.toggleMode === false && this.pointSystemRed.toggleMode === false) {
+      this.pointSystemBlue.toggleMode = true;
+      this.pointSystemRed.toggleMode = true;
+    }
+  }
+
   //Increase the progress every few points
+  //If the point value is greater than the specific point goal increase the height of the progress bar by x amount
   increaseProgress() {
     if (this.pointSystemBlue.value >= this.pointGoal.achievment1) {
       this.progressBarBlue.h = this.progressIncreaser.stage1;
@@ -185,28 +256,48 @@ class HeartMonitor {
     if (this.pointSystemBlue.value >= this.pointGoal.ending) {
       this.progressBarBlue.h = this.progressIncreaser.stage4;
       this.progressBarRed.h = this.progressIncreaser.stage4;
+      //Turn boolean to true to signify the goal was met
+      this.pointSystemBlue.completeProgress = true;
+      this.pointSystemRed.completeProgress = true;
     }
   }
 
-  //Keep track of the point value
-  pointValueSystem() {
-    if (mouseY <= this.mouseYBlue && this.pointSystemBlue.toggleMode === true) {
-      this.pointSystemBlue.value = this.pointSystemBlue.value += this.pointSystemBlue.addPoint;
-      this.pointSystemBlue.toggleMode = false;
-      console.log(this.pointSystemBlue.value);
-    }
-    else if (mouseY >= this.mouseYRed && this.pointSystemRed.toggleMode === true) {
-      this.pointSystemRed.value = this.pointSystemRed.value += this.pointSystemRed.addPoint;
-      this.pointSystemRed.toggleMode = false;
-      console.log(this.pointSystemRed.value);
+  //Check to see if the time ran out
+  checkTimer() {
+    //Remove one second at a time
+    this.timer -= this.timeManagement.sec / this.timeManagement.min;
+    if (this.timer <= this.timeManagement.checker) {
+      //Set the timer variable to 0 if it reaches 0
+      this.timer = this.timeManagement.value;
+      //Reset the progress/points if not completed in time
+      this.reset();
     }
   }
 
-  //Check to see if the boolean is false
-  pointCheck() {
-    if (this.pointSystemBlue.toggleMode === false && this.pointSystemRed.toggleMode === false) {
-      this.pointSystemBlue.toggleMode = true;
-      this.pointSystemRed.toggleMode = true;
+  //Notify the user has succesfully completed the task
+  activateWin() {
+    if (this.pointSystemBlue.completeProgress === true && this.pointSystemRed.completeProgress === true) {
+      //State Win Activate state = ''
+      //Play a sound
+      console.log('Win');
     }
+  }
+
+  //Reset function to start the game over if failed
+  reset() {
+    //Reset the timer
+    this.timer = this.timerReset;
+    //Reset the point values
+    this.pointSystemBlue.value = this.pointSystemBlue.valueReset;
+    this.pointSystemRed.value = this.pointSystemRed.valueReset;
+    //Reset the progress bars
+    this.progressBarBlue.h = this.progressBarBlue.hReset;
+    this.progressBarRed.h = this.progressBarRed.hReset;
+    //Reset toggle mode
+    this.pointSystemBlue.toggleMode = true;
+    this.pointSystemRed.toggleMode = true;
+    //Reset Completed progress
+    //this.pointSystemBlue.completeProgress = false;
+    //this.pointSystemRed.completeProgress = false;
   }
 }
