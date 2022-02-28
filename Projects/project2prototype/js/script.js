@@ -3,6 +3,8 @@ Project 2 - Proposal
 Alex Cho
 
 Proposal elements to do
+[Done] Showcase a Minigame
+
 
 
 */
@@ -27,6 +29,7 @@ let heartbeatSFX;
 let state = 'heartbeat';
 
 function preload() {
+  heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
 }
 
 function setup() {

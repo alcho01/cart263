@@ -1,8 +1,9 @@
 //Heart Monitor Setup - TASK DIFFICULTY - INTERMEDIATE
 //The heart monitor task involves the user to rapidly use the mouse and zig zag from top to bottom / bottom to top and reach the goal before times run out.
-//If time runs out, the progress bar will reset and force the user to start again. 
+//If time runs out, the progress bar will reset and force the user to start again.
 //The goal is 80 points. 2 points per "touch". The user has 8 seconds.
 //This class contains all functions necessary for the heart monitor to work.
+//Used this page to help me out - https://happycoding.io/tutorials/p5js/array-functions#push
 class HeartMonitor {
   constructor() {
     //Array
@@ -12,9 +13,9 @@ class HeartMonitor {
     this.control = 0;
 
     //Timer
-    this.timer = 8;
+    this.timer = 10;
     //Reset the time back to 8 seconds
-    this.timerReset = 8;
+    this.timerReset = 10;
 
     //Handle time sequence
     this.timeManagement = {
@@ -122,7 +123,13 @@ class HeartMonitor {
     g: 255,
     b: 255,
   };
-}
+    //Stroke Color Green
+    this.strokeFillGreen = {
+      r: 2,
+      g: 250,
+      b: 68,
+    };
+  }
 
   //Display the entire functionality of the line
   displayLine() {
@@ -219,11 +226,15 @@ class HeartMonitor {
   pointValueSystem() {
     if (mouseY <= this.mouseYBlue && this.pointSystemBlue.toggleMode === true) {
       this.pointSystemBlue.value = this.pointSystemBlue.value += this.pointSystemBlue.addPoint;
+      //Play a sound
+      heartbeatSFX.play();
       this.pointSystemBlue.toggleMode = false;
       console.log(this.pointSystemBlue.value);
     }
     else if (mouseY >= this.mouseYRed && this.pointSystemRed.toggleMode === true) {
       this.pointSystemRed.value = this.pointSystemRed.value += this.pointSystemRed.addPoint;
+      //Play a sound
+      heartbeatSFX.play();
       this.pointSystemRed.toggleMode = false;
       console.log(this.pointSystemRed.value);
     }
@@ -279,6 +290,14 @@ class HeartMonitor {
     if (this.pointSystemBlue.completeProgress === true && this.pointSystemRed.completeProgress === true) {
       //State Win Activate state = ''
       //Play a sound
+      //Change the color of the line to green
+      this.strokeFill.r = this.strokeFillGreen.r;
+      this.strokeFill.g = this.strokeFillGreen.g;
+      this.strokeFill.b = this.strokeFillGreen.b;
+      //Keep the progress bar maximized
+      this.progressBarBlue.h = this.progressIncreaser.stage4;
+      this.progressBarRed.h = this.progressIncreaser.stage4;
+      //For testing
       console.log('Win');
     }
   }
