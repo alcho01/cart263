@@ -4,8 +4,7 @@ Alex Cho
 
 Proposal elements to do
 [Done] Showcase a Minigame
-
-
+[Done] Typewriting effect - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
 
 */
 
@@ -20,32 +19,48 @@ let canvas = {
 //set the background color to black
 let bgColor = 0;
 
+//Set up the classes
 let heartMonitor;
+let typeWriter;
 let stateDisplayer;
+
+//Load text font
+let dialogueFont;
 
 //Set the heartbeat sound
 let heartbeatSFX;
 
+//Starting State
 let state = 'heartbeat';
 
+//Load in the assets
 function preload() {
+  dialogueFont = loadFont("assets/fonts/sketchy.ttf");
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
 }
 
+//What needs to be setup before starting
 function setup() {
   //Audio Settings
   userStartAudio();
 
   //create the canvas
   createCanvas(canvas.width, canvas.height);
+
   //Classes
+  typeWriter = new TypeWriter();
   stateDisplayer = new StateDisplayer();
   heartMonitor = new HeartMonitor();
 }
 
+//Displaying the entities
 function draw() {
   //set the background
   background(bgColor);
   //Display the entities
   stateDisplayer.activate();
+}
+
+function keyPressed() {
+  typeWriter.keyPressed();
 }

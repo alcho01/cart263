@@ -7,6 +7,7 @@ class StateDisplayer {
   activate() {
     if (state === 'heartbeat') {
       heartMonitor.displayLine();
+      typeWriter.display();
     }
   }
 }
