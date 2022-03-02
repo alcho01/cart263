@@ -22,7 +22,9 @@ let bgColor = 0;
 //Set up the classes
 let heartMonitor;
 let typeWriter;
+//Handle state events
 let stateDisplayer;
+let stateKeyPressed;
 
 //Load text font
 let dialogueFont;
@@ -50,6 +52,7 @@ function setup() {
   //Classes
   typeWriter = new TypeWriter();
   stateDisplayer = new StateDisplayer();
+  stateKeyPressed = new StateKeyPressed();
   heartMonitor = new HeartMonitor();
 }
 
@@ -61,6 +64,7 @@ function draw() {
   stateDisplayer.activate();
 }
 
+//Key pressed functionality
 function keyPressed() {
-  typeWriter.keyPressed();
+  stateKeyPressed.activate();
 }
