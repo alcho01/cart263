@@ -100,6 +100,13 @@ class TypeWriter {
     clearInterval(this.interval);
   }
 
+  //Check to see if all the strings are done
+  checkStrings() {
+  if (this.currentdialogueString > this.dialogueStrings.length) {
+    state = 'heartbeat';
+  }
+}
+
   //Place holder for testing // When a key is pressed show the specified line.
   keyPressed() {
     //Enable the effect
@@ -110,6 +117,8 @@ class TypeWriter {
         //Change strings
         this.currentdialogueString += 1;
       }
+      //Call this function
+      this.checkStrings();
     }
   }
 }
