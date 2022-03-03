@@ -5,9 +5,14 @@ class StateDisplayer {
   }
 
   activate() {
-    if (state === 'heartbeat') {
-      heartMonitor.displayLine();
+    if (state === 'forestCutScene') {
+      forestScene.display();
+      typeWriter.dialogueBox();
       typeWriter.display();
+    }
+    else if (state === 'heartbeat') {
+      background(bgColor);
+      heartMonitor.displayLine();
     }
   }
 }

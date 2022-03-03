@@ -15,21 +15,32 @@ class TypeWriter {
     this.complete = false;
     //text settings
     this.text = {
-      x: 150,
-      y: 500,
+      x: 140,
+      y: 40,
       size: 15,
       white: 255,
     }
+    //Dialogue box settings
+    this.box = {
+      x: 140,
+      y: 55,
+      width: 250,
+      height: 90,
+      radius: 20,
+      color: 0,
+      strokeColor: 255,
+      strokeWeight: 3,
+    };
     //Array containing each string
     this.dialogueStrings = [
       "Ya, thanks for calling.",
-      "I will make sure to do that.",
+      "I will make \nsure to do that.",
       "Ok, Linda bye now.",
       "God, is she ever a pain!",
-      "How many times do \nI gotta tell her not to call?",
+      "How many times do \nI gotta tell her \nnot to call?",
       "Why am I talking to myself?",
       "Maybe, Linda is right.",
-      "Whatever, I'll try distracting \nmyself for tonight at least."
+      "Whatever, I'll try \ndistracting myself \nfor tonight at least."
     ];
     //What is the current string
     this.currentdialogueString = 0;
@@ -70,6 +81,17 @@ class TypeWriter {
     pop();
   }
 
+  //Display dialogue box with flashing stroke from framecount of the images
+  dialogueBox() {
+    push();
+    strokeWeight(this.box.strokeWeight);
+    stroke(this.box.strokeColor);
+    fill(this.box.color);
+    rectMode(CENTER);
+    rect(this.box.x, this.box.y, this.box.width, this.box.height, this.box.radius);
+    pop();
+  }
+
   //reset the configuration
   reset() {
     this.string = '';
@@ -80,12 +102,14 @@ class TypeWriter {
 
   //Place holder for testing // When a key is pressed show the specified line.
   keyPressed() {
-    //Enable the effect 
-    this.effect(this.string);
-    //If the string is done
-    if (this.complete = true) {
-      //Change strings
-      this.currentdialogueString += 1;
+    //Enable the effect
+    if (keyCode === 37) {
+      this.effect(this.string);
+      //If the string is done
+      if (this.complete = true) {
+        //Change strings
+        this.currentdialogueString += 1;
+      }
     }
   }
 }

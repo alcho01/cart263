@@ -5,7 +5,7 @@ class StateKeyPressed {
   }
 
   activate() {
-    if (state === 'heartbeat') {
+    if (state === 'forestCutScene') {
       typeWriter.keyPressed();
     }
   }
