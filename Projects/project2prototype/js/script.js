@@ -16,9 +16,6 @@ let canvas = {
   height: 720,
 };
 
-//set the background color to black
-let bgColor = 0;
-
 //=====Setup Classes=====\\
 //Set up the classes
 //Tasks/Games
