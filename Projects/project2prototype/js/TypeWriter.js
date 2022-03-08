@@ -1,10 +1,16 @@
 //Class Holding the type writer effect for the dialogue strings
+//Display the typewriting effect which is inspired by pippin's example.
+//It is different in the sense, that I added multiple strings.
+//I use a boolean to check when the next string can be called.
+//Included a specific key to be pressed to activate it
+//Added a dialogue box around the text.
+//Also check's if the last string is called. If it is, it will change states
 class TypeWriter {
   constructor() {
     //The Entire String
-    this.string = '';
+    this.string = "";
     //The current string
-    this.displayString = '';
+    this.displayString = "";
     //When to display the next character
     this.nextChar = 0;
     //The speed of when the next character displays
@@ -19,7 +25,7 @@ class TypeWriter {
       y: 40,
       size: 15,
       white: 255,
-    }
+    };
     //Dialogue box settings
     this.box = {
       x: 140,
@@ -40,10 +46,12 @@ class TypeWriter {
       "How many times do \nI gotta tell her \nnot to call?",
       "Why am I talking to myself?",
       "Maybe, Linda is right.",
-      "Whatever, I'll try \ndistracting myself \nfor tonight at least."
+      "Whatever, I'll try \ndistracting myself \nfor tonight at least.",
     ];
     //What is the current string
     this.currentdialogueString = 0;
+    //Increment for the currentstring
+    this.nextString = 1;
   }
 
   //Typewrite effect
@@ -94,28 +102,30 @@ class TypeWriter {
 
   //reset the configuration
   reset() {
-    this.string = '';
-    this.displayString = '';
+    this.string = "";
+    this.displayString = "";
     this.nextChar = 0;
     clearInterval(this.interval);
   }
 
-  //Check to see if all the strings are done
+  //Check to see if all the strings are done (PlaceHolder State)
   checkStrings() {
-  if (this.currentdialogueString > this.dialogueStrings.length) {
-    state = 'heartbeat';
+    if (this.currentdialogueString > this.dialogueStrings.length) {
+      state = "heartbeat";
+    }
   }
-}
 
   //Place holder for testing // When a key is pressed show the specified line.
   keyPressed() {
-    //Enable the effect
+    //If the left arrow key is pressed
     if (keyCode === 37) {
+      //Enable the effect
       this.effect(this.string);
+      //Play a sound effect
       //If the string is done
-      if (this.complete = true) {
+      if ((this.complete = true)) {
         //Change strings
-        this.currentdialogueString += 1;
+        this.currentdialogueString += this.nextString;
       }
       //Call this function
       this.checkStrings();

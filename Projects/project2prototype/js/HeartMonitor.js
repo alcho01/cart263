@@ -10,7 +10,7 @@ class HeartMonitor {
     this.line = [];
 
     //Control
-    this.control = 0;
+    this.control = undefined;
 
     //Timer
     this.timer = 10;
@@ -162,6 +162,7 @@ class HeartMonitor {
     beginShape();
     //Keep the line growing
     for (let i = 0; i < width; i++) {
+      //Keep the line moving along the x, and alternate between the high and low points
       vertex(i, this.line[i]);
     }
     //Close the shape
@@ -284,6 +285,9 @@ class HeartMonitor {
       this.reset();
     }
   }
+
+  //display the time 
+
 
   //Notify the user has succesfully completed the task
   activateWin() {

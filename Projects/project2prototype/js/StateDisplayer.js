@@ -1,7 +1,8 @@
 //Display the states within this class
 class StateDisplayer {
   constructor() {
-
+    //Background Color
+    this.bgColor = 0;
   }
 
   activate() {
@@ -11,7 +12,7 @@ class StateDisplayer {
       typeWriter.display();
     }
     else if (state === 'heartbeat') {
-      background(bgColor);
+      background(this.bgColor);
       heartMonitor.displayLine();
     }
   }
