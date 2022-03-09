@@ -1,7 +1,7 @@
 //Heart Monitor Setup - TASK DIFFICULTY - INTERMEDIATE
 //The heart monitor task involves the user to rapidly use the mouse and zig zag from top to bottom / bottom to top and reach the goal before times run out.
 //If time runs out, the progress bar will reset and force the user to start again.
-//The goal is 80 points. 2 points per "touch". The user has 8 seconds.
+//The goal is 80 points. 2 points per "touch". The user has 10 seconds.
 //This class contains all functions necessary for the heart monitor to work.
 //Used this page to help me out - https://happycoding.io/tutorials/p5js/array-functions#push
 class HeartMonitor {
@@ -286,7 +286,7 @@ class HeartMonitor {
     }
   }
 
-  //display the time 
+  //display the time
 
 
   //Notify the user has succesfully completed the task

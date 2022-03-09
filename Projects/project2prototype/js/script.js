@@ -5,7 +5,7 @@ Alex Cho
 Proposal elements to do
 [Done] Showcase a Minigame
 [Done] Typewriting effect - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
-
+[Done] Hover Method / Transition to Task (STATE)
 */
 
 "use strict";
@@ -24,11 +24,14 @@ let heartMonitor;
 let forestScene;
 //Locations
 let home;
+//Items
+let heartBox;
 //Dialogue
 let typeWriter;
 //Handle state event classes
 let stateDisplayer;
 let stateKeyPressed;
+let stateMouseClicked;
 
 //=====Load Fonts=====\\
 //Load text font
@@ -46,6 +49,9 @@ let sceneAImage3;
 //Load the home images
 let home1Image;
 let home2Image;
+//Load the heartBox images - Hov = Hovered over
+let heartBoxImage;
+let heartBoxImageHov;
 
 //Starting State
 let state = 'forestCutScene';
@@ -63,6 +69,8 @@ function preload() {
   sceneAImage3 = loadImage("assets/images/scenes/scene3.png");
   home1Image = loadImage("assets/images/locations/home.png");
   home2Image = loadImage("assets/images/locations/home2.png");
+  heartBoxImage = loadImage("assets/images/items/heartbox.png");
+  heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
 }
 
 //What needs to be setup before starting
@@ -80,11 +88,14 @@ function setup() {
   forestScene = new ForestScene(1280, 720, 640, 360);
   //Locations
   home = new Home(1280, 720, 640, 360);
+  //Items
+  heartBox = new HeartBox();
   //Dialogue effect
   typeWriter = new TypeWriter();
   //Event handler classes
   stateDisplayer = new StateDisplayer();
   stateKeyPressed = new StateKeyPressed();
+  stateMouseClicked = new StateMouseClicked();
 }
 
 //Displaying the entities
@@ -92,10 +103,16 @@ function draw() {
   //Display the entities
   stateDisplayer.activateScenes();
   stateDisplayer.activateLocations();
+  stateDisplayer.activateItems();
   stateDisplayer.activateTasks();
 }
 
 //Key pressed functionality
 function keyPressed() {
-  stateKeyPressed.activate();
+  stateKeyPressed.activateScenes();
+}
+
+//mouse clicked functionality
+function mouseClicked() {
+  stateMouseClicked.activateTasks();
 }

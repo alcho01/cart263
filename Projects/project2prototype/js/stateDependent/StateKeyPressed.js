@@ -4,7 +4,7 @@ class StateKeyPressed {
 
   }
 
-  activate() {
+  activateScenes() {
     if (state === 'forestCutScene') {
       typeWriter.keyPressed();
     }

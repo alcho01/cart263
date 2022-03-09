@@ -21,9 +21,11 @@ class StateDisplayer {
     }
   }
 
-  //Activate to display the hover overlay
-  activateHover() {
-
+  //Activate to display the items
+  activateItems() {
+    if (state === 'home') {
+      heartBox.display();
+    }
   }
 
   //Activate to display the tasks
