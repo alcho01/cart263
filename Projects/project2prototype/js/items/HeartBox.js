@@ -1,5 +1,6 @@
 //This is only to display the heartbox no functionality in this class
 //Displays the heartbox when not hovered and when hovered over.
+//Add a clickbox to the heartbox
 class HeartBox {
   constructor() {
     //Dimensions

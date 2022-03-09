@@ -4,7 +4,7 @@ Alex Cho
 
 Proposal elements to do
 [Done] Showcase a Minigame
-[Done] Typewriting effect - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
+[Done] Typewriting effect / Goes through multiple strings - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
 [Done] Hover Method / Transition to Task (STATE)
 */
 

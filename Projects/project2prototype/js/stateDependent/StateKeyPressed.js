@@ -4,6 +4,7 @@ class StateKeyPressed {
 
   }
 
+  //Key pressed works for the cutscenes 
   activateScenes() {
     if (state === 'forestCutScene') {
       typeWriter.keyPressed();
