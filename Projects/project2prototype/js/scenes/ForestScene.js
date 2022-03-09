@@ -1,7 +1,7 @@
-//Contain the cutscene for the forest
-class ForestScene extends Universal {
+//Contain the cutscene for the forest.
+class ForestScene extends State {
   constructor(w, h, x, y) {
-    //Extend from the universal class
+    //Extend from the super class
     super(w, h, x, y);
 
     //images
@@ -12,6 +12,8 @@ class ForestScene extends Universal {
 
   //Display the animated background
   display() {
+    //Call the super display
+    super.display();
     push();
     imageMode(CENTER);
     //Use frame count to animate the background
@@ -23,5 +25,17 @@ class ForestScene extends Universal {
       image(this.sceneAImage3, this.x, this.y, this.width, this.height);
     }
     pop();
+
+    //Call these functions from the typeWriter class to display them in the opening scene
+    typeWriter.dialogueBox();
+    typeWriter.display();
+  }
+
+  //Key pressed functionality
+  keyPressed() {
+    //Call the super class
+    super.keyPressed();
+    //Get the key pressed from the typeWriter
+    typeWriter.keyPressed();
   }
 }

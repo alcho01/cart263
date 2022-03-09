@@ -2,7 +2,7 @@
 //Display the typewriting effect which is inspired by pippin's example.
 //It is different in the sense, that I added multiple strings.
 //I use a boolean to check when the next string can be called.
-//Included a specific key to be pressed to activate it
+//Included a specific key to be pressed to activate it.
 //Added a dialogue box around the text.
 //Also check's if the last string is called. If it is, it will change states
 class TypeWriter {
@@ -111,7 +111,8 @@ class TypeWriter {
   //Check to see if all the strings are done (PlaceHolder State)
   checkStrings() {
     if (this.currentdialogueString > this.dialogueStrings.length) {
-      state = "home";
+      //If the strings go past the limit change the state to the home location
+      state = new Home(1280, 720, 640, 360);
     }
   }
 

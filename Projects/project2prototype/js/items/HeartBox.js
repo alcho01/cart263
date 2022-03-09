@@ -1,6 +1,6 @@
 //This is only to display the heartbox no functionality in this class
 //Displays the heartbox when not hovered and when hovered over.
-//Add a clickbox to the heartbox
+//Add a clickbox to the heartbox.
 class HeartBox {
   constructor() {
     //Dimensions
@@ -54,12 +54,12 @@ class HeartBox {
   }
 
   //Check to see if the box is clicked on
-  onClicked() {
+  mouseClicked() {
     //Check to see if it is within these constraints
     if (mouseX > this.boxConstraints.x && mouseX < this.boxConstraints.x2){
       if (mouseY > this.boxConstraints.y && mouseY < this.boxConstraints.y2) {
         //Change states when clicked
-        state = "heartbeat";
+        state = new HeartMonitor;
       }
     }
   }

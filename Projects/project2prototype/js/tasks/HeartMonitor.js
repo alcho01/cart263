@@ -3,9 +3,11 @@
 //If time runs out, the progress bar will reset and force the user to start again.
 //The goal is 80 points. 2 points per "touch". The user has 10 seconds.
 //This class contains all functions necessary for the heart monitor to work.
-//Used this page to help me out - https://happycoding.io/tutorials/p5js/array-functions#push
-class HeartMonitor {
+//Used this page to help me out - https://happycoding.io/tutorials/p5js/array-functions#push.
+class HeartMonitor extends State {
   constructor() {
+    //Call the super class
+    super();
     //Array
     this.line = [];
 
@@ -143,7 +145,11 @@ class HeartMonitor {
   }
 
   //Display the entire functionality of the line
-  displayLine() {
+  display() {
+    //Call the super display
+    super.display();
+    //Background
+    background(0);
     //The line
     this.createLineShape();
     this.controlLineOutcome();

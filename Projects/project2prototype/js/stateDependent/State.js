@@ -1,5 +1,5 @@
-//The universal class will be used to extend dimensions and position when needed.
-class Universal {
+//The State class letting other classes extend from it
+class State {
   constructor(w, h, x, y) {
     //dimensions
     this.width = w;
@@ -10,6 +10,14 @@ class Universal {
   }
 
   display() {
-    //Nothing to display 
+
+  }
+
+  keyPressed() {
+
+  }
+
+  mouseClicked() {
+
   }
 }

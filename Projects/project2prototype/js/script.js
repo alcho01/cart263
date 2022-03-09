@@ -2,7 +2,7 @@
 Project 2 - Proposal
 Alex Cho
 
-Proposal elements to do
+Proposal elements to do:
 [Done] Showcase a Minigame
 [Done] Typewriting effect / Goes through multiple strings - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
 [Done] Hover Method / Transition to Task (STATE)
@@ -17,21 +17,10 @@ let canvas = {
 };
 
 //=====Setup Classes=====\\
-//Set up the classes
-//Tasks/Games
-let heartMonitor;
-//CutScenes
-let forestScene;
-//Locations
-let home;
 //Items
 let heartBox;
 //Dialogue
 let typeWriter;
-//Handle state event classes
-let stateDisplayer;
-let stateKeyPressed;
-let stateMouseClicked;
 
 //=====Load Fonts=====\\
 //Load text font
@@ -53,8 +42,8 @@ let home2Image;
 let heartBoxImage;
 let heartBoxImageHov;
 
-//Starting State
-let state = 'forestCutScene';
+//State variable
+let state;
 
 //Load in the assets
 function preload() {
@@ -81,38 +70,26 @@ function setup() {
   //create the canvas
   createCanvas(canvas.width, canvas.height);
 
-  //Classes
-  //Tasks/games
-  heartMonitor = new HeartMonitor();
-  //Cutscenes
-  forestScene = new ForestScene(1280, 720, 640, 360);
-  //Locations
-  home = new Home(1280, 720, 640, 360);
+  //Classes that must be called in setup
+  state = new ForestScene(1280, 720, 640, 360);
   //Items
   heartBox = new HeartBox();
   //Dialogue effect
   typeWriter = new TypeWriter();
-  //Event handler classes
-  stateDisplayer = new StateDisplayer();
-  stateKeyPressed = new StateKeyPressed();
-  stateMouseClicked = new StateMouseClicked();
 }
 
 //Displaying the entities
 function draw() {
   //Display the entities
-  stateDisplayer.activateScenes();
-  stateDisplayer.activateLocations();
-  stateDisplayer.activateItems();
-  stateDisplayer.activateTasks();
+  state.display();
 }
 
 //Key pressed functionality
 function keyPressed() {
-  stateKeyPressed.activateScenes();
+  state.keyPressed();
 }
 
 //mouse clicked functionality
 function mouseClicked() {
-  stateMouseClicked.activateTasks();
+  state.mouseClicked();
 }
