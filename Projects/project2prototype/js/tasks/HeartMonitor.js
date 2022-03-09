@@ -29,6 +29,17 @@ class HeartMonitor {
       value: 0,
     };
 
+    //How the time/text looks
+    this.timeLook = {
+      //Fill it white
+      white: 255,
+      //Size
+      size: 20,
+      //Position
+      x: 69,
+      y: 646,
+    };
+
     //Point Value
     //Blue point system
     this.pointSystemBlue = {
@@ -148,6 +159,7 @@ class HeartMonitor {
 
     //Timer
     this.checkTimer();
+    this.displayTime();
 
     //Check for Win
     this.activateWin();
@@ -287,7 +299,15 @@ class HeartMonitor {
   }
 
   //display the time
-
+  displayTime() {
+    push();
+    textAlign(CENTER);
+    textFont(dialogueFont);
+    fill(this.timeLook.white);
+    textSize(this.timeLook.size);
+    text(round(this.timer), this.timeLook.x, this.timeLook.y);
+    pop();
+  }
 
   //Notify the user has succesfully completed the task
   activateWin() {
