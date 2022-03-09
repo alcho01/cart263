@@ -1,6 +1,7 @@
 //Contain the cutscene for the forest
 class ForestScene extends Universal {
   constructor(w, h, x, y) {
+    //Extend from the universal class
     super(w, h, x, y);
 
     //images

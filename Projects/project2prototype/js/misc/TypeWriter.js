@@ -111,7 +111,7 @@ class TypeWriter {
   //Check to see if all the strings are done (PlaceHolder State)
   checkStrings() {
     if (this.currentdialogueString > this.dialogueStrings.length) {
-      state = "heartbeat";
+      state = "home";
     }
   }
 

@@ -22,6 +22,8 @@ let canvas = {
 let heartMonitor;
 //CutScenes
 let forestScene;
+//Locations
+let home;
 //Dialogue
 let typeWriter;
 //Handle state event classes
@@ -41,6 +43,9 @@ let heartbeatSFX;
 let sceneAImage1;
 let sceneAImage2;
 let sceneAImage3;
+//Load the home images
+let home1Image;
+let home2Image;
 
 //Starting State
 let state = 'forestCutScene';
@@ -56,6 +61,8 @@ function preload() {
   sceneAImage1 = loadImage("assets/images/scenes/scene1.png");
   sceneAImage2 = loadImage("assets/images/scenes/scene2.png");
   sceneAImage3 = loadImage("assets/images/scenes/scene3.png");
+  home1Image = loadImage("assets/images/locations/home.png");
+  home2Image = loadImage("assets/images/locations/home2.png");
 }
 
 //What needs to be setup before starting
@@ -71,6 +78,8 @@ function setup() {
   heartMonitor = new HeartMonitor();
   //Cutscenes
   forestScene = new ForestScene(1280, 720, 640, 360);
+  //Locations
+  home = new Home(1280, 720, 640, 360);
   //Dialogue effect
   typeWriter = new TypeWriter();
   //Event handler classes
@@ -81,7 +90,9 @@ function setup() {
 //Displaying the entities
 function draw() {
   //Display the entities
-  stateDisplayer.activate();
+  stateDisplayer.activateScenes();
+  stateDisplayer.activateLocations();
+  stateDisplayer.activateTasks();
 }
 
 //Key pressed functionality
