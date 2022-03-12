@@ -19,8 +19,9 @@ let canvas = {
 //=====Setup Classes=====\\
 //Items
 let heartBox;
-//Dialogue
+//Misc
 let typeWriter;
+let toolBar;
 
 //=====Load Fonts=====\\
 //Load text font
@@ -41,6 +42,11 @@ let home2Image;
 //Load the heartBox images - Hov = Hovered over
 let heartBoxImage;
 let heartBoxImageHov;
+//Load toolbar images
+let toolBarImage;
+let toolBarImageHov1;
+let toolBarImageHov2;
+let toolBarImageHov3;
 
 //State variable
 let state;
@@ -60,6 +66,10 @@ function preload() {
   home2Image = loadImage("assets/images/locations/home2.png");
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
+  toolBarImage = loadImage("assets/images/toolbar/toolbar.png");
+  toolBarImageHov1 = loadImage("assets/images/toolbar/toolbar2.png");
+  toolBarImageHov2 = loadImage("assets/images/toolbar/toolbar3.png");
+  toolBarImageHov3 = loadImage("assets/images/toolbar/toolbar4.png");
 }
 
 //What needs to be setup before starting
@@ -76,11 +86,12 @@ function setup() {
   heartBox = new HeartBox();
   //Dialogue effect
   typeWriter = new TypeWriter();
+  //Toolbar
+  toolBar = new ToolBar();
 }
 
 //Displaying the entities
 function draw() {
-  //Display the entities
   state.display();
 }
 

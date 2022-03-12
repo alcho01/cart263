@@ -23,8 +23,12 @@ class Home extends State {
       image(this.home2Image, this.x, this.y, this.width, this.height);
     }
     pop();
+
     //Call the heartbox display to actually be able to display it
     heartBox.display();
+
+    //Display the toolbar
+    toolBar.display();
   }
 
   //Mouse clicked functionality
