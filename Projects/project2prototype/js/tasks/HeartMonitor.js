@@ -45,29 +45,29 @@ class HeartMonitor extends State {
     //Point Value
     //Blue point system
     this.pointSystemBlue = {
-        //How many points are accumulated
-        value: 0,
-        //Reset the point value if the user fails
-        valueReset: 0,
-        //Check to see if the task is complete
-        completeProgress: false,
-        //Point increments
-        addPoint: 2,
-        //Toggle when to turn the point activation on or off (Meaning having to zig zag between red and blue)
-        toggleMode: true,
+      //How many points are accumulated
+      value: 0,
+      //Reset the point value if the user fails
+      valueReset: 0,
+      //Check to see if the task is complete
+      completeProgress: false,
+      //Point increments
+      addPoint: 2,
+      //Toggle when to turn the point activation on or off (Meaning having to zig zag between red and blue)
+      toggleMode: true,
     };
     //Red point system
     this.pointSystemRed = {
-        //How many points are accumulated
-        value: 0,
-        //Reset the point value if the user fails
-        valueReset: 0,
-        //Check to see if the task is complete
-        completeProgress: false,
-        //Point increments
-        addPoint: 2,
-        //Toggle when to turn the point activation on or off (Meaning having to zig zag between red and blue)
-        toggleMode: true,
+      //How many points are accumulated
+      value: 0,
+      //Reset the point value if the user fails
+      valueReset: 0,
+      //Check to see if the task is complete
+      completeProgress: false,
+      //Point increments
+      addPoint: 2,
+      //Toggle when to turn the point activation on or off (Meaning having to zig zag between red and blue)
+      toggleMode: true,
     };
     //Point Goals to reach
     this.pointGoal = {
@@ -110,32 +110,32 @@ class HeartMonitor extends State {
       stage2: 80,
       stage3: 120,
       stage4: 150,
-    }
+    };
 
     //Stroke color
     this.strokeFill = {
-    r: undefined,
-    g: undefined,
-    b: undefined,
-  };
+      r: undefined,
+      g: undefined,
+      b: undefined,
+    };
     //Stroke Color Blue
     this.strokeFillBlue = {
-    r: 0,
-    g: 213,
-    b: 255,
-  };
+      r: 0,
+      g: 213,
+      b: 255,
+    };
     //Stroke Color Red
     this.strokeFillRed = {
-    r: 255,
-    g: 64,
-    b: 0,
-  };
+      r: 255,
+      g: 64,
+      b: 0,
+    };
     //Stroke Color White
     this.strokeFillWhite = {
-    r: 255,
-    g: 255,
-    b: 255,
-  };
+      r: 255,
+      g: 255,
+      b: 255,
+    };
     //Stroke Color Green
     this.strokeFillGreen = {
       r: 2,
@@ -171,7 +171,7 @@ class HeartMonitor extends State {
     this.activateWin();
   }
 
-//Create the shape of the line
+  //Create the shape of the line
   createLineShape() {
     push();
     stroke(this.strokeFill.r, this.strokeFill.g, this.strokeFill.b);
@@ -227,7 +227,12 @@ class HeartMonitor extends State {
     noStroke();
     //Use the stroke blue color
     fill(this.strokeFillBlue.r, this.strokeFillBlue.g, this.strokeFillBlue.b);
-    rect(this.progressBarBlue.x, this.progressBarBlue.y, this.progressBarBlue.w, this.progressBarBlue.h);
+    rect(
+      this.progressBarBlue.x,
+      this.progressBarBlue.y,
+      this.progressBarBlue.w,
+      this.progressBarBlue.h
+    );
     pop();
 
     //Red progress bar
@@ -236,7 +241,12 @@ class HeartMonitor extends State {
     noStroke();
     //Use the stroke red color
     fill(this.strokeFillRed.r, this.strokeFillRed.g, this.strokeFillRed.b);
-    rect(this.progressBarRed.x, this.progressBarRed.y, this.progressBarRed.w, this.progressBarRed.h);
+    rect(
+      this.progressBarRed.x,
+      this.progressBarRed.y,
+      this.progressBarRed.w,
+      this.progressBarRed.h
+    );
     pop();
   }
 
@@ -249,8 +259,10 @@ class HeartMonitor extends State {
       heartbeatSFX.play();
       this.pointSystemBlue.toggleMode = false;
       console.log(this.pointSystemBlue.value);
-    }
-    else if (mouseY >= this.mouseYRed && this.pointSystemRed.toggleMode === true) {
+    } else if (
+      mouseY >= this.mouseYRed &&
+      this.pointSystemRed.toggleMode === true
+    ) {
       this.pointSystemRed.value = this.pointSystemRed.value += this.pointSystemRed.addPoint;
       //Play a sound
       heartbeatSFX.play();
@@ -262,7 +274,10 @@ class HeartMonitor extends State {
   //Check to see if the booleans are false
   //If both booleans are false reset the toggle modes to true
   pointCheck() {
-    if (this.pointSystemBlue.toggleMode === false && this.pointSystemRed.toggleMode === false) {
+    if (
+      this.pointSystemBlue.toggleMode === false &&
+      this.pointSystemRed.toggleMode === false
+    ) {
       this.pointSystemBlue.toggleMode = true;
       this.pointSystemRed.toggleMode = true;
     }
@@ -317,7 +332,10 @@ class HeartMonitor extends State {
 
   //Notify the user has succesfully completed the task
   activateWin() {
-    if (this.pointSystemBlue.completeProgress === true && this.pointSystemRed.completeProgress === true) {
+    if (
+      this.pointSystemBlue.completeProgress === true &&
+      this.pointSystemRed.completeProgress === true
+    ) {
       //State Win Activate state = ''
       //Play a sound
       //Change the color of the line to green
@@ -328,7 +346,7 @@ class HeartMonitor extends State {
       this.progressBarBlue.h = this.progressIncreaser.stage4;
       this.progressBarRed.h = this.progressIncreaser.stage4;
       //For testing
-      console.log('Win');
+      console.log("Win");
     }
   }
 

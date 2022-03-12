@@ -2,6 +2,11 @@
 Project 2 - Proposal
 Alex Cho
 
+For the proposal I wanted to demonstrate one task that will be implemented in the final version of this project.
+I also wanted to test out the typewriter dialogue effect that goes through an array of strings.
+Finally, I wanted to include a hover method over items that can be clicked.
+*To scroll through dialogue it is the left arrow key.
+
 Proposal elements to do:
 [Done] Showcase a Minigame
 [Done] Typewriting effect / Goes through multiple strings - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
