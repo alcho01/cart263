@@ -22,7 +22,7 @@ let canvas = {
   height: 720,
 };
 
-//Booleans for locations 
+//Booleans for locations
 let locationHome = true;
 let locationLab = false;
 let locationShrine = false;
@@ -70,6 +70,11 @@ let mapImageHov3;
 let mapImageHov4;
 //Bag
 let bagImage;
+//Journal
+let journalImage;
+let journalInfoImage;
+let journalArrowImage;
+let journalArrowImageHov;
 
 //State variable
 let state;
@@ -108,6 +113,11 @@ function preload() {
   mapImageHov4 = loadImage("assets/images/toolbar/map/map4.png");
 
   bagImage = loadImage("assets/images/toolbar/bag/bag.png");
+
+  journalImage = loadImage("assets/images/toolbar/journal/journal.png");
+  journalInfoImage = loadImage("assets/images/toolbar/journal/info1.png");
+  journalArrowImage = loadImage("assets/images/toolbar/journal/arrow.png");
+  journalArrowImageHov = loadImage("assets/images/toolbar/journal/arrow2.png");
 }
 
 //What needs to be setup before starting

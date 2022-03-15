@@ -100,6 +100,13 @@ class ToolBar {
 
   //Mouse clicked functionality
   mouseClicked() {
+    //Click on the journal icon
+    if (mouseX > this.journalConstraints.x && mouseX < this.journalConstraints.x2) {
+      if (mouseY > this.journalConstraints.y && mouseY < this.journalConstraints.y2) {
+        //Link to the journal class
+        state = new Journal(1280, 720, 640, 360);
+      }
+    }
     //Click on the bag icon
     if (mouseX > this.bagConstraints.x && mouseX < this.bagConstraints.x2) {
       if (mouseY > this.bagConstraints.y && mouseY < this.bagConstraints.y2) {
