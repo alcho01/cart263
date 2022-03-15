@@ -4,6 +4,8 @@
 //The goal is 80 points. 2 points per "touch". The user has 10 seconds.
 //This class contains all functions necessary for the heart monitor to work.
 //Used this page to help me out - https://happycoding.io/tutorials/p5js/array-functions#push.
+//Used this for the delay time - https://github.com/pippinbarr/cart253-2020/tree/master/examples/time/oop-and-timers
+//Helpful for creating custom shape - https://p5js.org/reference/#/p5/beginShape
 class HeartMonitor extends State {
   constructor() {
     //Call the super class
@@ -13,6 +15,9 @@ class HeartMonitor extends State {
 
     //Control
     this.control = undefined;
+
+    //Delay after completing task 3.5 seconds
+    this.timeDelay = 3500;
 
     //Timer
     this.timer = 10;
@@ -180,7 +185,8 @@ class HeartMonitor extends State {
     beginShape();
     //Keep the line growing
     for (let i = 0; i < width; i++) {
-      //Keep the line moving along the x, and alternate between the high and low points
+      //Keep the line moving along the x, and alternate between the high and low points,
+      //Only need one vertex and expand that point.
       vertex(i, this.line[i]);
     }
     //Close the shape
@@ -336,9 +342,8 @@ class HeartMonitor extends State {
       this.pointSystemBlue.completeProgress === true &&
       this.pointSystemRed.completeProgress === true
     ) {
-      //State Win Activate state = ''
-      //Play a sound
-      //Change the color of the line to green
+      //Play a sound to notify the completion of the task
+      //Change the color of the line to green (PlaceHolder)
       this.strokeFill.r = this.strokeFillGreen.r;
       this.strokeFill.g = this.strokeFillGreen.g;
       this.strokeFill.b = this.strokeFillGreen.b;
@@ -347,7 +352,15 @@ class HeartMonitor extends State {
       this.progressBarRed.h = this.progressIncreaser.stage4;
       //For testing
       console.log("Win");
+      //Return to home state
+      //Add a timer to display the green line for a few seconds
+      this.returnTimer = setTimeout(this.returnHome.bind(this), this.timeDelay);
     }
+  }
+
+  //Make the state become the home state once the task is complete and the timeout is set
+  returnHome() {
+    state = new Home(1280, 720, 640, 360);
   }
 
   //Reset function to start the game over if failed
