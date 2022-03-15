@@ -3,14 +3,16 @@ Project 2 - Proposal
 Alex Cho
 
 For the proposal I wanted to demonstrate one task that will be implemented in the final version of this project.
-I also wanted to test out the typewriter dialogue effect that goes through an array of strings.
+I also wanted to include a simple dialogue system for the introduction.
 Finally, I wanted to include a hover method over items that can be clicked.
+Also, to work on the elements under my stuff which control the majority of the states. I showcase the basic foundation, of course it will look better and be complete by the final submission.
 *To scroll through dialogue it is the left arrow key.
+*To exit out of the journal it is the ESC key. 
 
 Proposal elements to do:
 [Done] Showcase a Minigame
 [Done] Simple Dialogue System
-[] Work on the three elements under my stuff (Basic functionality for now)
+[Done] Work on the three elements under my stuff (Basic functionality for now)
 [Done] Hover Method / Transition to Task (STATE)
 */
 
