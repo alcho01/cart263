@@ -27,8 +27,8 @@ class ForestScene extends State {
     pop();
 
     //Call these functions from the typeWriter class to display them in the opening scene
-    typeWriter.dialogueBox();
-    typeWriter.display();
+    dialogue.dialogueBox();
+    dialogue.display();
   }
 
   //Key pressed functionality
@@ -36,6 +36,6 @@ class ForestScene extends State {
     //Call the super class
     super.keyPressed();
     //Get the key pressed from the typeWriter
-    typeWriter.keyPressed();
+    dialogue.keyPressed();
   }
 }

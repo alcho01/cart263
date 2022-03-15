@@ -25,7 +25,7 @@ let canvas = {
 //Items
 let heartBox;
 //Misc
-let typeWriter;
+let dialogue;
 let toolBar;
 
 //=====Load Fonts=====\\
@@ -90,7 +90,7 @@ function setup() {
   //Items
   heartBox = new HeartBox();
   //Dialogue effect
-  typeWriter = new TypeWriter();
+  dialogue = new Dialogue();
   //Toolbar
   toolBar = new ToolBar();
 }
