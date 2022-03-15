@@ -1,7 +1,7 @@
 //This class will contain the map
 //Apply hover methods
 //Apply mouse interactivity
-//Apply task count
+//Apply task count on hover
 class Map extends State {
   constructor(w, h, x, y) {
     //call the super class
@@ -13,6 +13,12 @@ class Map extends State {
     this.mapImageHov2 = mapImageHov2;
     this.mapImageHov3 = mapImageHov3;
     this.mapImageHov4 = mapImageHov4;
+
+    //check task Booleans
+    this.homeTaskCheck = false;
+    this.labTaskCheck = false;
+    this.shrineTaskCheck = false;
+    this.towerTaskCheck = false;
 
     //Constraints for home
     this.homeConstraints = {
@@ -119,7 +125,7 @@ class Map extends State {
       if (mouseY > this.towerConstraints.y && mouseY < this.towerConstraints.y2) {
         //Display the hover image
         this.displayTowerHover();
-        //Play a sound 
+        //Play a sound
       }
     }
   }
