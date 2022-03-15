@@ -52,6 +52,12 @@ let toolBarImage;
 let toolBarImageHov1;
 let toolBarImageHov2;
 let toolBarImageHov3;
+//Map
+let mapImage
+let mapImageHov1;
+let mapImageHov2;
+let mapImageHov3;
+let mapImageHov4;
 
 //State variable
 let state;
@@ -63,18 +69,28 @@ function preload() {
   //preload sounds
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
   //preload music
+
   //preload images
   sceneAImage1 = loadImage("assets/images/scenes/scene1.png");
   sceneAImage2 = loadImage("assets/images/scenes/scene2.png");
   sceneAImage3 = loadImage("assets/images/scenes/scene3.png");
+
   home1Image = loadImage("assets/images/locations/home.png");
   home2Image = loadImage("assets/images/locations/home2.png");
+
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
+
   toolBarImage = loadImage("assets/images/toolbar/toolbar.png");
   toolBarImageHov1 = loadImage("assets/images/toolbar/toolbar2.png");
   toolBarImageHov2 = loadImage("assets/images/toolbar/toolbar3.png");
   toolBarImageHov3 = loadImage("assets/images/toolbar/toolbar4.png");
+
+  mapImage = loadImage("assets/images/toolbar/map/map0.png");
+  mapImageHov1 = loadImage("assets/images/toolbar/map/map1.png");
+  mapImageHov2 = loadImage("assets/images/toolbar/map/map2.png");
+  mapImageHov3 = loadImage("assets/images/toolbar/map/map3.png");
+  mapImageHov4 = loadImage("assets/images/toolbar/map/map4.png");
 }
 
 //What needs to be setup before starting

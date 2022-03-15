@@ -37,5 +37,7 @@ class Home extends State {
     super.mouseClicked();
     //Get the heartBox mouse clicked to enable the required state
     heartBox.mouseClicked();
+    //Get the toolbar mouse clicked
+    toolBar.mouseClicked();
   }
 }

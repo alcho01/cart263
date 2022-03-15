@@ -32,7 +32,7 @@ class ToolBar {
       y2: 708,
     };
 
-    //Constraints for the map 
+    //Constraints for the map
     this.mapConstraints = {
       x: 150,
       x2: 222,
@@ -94,6 +94,17 @@ class ToolBar {
     if (mouseX > this.mapConstraints.x && mouseX < this.mapConstraints.x2) {
       if (mouseY > this.mapConstraints.y && mouseY < this.mapConstraints.y2) {
         this.displayMapHover();
+      }
+    }
+  }
+
+  //Mouse clicked functionality
+  mouseClicked() {
+    //Click on the map
+    if (mouseX > this.mapConstraints.x && mouseX < this.mapConstraints.x2) {
+      if (mouseY > this.mapConstraints.y && mouseY < this.mapConstraints.y2) {
+        //Link to the map class 
+        state = new Map(1280, 720, 640, 360);
       }
     }
   }
