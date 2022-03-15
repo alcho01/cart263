@@ -100,10 +100,17 @@ class ToolBar {
 
   //Mouse clicked functionality
   mouseClicked() {
-    //Click on the map
+    //Click on the bag icon
+    if (mouseX > this.bagConstraints.x && mouseX < this.bagConstraints.x2) {
+      if (mouseY > this.bagConstraints.y && mouseY < this.bagConstraints.y2) {
+        //Link to the bag class
+        state = new Bag(1280, 720, 640, 360);
+      }
+    }
+    //Click on the map icon
     if (mouseX > this.mapConstraints.x && mouseX < this.mapConstraints.x2) {
       if (mouseY > this.mapConstraints.y && mouseY < this.mapConstraints.y2) {
-        //Link to the map class 
+        //Link to the map class
         state = new Map(1280, 720, 640, 360);
       }
     }

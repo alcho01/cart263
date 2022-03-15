@@ -9,7 +9,8 @@ Finally, I wanted to include a hover method over items that can be clicked.
 
 Proposal elements to do:
 [Done] Showcase a Minigame
-[Done] Typewriting effect / Goes through multiple strings - Inspired by - hhttps://github.com/pippinbarr/cart253-2020/tree/master/examples/text/typewriter-effect
+[Done] Simple Dialogue System
+[] Work on the three elements under my stuff (Basic functionality for now)
 [Done] Hover Method / Transition to Task (STATE)
 */
 
@@ -20,6 +21,12 @@ let canvas = {
   width: 1280,
   height: 720,
 };
+
+//Booleans for locations 
+let locationHome = true;
+let locationLab = false;
+let locationShrine = false;
+let locationTower = false;
 
 //=====Setup Classes=====\\
 //Items
@@ -47,6 +54,9 @@ let home2Image;
 //Load the heartBox images - Hov = Hovered over
 let heartBoxImage;
 let heartBoxImageHov;
+//Exit Button
+let exitButtonImage;
+let exitButtonImage2;
 //Load toolbar images
 let toolBarImage;
 let toolBarImageHov1;
@@ -58,6 +68,8 @@ let mapImageHov1;
 let mapImageHov2;
 let mapImageHov3;
 let mapImageHov4;
+//Bag
+let bagImage;
 
 //State variable
 let state;
@@ -81,6 +93,9 @@ function preload() {
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
 
+  exitButtonImage = loadImage("assets/images/toolbar/exit/exitButton.png");
+  exitButtonImage2 = loadImage("assets/images/toolbar/exit/exitButton2.png");
+
   toolBarImage = loadImage("assets/images/toolbar/toolbar.png");
   toolBarImageHov1 = loadImage("assets/images/toolbar/toolbar2.png");
   toolBarImageHov2 = loadImage("assets/images/toolbar/toolbar3.png");
@@ -91,6 +106,8 @@ function preload() {
   mapImageHov2 = loadImage("assets/images/toolbar/map/map2.png");
   mapImageHov3 = loadImage("assets/images/toolbar/map/map3.png");
   mapImageHov4 = loadImage("assets/images/toolbar/map/map4.png");
+
+  bagImage = loadImage("assets/images/toolbar/bag/bag.png");
 }
 
 //What needs to be setup before starting

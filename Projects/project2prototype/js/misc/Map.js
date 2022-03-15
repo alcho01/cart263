@@ -14,12 +14,6 @@ class Map extends State {
     this.mapImageHov3 = mapImageHov3;
     this.mapImageHov4 = mapImageHov4;
 
-    //check task Booleans
-    this.homeTaskCheck = false;
-    this.labTaskCheck = false;
-    this.shrineTaskCheck = false;
-    this.towerTaskCheck = false;
-
     //Constraints for home
     this.homeConstraints = {
       x: 85,
