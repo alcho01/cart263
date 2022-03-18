@@ -7,7 +7,7 @@ I also wanted to include a simple dialogue system for the introduction.
 Finally, I wanted to include a hover method over items that can be clicked.
 Also, to work on the elements under my stuff which control the majority of the states. I showcase the basic foundation, of course it will look better and be complete by the final submission.
 *To scroll through dialogue it is the left arrow key.
-*To exit out of the journal it is the ESC key. 
+*To exit out of the journal it is the ESC key.
 
 Proposal elements to do:
 [Done] Showcase a Minigame
@@ -75,6 +75,7 @@ let bagImage;
 //Journal
 let journalImage;
 let journalInfoImage;
+let journalInfoImage2;
 let journalArrowImage;
 let journalArrowImageHov;
 
@@ -118,6 +119,7 @@ function preload() {
 
   journalImage = loadImage("assets/images/toolbar/journal/journal.png");
   journalInfoImage = loadImage("assets/images/toolbar/journal/info1.png");
+  journalInfoImage2 = loadImage("assets/images/toolbar/journal/info2.png");
   journalArrowImage = loadImage("assets/images/toolbar/journal/arrow.png");
   journalArrowImageHov = loadImage("assets/images/toolbar/journal/arrow2.png");
 }
