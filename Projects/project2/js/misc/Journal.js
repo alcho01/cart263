@@ -4,12 +4,20 @@ class Journal extends State {
     //Call the super class
     super(w, h, x, y);
 
-    //Journal info parameters
-    this.journalInfo = {
+    //Journal info parameters (page 1)
+    this.journalInfoP1 = {
       x: 660,
       y: 370,
       width: 1400,
       height: 800,
+    };
+
+    //Journal info parameters (page 2)
+    this.journalInfoP2 = {
+      x: 320,
+      y: 420,
+      width: 1370,
+      height: 770,
     };
 
     //Arrow parameters
@@ -34,6 +42,7 @@ class Journal extends State {
     //Images
     this.journalImage = journalImage;
     this.journalInfoImage = journalInfoImage;
+    this.journalInfoImage2 = journalInfoImage2;
     this.journalArrowImage = journalArrowImage;
     this.journalArrowImageHov = journalArrowImageHov;
   }
@@ -64,9 +73,15 @@ class Journal extends State {
   displayHeartTask() {
     //If it is true display the instructions
     if (this.showTask1 === true) {
+    //Instructions page 1
     push();
     imageMode(CENTER);
-    image(this.journalInfoImage, this.journalInfo.x, this.journalInfo.y, this.journalInfo.width, this.journalInfo.height);
+    image(this.journalInfoImage, this.journalInfoP1.x, this.journalInfoP1.y, this.journalInfoP1.width, this.journalInfoP1.height);
+    pop();
+    //Instructions page 2
+    push();
+    imageMode(CENTER);
+    image(this.journalInfoImage2, this.journalInfoP2.x, this.journalInfoP2.y, this.journalInfoP2.width, this.journalInfoP2.height);
     pop();
   }
 }
