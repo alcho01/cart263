@@ -12,6 +12,12 @@ let canvas = {
   height: 720,
 };
 
+//Booleans for task completion
+let task1Done = false;
+let task2Done = false;
+let task3Done = false;
+let task4Done = false;
+
 //Booleans for locations
 let locationHome = true;
 let locationLab = false;

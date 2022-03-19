@@ -352,6 +352,8 @@ class HeartMonitor extends State {
       this.progressBarRed.h = this.progressIncreaser.stage4;
       //For testing
       console.log("Win");
+      //Activate the boolean to true
+      task1Done = true;
       //Return to home state
       //Add a timer to display the green line for a few seconds
       this.returnTimer = setTimeout(this.returnHome.bind(this), this.timeDelay);
@@ -379,5 +381,16 @@ class HeartMonitor extends State {
     //Reset Completed progress
     //this.pointSystemBlue.completeProgress = false;
     //this.pointSystemRed.completeProgress = false;
+  }
+
+  //Key pressed functionality
+  keyPressed() {
+    //Call the super key pressed
+    super.keyPressed();
+    //If the escape key is pressed...
+    if (keyCode === 27) {
+      //Return to the home state
+      state = new Home(1280, 720, 640, 360);
+    }
   }
 }
