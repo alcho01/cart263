@@ -135,5 +135,20 @@ class Journal extends State {
       //Return to the home state
       state = new Home(1280, 720, 640, 360);
     }
+    //If escape key is clicked return to the previous state
+    if (keyCode === 27 && locationLab === true) {
+      //Return to the lab state
+      state = new Lab(1280, 720, 640, 360);
+    }
+    //If escape key is clicked return to the previous state
+    if (keyCode === 27 && locationShrine === true) {
+      //Return to the shrine state
+      //state = new Shrine(1280, 720, 640, 360);
+    }
+    //If escape key is clicked return to the previous state
+    if (keyCode === 27 && locationTower === true) {
+      //Return to the home state
+      //state = new Tower(1280, 720, 640, 360);
+    }
   }
 }

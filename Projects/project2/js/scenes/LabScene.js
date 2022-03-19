@@ -34,7 +34,7 @@ class LabScene extends State {
     //If the left arrow key is pressed go to the next state
     if (keyCode === 37) {
       //Go to the Lab state
-    //  state = new Lab(1280, 720, 640, 360);
+      state = new Lab(1280, 720, 640, 360);
     }
     //If the escape key is pressed
     if (keyCode === 27) {

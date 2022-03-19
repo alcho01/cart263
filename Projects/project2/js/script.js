@@ -2,18 +2,6 @@
 Project 2 - Proposal
 Alex Cho
 
-For the proposal I wanted to demonstrate one task that will be implemented in the final version of this project.
-I also wanted to include a simple dialogue system for the introduction.
-Finally, I wanted to include a hover method over items that can be clicked.
-Also, to work on the elements under my stuff which control the majority of the states. I showcase the basic foundation, of course it will look better and be complete by the final submission.
-*To scroll through dialogue it is the left arrow key.
-*To exit out of the journal it is the ESC key.
-
-Proposal elements to do:
-[Done] Showcase a Minigame
-[Done] Simple Dialogue System
-[Done] Work on the three elements under my stuff (Basic functionality for now)
-[Done] Hover Method / Transition to Task (STATE)
 */
 
 "use strict";
@@ -68,12 +56,20 @@ let sceneEImage1;
 let sceneEImage2;
 let sceneEImage3;
 
+//Load Location images
 //Load the home images
 let home1Image;
 let home2Image;
+//Load the lab images
+let lab1Image;
+let lab2Image;
+
+//Load Item Images
 //Load the heartBox images - Hov = Hovered over
 let heartBoxImage;
 let heartBoxImageHov;
+
+//Load Misc Images
 //Exit Button
 let exitButtonImage;
 let exitButtonImage2;
@@ -131,6 +127,9 @@ function preload() {
 
   home1Image = loadImage("assets/images/locations/home.png");
   home2Image = loadImage("assets/images/locations/home2.png");
+
+  lab1Image = loadImage("assets/images/locations/lab.png");
+  lab2Image = loadImage("assets/images/locations/lab2.png");
 
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");

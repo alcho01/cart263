@@ -14,11 +14,6 @@ class Map extends State {
     this.mapImageHov3 = mapImageHov3;
     this.mapImageHov4 = mapImageHov4;
 
-    //Boolean
-    this.labClicked = false;
-    this.shrineClicked = false;
-    this.towerClicked = false;
-
     //Constraints for home
     this.homeConstraints = {
       x: 85,
@@ -129,19 +124,6 @@ class Map extends State {
     }
   }
 
-  //Check to see if a scene should be displayed or not
-  sceneChecker() {
-    if (this.labClicked === true) {
-    //  state = new Lab(1280, 720, 640, 360);
-    }
-    if (this.shrineClicked === true) {
-    //  state = new Shrine(1280, 720, 640, 360);
-    }
-    if (this.towerClicked === true) {
-    //  state = new Tower(1280, 720, 640, 360);
-    }
-  }
-
   //mouse Functionality
   mouseClicked() {
     //Call the super mouse clicked
@@ -151,34 +133,47 @@ class Map extends State {
       if (mouseY > this.homeConstraints.y && mouseY < this.homeConstraints.y2) {
         //Go to the home state
         state = new Home(1280, 720, 640, 360);
-
+        //Boolean system
+        locationHome = true;
+        locationLab = false;
+        locationShrine = false;
+        locationTower = false;
       }
     }
     //Check to see if within the clickbox
     if (mouseX > this.labConstraints.x && mouseX < this.labConstraints.x2) {
       if (mouseY > this.labConstraints.y && mouseY < this.labConstraints.y2) {
-        //Go to the lab scene since it is the first time being clicked
+        //Go to the lab scene
         state = new LabScene(1280, 720, 640, 360);
-        //Activate the boolean to true since we only want the scene to play the first time
-        this.labClicked = true;
+        //Boolean system
+        locationHome = false;
+        locationLab = true;
+        locationShrine = false;
+        locationTower = false;
       }
     }
     //Check to see if within the clickbox
     if (mouseX > this.shrineConstraints.x && mouseX < this.shrineConstraints.x2) {
       if (mouseY > this.shrineConstraints.y && mouseY < this.shrineConstraints.y2) {
-        //Go to the shrine scene since it is the first time being clicked
+        //Go to the shrine scene
         state = new ShrineScene(1280, 720, 640, 360);
-        //Activate the boolean to true since we only want the scene to play the first time
-        this.shrineClicked = true;
+        //Boolean System
+        locationHome = false;
+        locationLab = false;
+        locationShrine = true;
+        locationTower = false;
       }
     }
     //Check to see if within the clickbox
     if (mouseX > this.towerConstraints.x && mouseX < this.towerConstraints.x2) {
       if (mouseY > this.towerConstraints.y && mouseY < this.towerConstraints.y2) {
-        //Go to the tower scene since it is the first time being clicked
+        //Go to the tower scene
         state = new TowerScene(1280, 720, 640, 360);
-        //Activate the boolean to true since we only want the scene to play the first time
-        this.towerClicked = true;
+        //Boolean System
+        locationHome = false;
+        locationLab = false;
+        locationShrine = false;
+        locationTower = true;
       }
     }
   }
