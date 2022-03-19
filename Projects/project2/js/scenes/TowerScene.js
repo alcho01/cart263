@@ -34,7 +34,7 @@ class TowerScene extends State {
     //If the left arrow key is pressed go to the next state
     if (keyCode === 37) {
       //Go to the Tower state
-    //  state = new Tower(1280, 720, 640, 360);
+      state = new Tower(1280, 720, 640, 360);
     }
     //If the escape key is pressed
     if (keyCode === 27) {

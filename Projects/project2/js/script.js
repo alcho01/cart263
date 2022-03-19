@@ -63,6 +63,12 @@ let home2Image;
 //Load the lab images
 let lab1Image;
 let lab2Image;
+//Load the shrine images
+let shrine1Image;
+let shrine2Image;
+//Load the tower images
+let tower1Image;
+let tower2Image;
 
 //Load Item Images
 //Load the heartBox images - Hov = Hovered over
@@ -130,6 +136,12 @@ function preload() {
 
   lab1Image = loadImage("assets/images/locations/lab.png");
   lab2Image = loadImage("assets/images/locations/lab2.png");
+
+  shrine1Image = loadImage("assets/images/locations/shrine.png");
+  shrine2Image = loadImage("assets/images/locations/shrine2.png");
+
+  tower1Image = loadImage("assets/images/locations/tower.png");
+  tower2Image = loadImage("assets/images/locations/tower2.png");
 
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");

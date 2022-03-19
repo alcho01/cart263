@@ -96,5 +96,25 @@ class Bag extends State {
         }
       }
     }
+    //Check to see if the locationshrine is set to true
+    if (locationShrine === true) {
+      //check to see if the mouse is within the click box
+      if (mouseX > this.exitConstraints.x && mouseX < this.exitConstraints.x2) {
+        if (mouseY > this.exitConstraints.y && mouseY < this.exitConstraints.y2) {
+          //Return to the shrine state
+          state = new Shrine(1280, 720, 640, 360);
+        }
+      }
+    }
+    //Check to see if the locationtower is set to true
+    if (locationTower === true) {
+      //check to see if the mouse is within the click box
+      if (mouseX > this.exitConstraints.x && mouseX < this.exitConstraints.x2) {
+        if (mouseY > this.exitConstraints.y && mouseY < this.exitConstraints.y2) {
+          //Return to the tower state
+          state = new Tower(1280, 720, 640, 360);
+        }
+      }
+    }
   }
 }

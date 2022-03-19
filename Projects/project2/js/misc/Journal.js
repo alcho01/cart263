@@ -143,12 +143,12 @@ class Journal extends State {
     //If escape key is clicked return to the previous state
     if (keyCode === 27 && locationShrine === true) {
       //Return to the shrine state
-      //state = new Shrine(1280, 720, 640, 360);
+      state = new Shrine(1280, 720, 640, 360);
     }
     //If escape key is clicked return to the previous state
     if (keyCode === 27 && locationTower === true) {
       //Return to the home state
-      //state = new Tower(1280, 720, 640, 360);
+      state = new Tower(1280, 720, 640, 360);
     }
   }
 }
