@@ -82,6 +82,10 @@ let tower2Image;
 //Paper
 let paperImage;
 let paperImageHov;
+
+//Load passage images
+let passageImage1;
+
 //Load the heartBox images - Hov = Hovered over
 let heartBoxImage;
 let heartBoxImageHov;
@@ -156,6 +160,8 @@ function preload() {
 
   paperImage = loadImage("assets/images/items/paper.png");
   paperImageHov = loadImage("assets/images/items/paper2.png");
+
+  passageImage1 = loadImage("assets/images/passages/passage.png");
 
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");

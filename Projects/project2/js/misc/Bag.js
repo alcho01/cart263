@@ -83,7 +83,11 @@ class Bag extends State {
 
   //Key pressed functionality
   keyPressed() {
-    
+    //If key 1 is pressed... and paper1.hide is true...
+    if (keyCode === 49 && paper.paper1.hide === true) {
+      //Go to the passage 1 state
+      state = new Passage1(1280, 720, 640, 360);
+    }
   }
 
   //Mouse clicked functionality
