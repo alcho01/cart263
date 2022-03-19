@@ -25,6 +25,8 @@ let locationShrine = false;
 let locationTower = false;
 
 //=====Setup Classes=====\\
+//Papers
+let paper;
 //Items
 let heartBox;
 //Misc
@@ -77,6 +79,9 @@ let tower1Image;
 let tower2Image;
 
 //Load Item Images
+//Paper
+let paperImage;
+let paperImageHov;
 //Load the heartBox images - Hov = Hovered over
 let heartBoxImage;
 let heartBoxImageHov;
@@ -149,6 +154,9 @@ function preload() {
   tower1Image = loadImage("assets/images/locations/tower.png");
   tower2Image = loadImage("assets/images/locations/tower2.png");
 
+  paperImage = loadImage("assets/images/items/paper.png");
+  paperImageHov = loadImage("assets/images/items/paper2.png");
+
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
 
@@ -185,6 +193,8 @@ function setup() {
 
   //Classes that must be called in setup
   state = new ForestScene(1280, 720, 640, 360);
+  //Papers
+  paper = new Paper();
   //Items
   heartBox = new HeartBox();
   //Dialogue effect

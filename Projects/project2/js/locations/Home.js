@@ -26,7 +26,8 @@ class Home extends State {
 
     //Call the heartbox display to actually be able to display it
     heartBox.display();
-
+    //get the paper 1 display
+    paper.displayPaper1();
     //Display the toolbar
     toolBar.display();
   }
@@ -37,6 +38,8 @@ class Home extends State {
     super.mouseClicked();
     //Get the heartBox mouse clicked to enable the required state
     heartBox.mouseClicked();
+    //Get the paper mouseClicked
+    paper.mouseClicked();
     //Get the toolbar mouse clicked
     toolBar.mouseClicked();
   }

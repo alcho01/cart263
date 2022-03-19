@@ -32,6 +32,8 @@ class Bag extends State {
     super.display();
     //Get the display bag function
     this.displayBag();
+    //Display the collected papers
+    this.displayPapers();
     //Get the display exitButton function
     this.displayExitButton();
     //Check the hover over the exit button
@@ -70,6 +72,18 @@ class Bag extends State {
         this.displayExitHovered();
       }
     }
+  }
+
+  //Display the collected papers in the bag
+  displayPapers() {
+    if (paper.paper1.hide === true) {
+      paper.displayInBag();
+    }
+  }
+
+  //Key pressed functionality
+  keyPressed() {
+    
   }
 
   //Mouse clicked functionality
