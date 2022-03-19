@@ -46,10 +46,28 @@ let dialogueFont;
 let heartbeatSFX;
 
 //=====Load Images=====\\
-//parameters holding the sequence of scene A images
+//Load up scenery images
+//A
 let sceneAImage1;
 let sceneAImage2;
 let sceneAImage3;
+//B
+let sceneBImage1;
+let sceneBImage2;
+let sceneBImage3;
+//C
+let sceneCImage1;
+let sceneCImage2;
+let sceneCImage3;
+//D
+let sceneDImage1;
+let sceneDImage2;
+let sceneDImage3;
+//E
+let sceneEImage1;
+let sceneEImage2;
+let sceneEImage3;
+
 //Load the home images
 let home1Image;
 let home2Image;
@@ -94,6 +112,22 @@ function preload() {
   sceneAImage1 = loadImage("assets/images/scenes/scene1.png");
   sceneAImage2 = loadImage("assets/images/scenes/scene2.png");
   sceneAImage3 = loadImage("assets/images/scenes/scene3.png");
+
+  sceneBImage1 = loadImage("assets/images/scenes/home1.png");
+  sceneBImage2 = loadImage("assets/images/scenes/home2.png");
+  sceneBImage3 = loadImage("assets/images/scenes/home3.png");
+
+  sceneCImage1 = loadImage("assets/images/scenes/lab1.png");
+  sceneCImage2 = loadImage("assets/images/scenes/lab2.png");
+  sceneCImage3 = loadImage("assets/images/scenes/lab3.png");
+
+  sceneDImage1 = loadImage("assets/images/scenes/shrine1.png");
+  sceneDImage2 = loadImage("assets/images/scenes/shrine2.png");
+  sceneDImage3 = loadImage("assets/images/scenes/shrine3.png");
+
+  sceneEImage1 = loadImage("assets/images/scenes/tower1.png");
+  sceneEImage2 = loadImage("assets/images/scenes/tower2.png");
+  sceneEImage3 = loadImage("assets/images/scenes/tower3.png");
 
   home1Image = loadImage("assets/images/locations/home.png");
   home2Image = loadImage("assets/images/locations/home2.png");

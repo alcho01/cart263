@@ -75,7 +75,7 @@ class Dialogue {
   checkStrings() {
     if (this.currentdialogueString > this.dialogueStrings.length) {
       //If the strings go past the limit change the state to the home location
-      state = new Home(1280, 720, 640, 360);
+      state = new HomeScene(1280, 720, 640, 360);
     }
   }
 
