@@ -26,6 +26,8 @@ class Shrine extends State {
 
     //Display the toolbar
     toolBar.display();
+    //Display the podium item
+    podium.display();
   }
 
   //Mouse clicked functionality

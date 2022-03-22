@@ -29,6 +29,9 @@ let locationTower = false;
 let paper;
 //Items
 let heartBox;
+let machine;
+let podium;
+let nautical;
 //Misc
 let dialogue;
 let toolBar;
@@ -78,7 +81,7 @@ let shrine2Image;
 let tower1Image;
 let tower2Image;
 
-//Load Item Images
+//Load Item Images - Hov = Hovered over
 //Paper
 let paperImage;
 let paperImageHov;
@@ -86,9 +89,18 @@ let paperImageHov;
 //Load passage images
 let passageImage1;
 
-//Load the heartBox images - Hov = Hovered over
+//Load the heartBox images
 let heartBoxImage;
 let heartBoxImageHov;
+//Load the machine images
+let machineImage;
+let machineImageHov;
+//Load the podium images
+let podiumImage;
+let podiumImageHov;
+//Load the nautical images
+let nauticalImage;
+let nauticalImageHov;
 
 //Load Misc Images
 //Exit Button
@@ -166,6 +178,15 @@ function preload() {
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
 
+  machineImage = loadImage("assets/images/items/machine.png");
+  machineImageHov = loadImage("assets/images/items/machine2.png");
+
+  podiumImage = loadImage("assets/images/items/podium.png");
+  podiumImageHov = loadImage("assets/images/items/podium2.png");
+
+  nauticalImage = loadImage("assets/images/items/nautical.png");
+  nauticalImageHov = loadImage("assets/images/items/nautical2.png");
+
   exitButtonImage = loadImage("assets/images/toolbar/exit/exitButton.png");
   exitButtonImage2 = loadImage("assets/images/toolbar/exit/exitButton2.png");
 
@@ -203,6 +224,9 @@ function setup() {
   paper = new Paper();
   //Items
   heartBox = new HeartBox();
+  machine = new Machine();
+  podium = new Podium();
+  nautical = new Nautical();
   //Dialogue effect
   dialogue = new Dialogue();
   //Toolbar

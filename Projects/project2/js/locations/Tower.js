@@ -26,6 +26,8 @@ class Tower extends State {
 
     //Display the toolbar
     toolBar.display();
+    //Display the nautical item
+    nautical.display();
   }
 
   //Mouse clicked functionality

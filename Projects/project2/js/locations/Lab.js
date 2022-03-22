@@ -26,6 +26,8 @@ class Lab extends State {
 
     //Display the toolbar
     toolBar.display();
+    //Display the machine task
+    machine.display();
   }
 
   //Mouse clicked functionality
