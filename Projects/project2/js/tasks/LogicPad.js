@@ -14,10 +14,11 @@ class LogicPad extends State {
     this.radius = 50;
     //Starting position for the spec
     this.start = 0;
+    this.reset = 0;
     //Increase the position of the spec
     this.increment = 1;
     //Starting position for the user spec
-    this.userStart = 100;
+    this.userStart = 90;
     //Increase the position of the user spec
     this.userIncrement = 15;
 
@@ -65,6 +66,8 @@ class LogicPad extends State {
     this.displayUserSpec();
     //Display the spec
     this.displaySpec();
+
+    this.checkCollison();
   }
 
   //Display a loop
@@ -115,13 +118,26 @@ class LogicPad extends State {
     pop();
   }
 
+  //Check if the specs collide
+  checkCollison() {
+    //Calculate distance of specs
+    this.d = dist(this.xUser, this.yUser, this.x, this.y);
+    //Check to see if the specs collide
+    if (this.d < this.spec.width / 2 + this.userSpec.width / 2) {
+      //For testing purpose
+      console.log('collide');
+      //Reset the red spec to the original position 
+      this.start = this.reset;
+    }
+  }
+
   //Key pressed functionality
   keyPressed() {
     //Call the super key pressed
     super.keyPressed();
     //If the A key is pressed move the blue spec location
     if (keyCode === 65) {
-      //Increase the user position 
+      //Increase the user position
       this.userStart += this.userIncrement;
     }
   }
