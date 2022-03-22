@@ -36,5 +36,7 @@ class Lab extends State {
     super.mouseClicked();
     //Get the toolbar mouse clicked
     toolBar.mouseClicked();
+    //Get the machine mouse clicked
+    machine.mouseClicked();
   }
 }

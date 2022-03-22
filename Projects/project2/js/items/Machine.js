@@ -58,7 +58,7 @@ class Machine {
     if (mouseX > this.machineConstraints.x && mouseX < this.machineConstraints.x2){
       if (mouseY > this.machineConstraints.y && mouseY < this.machineConstraints.y2) {
         //Change states when clicked
-        //state = new MachineTask;
+        state = new LogicPad;
       }
     }
   }
