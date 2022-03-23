@@ -50,7 +50,70 @@ class LogicPad extends State {
       b: 252,
     };
 
-    //Images
+    //Sidebar parameters
+    this.sideBar = {
+      x: 1203,
+      y: 426,
+      width: 120,
+      height: 555,
+      radius: 20,
+      white: 255,
+    };
+
+    //Slider parameters
+    this.slider = {
+      x: 1203,
+      x2: 1203,
+      y: 200,
+      y2: 650,
+      strokeWeight: 10,
+      black: 0,
+    };
+
+    //Handle parameters
+    this.handle = {
+      x: 1203,
+      y: 400,
+      width: 50,
+      height: 50,
+      black: 0,
+      //Increase or decrease the position
+      increment: 15,
+      decrement: -15,
+      //Constrain the handle to how far it can go on the slider
+      constrainA: 202,
+      constrainB: 650,
+    };
+
+    //Platform
+    this.platform = {
+      x: 0,
+      y: 560,
+      width: 250,
+      height: 30,
+      white: 255,
+      //Constrain the platform
+      constrainA: 125,
+      constrainB: 1005,
+    };
+
+    //gravity
+    this.gravity = 0.0025;
+
+    //Ball
+    this.ball = {
+      x: random(125, 1005),
+      y: random(-300, -100),
+      vx: 0,
+      vy: 0,
+      ax: 0,
+      ay: 0,
+      r: 232,
+      g: 0,
+      b: 0,
+      maxSpeed: 10,
+      size: 60,
+    };
   }
 
   //Display the entire task
@@ -66,8 +129,22 @@ class LogicPad extends State {
     this.displayUserSpec();
     //Display the spec
     this.displaySpec();
-
+    //Check for collision between the specs
     this.checkCollison();
+    //Display the sidebar
+    this.displaySideBar();
+    //Display the custom slider
+    this.displaySlider();
+    //Display the slider handle
+    this.displayHandle();
+    //Display the platform
+    this.displayPlatform();
+    //Move the platform
+    this.movePlatform();
+    //Display the ball
+    this.ballSettings();
+    //Trigger the bad end
+    this.badEnd();
   }
 
   //Display a loop
@@ -125,9 +202,182 @@ class LogicPad extends State {
     //Check to see if the specs collide
     if (this.d < this.spec.width / 2 + this.userSpec.width / 2) {
       //For testing purpose
-      console.log('collide');
-      //Reset the red spec to the original position 
+      console.log("collide");
+      //Trigger bad ending
+
+      //Reset the red spec to the original position
       this.start = this.reset;
+    }
+  }
+
+  //Display Sidebar
+  displaySideBar() {
+    push();
+    noStroke();
+    fill(this.sideBar.white);
+    rectMode(CENTER);
+    rect(
+      this.sideBar.x,
+      this.sideBar.y,
+      this.sideBar.width,
+      this.sideBar.height,
+      this.sideBar.radius
+    );
+    pop();
+  }
+
+  //Display Slider
+  displaySlider() {
+    push();
+    strokeWeight(this.slider.strokeWeight);
+    stroke(this.slider.black);
+    line(this.slider.x, this.slider.y, this.slider.x2, this.slider.y2);
+    pop();
+  }
+
+  //Display the slider handle
+  displayHandle() {
+    //Constraints
+    this.yConstrain = constrain(
+      this.handle.y,
+      this.handle.constrainA,
+      this.handle.constrainB
+    );
+    //Display the slider with the added constrain
+    push();
+    noStroke();
+    fill(this.handle.black);
+    ellipse(
+      this.handle.x,
+      this.yConstrain,
+      this.handle.width,
+      this.handle.height
+    );
+    pop();
+  }
+
+  //Move the slider handle up
+  moveHandleUp() {
+    this.handle.y = this.yConstrain += this.handle.decrement;
+  }
+  //Move the slider handle down
+  moveHandleDown() {
+    this.handle.y = this.yConstrain += this.handle.increment;
+  }
+
+  //display the platform
+  displayPlatform() {
+    push();
+    noStroke();
+    fill(this.platform.white);
+    rectMode(CENTER);
+    rect(
+      this.platform.x,
+      this.platform.y,
+      this.platform.width,
+      this.platform.height
+    );
+    pop();
+  }
+
+  //Move the platform
+  movePlatform() {
+    this.platform.x = constrain(
+      mouseX,
+      this.platform.constrainA,
+      this.platform.constrainB
+    );
+  }
+
+  //Ball functions grouped
+  ballSettings() {
+    this.displayBall();
+    this.gravityBall();
+    this.moveBall();
+    this.bounceBall();
+    this.collideBall();
+  }
+
+  //Display the ball
+  displayBall() {
+    push();
+    noStroke();
+    fill(this.ball.r, this.ball.g, this.ball.b);
+    ellipse(this.ball.x, this.ball.y, this.ball.size);
+    pop();
+  }
+
+  //Apply gravity to the ball
+  gravityBall() {
+    this.ball.ay = this.ball.ay + this.gravity;
+  }
+
+  //Let the ball move/fall
+  moveBall() {
+    this.ball.vx = this.ball.vx + this.ball.ax;
+    this.ball.vy = this.ball.vy + this.ball.ay;
+
+    //Constrain the ball
+    this.ball.vx = constrain(
+      this.ball.vx,
+      -this.ball.maxSpeed,
+      this.ball.maxSpeed
+    );
+    this.ball.vy = constrain(
+      this.ball.vy,
+      -this.ball.maxSpeed,
+      this.ball.maxSpeed
+    );
+
+    //Apply the velocity to the ball
+    this.ball.x = this.ball.x + this.ball.vx;
+    this.ball.y = this.ball.y + this.ball.vy;
+
+    //Make the ball bounce off the boundaries
+    if (this.ball.x > 1005 || this.ball.x < 85) {
+      this.ball.vx *= -1;
+    }
+  }
+
+  //let the ball bounce on impact with the platform
+  bounceBall() {
+    if (
+      this.ball.x > this.platform.x - this.platform.width / 2 &&
+      this.ball.x < this.platform.x + this.platform.width / 2 &&
+      this.ball.y + this.ball.size / 2 >
+        this.platform.y - this.platform.height / 2 &&
+      this.ball.y + this.ball.size / 2 <
+        this.platform.y + this.platform.height / 2
+    ) {
+      //Bounce
+      let dx = this.ball.x - this.platform.x;
+      this.ball.vx =
+        this.ball.vx +
+        map(dx, -this.platform.width / 2, this.platform.width / 2, -8, 8); //MORE BOUNCE
+
+      this.ball.vy = -this.ball.vy;
+      this.ball.ay = 0;
+    }
+  }
+
+  //Check if the ball collides with the platform
+  collideBall() {
+    let d = dist(this.platform.x, this.platform.y, this.ball.x, this.ball.y);
+    if (d < this.ball.size / 4 + this.platform.width / 4) {
+      this.handle.y = 400;
+    }
+  }
+
+  //Trigger good end
+  goodEnd() {
+    //If the timer goes off after the 35 seconds you win 
+  }
+
+  //Trigger bad end
+  badEnd() {
+    if (this.ball.y - this.ball.size / 2 > 750) {
+
+      //console.log('lose');
     }
   }
 
@@ -135,10 +385,20 @@ class LogicPad extends State {
   keyPressed() {
     //Call the super key pressed
     super.keyPressed();
-    //If the A key is pressed move the blue spec location
-    if (keyCode === 65) {
-      //Increase the user position
+    //If the escape key is pressed...
+    if (keyCode === 27) {
+      //Return to the home state
+      state = new Lab(1280, 720, 640, 360);
+    }
+    //If the W key is pressed the handle goes up
+    if (keyCode === 87 && this.handle.y >= this.handle.constrainA) {
+      this.moveHandleUp();
       this.userStart += this.userIncrement;
+    }
+    //If the S key is pressed the handle goes down
+    if (keyCode === 83 && this.handle.y <= this.handle.constrainB) {
+      this.moveHandleDown();
+      this.userStart -= this.userIncrement;
     }
   }
 }
