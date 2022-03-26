@@ -21,6 +21,8 @@ class LogicPad extends State {
     this.userStart = 90;
     //Increase the position of the user spec
     this.userIncrement = 15;
+    //Danger Zone - Triggers lose
+    this.dangerZone = 750;
 
     //Loop parameters
     this.loop = {
@@ -77,6 +79,8 @@ class LogicPad extends State {
       width: 50,
       height: 50,
       black: 0,
+      //Reset position of handle
+      resetPos: 400,
       //Increase or decrease the position
       increment: 15,
       decrement: -15,
@@ -364,18 +368,18 @@ class LogicPad extends State {
   collideBall() {
     let d = dist(this.platform.x, this.platform.y, this.ball.x, this.ball.y);
     if (d < this.ball.size / 4 + this.platform.width / 4) {
-      this.handle.y = 400;
+      this.handle.y = this.handle.resetPos;
     }
   }
 
   //Trigger good end
   goodEnd() {
-    //If the timer goes off after the 35 seconds you win 
+    //If the timer goes off after the 35 seconds you win
   }
 
-  //Trigger bad end
+  //Trigger bad end - Might not need this
   badEnd() {
-    if (this.ball.y - this.ball.size / 2 > 750) {
+    if (this.ball.y - this.ball.size / 2 > this.dangerZone) {
 
       //console.log('lose');
     }
