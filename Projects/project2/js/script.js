@@ -121,10 +121,15 @@ let mapImageHov4;
 let bagImage;
 //Journal
 let journalImage;
+let journalMainPage;
+let journalHeartHov;
+let journalLogicPadHov;
+let journalConfessHov;
+let journalNauticalHov;
 let journalInfoImage;
 let journalInfoImage2;
-let journalArrowImage;
-let journalArrowImageHov;
+let journalInfoImage3;
+let journalInfoImage4;
 
 //State variable
 let state;
@@ -204,10 +209,15 @@ function preload() {
   bagImage = loadImage("assets/images/toolbar/bag/bag.png");
 
   journalImage = loadImage("assets/images/toolbar/journal/journal.png");
+  journalMainPage = loadImage("assets/images/toolbar/journal/mainPage.png");
+  journalHeartHov = loadImage("assets/images/toolbar/journal/heartTaskIcon.png");
+  journalLogicPadHov = loadImage("assets/images/toolbar/journal/logicPadIcon.png");
+  journalConfessHov = loadImage("assets/images/toolbar/journal/confessIcon.png");
+  journalNauticalHov = loadImage("assets/images/toolbar/journal/nauticalIcon.png");
   journalInfoImage = loadImage("assets/images/toolbar/journal/info1.png");
   journalInfoImage2 = loadImage("assets/images/toolbar/journal/info2.png");
-  journalArrowImage = loadImage("assets/images/toolbar/journal/arrow.png");
-  journalArrowImageHov = loadImage("assets/images/toolbar/journal/arrow2.png");
+  journalInfoImage3 = loadImage("assets/images/toolbar/journal/info3.png");
+  journalInfoImage4 = loadImage("assets/images/toolbar/journal/info4.png");
 }
 
 //What needs to be setup before starting
