@@ -23,6 +23,32 @@ class LogicPad extends State {
     this.userIncrement = 15;
     //Danger Zone - Triggers lose
     this.dangerZone = 750;
+    //Set the timer to 35 seconds
+    this.timer = 5;
+    //Add a delay //3.5 seconds 
+    this.timeDelay = 3500;
+
+    //Timer parameters
+    this.timeParams = {
+      x: 1200,
+      y: 90,
+      size: 25,
+      white: 255,
+    };
+
+    //Winning Colour
+    this.winColour = {
+      r: 0,
+      g: 255,
+      b: 55,
+    };
+
+    //Losing Colour
+    this.loseColour = {
+      r: 255,
+      g: 47,
+      b: 0,
+    };
 
     //Loop parameters
     this.loop = {
@@ -30,7 +56,9 @@ class LogicPad extends State {
       y: 80,
       width: 2 * this.radius,
       height: 2 * this.radius,
-      strokeFill: 255,
+      strokeFillR: 255,
+      strokeFillG: 255,
+      strokeFillB: 255,
       strokeWeight: 10,
     };
 
@@ -149,6 +177,10 @@ class LogicPad extends State {
     this.ballSettings();
     //Trigger the bad end
     this.badEnd();
+    //Check the timer
+    this.checkTimer();
+    //Display the timer
+    this.displayTimer();
   }
 
   //Display a loop
@@ -157,7 +189,7 @@ class LogicPad extends State {
     //don't fill the circle keep it as a loop
     noFill();
     //Fill the stroke white
-    stroke(this.loop.strokeFill);
+    stroke(this.loop.strokeFillR, this.loop.strokeFillG, this.loop.strokeFillB);
     //Had weight to the stroke
     strokeWeight(this.loop.strokeWeight);
     //Define the loop
@@ -375,6 +407,13 @@ class LogicPad extends State {
   //Trigger good end
   goodEnd() {
     //If the timer goes off after the 35 seconds you win
+    this.loop.strokeFillR = this.winColour.r;
+    this.loop.strokeFillG = this.winColour.g;
+    this.loop.strokeFillB = this.winColour.b;
+    //Toggle task 2 to done
+    task2Done = true;
+    //Add a delay for 3.5 seconds
+    this.returnTimer = setTimeout(this.returnLab.bind(this), this.timeDelay);
   }
 
   //Trigger bad end - Might not need this
@@ -385,13 +424,42 @@ class LogicPad extends State {
     }
   }
 
+  //Display the timer
+  displayTimer() {
+    push();
+    noStroke();
+    fill(this.timeParams.white);
+    textSize(this.timeParams.size);
+    textAlign(CENTER);
+    text(round(this.timer), this.timeParams.x, this.timeParams.y);
+    pop();
+  }
+
+  //check the time
+  checkTimer() {
+    //Countdown by 1 second
+    this.timer -= 1 /60;
+    //Check if the time hits 0
+    if (this.timer <= 0) {
+      this.timer = 0;
+      console.log('Win');
+      //Call this function
+      this.goodEnd();
+    }
+  }
+
+  //Return to the lab state
+  returnLab() {
+    state = new Lab(1280, 720, 640, 360);
+  }
+
   //Key pressed functionality
   keyPressed() {
     //Call the super key pressed
     super.keyPressed();
     //If the escape key is pressed...
     if (keyCode === 27) {
-      //Return to the home state
+      //Return to the lab state
       state = new Lab(1280, 720, 640, 360);
     }
     //If the W key is pressed the handle goes up

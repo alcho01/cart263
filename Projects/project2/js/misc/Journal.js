@@ -29,6 +29,20 @@ class Journal extends State {
       height: 770,
     };
 
+    //Journal info parameters (page 3 - Logic Pad)
+    this.journalInfoP3 = {
+      x: 680,
+      y: 410,
+      width: 1200,
+      height: 800,
+    };
+    //Journal info parameters (page 4 - Logic Pad)
+    this.journalInfoP4 = {
+      x: 600,
+      y: 390,
+      width: 1200,
+      height: 800,
+    };
     //Constaints for the heart icon
     this.heartConstraints = {
       x: 324,
@@ -58,13 +72,20 @@ class Journal extends State {
       y2: 565,
     };
 
-    //Boolean
+    //Boolean System
+    //Check if the icons should be hidden
     this.iconsHide = false;
+    //Check if the hovered heart icon should be hidden
     this.heartHovHide = false;
+    //Check if the hovered logicpad icon should be hidden
     this.logicPadHovHide = false;
+    //Check if the hovered confess icon should be hidden
     this.confessHovHide = false;
+    //Check if the hovered nautical icon should be hidden
     this.nauticalHovHide = false;
+    //Check if the heart info should be showed
     this.heartInfoShow = false;
+    //Check if the logic pad info should be showed
     this.logicPadInfoShow = false;
 
     //Images
@@ -167,18 +188,19 @@ class Journal extends State {
 
   //Display the logic pad instructions
   displayLogicPadInfo() {
+    //Check to see if the logic pad instructions can be shown
     if (this.logicPadInfoShow === true) {
       //Hide the icons
       this.iconsHide === true;
-      //Page 1
+      //Page 3
       push();
       imageMode(CENTER);
-      image(this.journalInfoImage3, 680, 410, 1200, 800);
+      image(this.journalInfoImage3, this.journalInfoP3.x, this.journalInfoP3.y, this.journalInfoP3.width, this.journalInfoP3.height);
       pop();
-      //Page 2
+      //Page 4
       push();
       imageMode(CENTER);
-      image(this.journalInfoImage4, 600, 390, 1200, 800);
+      image(this.journalInfoImage4, this.journalInfoP4.x, this.journalInfoP4.y, this.journalInfoP4.width, this.journalInfoP4.height);
       pop();
     }
   }
@@ -188,21 +210,28 @@ class Journal extends State {
     //Check to see if it is within these constraints
     if (mouseX > this.heartConstraints.x && mouseX < this.heartConstraints.x2) {
       if (mouseY > this.heartConstraints.y && mouseY < this.heartConstraints.y2) {
+        //Display the hovered heart icon
         this.displayHeartHov();
       }
     }
+    //Check to see if it is within these constraints
     if (mouseX > this.logicPadConstraints.x && mouseX < this.logicPadConstraints.x2) {
       if (mouseY > this.logicPadConstraints.y && mouseY < this.logicPadConstraints.y2) {
+        //Display the hovered logic pad icon
         this.displayLogicPadHov();
       }
     }
+    //Check to see if it is within these constraints
     if (mouseX > this.confessConstraints.x && mouseX < this.confessConstraints.x2) {
       if (mouseY > this.confessConstraints.y && mouseY < this.confessConstraints.y2) {
+        //Display the hovered confess icon
         this.displayConfessHov();
       }
     }
+    //Check to see if it is within these constraints
     if (mouseX > this.nauticalConstraints.x && mouseX < this.nauticalConstraints.x2) {
       if (mouseY > this.nauticalConstraints.y && mouseY < this.nauticalConstraints.y2) {
+        //Display the hovered nautical icon
         this.displayNauticalHov();
       }
     }
@@ -215,6 +244,7 @@ class Journal extends State {
     //Check to see if mouse is within click box
     if (mouseX > this.heartConstraints.x && mouseX < this.heartConstraints.x2) {
       if (mouseY > this.heartConstraints.y && mouseY < this.heartConstraints.y2) {
+        //Boolean system
         this.iconsHide = true;
         this.heartHovHide = true;
         this.logicPadHovHide = true;
@@ -227,6 +257,7 @@ class Journal extends State {
     //Check to see if mouse is within click box
     if (mouseX > this.logicPadConstraints.x && mouseX < this.logicPadConstraints.x2) {
       if (mouseY > this.logicPadConstraints.y && mouseY < this.logicPadConstraints.y2) {
+        //Boolean system
         this.iconsHide = true;
         this.heartHovHide = true;
         this.logicPadHovHide = true;
