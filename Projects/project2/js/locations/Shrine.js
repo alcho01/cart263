@@ -36,5 +36,7 @@ class Shrine extends State {
     super.mouseClicked();
     //Get the toolbar mouse clicked
     toolBar.mouseClicked();
+    //Get the podium mouse clicked
+    podium.mouseClicked();
   }
 }

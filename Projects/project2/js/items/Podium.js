@@ -53,13 +53,13 @@ class Podium {
   }
 
   //Check to see if the podium is clicked on
-//  mouseClicked() {
+  mouseClicked() {
     //Check to see if it is within these constraints
-  //  if (mouseX > this.podiumConstraints.x && mouseX < this.podiumConstraints.x2){
-    //  if (mouseY > this.podiumConstraints.y && mouseY < this.podiumConstraints.y2) {
-        //Change states when clicked
-        //state = new PodiumTask;
-      //}
-  //  }
-  //}
+    if (mouseX > this.podiumConstraints.x && mouseX < this.podiumConstraints.x2){
+      if (mouseY > this.podiumConstraints.y && mouseY < this.podiumConstraints.y2) {
+        //Change states when clicked to the confession task
+        state = new Confession;
+      }
+    }
+  }
 }

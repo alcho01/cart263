@@ -264,7 +264,7 @@ function draw() {
 }
 
 //Put the input of the answer into lower case
-function guessAnswer() {
+function guessAnswer(answer) {
   currentResponse = answer.toLowerCase();
   console.log(currentResponse);
 }
