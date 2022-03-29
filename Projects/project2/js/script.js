@@ -12,6 +12,9 @@ let canvas = {
   height: 720,
 };
 
+//Current response - annyang
+let currentResponse = '';
+
 //Booleans for task completion
 let task1Done = false;
 let task2Done = false;
@@ -227,6 +230,16 @@ function setup() {
   //Audio Settings
   userStartAudio();
 
+  //Set up annyang
+  if (annyang) {
+    let commands = {
+      '*answer' : guessAnswer
+    };
+
+    annyang.addCommands(commands);
+    annyang.start();
+  }
+
   //create the canvas
   createCanvas(canvas.width, canvas.height);
 
@@ -248,6 +261,12 @@ function setup() {
 //Displaying the entities
 function draw() {
   state.display();
+}
+
+//Put the input of the answer into lower case
+function guessAnswer() {
+  currentResponse = answer.toLowerCase();
+  console.log(currentResponse);
 }
 
 //Key pressed functionality
