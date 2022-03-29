@@ -25,7 +25,7 @@ class LogicPad extends State {
     this.dangerZone = 750;
     //Set the timer to 35 seconds
     this.timer = 5;
-    //Add a delay //3.5 seconds 
+    //Add a delay //3.5 seconds
     this.timeDelay = 3500;
 
     //Timer parameters
@@ -175,8 +175,6 @@ class LogicPad extends State {
     this.movePlatform();
     //Display the ball
     this.ballSettings();
-    //Trigger the bad end
-    this.badEnd();
     //Check the timer
     this.checkTimer();
     //Display the timer
@@ -240,7 +238,7 @@ class LogicPad extends State {
       //For testing purpose
       console.log("collide");
       //Trigger bad ending
-
+      this.badEnd();
       //Reset the red spec to the original position
       this.start = this.reset;
     }
@@ -407,21 +405,14 @@ class LogicPad extends State {
   //Trigger good end
   goodEnd() {
     //If the timer goes off after the 35 seconds you win
-    this.loop.strokeFillR = this.winColour.r;
-    this.loop.strokeFillG = this.winColour.g;
-    this.loop.strokeFillB = this.winColour.b;
+    state = new Win(1280, 720, 640, 360);
     //Toggle task 2 to done
     task2Done = true;
-    //Add a delay for 3.5 seconds
-    this.returnTimer = setTimeout(this.returnLab.bind(this), this.timeDelay);
   }
 
   //Trigger bad end - Might not need this
   badEnd() {
-    if (this.ball.y - this.ball.size / 2 > this.dangerZone) {
-
-      //console.log('lose');
-    }
+    state = new Lose(1280, 720, 640, 360);
   }
 
   //Display the timer
