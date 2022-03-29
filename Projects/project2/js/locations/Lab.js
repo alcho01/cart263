@@ -28,6 +28,8 @@ class Lab extends State {
     toolBar.display();
     //Display the machine task
     machine.display();
+    //Display paper 2
+    paper.displayPaper2();
   }
 
   //Mouse clicked functionality
@@ -38,5 +40,7 @@ class Lab extends State {
     toolBar.mouseClicked();
     //Get the machine mouse clicked
     machine.mouseClicked();
+    //Get the paper mouse clicked
+    paper.mouseClicked();
   }
 }

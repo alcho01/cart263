@@ -88,6 +88,7 @@ let paperImageHov;
 
 //Load passage images
 let passageImage1;
+let passageImage2;
 
 //Load the heartBox images
 let heartBoxImage;
@@ -179,6 +180,7 @@ function preload() {
   paperImageHov = loadImage("assets/images/items/paper2.png");
 
   passageImage1 = loadImage("assets/images/passages/passage.png");
+  passageImage2 = loadImage("assets/images/passages/passage2.png");
 
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
