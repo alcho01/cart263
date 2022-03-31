@@ -24,7 +24,7 @@ class LogicPad extends State {
     //Danger Zone - Triggers lose
     this.dangerZone = 750;
     //Set the timer to 35 seconds
-    this.timer = 5;
+    this.timer = 35;
     //Add a delay //3.5 seconds
     this.timeDelay = 3500;
 
@@ -179,6 +179,8 @@ class LogicPad extends State {
     this.checkTimer();
     //Display the timer
     this.displayTimer();
+    //Display the walls
+    this.displayWalls();
   }
 
   //Display a loop
@@ -299,6 +301,24 @@ class LogicPad extends State {
     this.handle.y = this.yConstrain += this.handle.increment;
   }
 
+  //Create walls
+  displayWalls() {
+    //Left Wall
+    push();
+    noStroke();
+    fill(255);
+    rectMode(CENTER);
+    rect(60, height / 2, 20, height);
+    pop();
+    //RightWall Wall
+    push();
+    noStroke();
+    fill(255);
+    rectMode(CENTER);
+    rect(1045, height / 2, 20, height);
+    pop();
+  }
+
   //display the platform
   displayPlatform() {
     push();
@@ -397,7 +417,7 @@ class LogicPad extends State {
   //Check if the ball collides with the platform
   collideBall() {
     let d = dist(this.platform.x, this.platform.y, this.ball.x, this.ball.y);
-    if (d < this.ball.size / 4 + this.platform.width / 4) {
+    if (d < this.ball.size / 2 + this.platform.width / 2) {
       this.handle.y = this.handle.resetPos;
     }
   }
@@ -420,6 +440,7 @@ class LogicPad extends State {
     push();
     noStroke();
     fill(this.timeParams.white);
+    textFont(dialogueFont);
     textSize(this.timeParams.size);
     textAlign(CENTER);
     text(round(this.timer), this.timeParams.x, this.timeParams.y);

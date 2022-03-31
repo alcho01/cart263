@@ -27,6 +27,7 @@ class Lose extends State {
     push();
     noStroke();
     textAlign(CENTER);
+    textFont(dialogueFont);
     fill(this.textParams.white);
     textSize(this.textParams.size);
     text('Try Again \nPress The Escape Key', this.textParams.x, this.textParams.y);

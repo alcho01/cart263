@@ -4,18 +4,30 @@ class Confession extends State {
     //Call the super class
     super(w, h, x, y);
 
-    //Array of thoughts
-    this.thoughts = ['apologize', 'ignore', 'god', 'love', 'shattered'];
-    //What word to start on
-    this.index = 0;
-
-    //Text parameters
-    this.textParams = {
-      x: 90,
-      y: 70,
-      size: 32,
+    //Orbit Parameters
+    this.orbParams = {
+      radius: 75,
+      distX: 0,
+      distY: 0,
+      width: width / 2,
+      height: height / 2,
       white: 255,
     };
+
+    //Universal Point/Node Parameters
+    this.pointParams = {
+      r: 0,
+      g: 255,
+      b: 247,
+      width: 10,
+      height: 10,
+      //Positioning of the points
+      leftX: 566,
+      rightX: 716,
+      topY: 285,
+      bottomY: 435,
+    };
+
   }
 
   //Display all the entities
@@ -24,28 +36,70 @@ class Confession extends State {
     super.display();
     //Background
     background(0);
-    //Display the thought
-    this.displayThoughts();
-
+    //Display the orbit
+    this.createOrbit();
+    //Display the points
+    this.createNodes();
   };
 
-  //Display the thoughts
-  displayThoughts() {
+
+  //Create a simple sphere type shape with spheres
+  createOrbit() {
+    //Center Circle
+    push();
+    noFill();
+    stroke(this.orbParams.white);
+    ellipse(this.orbParams.width, this.orbParams.height, this.orbParams.radius * 2, this.orbParams.radius * 2);
+    //Calculate the distance of the mouse and the width and heights of the orbit
+    //Check to see if the mouse is in the radius range to perform orbital movement
+    if (dist(mouseX, mouseY, this.orbParams.width, this.orbParams.height) < this.orbParams.radius) {
+      this.orbParams.distX = dist(mouseX, this.orbParams.height, this.orbParams.width, this.orbParams.height);
+      this.orbParams.distY = dist(this.orbParams.width, mouseY, this.orbParams.width, this.orbParams.height);
+    }
+    //Draw the two orbiting ellipses based on the distance parameters set above
+    ellipse(this.orbParams.width, this.orbParams.height, this.orbParams.radius * 2, this.orbParams.distY * 2);
+    ellipse(this.orbParams.width, this.orbParams.height, this.orbParams.distX * 2, this.orbParams.radius * 2);
+    pop();
+  }
+
+  //Create distinct points around the orbit
+  createNodes() {
+    //Left Point
     push();
     noStroke();
-    textAlign(CENTER);
-    textFont(dialogueFont);
-    textSize(this.textParams.size);
-    fill(this.textParams.white);
-    text(this.thoughts[this.index], this.textParams.x, this.textParams.y)
+    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+    ellipse(this.pointParams.leftX, height / 2, this.pointParams.width, this.pointParams.height);
+    pop();
+    //Right Point
+    push();
+    noStroke();
+    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+    ellipse(this.pointParams.rightX, height / 2, this.pointParams.width, this.pointParams.height);
+    pop();
+    //Top Point
+    push();
+    noStroke();
+    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+    ellipse(width / 2, this.pointParams.topY, this.pointParams.width, this.pointParams.height);
+    pop();
+    //Bottom Point
+    push();
+    noStroke();
+    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+    ellipse(width / 2, this.pointParams.bottomY, this.pointParams.width, this.pointParams.height);
+    pop();
+    //Middle Point
+    push();
+    noStroke();
+    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+    ellipse(width / 2, height / 2, this.pointParams.width, this.pointParams.height);
+    pop();
   }
 
   //mouse clicked functionality
   mouseClicked() {
     //Call the super mouse clicked
     super.mouseClicked();
-
-    
 
   }
 
