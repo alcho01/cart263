@@ -28,6 +28,42 @@ class Confession extends State {
       bottomY: 435,
     };
 
+    //Point Constraints
+    //Left Point
+    this.pointLeft = {
+      x: 563,
+      x2: 573,
+      y: 356,
+      y2: 366,
+    };
+    //Right Point
+    this.pointRight = {
+      x: 712,
+      x2: 722,
+      y: 356,
+      y2: 366,
+    };
+    //Middle Point
+    this.pointMiddle = {
+      x: 636,
+      x2: 646,
+      y: 356,
+      y2: 366,
+    };
+    //Top Point
+    this.pointTop = {
+      x: 636,
+      x2: 646,
+      y: 282,
+      y2: 292,
+    };
+    //Bottom Point
+    this.pointBottom = {
+      x: 636,
+      x2: 646,
+      y: 432,
+      y2: 442,
+    };
   }
 
   //Display all the entities
@@ -40,6 +76,8 @@ class Confession extends State {
     this.createOrbit();
     //Display the points
     this.createNodes();
+    //activate the confessions
+    this.activateConfession();
   };
 
 
@@ -94,6 +132,35 @@ class Confession extends State {
     fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
     ellipse(width / 2, height / 2, this.pointParams.width, this.pointParams.height);
     pop();
+  }
+
+  //Activate the confessions
+  activateConfession() {
+    if (mouseX > this.pointLeft.x && mouseX < this.pointLeft.x2) {
+      if (mouseY > this.pointLeft.y && mouseY < this.pointLeft.y2) {
+        console.log('west');
+      }
+    }
+    if (mouseX > this.pointRight.x && mouseX < this.pointRight.x2) {
+      if (mouseY > this.pointRight.y && mouseY < this.pointRight.y2) {
+
+      }
+    }
+    if (mouseX > this.pointMiddle.x && mouseX < this.pointMiddle.x2) {
+      if (mouseY > this.pointMiddle.y && mouseY < this.pointMiddle.y2) {
+
+      }
+    }
+    if (mouseX > this.pointTop.x && mouseX < this.pointTop.x2) {
+      if (mouseY > this.pointTop.y && mouseY < this.pointTop.y2) {
+
+      }
+    }
+    if (mouseX > this.pointBottom.x && mouseX < this.pointBottom.x2) {
+      if (mouseY > this.pointBottom.y && mouseY < this.pointBottom.y2) {
+
+      }
+    }
   }
 
   //mouse clicked functionality
