@@ -28,6 +28,12 @@ class Confession extends State {
       bottomY: 435,
     };
 
+    //Booleans to hide or show coordinates
+    this.westDisplayed = false;
+    this.eastDisplayed = false;
+    this.northDisplayed = false;
+    this.southDisplayed = false;
+
     //Point Constraints
     //Left Point
     this.pointLeft = {
@@ -76,6 +82,8 @@ class Confession extends State {
     this.createOrbit();
     //Display the points
     this.createNodes();
+    //Display the coordinates
+    this.displayWest();
   };
 
 
@@ -132,6 +140,51 @@ class Confession extends State {
     pop();
   }
 
+  //Display the west info
+  displayWest() {
+    if (this.westDisplayed === true) {
+      push();
+      textAlign(CENTER);
+      textSize(32);
+      fill(255);
+      text('\nW\nE\nS\nT', 220, height / 2.5);
+      pop();
+    }
+  };
+  //Display the east info
+  displayEast() {
+    if (this.eastDisplayed === true) {
+      push();
+      textAlign(CENTER);
+      textSize(32);
+      fill(255);
+      text('\nE\nA\nS\nT', 820, height / 2.5);
+      pop();
+    }
+  };
+  //Display the North info
+  displayNorth() {
+    if (this.northDisplayed === true) {
+      push();
+      textAlign(CENTER);
+      textSize(32);
+      fill(255);
+      text('\nN\nO\nR\nT\nH', width / 2, 40);
+      pop();
+    }
+  };
+  //Display the South info
+  displaySouth() {
+    if (this.southDisplayed === true) {
+      push();
+      textAlign(CENTER);
+      textSize(32);
+      fill(255);
+      text('\nS\nO\nU\nT\nH', width / 2, 600);
+      pop();
+    }
+  };
+
   //mouse clicked functionality
   mouseClicked() {
     //Call the super mouse clicked
@@ -140,26 +193,53 @@ class Confession extends State {
     if (mouseX > this.pointLeft.x && mouseX < this.pointLeft.x2) {
       if (mouseY > this.pointLeft.y && mouseY < this.pointLeft.y2) {
         console.log('west');
+        //Show the information for the west
+        this.westDisplayed = true;
+        //Hide Information for all other coordinates
+        this.eastDisplayed = false;
+        this.northDisplayed = false;
+        this.southDisplayed = false;
+        //Show the answer
+        this.answer = 'thermos';
       }
     }
     if (mouseX > this.pointRight.x && mouseX < this.pointRight.x2) {
       if (mouseY > this.pointRight.y && mouseY < this.pointRight.y2) {
-
+        //Show the information for the east
+        this.eastDisplayed = true;
+        //Hide Information for all other coordinates
+        this.westDisplayed = false;
+        this.northDisplayed = false;
+        this.southDisplayed = false;
       }
     }
     if (mouseX > this.pointMiddle.x && mouseX < this.pointMiddle.x2) {
       if (mouseY > this.pointMiddle.y && mouseY < this.pointMiddle.y2) {
-
+        //Hide Information for all other coordinates
+        this.westDisplayed = false;
+        this.eastDisplayed = false;
+        this.northDisplayed = false;
+        this.southDisplayed = false;
       }
     }
     if (mouseX > this.pointTop.x && mouseX < this.pointTop.x2) {
       if (mouseY > this.pointTop.y && mouseY < this.pointTop.y2) {
-
+        //Show the information for the north
+        this.northDisplayed = true;
+        //Hide Information for all other coordinates
+        this.westDisplayed = false;
+        this.eastDisplayed = false;
+        this.southDisplayed = false;
       }
     }
     if (mouseX > this.pointBottom.x && mouseX < this.pointBottom.x2) {
       if (mouseY > this.pointBottom.y && mouseY < this.pointBottom.y2) {
-
+        //Show the information for the south
+        this.southDisplayed = true;
+        //Hide Information for all other coordinates
+        this.westDisplayed = false;
+        this.eastDisplayed = false;
+        this.northDisplayed = false;
       }
     }
   }
