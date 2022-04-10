@@ -76,8 +76,6 @@ class Confession extends State {
     this.createOrbit();
     //Display the points
     this.createNodes();
-    //activate the confessions
-    this.activateConfession();
   };
 
 
@@ -134,8 +132,11 @@ class Confession extends State {
     pop();
   }
 
-  //Activate the confessions
-  activateConfession() {
+  //mouse clicked functionality
+  mouseClicked() {
+    //Call the super mouse clicked
+    super.mouseClicked();
+
     if (mouseX > this.pointLeft.x && mouseX < this.pointLeft.x2) {
       if (mouseY > this.pointLeft.y && mouseY < this.pointLeft.y2) {
         console.log('west');
@@ -161,13 +162,6 @@ class Confession extends State {
 
       }
     }
-  }
-
-  //mouse clicked functionality
-  mouseClicked() {
-    //Call the super mouse clicked
-    super.mouseClicked();
-
   }
 
   //Key pressed functionality

@@ -121,12 +121,12 @@ class LogicPad extends State {
     this.platform = {
       x: 0,
       y: 560,
-      width: 250,
+      width: 150,
       height: 30,
       white: 255,
       //Constrain the platform
       constrainA: 125,
-      constrainB: 1005,
+      constrainB: 975,
     };
 
     //gravity
