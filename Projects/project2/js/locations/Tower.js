@@ -36,5 +36,7 @@ class Tower extends State {
     super.mouseClicked();
     //Get the toolbar mouse clicked
     toolBar.mouseClicked();
+    //Get the nautical mouse mouse clicked
+    nautical.mouseClicked();
   }
 }

@@ -16,7 +16,7 @@ class Nautical {
     //constraints
     this.nauticalConstraints = {
       x: 124,
-      x2: 302,
+      x2: 315,
       y: 370,
       y2: 615,
     };
@@ -58,7 +58,7 @@ class Nautical {
     if (mouseX > this.nauticalConstraints.x && mouseX < this.nauticalConstraints.x2){
       if (mouseY > this.nauticalConstraints.y && mouseY < this.nauticalConstraints.y2) {
         //Change states when clicked
-        //state = new Detector;
+        state = new Detector
       }
     }
   }
