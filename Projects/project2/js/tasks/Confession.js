@@ -4,6 +4,9 @@ class Confession extends State {
     //Call the super class
     super(w, h, x, y);
 
+    //Timer delay 2.5 seconds
+    this.timeDelay = 2500;
+
     //Orbit Parameters
     this.orbParams = {
       radius: 75,
@@ -77,6 +80,19 @@ class Confession extends State {
       y: 432,
       y2: 442,
     };
+
+    //Text parameters
+    this.textParams = {
+      size: 32,
+      fill: 255,
+    };
+
+    //Final sentence rgb values
+    this.finalSentence = {
+      r: 0,
+      g: 194,
+      b: 68,
+    };
   }
 
   //Display all the entities
@@ -89,6 +105,15 @@ class Confession extends State {
     this.createOrbit();
     //Display the points
     this.createNodes();
+    //Display the question from the middle node
+    this.displayMiddle();
+    //Display the scrambled words
+    this.displayWestScrambler();
+    this.displayEastScrambler();
+    this.displayNorthScrambler();
+    this.displaySouthScrambler();
+    //Display the final sentence
+    this.displayFinalSentence();
     //Check the answers
     this.checkAnswer();
   };
@@ -157,29 +182,116 @@ class Confession extends State {
     }
   }
 
-  //Check to see if the answer is correct
+  //Display the west scrambled letters
+  displayWestScrambler() {
+    if (this.west === true) {
+      push();
+      textAlign(CENTER);
+      textSize(this.textParams.size);
+      fill(this.textParams.fill);
+      text('i m a', width / 3 , height / 2);
+      pop();
+    }
+  }
+  //Display the east scrambled letters
+  displayEastScrambler() {
+    if (this.east === true) {
+      push();
+      textAlign(CENTER);
+      textSize(this.textParams.size);
+      fill(this.textParams.fill);
+      text('r y o r s', width / 1.5 , height / 2);
+      pop();
+    }
+  }
+  //Display the north scrambled letters
+  displayNorthScrambler() {
+    if (this.north === true) {
+      push();
+      textAlign(CENTER);
+      textSize(this.textParams.size);
+      fill(this.textParams.fill);
+      text('o r f a h w t', width / 2 , height / 3);
+      pop();
+    }
+  }
+  //Display the south scrambled letters
+  displaySouthScrambler() {
+    if (this.south === true) {
+      push();
+      textAlign(CENTER);
+      textSize(this.textParams.size);
+      fill(this.textParams.fill);
+      text('d i d i', width / 2 , height / 1.5);
+      pop();
+    }
+  }
+  //Display the middle question
+  displayMiddle() {
+    if (this.middle === true) {
+      push();
+      textAlign(CENTER);
+      textSize(this.textParams.size);
+      fill(this.textParams.fill);
+      text('What is the sentence?', width / 2 , height / 4);
+      pop();
+    }
+  }
+  //Display final sentence
+  displayFinalSentence() {
+    if (currentResponse === this.answer && this.middle === true) {
+      push();
+      textAlign(CENTER);
+      textSize(this.textParams.size);
+      fill(this.finalSentence.r, this.finalSentence.g, this.finalSentence.b);
+      text('I am sorry for what I did', width / 2 , height / 3.5);
+      pop();
+    }
+  }
+
+  //Check to see if the answers are correct
   checkAnswer() {
     //Check to see if the response via annyang is the same as the answer
     if (currentResponse === this.answer && this.west === true) {
+      //Play sound notifying the user the answer is correct
+
       this.nodeLeft = false;
       //Reset the current response
       currentResponse = '';
     }
     if (currentResponse === this.answer && this.east === true) {
+      //Play sound notifying the user the answer is correct
+
       this.nodeRight = false;
       //Reset the current response
       currentResponse = '';
     }
     if (currentResponse === this.answer && this.north === true) {
+      //Play sound notifying the user the answer is correct
+
       this.nodeTop = false;
       //Reset the current response
       currentResponse = '';
     }
     if (currentResponse === this.answer && this.south === true) {
+      //Play sound notifying the user the answer is correct
+
       this.nodeBottom = false;
       //Reset the current response
       currentResponse = '';
     }
+    if (currentResponse === this.answer && this.middle === true) {
+      //Add a delay to display the correct answer for a few seconds
+      this.returnTimer = setTimeout(this.returnShrine.bind(this), this.timeDelay);
+
+      //Activate the task3 to true
+      task3Done = true;
+    }
+  }
+
+  //Return to the shrine location after the correct answer is inputed
+  returnShrine() {
+    state = new Shrine(1280, 720, 640, 360);
   }
 
   //mouse clicked functionality
@@ -191,6 +303,8 @@ class Confession extends State {
       if (mouseY > this.pointLeft.y && mouseY < this.pointLeft.y2) {
         //activate the west boolean to notify it has been clicked
         this.west = true;
+        //Play activation sound
+
         //Toggle all the other coordinates to false
         this.east = false;
         this.north = false;
@@ -204,6 +318,8 @@ class Confession extends State {
       if (mouseY > this.pointRight.y && mouseY < this.pointRight.y2) {
         //activate the east boolean to notify it has been clicked
         this.east = true;
+        //Play activation sound
+
         //Toggle all the other coordinates to false
         this.west = false;
         this.north = false;
@@ -217,6 +333,8 @@ class Confession extends State {
       if (mouseY > this.pointMiddle.y && mouseY < this.pointMiddle.y2) {
         //activate the middle boolean to notify it has been clicked
         this.middle = true;
+        //Play activation sound
+
         //Toggle all the other coordinates to false
         this.west = false;
         this.east = false;
@@ -230,6 +348,8 @@ class Confession extends State {
       if (mouseY > this.pointTop.y && mouseY < this.pointTop.y2) {
         //activate the north boolean to notify it has been clicked
         this.north = true;
+        //Play activation sound
+
         //Toggle all the other coordinates to false
         this.west = false;
         this.east = false;
@@ -243,6 +363,8 @@ class Confession extends State {
       if (mouseY > this.pointBottom.y && mouseY < this.pointBottom.y2) {
         //activate the south boolean to notify it has been clicked
         this.south = true;
+        //Play activation sound
+
         //Toggle all the other coordinates to false
         this.west = false;
         this.east = false;
