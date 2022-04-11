@@ -28,11 +28,18 @@ class Confession extends State {
       bottomY: 435,
     };
 
-    //Booleans to hide or show coordinates
-    this.westDisplayed = false;
-    this.eastDisplayed = false;
-    this.northDisplayed = false;
-    this.southDisplayed = false;
+    //Booleans to show or hide nodes
+    this.nodeLeft = true;
+    this.nodeRight = true;
+    this.nodeTop = true;
+    this.nodeBottom = true;
+    this.nodeMiddle = true;
+    //Booleans to check for clicks
+    this.west = false;
+    this.east = false;
+    this.north = false;
+    this.south = false;
+    this.middle = false;
 
     //Point Constraints
     //Left Point
@@ -82,8 +89,8 @@ class Confession extends State {
     this.createOrbit();
     //Display the points
     this.createNodes();
-    //Display the coordinates
-    this.displayWest();
+    //Check the answers
+    this.checkAnswer();
   };
 
 
@@ -109,81 +116,71 @@ class Confession extends State {
   //Create distinct points around the orbit
   createNodes() {
     //Left Point
-    push();
-    noStroke();
-    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
-    ellipse(this.pointParams.leftX, height / 2, this.pointParams.width, this.pointParams.height);
-    pop();
+    if (this.nodeLeft === true) {
+      push();
+      noStroke();
+      fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+      ellipse(this.pointParams.leftX, height / 2, this.pointParams.width, this.pointParams.height);
+      pop();
+    }
     //Right Point
-    push();
-    noStroke();
-    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
-    ellipse(this.pointParams.rightX, height / 2, this.pointParams.width, this.pointParams.height);
-    pop();
+    if (this.nodeRight === true) {
+      push();
+      noStroke();
+      fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+      ellipse(this.pointParams.rightX, height / 2, this.pointParams.width, this.pointParams.height);
+      pop();
+    }
     //Top Point
-    push();
-    noStroke();
-    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
-    ellipse(width / 2, this.pointParams.topY, this.pointParams.width, this.pointParams.height);
-    pop();
+    if (this.nodeTop === true) {
+      push();
+      noStroke();
+      fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+      ellipse(width / 2, this.pointParams.topY, this.pointParams.width, this.pointParams.height);
+      pop();
+    }
     //Bottom Point
-    push();
-    noStroke();
-    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
-    ellipse(width / 2, this.pointParams.bottomY, this.pointParams.width, this.pointParams.height);
-    pop();
+    if (this.nodeBottom === true) {
+      push();
+      noStroke();
+      fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+      ellipse(width / 2, this.pointParams.bottomY, this.pointParams.width, this.pointParams.height);
+      pop();
+    }
     //Middle Point
-    push();
-    noStroke();
-    fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
-    ellipse(width / 2, height / 2, this.pointParams.width, this.pointParams.height);
-    pop();
+    if (this.nodeMiddle === true) {
+      push();
+      noStroke();
+      fill(this.pointParams.r, this.pointParams.g, this.pointParams.b);
+      ellipse(width / 2, height / 2, this.pointParams.width, this.pointParams.height);
+      pop();
+    }
   }
 
-  //Display the west info
-  displayWest() {
-    if (this.westDisplayed === true) {
-      push();
-      textAlign(CENTER);
-      textSize(32);
-      fill(255);
-      text('\nW\nE\nS\nT', 220, height / 2.5);
-      pop();
+  //Check to see if the answer is correct
+  checkAnswer() {
+    //Check to see if the response via annyang is the same as the answer
+    if (currentResponse === this.answer && this.west === true) {
+      this.nodeLeft = false;
+      //Reset the current response
+      currentResponse = '';
     }
-  };
-  //Display the east info
-  displayEast() {
-    if (this.eastDisplayed === true) {
-      push();
-      textAlign(CENTER);
-      textSize(32);
-      fill(255);
-      text('\nE\nA\nS\nT', 820, height / 2.5);
-      pop();
+    if (currentResponse === this.answer && this.east === true) {
+      this.nodeRight = false;
+      //Reset the current response
+      currentResponse = '';
     }
-  };
-  //Display the North info
-  displayNorth() {
-    if (this.northDisplayed === true) {
-      push();
-      textAlign(CENTER);
-      textSize(32);
-      fill(255);
-      text('\nN\nO\nR\nT\nH', width / 2, 40);
-      pop();
+    if (currentResponse === this.answer && this.north === true) {
+      this.nodeTop = false;
+      //Reset the current response
+      currentResponse = '';
     }
-  };
-  //Display the South info
-  displaySouth() {
-    if (this.southDisplayed === true) {
-      push();
-      textAlign(CENTER);
-      textSize(32);
-      fill(255);
-      text('\nS\nO\nU\nT\nH', width / 2, 600);
-      pop();
+    if (currentResponse === this.answer && this.south === true) {
+      this.nodeBottom = false;
+      //Reset the current response
+      currentResponse = '';
     }
-  };
+  }
 
   //mouse clicked functionality
   mouseClicked() {
@@ -192,54 +189,67 @@ class Confession extends State {
 
     if (mouseX > this.pointLeft.x && mouseX < this.pointLeft.x2) {
       if (mouseY > this.pointLeft.y && mouseY < this.pointLeft.y2) {
-        console.log('west');
-        //Show the information for the west
-        this.westDisplayed = true;
-        //Hide Information for all other coordinates
-        this.eastDisplayed = false;
-        this.northDisplayed = false;
-        this.southDisplayed = false;
+        //activate the west boolean to notify it has been clicked
+        this.west = true;
+        //Toggle all the other coordinates to false
+        this.east = false;
+        this.north = false;
+        this.south = false;
+        this.middle = false;
         //Show the answer
-        this.answer = 'thermos';
+        this.answer = 'i am';
       }
     }
     if (mouseX > this.pointRight.x && mouseX < this.pointRight.x2) {
       if (mouseY > this.pointRight.y && mouseY < this.pointRight.y2) {
-        //Show the information for the east
-        this.eastDisplayed = true;
-        //Hide Information for all other coordinates
-        this.westDisplayed = false;
-        this.northDisplayed = false;
-        this.southDisplayed = false;
+        //activate the east boolean to notify it has been clicked
+        this.east = true;
+        //Toggle all the other coordinates to false
+        this.west = false;
+        this.north = false;
+        this.south = false;
+        this.middle = false;
+        //Show the answer
+        this.answer = 'sorry';
       }
     }
     if (mouseX > this.pointMiddle.x && mouseX < this.pointMiddle.x2) {
       if (mouseY > this.pointMiddle.y && mouseY < this.pointMiddle.y2) {
-        //Hide Information for all other coordinates
-        this.westDisplayed = false;
-        this.eastDisplayed = false;
-        this.northDisplayed = false;
-        this.southDisplayed = false;
+        //activate the middle boolean to notify it has been clicked
+        this.middle = true;
+        //Toggle all the other coordinates to false
+        this.west = false;
+        this.east = false;
+        this.north = false;
+        this.south = false;
+        //Show the answer
+        this.answer = 'i am sorry for what i did';
       }
     }
     if (mouseX > this.pointTop.x && mouseX < this.pointTop.x2) {
       if (mouseY > this.pointTop.y && mouseY < this.pointTop.y2) {
-        //Show the information for the north
-        this.northDisplayed = true;
-        //Hide Information for all other coordinates
-        this.westDisplayed = false;
-        this.eastDisplayed = false;
-        this.southDisplayed = false;
+        //activate the north boolean to notify it has been clicked
+        this.north = true;
+        //Toggle all the other coordinates to false
+        this.west = false;
+        this.east = false;
+        this.south = false;
+        this.middle = false;
+        //Show the answer
+        this.answer = 'for what';
       }
     }
     if (mouseX > this.pointBottom.x && mouseX < this.pointBottom.x2) {
       if (mouseY > this.pointBottom.y && mouseY < this.pointBottom.y2) {
-        //Show the information for the south
-        this.southDisplayed = true;
-        //Hide Information for all other coordinates
-        this.westDisplayed = false;
-        this.eastDisplayed = false;
-        this.northDisplayed = false;
+        //activate the south boolean to notify it has been clicked
+        this.south = true;
+        //Toggle all the other coordinates to false
+        this.west = false;
+        this.east = false;
+        this.north = false;
+        this.middle = false;
+        //Show the answer
+        this.answer = 'i did';
       }
     }
   }
