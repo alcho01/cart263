@@ -134,6 +134,7 @@ let journalInfoImage;
 let journalInfoImage2;
 let journalInfoImage3;
 let journalInfoImage4;
+let journalInfoImage5;
 
 //State variable
 let state;
@@ -223,6 +224,7 @@ function preload() {
   journalInfoImage2 = loadImage("assets/images/toolbar/journal/info2.png");
   journalInfoImage3 = loadImage("assets/images/toolbar/journal/info3.png");
   journalInfoImage4 = loadImage("assets/images/toolbar/journal/info4.png");
+  journalInfoImage5 = loadImage("assets/images/toolbar/journal/info5.png");
 }
 
 //What needs to be setup before starting

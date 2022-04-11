@@ -53,13 +53,13 @@ class Nautical {
   }
 
   //Check to see if the nautical is clicked on
-  //mouseClicked() {
+  mouseClicked() {
     //Check to see if it is within these constraints
-  //  if (mouseX > this.nauticalConstraints.x && mouseX < this.nauticalConstraints.x2){
-    //  if (mouseY > this.nauticalConstraints.y && mouseY < this.nauticalConstraints.y2) {
+    if (mouseX > this.nauticalConstraints.x && mouseX < this.nauticalConstraints.x2){
+      if (mouseY > this.nauticalConstraints.y && mouseY < this.nauticalConstraints.y2) {
         //Change states when clicked
-        //state = new NauticalTask;
-    //  }
-  //  }
-//  }
+        //state = new Detector;
+      }
+    }
+  }
 }

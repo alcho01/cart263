@@ -20,7 +20,6 @@ class Journal extends State {
       width: 1400,
       height: 800,
     };
-
     //Journal info parameters (page 2)
     this.journalInfoP2 = {
       x: 320,
@@ -43,6 +42,15 @@ class Journal extends State {
       width: 1200,
       height: 800,
     };
+
+    //Journal info parameters (page 5-6 - Confession)
+    this.journalInfoP5 = {
+      x: 635,
+      y: 380,
+      width: 1200,
+      height: 800,
+    };
+    
     //Constaints for the heart icon
     this.heartConstraints = {
       x: 324,
@@ -83,10 +91,12 @@ class Journal extends State {
     this.confessHovHide = false;
     //Check if the hovered nautical icon should be hidden
     this.nauticalHovHide = false;
-    //Check if the heart info should be showed
+    //Check if the heart info should be shown
     this.heartInfoShow = false;
-    //Check if the logic pad info should be showed
+    //Check if the logic pad info should be shown
     this.logicPadInfoShow = false;
+    //Check if the confession info should be shown
+    this.confessionInfoShow = false;
 
     //Images
     this.journalImage = journalImage;
@@ -99,6 +109,7 @@ class Journal extends State {
     this.journalInfoImage2 = journalInfoImage2;
     this.journalInfoImage3 = journalInfoImage3;
     this.journalInfoImage4 = journalInfoImage4;
+    this.journalInfoImage5 = journalInfoImage5;
   }
 
   //Display everything
@@ -112,6 +123,7 @@ class Journal extends State {
     //Display the instructions if true
     this.displayHeartInfo();
     this.displayLogicPadInfo();
+    this.displayConfessionInfo();
   }
 
   //Display the journal
@@ -205,6 +217,20 @@ class Journal extends State {
     }
   }
 
+  //Display the confession instrustioncs
+  displayConfessionInfo() {
+    //Check to see if the confession instructions can be shown
+    if (this.confessionInfoShow === true) {
+      //Hide the icons
+      this.iconsHide === true;
+      //page 5 and 6
+      push();
+      imageMode(CENTER);
+      image(this.journalInfoImage5, this.journalInfoP5.x, this.journalInfoP5.y, this.journalInfoP5.width, this.journalInfoP5.height);
+      pop();
+    }
+  }
+
   //Check the hover
   checkHover() {
     //Check to see if it is within these constraints
@@ -268,6 +294,19 @@ class Journal extends State {
       }
     }
     //Do for the confess task
+    //Check to see if mouse is within click box
+    if (mouseX > this.confessConstraints.x && mouseX < this.confessConstraints.x2) {
+      if (mouseY > this.confessConstraints.y && mouseY < this.confessConstraints.y2) {
+        //Boolean system
+        this.iconsHide = true;
+        this.heartHovHide = true;
+        this.logicPadHovHide = true;
+        this.confessHovHide = true;
+        this.nauticalHovHide = true;
+        this.confessionInfoShow = true;
+        this.displayConfessionInfo();
+      }
+    }
     //Do for the nautical task
   }
 
@@ -280,6 +319,7 @@ class Journal extends State {
       this.iconsHide = false;
       this.heartInfoShow = false;
       this.logicPadInfoShow = false;
+      this.confessionInfoShow = false;
       this.heartHovHide = false;
       this.logicPadHovHide = false;
       this.confessHovHide = false;
