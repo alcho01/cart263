@@ -5,12 +5,27 @@ class Detector extends State {
     //Call the super class
     super(w, h, x, y);
 
+    //Selection bar parameters
+    this.selectionBarParams = {
+      x: 560,
+      y: 410,
+      width: 1100,
+      height: 600,
+    };
+
+    //Images
+    this.selectionBarImage = selectionBarImage;
+    this.selectionBarImage2 = selectionBarImage2;
+    this.selectionBarImage3 = selectionBarImage3;
+    this.selectionBarImage4 = selectionBarImage4;
+
     //Starting
     this.start = 0;
     //Increment to move the radar dot
     this.increment = 1;
 
     //Boolean to determine the toggling of devices
+    this.emptyOn = false;
     this.radarOn = false;
     this.closersOn = false;
     this.linedUp = false;
@@ -62,7 +77,7 @@ class Detector extends State {
       y: 270,
       width: 10,
       height: 10,
-      fill: 255,
+      fill: 0,
     };
 
     //Target constraints
@@ -117,7 +132,7 @@ class Detector extends State {
 
     this.target();
 
-    this.radarHUD();
+    this.radar();
 
     this.displayRadarDot();
 
@@ -129,10 +144,40 @@ class Detector extends State {
 
     this.lineIntersectors();
 
+    this.selectionBar();
+  }
+
+  //Display the selection bar
+  selectionBar() {
+    push();
+    imageMode(CENTER);
+    image(this.selectionBarImage, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
+    pop();
+
+    if (this.emptyOn === true) {
+      push();
+      imageMode(CENTER);
+      image(this.selectionBarImage2, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
+      pop();
+    }
+
+    if (this.radarOn === true) {
+      push();
+      imageMode(CENTER);
+      image(this.selectionBarImage3, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
+      pop();
+    }
+
+    if (this.closersOn === true) {
+      push();
+      imageMode(CENTER);
+      image(this.selectionBarImage4, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
+      pop();
+    }
   }
 
   //Display a radar as part of the heads up display
-  radarHUD() {
+  radar() {
     if (this.radarOn === true) {
       push();
       //Don't fill the circles
@@ -266,6 +311,8 @@ class Detector extends State {
     if (mouseX > this.targetConstraints.x && mouseX < this.targetConstraints.x2) {
       if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
         //
+        //Toggle task 4 to complete
+        task4Done = true;
         console.log('found');
       }
     }
@@ -282,6 +329,7 @@ class Detector extends State {
     //If the 0 key is pressed...
     if (keyCode === 48) {
       //Turn all devices off
+      this.emptyOn = true;
       this.radarOn = false;
       this.closersOn = false;
     }
@@ -289,12 +337,14 @@ class Detector extends State {
     if (keyCode === 49) {
       //Turn the radar on
       this.radarOn = true;
+      this.emptyOn = false;
       this.closersOn = false;
     }
     //If the 2 key is pressed...
     if (keyCode === 50) {
       //Turn the closers on
       this.closersOn = true;
+      this.emptyOn = false;
       this.radarOn = false;
     }
   }

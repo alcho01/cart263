@@ -139,6 +139,12 @@ let journalInfoImage3;
 let journalInfoImage4;
 let journalInfoImage5;
 
+//Task Images
+let selectionBarImage;
+let selectionBarImage2;
+let selectionBarImage3;
+let selectionBarImage4;
+
 //State variable
 let state;
 
@@ -230,6 +236,11 @@ function preload() {
   journalInfoImage3 = loadImage("assets/images/toolbar/journal/info3.png");
   journalInfoImage4 = loadImage("assets/images/toolbar/journal/info4.png");
   journalInfoImage5 = loadImage("assets/images/toolbar/journal/info5.png");
+
+  selectionBarImage = loadImage("assets/images/taskItems/selectionbar.png");
+  selectionBarImage2 = loadImage("assets/images/taskItems/selectionbar1.png");
+  selectionBarImage3 = loadImage("assets/images/taskItems/selectionbar2.png");
+  selectionBarImage4 = loadImage("assets/images/taskItems/selectionbar3.png");
 }
 
 //What needs to be setup before starting
