@@ -28,6 +28,8 @@ class Shrine extends State {
     toolBar.display();
     //Display the podium item
     podium.display();
+    //Display the paper #3
+    paper.displayPaper3();
   }
 
   //Mouse clicked functionality
@@ -38,5 +40,7 @@ class Shrine extends State {
     toolBar.mouseClicked();
     //Get the podium mouse clicked
     podium.mouseClicked();
+    //Get the paper mouse clicked
+    paper.mouseClicked();
   }
 }
