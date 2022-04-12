@@ -50,7 +50,15 @@ class Journal extends State {
       width: 1200,
       height: 800,
     };
-    
+
+    //Journal info parameters (page 7-8 - Detector)
+    this.journalInfoP7 = {
+      x: 635,
+      y: 380,
+      width: 1200,
+      height: 800,
+    };
+
     //Constaints for the heart icon
     this.heartConstraints = {
       x: 324,
@@ -73,7 +81,7 @@ class Journal extends State {
       y2: 290,
     };
     //Constaints for the nautical icon
-    this.nauticalConstraints = {
+    this.detectorConstraints = {
       x: 640,
       x2: 780,
       y: 328,
@@ -89,14 +97,16 @@ class Journal extends State {
     this.logicPadHovHide = false;
     //Check if the hovered confess icon should be hidden
     this.confessHovHide = false;
-    //Check if the hovered nautical icon should be hidden
-    this.nauticalHovHide = false;
+    //Check if the hovered detecor icon should be hidden
+    this.detectorHovHide = false;
     //Check if the heart info should be shown
     this.heartInfoShow = false;
     //Check if the logic pad info should be shown
     this.logicPadInfoShow = false;
     //Check if the confession info should be shown
     this.confessionInfoShow = false;
+    //Check if the detector info should be shown
+    this.detectorInfoShow = false;
 
     //Images
     this.journalImage = journalImage;
@@ -110,6 +120,7 @@ class Journal extends State {
     this.journalInfoImage3 = journalInfoImage3;
     this.journalInfoImage4 = journalInfoImage4;
     this.journalInfoImage5 = journalInfoImage5;
+    this.journalInfoImage6 = journalInfoImage6;
   }
 
   //Display everything
@@ -124,6 +135,7 @@ class Journal extends State {
     this.displayHeartInfo();
     this.displayLogicPadInfo();
     this.displayConfessionInfo();
+    this.displayDetectorInfo();
   }
 
   //Display the journal
@@ -170,9 +182,9 @@ class Journal extends State {
     pop();
   }
 }
-  //Display the nautical hovered icon
-  displayNauticalHov() {
-    if (this.nauticalHovHide === false) {
+  //Display the detector hovered icon
+  displayDetectorHov() {
+    if (this.detectorHovHide === false) {
     push();
     imageMode(CENTER);
     image(this.journalNauticalHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
@@ -231,6 +243,20 @@ class Journal extends State {
     }
   }
 
+  //Display the detector instructions
+  displayDetectorInfo() {
+    //Check to see if the detector instructions can be shown
+    if (this.detectorInfoShow === true) {
+      //Hide the icons
+      this.iconsHide === true;
+      //page 7 and 8
+      push();
+      imageMode(CENTER);
+      image(this.journalInfoImage6, this.journalInfoP7.x, this.journalInfoP7.y, this.journalInfoP7.width, this.journalInfoP7.height);
+      pop();
+    }
+  }
+
   //Check the hover
   checkHover() {
     //Check to see if it is within these constraints
@@ -255,10 +281,10 @@ class Journal extends State {
       }
     }
     //Check to see if it is within these constraints
-    if (mouseX > this.nauticalConstraints.x && mouseX < this.nauticalConstraints.x2) {
-      if (mouseY > this.nauticalConstraints.y && mouseY < this.nauticalConstraints.y2) {
+    if (mouseX > this.detectorConstraints.x && mouseX < this.detectorConstraints.x2) {
+      if (mouseY > this.detectorConstraints.y && mouseY < this.detectorConstraints.y2) {
         //Display the hovered nautical icon
-        this.displayNauticalHov();
+        this.displayDetectorHov();
       }
     }
   }
@@ -275,7 +301,7 @@ class Journal extends State {
         this.heartHovHide = true;
         this.logicPadHovHide = true;
         this.confessHovHide = true;
-        this.nauticalHovHide = true;
+        this.detectorHovHide = true;
         this.heartInfoShow = true;
         this.displayHeartInfo();
       }
@@ -288,12 +314,11 @@ class Journal extends State {
         this.heartHovHide = true;
         this.logicPadHovHide = true;
         this.confessHovHide = true;
-        this.nauticalHovHide = true;
+        this.detectorHovHide = true;
         this.logicPadInfoShow = true;
         this.displayLogicPadInfo();
       }
     }
-    //Do for the confess task
     //Check to see if mouse is within click box
     if (mouseX > this.confessConstraints.x && mouseX < this.confessConstraints.x2) {
       if (mouseY > this.confessConstraints.y && mouseY < this.confessConstraints.y2) {
@@ -302,12 +327,24 @@ class Journal extends State {
         this.heartHovHide = true;
         this.logicPadHovHide = true;
         this.confessHovHide = true;
-        this.nauticalHovHide = true;
+        this.detectorHovHide = true;
         this.confessionInfoShow = true;
         this.displayConfessionInfo();
       }
     }
-    //Do for the nautical task
+    //Check to see if mouse is within click box
+    if (mouseX > this.detectorConstraints.x && mouseX < this.detectorConstraints.x2) {
+      if (mouseY > this.detectorConstraints.y && mouseY < this.detectorConstraints.y2) {
+        //Boolean system
+        this.iconsHide = true;
+        this.heartHovHide = true;
+        this.logicPadHovHide = true;
+        this.confessHovHide = true;
+        this.detectorHovHide = true;
+        this.detectorInfoShow = true;
+        this.displayDetectorInfo();
+      }
+    }
   }
 
   //Key pressed functionality
@@ -320,10 +357,11 @@ class Journal extends State {
       this.heartInfoShow = false;
       this.logicPadInfoShow = false;
       this.confessionInfoShow = false;
+      this.detectorInfoShow = false;
       this.heartHovHide = false;
       this.logicPadHovHide = false;
       this.confessHovHide = false;
-      this.nauticalHovHide = false;
+      this.detectorHovHide = false;
     }
     //If escape key is clicked return to the previous state
     if (keyCode === 27 && locationHome === true) {
