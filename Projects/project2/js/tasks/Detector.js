@@ -12,6 +12,8 @@ class Detector extends State {
 
     //Boolean to determine the toggling of devices
     this.radarOn = false;
+    this.closersOn = false;
+    this.linedUp = false;
 
     //Parameters for the rotating radar dot
     this.radarDot = {
@@ -65,10 +67,45 @@ class Detector extends State {
 
     //Target constraints
     this.targetConstraints = {
-      x: 850,
-      x2: 911,
-      y: 241,
-      y2: 302,
+      x: 877,
+      x2: 890,
+      y: 265,
+      y2: 277,
+    };
+
+    //Closer parameters
+    this.closerParams = {
+      //One x is for the right side the other is for the left side
+      x: 0,
+      x2: 1280,
+      //One y is for the top the other is for the bottom
+      y: 0,
+      y2: 720,
+      //One width is for the closers on the x axis while the other width is for the y axis
+      width: 10,
+      width2: 20,
+      //One height is for the closers on the x axis while the other height is for the y axis
+      height: 10,
+      height2: 20,
+      fill: 255,
+    };
+
+    //Line intersectors parameters
+    this.lineIntersectorParams = {
+      //Horizontal Line
+      x: 0,
+      x2: 1280,
+      y: 270,
+      y2: 270,
+      //Vertical Line
+      x3: 880,
+      x4: 880,
+      y3: 0,
+      y4: 720,
+      //Colour
+      fill: 255,
+      //Stroke weight
+      thickness: 2,
     };
   }
 
@@ -85,6 +122,12 @@ class Detector extends State {
     this.displayRadarDot();
 
     this.radarChecker();
+
+    this.closers();
+
+    this.closerChecker();
+
+    this.lineIntersectors();
 
   }
 
@@ -148,7 +191,7 @@ class Detector extends State {
     }
   }
 
-  //This checks when the radar dot comes in contact with the target 
+  //This checks when the radar dot comes in contact with the target
   radarChecker() {
     let d = dist(this.xUser, this.yUser, this.targetParams.x, this.targetParams.y);
       if (d < this.targetParams.width / 2 + this.radarDot.width / 2) {
@@ -157,8 +200,75 @@ class Detector extends State {
     }
   }
 
+  //Display the closers. Closers will narrow down where the target is. The user will use information acquired from the radar to use this tool.
+  closers() {
+    if (this.closersOn === true) {
+      push();
+      rectMode(CENTER);
+      noStroke();
+      fill(this.closerParams.fill);
+      rect(this.closerParams.x, mouseY, this.closerParams.width, this.closerParams.height2);
+      pop();
+
+      push();
+      rectMode(CENTER);
+      noStroke();
+      fill(this.closerParams.fill);
+      rect(this.closerParams.x2, mouseY, this.closerParams.width, this.closerParams.height2);
+      pop();
+
+      push();
+      rectMode(CENTER);
+      noStroke();
+      fill(this.closerParams.fill);
+      rect(mouseX, this.closerParams.y, this.closerParams.width2, this.closerParams.height);
+      pop();
+
+      push();
+      rectMode(CENTER);
+      noStroke();
+      fill(this.closerParams.fill);
+      rect(mouseX, this.closerParams.y2, this.closerParams.width2, this.closerParams.height);
+      pop();
+    }
+  }
+
+  //When the closers are lined up correctly the line intersectors will display
+  lineIntersectors() {
+    if (this.closersOn === true && this.linedUp === true) {
+      push();
+      stroke(this.lineIntersectorParams.fill);
+      strokeWeight(this.lineIntersectorParams.thickness);
+      line(this.lineIntersectorParams.x, this.lineIntersectorParams.y, this.lineIntersectorParams.x2, this.lineIntersectorParams.y2);
+      pop();
+
+      push();
+      stroke(this.lineIntersectorParams.fill);
+      strokeWeight(this.lineIntersectorParams.thickness);
+      line(this.lineIntersectorParams.x3, this.lineIntersectorParams.y3, this.lineIntersectorParams.x4, this.lineIntersectorParams.y4);
+      pop();
+    }
+  }
+
+  closerChecker() {
+    if (this.closersOn === true) {
+      if (mouseX > this.targetConstraints.x && mouseX < this.targetConstraints.x2) {
+        if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
+          this.linedUp = true;
+        }
+      }
+    }
+  }
+
   mouseClicked() {
     super.mouseClicked();
+
+    if (mouseX > this.targetConstraints.x && mouseX < this.targetConstraints.x2) {
+      if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
+        //
+        console.log('found');
+      }
+    }
   }
 
   keyPressed() {
@@ -173,11 +283,19 @@ class Detector extends State {
     if (keyCode === 48) {
       //Turn all devices off
       this.radarOn = false;
+      this.closersOn = false;
     }
     //If the 1 key is pressed...
     if (keyCode === 49) {
       //Turn the radar on
       this.radarOn = true;
+      this.closersOn = false;
+    }
+    //If the 2 key is pressed...
+    if (keyCode === 50) {
+      //Turn the closers on
+      this.closersOn = true;
+      this.radarOn = false;
     }
   }
 }
