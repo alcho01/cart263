@@ -47,6 +47,9 @@ let dialogueFont;
 //Set the heartbeat sound
 let heartbeatSFX;
 
+//Set the detector beep sound
+let detectorBeepSFX;
+
 //=====Load Images=====\\
 //Load up scenery images
 //A
@@ -145,6 +148,8 @@ function preload() {
   dialogueFont = loadFont("assets/fonts/sketchy.ttf");
   //preload sounds
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
+
+  detectorBeepSFX = loadSound("assets/sounds/detectedBeep.wav");
   //preload music
 
   //preload images
