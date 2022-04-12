@@ -310,9 +310,10 @@ class Detector extends State {
 
     if (mouseX > this.targetConstraints.x && mouseX < this.targetConstraints.x2) {
       if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
-        //
         //Toggle task 4 to complete
         task4Done = true;
+        //Return to the tower
+        state = new Tower(1280, 720, 640, 360);
         console.log('found');
       }
     }

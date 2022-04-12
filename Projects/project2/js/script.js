@@ -283,6 +283,15 @@ function setup() {
 //Displaying the entities
 function draw() {
   state.display();
+
+  //Notify that the tasks are completed
+  tasksCompleted();
+}
+
+function tasksCompleted() {
+  if (task1Done === true && task2Done === true && task3Done === true && task4Done === true) {
+    //state = new 
+  }
 }
 
 //Put the input of the answer into lower case
