@@ -1,4 +1,7 @@
-//Class containing the nautical object
+//Class containing the nautical/detector object
+//NOTE * I use nautical and detector interchangeably
+//Include the hover and non hover images of the nautical object.
+//Add a click box around the nautical
 class Nautical {
   constructor() {
     //dimensions
@@ -28,7 +31,6 @@ class Nautical {
     imageMode(CENTER);
     image(this.nauticalImage, this.x, this.y, this.width, this.height);
     pop();
-
     //Display this if possible
     this.checkHover();
   }

@@ -44,13 +44,22 @@ let toolBar;
 let dialogueFont;
 
 //=====Load Sounds=====\\
+//Cracking Glass
+let glassCrackSFX;
 //Set the heartbeat sound
 let heartbeatSFX;
-
 //Set the detector beep sound
 let detectorBeepSFX;
 
 //=====Load Images=====\\
+//Load title images
+let titleImage1;
+let titleImage2;
+let titleImage3;
+let titleImage4;
+let titleImageHov;
+let titleTextImage;
+
 //Load up scenery images
 //A
 let sceneAImage1;
@@ -155,12 +164,21 @@ function preload() {
   //preload up fonts
   dialogueFont = loadFont("assets/fonts/sketchy.ttf");
   //preload sounds
+  glassCrackSFX = loadSound("assets/sounds/glassCrack.wav");
+
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
 
   detectorBeepSFX = loadSound("assets/sounds/detectedBeep.wav");
   //preload music
 
   //preload images
+  titleImage1 = loadImage("assets/images/scenes/title/crack1.png");
+  titleImage2 = loadImage("assets/images/scenes/title/crack2.png");
+  titleImage3 = loadImage("assets/images/scenes/title/crack3.png");
+  titleImage4 = loadImage("assets/images/scenes/title/crack4.png");
+  titleImageHov = loadImage("assets/images/scenes/title/playhovered.png");
+  titleTextImage = loadImage("assets/images/scenes/title/titletext.png");
+
   sceneAImage1 = loadImage("assets/images/scenes/scene1.png");
   sceneAImage2 = loadImage("assets/images/scenes/scene2.png");
   sceneAImage3 = loadImage("assets/images/scenes/scene3.png");
@@ -266,7 +284,8 @@ function setup() {
   createCanvas(canvas.width, canvas.height);
 
   //Classes that must be called in setup
-  state = new ForestScene(1280, 720, 640, 360);
+  state = new PreTitle(1280, 720, 640, 360);
+  //state = new ForestScene(1280, 720, 640, 360);
   //Papers
   paper = new Paper();
   //Items
@@ -290,7 +309,7 @@ function draw() {
 
 function tasksCompleted() {
   if (task1Done === true && task2Done === true && task3Done === true && task4Done === true) {
-    //state = new 
+    //state = new
   }
 }
 

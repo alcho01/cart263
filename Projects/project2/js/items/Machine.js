@@ -1,4 +1,6 @@
 //Class containing the machine object
+//This is to display the machine object when hovered and not hovered
+//Add a clickbox around the machine 
 class Machine {
   constructor() {
     //Dimensions
@@ -28,7 +30,6 @@ class Machine {
     imageMode(CENTER);
     image(this.machineImage, this.x, this.y, this.width, this.height);
     pop();
-
     //Display this if possible
     this.checkHover();
   }

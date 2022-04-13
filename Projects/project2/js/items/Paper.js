@@ -1,4 +1,5 @@
 //This is the pieces of paper scattered around the locations
+//
 class Paper {
   constructor() {
 
@@ -58,7 +59,6 @@ class Paper {
       y: 256,
       y2: 318,
     };
-
     //paper 2 constraints
     this.paper2Constraints = {
       x: 870,
@@ -66,7 +66,6 @@ class Paper {
       y: 173,
       y2: 234,
     };
-
     //paper 3 constraints
     this.paper3Constraints = {
       x: 786,
@@ -79,6 +78,8 @@ class Paper {
     this.paperImage = paperImage;
     this.paperImageHov = paperImageHov;
   }
+
+  //=================DISPLAY THE PAPER IN THE BAG=================\\
 
   //Display that allows it to be used in the bag class
   displayInBag() {
@@ -101,6 +102,8 @@ class Paper {
     image(this.paperImage, this.paperToBag3.x, this.paperToBag3.y, this.paperToBag3.width, this.paperToBag3.height);
     pop();
   }
+
+//=================DISPLAY THE PAPER AND THE HOVER METHOD=================\\
 
   //Display paper 1
   displayPaper1() {
@@ -165,9 +168,11 @@ class Paper {
     pop();
   }
 
+//=================FUNCTIONALITY FOR HOVER METHOD=================\\
 
-  //Check if the mouse is hovered over the paper 1
+  //Check if the mouse is hovered over the paper
   checkHover() {
+    //Paper 1
     //Check to see if the user is on the home location
     if (locationHome === true) {
       //Check to see if it is within these constraints
@@ -178,6 +183,7 @@ class Paper {
         }
       }
     }
+    //Paper 2
     //Check to see if the user is on the lab location
     if (locationLab === true) {
       //Check to see if it is within these constraints
@@ -188,6 +194,8 @@ class Paper {
         }
       }
     }
+    //Paper 3
+    //Check to see if the user is on the shrine location
     if (locationShrine === true) {
       //Check to see if it is within these constraints
       if (mouseX > this.paper3Constraints.x && mouseX < this.paper3Constraints.x2) {
@@ -198,6 +206,8 @@ class Paper {
       }
     }
   }
+
+//=================FUNCTIONALITY FOR MOUSE CLICKED=================\\
 
   //Check to see if the paper is clicked on
   mouseClicked() {
