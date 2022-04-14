@@ -24,6 +24,13 @@ class Paper {
       width: 1200,
       height: 800,
     };
+    //Slot 4 of the bag
+    this.paperToBag4 = {
+      x: 630,
+      y: 276,
+      width: 1200,
+      height: 800,
+    };
 
     //paper 1 parameters
     this.paper1 = {
@@ -52,6 +59,15 @@ class Paper {
       hide: false,
     };
 
+    //paper 4 parameters
+    this.paper4 = {
+      x: 879,
+      y: 659,
+      width: 1250,
+      height: 850,
+      hide: false,
+    };
+
     //paper 1 constraints
     this.paper1Constraints = {
       x: 670,
@@ -72,6 +88,13 @@ class Paper {
       x2: 826,
       y: 504,
       y2: 564,
+    };
+    //paper 4 constraints
+    this.paper4Constraints = {
+      x: 854,
+      x2: 894,
+      y: 534,
+      y2: 594,
     };
 
     //Images
@@ -100,6 +123,13 @@ class Paper {
     push();
     imageMode(CENTER);
     image(this.paperImage, this.paperToBag3.x, this.paperToBag3.y, this.paperToBag3.width, this.paperToBag3.height);
+    pop();
+  }
+  //Display a paper in slot 4 of the bag
+  displayInBag4() {
+    push();
+    imageMode(CENTER);
+    image(this.paperImage, this.paperToBag4.x, this.paperToBag4.y, this.paperToBag4.width, this.paperToBag4.height);
     pop();
   }
 
@@ -168,6 +198,27 @@ class Paper {
     pop();
   }
 
+  //Display paper 4
+  displayPaper4() {
+    //If the paper is not hidden show it
+    if (this.paper4.hide === false) {
+      push();
+      imageMode(CENTER);
+      image(this.paperImage, this.paper4.x, this.paper4.y, this.paper4.width, this.paper4.height);
+      pop();
+      //Display this if possible
+      this.checkHover();
+    }
+  }
+
+    //Display paper 4 hover
+    displayPaper4Hover() {
+      push();
+      imageMode(CENTER);
+      image(this.paperImageHov, this.paper4.x, this.paper4.y, this.paper4.width, this.paper4.height);
+      pop();
+    }
+
 //=================FUNCTIONALITY FOR HOVER METHOD=================\\
 
   //Check if the mouse is hovered over the paper
@@ -205,6 +256,17 @@ class Paper {
         }
       }
     }
+    //Paper 4
+    //Check to see if the user is on the tower location
+    if (locationTower === true) {
+      //Check to see if it is within these constraints
+      if (mouseX > this.paper4Constraints.x && mouseX < this.paper4Constraints.x2) {
+        if (mouseY > this.paper4Constraints.y && mouseY < this.paper4Constraints.y2) {
+          //If it is display the hovered image
+          this.displayPaper4Hover();
+        }
+      }
+    }
   }
 
 //=================FUNCTIONALITY FOR MOUSE CLICKED=================\\
@@ -238,6 +300,16 @@ class Paper {
         if (mouseY > this.paper3Constraints.y && mouseY < this.paper3Constraints.y2) {
           //If the paper is clicked hide it
           this.paper3.hide = true;
+        }
+      }
+    }
+    //Check to see if the user is on the tower location
+    if (locationTower === true) {
+      //Check to see if it is within these constraints
+      if (mouseX > this.paper4Constraints.x && mouseX < this.paper4Constraints.x2) {
+        if (mouseY > this.paper4Constraints.y && mouseY < this.paper4Constraints.y2) {
+          //If the paper is clicked hide it
+          this.paper4.hide = true;
         }
       }
     }

@@ -105,6 +105,7 @@ let paperImageHov;
 let passageImage1;
 let passageImage2;
 let passageImage3;
+let passageImage4;
 
 //Load the heartBox images
 let heartBoxImage;
@@ -217,6 +218,7 @@ function preload() {
   passageImage1 = loadImage("assets/images/passages/passage.png");
   passageImage2 = loadImage("assets/images/passages/passage2.png");
   passageImage3 = loadImage("assets/images/passages/passage3.png");
+  passageImage4 = loadImage("assets/images/passages/passage4.png");
 
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");
@@ -284,8 +286,8 @@ function setup() {
   createCanvas(canvas.width, canvas.height);
 
   //Classes that must be called in setup
+  //state = new Tower(1280, 720, 640, 360);
   state = new PreTitle(1280, 720, 640, 360);
-  //state = new ForestScene(1280, 720, 640, 360);
   //Papers
   paper = new Paper();
   //Items

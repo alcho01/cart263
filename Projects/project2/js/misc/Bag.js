@@ -85,6 +85,9 @@ class Bag extends State {
     if (paper.paper3.hide === true) {
       paper.displayInBag3();
     }
+    if (paper.paper4.hide === true) {
+      paper.displayInBag4();
+    }
   }
 
   //Key pressed functionality
@@ -101,6 +104,10 @@ class Bag extends State {
     //If key 3 is pressed... and paper3.hide is true...
     if (keyCode === 51 && paper.paper3.hide === true) {
       state = new Passage3(1280, 720, 640, 360);
+    }
+    //If key 4 is pressed... and paper3.hide is true...
+    if (keyCode === 52 && paper.paper4.hide === true) {
+      state = new Passage4(1280, 720, 640, 360);
     }
   }
 

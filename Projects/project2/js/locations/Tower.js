@@ -28,6 +28,8 @@ class Tower extends State {
     toolBar.display();
     //Display the nautical item
     nautical.display();
+    //Display the paper #4
+    paper.displayPaper4();
   }
 
   //Mouse clicked functionality
@@ -38,5 +40,7 @@ class Tower extends State {
     toolBar.mouseClicked();
     //Get the nautical mouse mouse clicked
     nautical.mouseClicked();
+    //Get the paper mouse clicked
+    paper.mouseClicked();
   }
 }
