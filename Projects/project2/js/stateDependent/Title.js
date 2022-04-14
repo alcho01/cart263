@@ -272,8 +272,7 @@ class Title extends State {
     if (mouseX > this.playButtonConstraints.x && mouseX < this.playButtonConstraints.x2) {
       if (mouseY > this.playButtonConstraints.y && mouseY < this.playButtonConstraints.y2) {
         //Go to the forest scene
-        state = new ForestScene(1280, 720, 640, 360);
-        //Add sound 
+        state = new Instructions(1280, 720, 640, 360);
       }
     }
   }
