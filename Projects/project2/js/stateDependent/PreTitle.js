@@ -43,5 +43,8 @@ class PreTitle extends State {
     super.keyPressed();
     //If any key is pressed go to the intro sequence
     state = new Title(1280, 720, 640, 360);
+    //Play and loop title song
+    themeSong.play();
+    themeSong.loop();
   }
 }

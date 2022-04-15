@@ -105,6 +105,8 @@ class ToolBar {
       if (mouseY > this.journalConstraints.y && mouseY < this.journalConstraints.y2) {
         //Link to the journal class
         state = new Journal(1280, 720, 640, 360);
+        //Play the journal sfx sound
+        journalSFX.play();
       }
     }
     //Click on the bag icon
@@ -112,6 +114,8 @@ class ToolBar {
       if (mouseY > this.bagConstraints.y && mouseY < this.bagConstraints.y2) {
         //Link to the bag class
         state = new Bag(1280, 720, 640, 360);
+        //play the bag sfx sound
+        bagSFX.play();
       }
     }
     //Click on the map icon
@@ -119,6 +123,8 @@ class ToolBar {
       if (mouseY > this.mapConstraints.y && mouseY < this.mapConstraints.y2) {
         //Link to the map class
         state = new Map(1280, 720, 640, 360);
+        //Play the map sfx sound
+        mapSFX.play();
       }
     }
   }

@@ -44,8 +44,22 @@ let toolBar;
 let dialogueFont;
 
 //=====Load Sounds=====\\
+//TITLE AND INSTRUCTIONS SOUNDS
+//Title song
+let themeSong;
 //Cracking Glass
 let glassCrackSFX;
+
+//SCENE A & B SOUNDS
+//Wind
+let windSFX;
+
+//Toolbar and paper collecting sounds
+let journalSFX;
+let bagSFX;
+let mapSFX;
+let paperSFX;
+
 //Set the heartbeat sound
 let heartbeatSFX;
 //Set the detector beep sound
@@ -164,13 +178,23 @@ let state;
 function preload() {
   //preload up fonts
   dialogueFont = loadFont("assets/fonts/sketchy.ttf");
+
   //preload sounds
   glassCrackSFX = loadSound("assets/sounds/glassCrack.wav");
+
+  windSFX = loadSound("assets/sounds/wind.wav");
+
+  journalSFX = loadSound("assets/sounds/journal.wav");
+  bagSFX = loadSound("assets/sounds/bag.wav");
+  mapSFX = loadSound("assets/sounds/map.wav");
+  paperSFX = loadSound("assets/sounds/paper.wav");
 
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
 
   detectorBeepSFX = loadSound("assets/sounds/detectedBeep.wav");
+
   //preload music
+  themeSong = loadSound("assets/sounds/guitarloop.wav");
 
   //preload images
   titleImage1 = loadImage("assets/images/scenes/title/crack1.png");

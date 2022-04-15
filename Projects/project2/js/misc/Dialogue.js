@@ -25,22 +25,16 @@ class Dialogue {
     };
     //Array containing each string
     this.dialogueStrings = [
-      "Ya, thanks for calling.",
-      "I will make \nsure to do that.",
-      "Ok, Linda bye now.",
-      "God, is she ever a pain!",
-      "How many times do \nI have to tell her \nnot to call?",
-      "Why am I \ntalking to myself?",
-      "hmmm",
-      "Maybe, Linda is right.",
-      "Whatever, I'll try \ndistracting myself \nfor tonight at least.",
+      "Bye mom. \nsee you in a week.",
+      "Yeah, I'll make \nsure to do that.",
+      "Have a safe trip.",
     ];
     //What is the current string
     this.currentdialogueString = 1;
     //Increment for the currentstring
     this.nextString = 1;
     //Opening string
-    this.displayString = "Ya, thanks for calling.";
+    this.displayString = "Bye mom. \nsee you in a week.";
   }
 
   //Display the text

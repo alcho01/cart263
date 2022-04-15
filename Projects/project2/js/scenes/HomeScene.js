@@ -35,11 +35,11 @@ class HomeScene extends State {
     if (keyCode === 37) {
       //Go to the home state
       state = new Home(1280, 720, 640, 360);
-    }
-    //If the escape key is pressed
-    if (keyCode === 27) {
-      //Return to the map
-      state = new Map(1280, 720, 640, 360);
+      //stop the wind sound
+      windSFX.stop();
+      //Resume the theme song and loop it 
+      themeSong.play();
+      themeSong.loop();
     }
   }
 }
