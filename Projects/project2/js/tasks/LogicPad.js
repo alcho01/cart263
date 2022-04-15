@@ -418,6 +418,7 @@ class LogicPad extends State {
   collideBall() {
     let d = dist(this.platform.x, this.platform.y, this.ball.x, this.ball.y);
     if (d < this.ball.size / 2 + this.platform.width / 2) {
+      //Reset the handle position
       this.handle.y = this.handle.resetPos;
     }
   }

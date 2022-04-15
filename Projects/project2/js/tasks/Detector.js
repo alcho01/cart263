@@ -312,6 +312,8 @@ class Detector extends State {
       if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
         //Toggle task 4 to complete
         task4Done = true;
+        //Play the connected sfx
+        connectedSFX.play();
         //Return to the tower
         state = new Tower(1280, 720, 640, 360);
         console.log('found');

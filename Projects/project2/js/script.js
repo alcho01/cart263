@@ -50,9 +50,13 @@ let themeSong;
 //Cracking Glass
 let glassCrackSFX;
 
-//SCENE A & B SOUNDS
+//SCENE A, B, C, D SOUND
 //Wind
 let windSFX;
+
+//SCENE E SOUND
+//Ocean
+let oceanSFX;
 
 //Map Icon SFX
 let homeSFX;
@@ -66,13 +70,19 @@ let bagSFX;
 let mapSFX;
 let paperSFX;
 
-//Home Room SFX
+//Item clicked on SFX
 let heartBoxSFX;
+let machineSFX;
+let confessSFX;
+let detectorSFX;
 
+//IN TASK SOUNDS
 //Set the heartbeat sound
 let heartbeatSFX;
 //Set the detector beep sound
 let detectorBeepSFX;
+//Set the connected sound
+let connectedSFX;
 
 //=====Load Images=====\\
 //Load title images
@@ -192,8 +202,12 @@ function preload() {
   glassCrackSFX = loadSound("assets/sounds/glassCrack.wav");
 
   windSFX = loadSound("assets/sounds/wind.wav");
+  oceanSFX = loadSound("assets/sounds/ocean.wav");
 
   heartBoxSFX = loadSound("assets/sounds/heartbox.wav");
+  machineSFX = loadSound("assets/sounds/machine.mp3");
+  confessSFX = loadSound("assets/sounds/confess.wav");
+  detectorSFX = loadSound("assets/sounds/detector.wav");
 
   journalSFX = loadSound("assets/sounds/journal.wav");
   bagSFX = loadSound("assets/sounds/bag.wav");
@@ -206,8 +220,8 @@ function preload() {
   towerSFX = loadSound("assets/sounds/tower.wav");
 
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
-
   detectorBeepSFX = loadSound("assets/sounds/detectedBeep.wav");
+  connectedSFX = loadSound("assets/sounds/connected.mp3");
 
   //preload music
   themeSong = loadSound("assets/sounds/guitarloop.wav");

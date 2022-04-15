@@ -38,6 +38,8 @@ class TowerScene extends State {
       //Resume the theme song
       themeSong.play();
       themeSong.loop();
+      //Stop the ocean sfx
+      oceanSFX.stop();
     }
     //If the escape key is pressed
     if (keyCode === 27) {
@@ -46,6 +48,8 @@ class TowerScene extends State {
       //Resume the theme song
       themeSong.play();
       themeSong.loop();
+      //Stop the ocean sfx
+      oceanSFX.stop();
     }
   }
 }

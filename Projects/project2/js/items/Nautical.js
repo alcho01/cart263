@@ -61,6 +61,8 @@ class Nautical {
       if (mouseY > this.nauticalConstraints.y && mouseY < this.nauticalConstraints.y2) {
         //Change states when clicked
         state = new Detector
+        //Play the detector sfx
+        detectorSFX.play();
       }
     }
   }

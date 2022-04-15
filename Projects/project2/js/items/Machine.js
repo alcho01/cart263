@@ -60,6 +60,8 @@ class Machine {
       if (mouseY > this.machineConstraints.y && mouseY < this.machineConstraints.y2) {
         //Change states when clicked
         state = new LogicPad;
+        //Play the machine sfx
+        machineSFX.play();
       }
     }
   }

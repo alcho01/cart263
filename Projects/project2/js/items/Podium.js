@@ -59,6 +59,8 @@ class Podium {
       if (mouseY > this.podiumConstraints.y && mouseY < this.podiumConstraints.y2) {
         //Change states when clicked to the confession task
         state = new Confession;
+        //play the confessSFX
+        confessSFX.play();
       }
     }
   }

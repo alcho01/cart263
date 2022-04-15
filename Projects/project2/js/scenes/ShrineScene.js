@@ -38,6 +38,8 @@ class ShrineScene extends State {
       //Resume the theme song
       themeSong.play();
       themeSong.loop();
+      //Stop the wind sfx
+      windSFX.stop();
     }
     //If the escape key is pressed
     if (keyCode === 27) {
@@ -46,6 +48,8 @@ class ShrineScene extends State {
       //Resume the theme song
       themeSong.play();
       themeSong.loop();
+      //Stop the wind sfx
+      windSFX.stop();
     }
   }
 }

@@ -138,8 +138,6 @@ class Map extends State {
         locationLab = false;
         locationShrine = false;
         locationTower = false;
-        //Stop the theme song
-        themeSong.stop();
         //Play the home sfx
         homeSFX.play();
       }
@@ -158,6 +156,9 @@ class Map extends State {
         themeSong.stop();
         //Play the lab sfx
         labSFX.play();
+        //Play the wind sfx
+        windSFX.play();
+        windSFX.loop();
       }
     }
     //Check to see if within the clickbox
@@ -174,6 +175,10 @@ class Map extends State {
         themeSong.stop();
         //Play the shrine sfx
         shrineSFX.play();
+        //Play the wind sfx
+        windSFX.play();
+        windSFX.loop();
+
       }
     }
     //Check to see if within the clickbox
@@ -190,6 +195,9 @@ class Map extends State {
         themeSong.stop();
         //Play the tower sfx
         towerSFX.play();
+        //Play the ocean sfx
+        oceanSFX.play();
+        oceanSFX.loop();
       }
     }
   }
