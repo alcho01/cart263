@@ -1,6 +1,6 @@
 //Class containing the machine object
 //This is to display the machine object when hovered and not hovered
-//Add a clickbox around the machine 
+//Add a clickbox around the machine
 class Machine {
   constructor() {
     //Dimensions

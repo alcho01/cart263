@@ -54,11 +54,20 @@ let glassCrackSFX;
 //Wind
 let windSFX;
 
+//Map Icon SFX
+let homeSFX;
+let labSFX;
+let shrineSFX;
+let towerSFX;
+
 //Toolbar and paper collecting sounds
 let journalSFX;
 let bagSFX;
 let mapSFX;
 let paperSFX;
+
+//Home Room SFX
+let heartBoxSFX;
 
 //Set the heartbeat sound
 let heartbeatSFX;
@@ -184,10 +193,17 @@ function preload() {
 
   windSFX = loadSound("assets/sounds/wind.wav");
 
+  heartBoxSFX = loadSound("assets/sounds/heartbox.wav");
+
   journalSFX = loadSound("assets/sounds/journal.wav");
   bagSFX = loadSound("assets/sounds/bag.wav");
   mapSFX = loadSound("assets/sounds/map.wav");
   paperSFX = loadSound("assets/sounds/paper.wav");
+
+  homeSFX = loadSound("assets/sounds/home.wav");
+  labSFX = loadSound("assets/sounds/lab.wav");
+  shrineSFX = loadSound("assets/sounds/shrine.wav");
+  towerSFX = loadSound("assets/sounds/tower.wav");
 
   heartbeatSFX = loadSound("assets/sounds/heartmonitor.wav");
 

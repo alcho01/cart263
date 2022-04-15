@@ -60,6 +60,8 @@ class HeartBox {
       if (mouseY > this.boxConstraints.y && mouseY < this.boxConstraints.y2) {
         //Change states when clicked
         state = new HeartMonitor;
+        //Play the heartbox SFX
+        heartBoxSFX.play();
       }
     }
   }

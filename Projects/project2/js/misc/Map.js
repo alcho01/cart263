@@ -138,6 +138,10 @@ class Map extends State {
         locationLab = false;
         locationShrine = false;
         locationTower = false;
+        //Stop the theme song
+        themeSong.stop();
+        //Play the home sfx
+        homeSFX.play();
       }
     }
     //Check to see if within the clickbox
@@ -150,6 +154,10 @@ class Map extends State {
         locationLab = true;
         locationShrine = false;
         locationTower = false;
+        //Stop the theme song
+        themeSong.stop();
+        //Play the lab sfx
+        labSFX.play();
       }
     }
     //Check to see if within the clickbox
@@ -162,6 +170,10 @@ class Map extends State {
         locationLab = false;
         locationShrine = true;
         locationTower = false;
+        //Stop the theme song
+        themeSong.stop();
+        //Play the shrine sfx
+        shrineSFX.play();
       }
     }
     //Check to see if within the clickbox
@@ -174,6 +186,10 @@ class Map extends State {
         locationLab = false;
         locationShrine = false;
         locationTower = true;
+        //Stop the theme song
+        themeSong.stop();
+        //Play the tower sfx
+        towerSFX.play();
       }
     }
   }

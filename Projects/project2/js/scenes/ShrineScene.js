@@ -35,11 +35,17 @@ class ShrineScene extends State {
     if (keyCode === 37) {
       //Go to the Shrine state
       state = new Shrine(1280, 720, 640, 360);
+      //Resume the theme song
+      themeSong.play();
+      themeSong.loop();
     }
     //If the escape key is pressed
     if (keyCode === 27) {
       //Return to the map
       state = new Map(1280, 720, 640, 360);
+      //Resume the theme song
+      themeSong.play();
+      themeSong.loop();
     }
   }
 }

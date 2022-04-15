@@ -280,6 +280,8 @@ class Paper {
         if (mouseY > this.paper1Constraints.y && mouseY < this.paper1Constraints.y2) {
           //If the paper is clicked hide it
           this.paper1.hide = true;
+          //play the paper sfx sound
+          paperSFX.play();
         }
       }
     }
@@ -290,6 +292,8 @@ class Paper {
         if (mouseY > this.paper2Constraints.y && mouseY < this.paper2Constraints.y2) {
           //If the paper is clicked hide it
           this.paper2.hide = true;
+          //play the paper sfx sound
+          paperSFX.play();
         }
       }
     }
@@ -300,6 +304,8 @@ class Paper {
         if (mouseY > this.paper3Constraints.y && mouseY < this.paper3Constraints.y2) {
           //If the paper is clicked hide it
           this.paper3.hide = true;
+          //play the paper sfx sound
+          paperSFX.play();
         }
       }
     }
@@ -310,6 +316,8 @@ class Paper {
         if (mouseY > this.paper4Constraints.y && mouseY < this.paper4Constraints.y2) {
           //If the paper is clicked hide it
           this.paper4.hide = true;
+          //play the paper sfx sound
+          paperSFX.play();
         }
       }
     }
