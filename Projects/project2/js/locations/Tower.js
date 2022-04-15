@@ -1,4 +1,6 @@
 //This is the location for the tower
+//Add elements to display in the lab location from other classes
+//Enable mouse clicked functionality from other classes
 class Tower extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -23,7 +25,6 @@ class Tower extends State {
       image(this.tower2Image, this.x, this.y, this.width, this.height);
     }
     pop();
-
     //Display the toolbar
     toolBar.display();
     //Display the nautical item

@@ -1,4 +1,6 @@
 //This class is to display the instructions
+//Display the instructions
+//Add a key pressed function to change the current state and change the sound
 class Instructions extends State {
   constructor(w, h, x, y) {
     //call the super class

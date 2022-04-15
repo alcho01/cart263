@@ -1,8 +1,13 @@
 //This class triggers depending on if a task requires a Win state to notify the user
+//Display the win text for the task
+//Add a key pressed function to return to the lab state
 class Win extends State {
   constructor(w, h, x, y) {
     //call the super class
     super(w, h, x, y);
+
+    //background colour
+    this.bgColour = 0;
 
     //Text parameters
     this.textParams = {
@@ -18,7 +23,7 @@ class Win extends State {
     //Call the super display
     super.display();
     //Background
-    background(0);
+    background(this.bgColour);
     //Display the text
     this.displayText();
   }

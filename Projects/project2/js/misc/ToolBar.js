@@ -1,5 +1,8 @@
 //This class contains the toolbar.
 //The toolbar is what holds the journal, bag, and map.
+//Display images that are hovered and not hovered.
+//Add a mouse clicked function that will change the current state to the journal, bag, or map.
+//When an icon is clicked a sound specific to that icon will play.
 class ToolBar {
   constructor() {
     //Dimensions

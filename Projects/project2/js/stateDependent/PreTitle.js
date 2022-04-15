@@ -1,4 +1,6 @@
 //This is the opening title before the intro
+//Display the pretitle text
+//Add a key pressed function to change the current state and activate sound
 class PreTitle extends State {
   constructor(w, h, x, y) {
     //call the super class

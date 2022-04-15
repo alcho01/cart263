@@ -1,4 +1,6 @@
 //This is the location class for the lab
+//Add elements to display in the lab location from other classes
+//Enable mouse clicked functionality from other classes
 class Lab extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -23,7 +25,6 @@ class Lab extends State {
       image(this.lab2Image, this.x, this.y, this.width, this.height);
     }
     pop();
-
     //Display the toolbar
     toolBar.display();
     //Display the machine task

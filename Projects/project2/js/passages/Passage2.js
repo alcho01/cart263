@@ -1,4 +1,6 @@
 //The second passage
+//Display the passage
+//Add a key pressed event to exit from the passage
 class Passage2 extends State {
   constructor(w, h, x, y) {
     //Call the super class

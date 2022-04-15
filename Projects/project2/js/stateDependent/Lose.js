@@ -1,8 +1,13 @@
 //This class triggers depending on if a task requires a losing state to notify the user
+//Display the text saying the user needs to try again
+//Add a key pressed event to exit out of the state
 class Lose extends State {
   constructor(w, h, x, y) {
     //Call the super class
     super(w, h, x, y);
+
+    //Set the background to black
+    this.bgColour = 0;
 
     //Text parameters
     this.textParams = {
@@ -17,7 +22,7 @@ class Lose extends State {
     //Call the super display
     super.display();
     //Background
-    background(0);
+    background(this.bgColour);
     //Display the text
     this.displayText();
   }

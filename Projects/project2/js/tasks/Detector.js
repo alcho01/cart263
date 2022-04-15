@@ -1,9 +1,36 @@
 //This is the fourth and final task - detector
-//https://editor.p5js.org/Vanawy/sketches/uyjdyJ4hL
+//RADAR INSPIRATION: https://editor.p5js.org/Vanawy/sketches/uyjdyJ4hL
+//Display a selection bar that functions with the key pressed function
+//When a key from 0 to 2 is pressed will activate the required tool
+//Display the hidden target
+//Create a radar system which is basically an aesthetic only purpose
+//Create a radar dot that rotates around the radar system. When it comes in contact with the hidden target it beeps notifying the user of the potential location of the target.
+//Display the closers
+//With the mouse and closers selected it will create a cross intersection when the mouse is in the perfect location.
+//When the intersection forms the mouse clicked function is used to be able to click on the intersected point and complete the task.
+
+/*DESCRIPTION OF THE GAME
+
+Difficulty - Easy to Intermediate
+
+The goal of the task is to find the hidden target.
+It is best to start with the radar system to approximate the hidden target's location.
+A sound will go off notifying the user of the approximate location.
+After the radar system is used, proceed with the closers.
+The closers is utilized to locate the location more specifically with the already given intel from the radar system.
+Once the closers line up correctly via the mouse position, two intersecting lines will display.
+When they display, the user will need to click the intersecting point of the lines to complete the task.
+A sound will go off and the user will be brought back to the previous state.
+
+This information can be found in the journal along with a simple diagram.
+*/
 class Detector extends State {
   constructor(w, h, x, y) {
     //Call the super class
     super(w, h, x, y);
+
+    //Set the background colour
+    this.bgColour = 0;
 
     //Selection bar parameters
     this.selectionBarParams = {
@@ -126,24 +153,25 @@ class Detector extends State {
 
   //Display everything
   display() {
+    //Call the super display
     super.display();
-
-    background(0);
-
+    //Set the background
+    background(this.bgColour);
+    //Display the hidden target
     this.target();
-
+    //Display the radar system
     this.radar();
-
+    //Display the radar dot
     this.displayRadarDot();
-
+    //activate the radar checker
     this.radarChecker();
-
+    //Display the closers
     this.closers();
-
+    //Activate the closer checker
     this.closerChecker();
-
+    //Display the line intersectors
     this.lineIntersectors();
-
+    //Display the selection bar
     this.selectionBar();
   }
 
@@ -153,21 +181,21 @@ class Detector extends State {
     imageMode(CENTER);
     image(this.selectionBarImage, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
     pop();
-
+    //Display this image if empty on is true
     if (this.emptyOn === true) {
       push();
       imageMode(CENTER);
       image(this.selectionBarImage2, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
       pop();
     }
-
+    //Display this image if radar on is true
     if (this.radarOn === true) {
       push();
       imageMode(CENTER);
       image(this.selectionBarImage3, this.selectionBarParams.x, this.selectionBarParams.y, this.selectionBarParams.width, this.selectionBarParams.height);
       pop();
     }
-
+    //Display this image if closers on is true
     if (this.closersOn === true) {
       push();
       imageMode(CENTER);
@@ -178,7 +206,9 @@ class Detector extends State {
 
   //Display a radar as part of the heads up display
   radar() {
+    //If the radar on is true...
     if (this.radarOn === true) {
+      //Display the radar
       push();
       //Don't fill the circles
       noFill();
@@ -219,7 +249,9 @@ class Detector extends State {
 
   //The radar dot helps find the hidden target
   displayRadarDot() {
+    //If the radar on is true...
     if (this.radarOn === true) {
+      //display the radar dot
       push();
       //Remove the stroke
       noStroke();
@@ -238,37 +270,43 @@ class Detector extends State {
 
   //This checks when the radar dot comes in contact with the target
   radarChecker() {
+    //Calculate the distance between the radar dot and the hidden target
     let d = dist(this.xUser, this.yUser, this.targetParams.x, this.targetParams.y);
+      //When they come in contact...
       if (d < this.targetParams.width / 2 + this.radarDot.width / 2) {
-      detectorBeepSFX.play();
-      console.log('hit');
+        //Play the beeping sound to notify the user of the target's suggested location
+        detectorBeepSFX.play();
+        console.log('hit');
+      }
     }
-  }
 
   //Display the closers. Closers will narrow down where the target is. The user will use information acquired from the radar to use this tool.
   closers() {
+    //If the closers on is true...
     if (this.closersOn === true) {
+      //Display each closer
+      //Left Side
       push();
       rectMode(CENTER);
       noStroke();
       fill(this.closerParams.fill);
       rect(this.closerParams.x, mouseY, this.closerParams.width, this.closerParams.height2);
       pop();
-
+      //Right Side
       push();
       rectMode(CENTER);
       noStroke();
       fill(this.closerParams.fill);
       rect(this.closerParams.x2, mouseY, this.closerParams.width, this.closerParams.height2);
       pop();
-
+      //Top
       push();
       rectMode(CENTER);
       noStroke();
       fill(this.closerParams.fill);
       rect(mouseX, this.closerParams.y, this.closerParams.width2, this.closerParams.height);
       pop();
-
+      //Bottom
       push();
       rectMode(CENTER);
       noStroke();
@@ -280,13 +318,15 @@ class Detector extends State {
 
   //When the closers are lined up correctly the line intersectors will display
   lineIntersectors() {
+    //If the closers are lined up correctly...
     if (this.closersOn === true && this.linedUp === true) {
+      //Display the Horizontal Line
       push();
       stroke(this.lineIntersectorParams.fill);
       strokeWeight(this.lineIntersectorParams.thickness);
       line(this.lineIntersectorParams.x, this.lineIntersectorParams.y, this.lineIntersectorParams.x2, this.lineIntersectorParams.y2);
       pop();
-
+      //Display the Vertical Line
       push();
       stroke(this.lineIntersectorParams.fill);
       strokeWeight(this.lineIntersectorParams.thickness);
@@ -295,19 +335,25 @@ class Detector extends State {
     }
   }
 
+  //Checks if the mouse is in the correct location
   closerChecker() {
+    //If the closer tool is activated...
     if (this.closersOn === true) {
+      //And if the mouse is in the desired position...
       if (mouseX > this.targetConstraints.x && mouseX < this.targetConstraints.x2) {
         if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
+          //This boolean activates to display the intersection
           this.linedUp = true;
         }
       }
     }
   }
 
+  //Mouse clicked functionality
   mouseClicked() {
+    //Call the super mouse clicked
     super.mouseClicked();
-
+    //Add a click box for the target
     if (mouseX > this.targetConstraints.x && mouseX < this.targetConstraints.x2) {
       if (mouseY > this.targetConstraints.y && mouseY < this.targetConstraints.y2) {
         //Toggle task 4 to complete
@@ -322,6 +368,7 @@ class Detector extends State {
   }
 
   keyPressed() {
+    //Call the super key pressed
     super.keyPressed();
 
     //If the escape key is pressed...

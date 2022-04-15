@@ -1,4 +1,6 @@
 //Class containing the podium object
+//Display the hover and non-hover method
+//Add a clickbox around the podium
 class Podium {
   constructor() {
     //dimensions

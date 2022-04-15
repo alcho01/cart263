@@ -1,4 +1,7 @@
 //Contain the cutscene for the forest.
+//Display the images in an animated way due to framecount
+//Display the dialogue box and text from the dialogue class
+//Add a key pressed event to scroll through the dialogue 
 class ForestScene extends State {
   constructor(w, h, x, y) {
     //Extend from the super class
@@ -25,8 +28,7 @@ class ForestScene extends State {
       image(this.sceneAImage3, this.x, this.y, this.width, this.height);
     }
     pop();
-
-    //Call these functions from the typeWriter class to display them in the opening scene
+    //Call these functions from the dialogue class to display them in the opening scene
     dialogue.dialogueBox();
     dialogue.display();
   }
@@ -35,7 +37,7 @@ class ForestScene extends State {
   keyPressed() {
     //Call the super class
     super.keyPressed();
-    //Get the key pressed from the typeWriter
+    //Get the key pressed from the dialogue
     dialogue.keyPressed();
   }
 }

@@ -1,15 +1,34 @@
-//Heart Monitor Setup - TASK DIFFICULTY - INTERMEDIATE
-//The heart monitor task involves the user to rapidly use the mouse and zig zag from top to bottom / bottom to top and reach the goal before times run out.
-//If time runs out, the progress bar will reset and force the user to start again.
-//The goal is 80 points. 2 points per "touch". The user has 10 seconds.
-//This class contains all functions necessary for the heart monitor to work.
+//Heart Monitor Setup
 //Used this page to help me out - https://happycoding.io/tutorials/p5js/array-functions#push.
 //Used this for the delay time - https://github.com/pippinbarr/cart253-2020/tree/master/examples/time/oop-and-timers
 //Helpful for creating custom shape - https://p5js.org/reference/#/p5/beginShape
+
+//Create a line that undulates with beginShape and the use of mouseY
+//Create an array for the line to keep extending it even when it goes off the screen
+//Create a function that controls the stroke colour. When it is in blue zone the stroke will turn blue, when it is in the red zone the stroke will turn red.
+//Display a progress bar that will augment or reset depending on the timer that is connected to it.
+//When the user achieves the end goal of 80 points, the user succesfully completes the task, and the stroke turns green.
+
+/*DESCRIPTION OF THE GAME
+
+Difficulty - Intermediate
+
+The heart monitor task involves the user to rapidly use the mouse and zig zag from top to bottom / bottom to top and reach the goal before times run out.
+If time runs out, the progress bar will reset and force the user to start again.
+The goal is 80 points. 2 points per "touch". The user has 10 seconds.
+If the user succesfully completes the task the stroke will turn green.
+
+This information can be found in the journal along with a simple diagram.
+*/
+
 class HeartMonitor extends State {
   constructor() {
     //Call the super class
     super();
+
+    //Set the background colour
+    this.bgColour = 0;
+
     //Array
     this.line = [];
 
@@ -154,7 +173,7 @@ class HeartMonitor extends State {
     //Call the super display
     super.display();
     //Background
-    background(0);
+    background(this.bgColour);
     //The line
     this.createLineShape();
     this.controlLineOutcome();

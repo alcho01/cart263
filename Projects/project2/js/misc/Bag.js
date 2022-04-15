@@ -1,4 +1,9 @@
 //This class contains the bag that stores certain artifact.
+//Display the bag outline
+//Display the exit button hovered and non-hovered
+//Display the papers from the paper class in the bag when they are hidden from their locations
+//When the specified key is pressed and when the paper is in the bag display the specified passage
+//Add a mouse clicked function to enable to close the bag and return to the previous location the user was on.
 class Bag extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -69,6 +74,7 @@ class Bag extends State {
     //Check to see if it is within these constraints
     if (mouseX > this.exitConstraints.x && mouseX < this.exitConstraints.x2) {
       if (mouseY > this.exitConstraints.y && mouseY < this.exitConstraints.y2) {
+        //Display the hovered over exit button
         this.displayExitHovered();
       }
     }
@@ -76,16 +82,24 @@ class Bag extends State {
 
   //Display the collected papers in the bag
   displayPapers() {
+    //Check to see if paper 1 is hidden
     if (paper.paper1.hide === true) {
+      //If it is display it in the bag
       paper.displayInBag();
     }
+    //Check to see if paper 2 is hidden
     if (paper.paper2.hide === true) {
+      //If it is display it in the bag
       paper.displayInBag2();
     }
+    //Check to see if paper 3 is hidden
     if (paper.paper3.hide === true) {
+      //If it is display it in the bag
       paper.displayInBag3();
     }
+    //Check to see if paper 4 is hidden
     if (paper.paper4.hide === true) {
+      //If it is display it in the bag
       paper.displayInBag4();
     }
   }
@@ -99,14 +113,17 @@ class Bag extends State {
     }
     //If key 2 is pressed... and paper2.hide is true...
     if (keyCode === 50 && paper.paper2.hide === true) {
+      //Go to the passage 2 state
       state = new Passage2(1280, 720, 640, 360);
     }
     //If key 3 is pressed... and paper3.hide is true...
     if (keyCode === 51 && paper.paper3.hide === true) {
+      //Go to the passage 3 state
       state = new Passage3(1280, 720, 640, 360);
     }
     //If key 4 is pressed... and paper3.hide is true...
     if (keyCode === 52 && paper.paper4.hide === true) {
+      //Go to the passage 4 state
       state = new Passage4(1280, 720, 640, 360);
     }
   }

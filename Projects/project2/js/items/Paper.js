@@ -1,5 +1,8 @@
-//This is the pieces of paper scattered around the locations
-//
+//This is the class containing pieces of paper scattered around all locations
+//Display the paper with hover and non-hover methods
+//Add a click box around the pieces of paper
+//When the paper is clicked hide it from the location...
+//Then when hidden, display it in the specified bag slot 
 class Paper {
   constructor() {
 
@@ -40,7 +43,6 @@ class Paper {
       height: 850,
       hide: false,
     };
-
     //paper 2 parameters
     this.paper2 = {
       x: 895,
@@ -49,7 +51,6 @@ class Paper {
       height: 850,
       hide: false,
     };
-
     //paper 3 parameters
     this.paper3 = {
       x: 810,
@@ -58,7 +59,6 @@ class Paper {
       height: 850,
       hide: false,
     };
-
     //paper 4 parameters
     this.paper4 = {
       x: 879,

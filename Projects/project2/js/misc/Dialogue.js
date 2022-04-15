@@ -65,8 +65,9 @@ class Dialogue {
     pop();
   }
 
-  //Check to see if all the strings are done (PlaceHolder State)
+  //Check to see if all the strings are done
   checkStrings() {
+    //Check to see if the current string is greater than the amount of strings there is
     if (this.currentdialogueString > this.dialogueStrings.length) {
       //If the strings go past the limit change the state to the home location
       state = new HomeScene(1280, 720, 640, 360);
@@ -85,7 +86,6 @@ class Dialogue {
   keyPressed() {
     //If the left arrow key is pressed
     if (keyCode === 37) {
-      //Play a sound effect
       //Handle the strings
       this.handleStrings();
       //Call this function

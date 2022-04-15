@@ -1,4 +1,6 @@
 //This is the third passage found
+//Display the passage
+//Add a key pressed event to exit from the passage
 class Passage3 extends State {
   constructor(w, h, x, y) {
     //call the super class

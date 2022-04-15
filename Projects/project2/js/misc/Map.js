@@ -1,7 +1,8 @@
 //This class will contain the map
-//Apply hover methods
-//Apply mouse interactivity
-//Apply task count on hover
+//Display the map images when hovered and not hovered
+//add a mouse clicked function that will allow to change the current state
+//Also the mouse clicked function will activate specific sounds for each location
+//Add a boolean system to allow the user to not constantly get reset to the same location (Example: if the user is in the lab location they should respawn in the lab location when they close the map and not back in the home location)
 class Map extends State {
   constructor(w, h, x, y) {
     //call the super class
@@ -95,7 +96,6 @@ class Map extends State {
       if (mouseY > this.homeConstraints.y && mouseY < this.homeConstraints.y2) {
         //Display the hover image
         this.displayHomeHover();
-        //Play a sound
       }
     }
     //Check to see if it is within these constraints
@@ -103,7 +103,6 @@ class Map extends State {
       if (mouseY > this.labConstraints.y && mouseY < this.labConstraints.y2) {
         //Display the hover image
         this.displayLabHover();
-        //Play a sound
       }
     }
     //Check to see if it is within these constraints
@@ -111,7 +110,6 @@ class Map extends State {
       if (mouseY > this.shrineConstraints.y && mouseY < this.shrineConstraints.y2) {
         //Display the hover image
         this.displayShrineHover();
-        //Play a sound
       }
     }
     //Check to see if it is within these constraints
@@ -119,7 +117,6 @@ class Map extends State {
       if (mouseY > this.towerConstraints.y && mouseY < this.towerConstraints.y2) {
         //Display the hover image
         this.displayTowerHover();
-        //Play a sound
       }
     }
   }

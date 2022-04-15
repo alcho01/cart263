@@ -1,4 +1,7 @@
 //Contains the cinematic shot for the tower scene
+//Display the images in an animated way due to framecount
+//Add a key pressed event to change the current state
+//The key pressed will also impact the sound fx system 
 class TowerScene extends State {
   constructor(w, h, x, y) {
     //Call the super class

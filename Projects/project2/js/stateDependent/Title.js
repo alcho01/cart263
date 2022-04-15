@@ -1,4 +1,10 @@
 //This is the title class after the pretitle
+//Display the icons that will be used to get clicked on
+//Create constraints for those icons
+//Display the title
+//Display the cracks when an icon is clicked
+//Create a boolean system for the icons and the cracks to be shown or hidden
+//Add a cracking glass sfx
 class Title extends State {
   constructor(w, h, x, y) {
     //call the super class

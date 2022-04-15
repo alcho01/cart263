@@ -45,7 +45,7 @@ class HeartBox {
   //Check if the mouse is hovered over the box
   checkHover() {
     //Check to see if it is within these constraints
-    if (mouseX > this.boxConstraints.x && mouseX < this.boxConstraints.x2){
+    if (mouseX > this.boxConstraints.x && mouseX < this.boxConstraints.x2) {
       if (mouseY > this.boxConstraints.y && mouseY < this.boxConstraints.y2) {
         //If it is display the hovered image
         this.displayHover();
@@ -56,10 +56,10 @@ class HeartBox {
   //Check to see if the box is clicked on
   mouseClicked() {
     //Check to see if it is within these constraints
-    if (mouseX > this.boxConstraints.x && mouseX < this.boxConstraints.x2){
+    if (mouseX > this.boxConstraints.x && mouseX < this.boxConstraints.x2) {
       if (mouseY > this.boxConstraints.y && mouseY < this.boxConstraints.y2) {
         //Change states when clicked
-        state = new HeartMonitor;
+        state = new HeartMonitor();
         //Play the heartbox SFX
         heartBoxSFX.play();
       }

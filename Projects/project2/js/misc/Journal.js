@@ -1,5 +1,10 @@
 //This class contains the journal. The journal contains information on the tasks
-//DO COMMENTS AT THE END
+//Display the outline of the journal
+//Display the journal icons hovered and not hovered
+//Display the information of the tasks when the specified icon is clicked
+//Add a boolean system to hide the icons and the hovered icons when the information is shown
+//Add a boolean system to hide information when the icons and the hovered icons are shown
+//Add a key pressed to either get out of the journal state or return to the journal home page
 class Journal extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -13,21 +18,20 @@ class Journal extends State {
       height: 750,
     };
 
-    //Journal info parameters (page 1)
+    //Journal info parameters (page 1 - HeartMonitor)
     this.journalInfoP1 = {
       x: 660,
       y: 370,
       width: 1400,
       height: 800,
     };
-    //Journal info parameters (page 2)
+    //Journal info parameters (page 2 - HeartMonitor)
     this.journalInfoP2 = {
       x: 320,
       y: 420,
       width: 1370,
       height: 770,
     };
-
     //Journal info parameters (page 3 - Logic Pad)
     this.journalInfoP3 = {
       x: 680,
@@ -59,28 +63,28 @@ class Journal extends State {
       height: 800,
     };
 
-    //Constaints for the heart icon
+    //Constraints for the heart icon
     this.heartConstraints = {
       x: 324,
       x2: 477,
       y: 137,
       y2: 290,
     };
-    //Constaints for the logic pad icon
+    //Constraints for the logic pad icon
     this.logicPadConstraints = {
       x: 307,
       x2: 485,
       y: 355,
       y2: 566,
     };
-    //Constaints for the confess icon
+    //Constraints for the confess icon
     this.confessConstraints = {
       x: 655,
       x2: 766,
       y: 127,
       y2: 290,
     };
-    //Constaints for the nautical icon
+    //Constraints for the nautical icon
     this.detectorConstraints = {
       x: 640,
       x2: 780,
@@ -99,6 +103,8 @@ class Journal extends State {
     this.confessHovHide = false;
     //Check if the hovered detecor icon should be hidden
     this.detectorHovHide = false;
+
+    //Check if the info should be shown
     //Check if the heart info should be shown
     this.heartInfoShow = false;
     //Check if the logic pad info should be shown
@@ -146,57 +152,68 @@ class Journal extends State {
     image(this.journalImage, this.x, this.y, this.width, this.height);
     pop();
 
+    //If the icons are not hidden show them
     if (this.iconsHide === false) {
-    //Display the icons
-    push();
-    imageMode(CENTER);
-    image(this.journalMainPage, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
-    pop();
+      //Display the icons
+      push();
+      imageMode(CENTER);
+      image(this.journalMainPage, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
+      pop();
+    }
   }
-}
 
   //Display the heart hovered icon
   displayHeartHov() {
+    //If the hover method is shown...
     if (this.heartHovHide === false) {
-    push();
-    imageMode(CENTER);
-    image(this.journalHeartHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
-    pop();
+      //Display the hovered icon
+      push();
+      imageMode(CENTER);
+      image(this.journalHeartHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
+      pop();
+    }
   }
-}
   //Display the logic pad hovered icon
   displayLogicPadHov() {
+    //If the hover method is shown...
     if (this.logicPadHovHide === false) {
-    push();
-    imageMode(CENTER);
-    image(this.journalLogicPadHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
-    pop();
+      //Display the hovered icon
+      push();
+      imageMode(CENTER);
+      image(this.journalLogicPadHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
+      pop();
+    }
   }
-}
   //Display the confess hovered icon
   displayConfessHov() {
+    //If the hover method is shown...
     if (this.confessHovHide === false) {
-    push();
-    imageMode(CENTER);
-    image(this.journalConfessHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
-    pop();
+      //Display the hovered icon
+      push();
+      imageMode(CENTER);
+      image(this.journalConfessHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
+      pop();
+    }
   }
-}
   //Display the detector hovered icon
   displayDetectorHov() {
+    //If the hover method is shown...
     if (this.detectorHovHide === false) {
-    push();
-    imageMode(CENTER);
-    image(this.journalNauticalHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
-    pop();
+      //Display the hovered icon
+      push();
+      imageMode(CENTER);
+      image(this.journalNauticalHov, this.journalIcons.x, this.journalIcons.y, this.journalIcons.width, this.journalIcons.height);
+      pop();
+    }
   }
-}
 
   //Display the heart monitor instructions
   displayHeartInfo() {
+    //If the heart info is shown...
     if (this.heartInfoShow === true) {
       //Hide the icons
       this.iconsHide === true;
+      //Display the information
       //Page 1
       push();
       imageMode(CENTER);
@@ -209,13 +226,13 @@ class Journal extends State {
       pop();
     }
   }
-
   //Display the logic pad instructions
   displayLogicPadInfo() {
-    //Check to see if the logic pad instructions can be shown
+    //if the logic pad instructions can be shown...
     if (this.logicPadInfoShow === true) {
       //Hide the icons
       this.iconsHide === true;
+      //Display the information
       //Page 3
       push();
       imageMode(CENTER);
@@ -228,13 +245,13 @@ class Journal extends State {
       pop();
     }
   }
-
   //Display the confession instrustioncs
   displayConfessionInfo() {
-    //Check to see if the confession instructions can be shown
+    //if the confession instructions can be shown
     if (this.confessionInfoShow === true) {
       //Hide the icons
       this.iconsHide === true;
+      //Display the information
       //page 5 and 6
       push();
       imageMode(CENTER);
@@ -242,13 +259,13 @@ class Journal extends State {
       pop();
     }
   }
-
   //Display the detector instructions
   displayDetectorInfo() {
-    //Check to see if the detector instructions can be shown
+    //if the detector instructions can be shown
     if (this.detectorInfoShow === true) {
       //Hide the icons
       this.iconsHide === true;
+      //Display the information
       //page 7 and 8
       push();
       imageMode(CENTER);
@@ -297,6 +314,9 @@ class Journal extends State {
     if (mouseX > this.heartConstraints.x && mouseX < this.heartConstraints.x2) {
       if (mouseY > this.heartConstraints.y && mouseY < this.heartConstraints.y2) {
         //Boolean system
+        //Hide the icons
+        //Hide the hover method
+        //Display the heart info
         this.iconsHide = true;
         this.heartHovHide = true;
         this.logicPadHovHide = true;
@@ -310,6 +330,9 @@ class Journal extends State {
     if (mouseX > this.logicPadConstraints.x && mouseX < this.logicPadConstraints.x2) {
       if (mouseY > this.logicPadConstraints.y && mouseY < this.logicPadConstraints.y2) {
         //Boolean system
+        //Hide the icons
+        //Hide the hover method
+        //Display the logic pad info
         this.iconsHide = true;
         this.heartHovHide = true;
         this.logicPadHovHide = true;
@@ -323,6 +346,9 @@ class Journal extends State {
     if (mouseX > this.confessConstraints.x && mouseX < this.confessConstraints.x2) {
       if (mouseY > this.confessConstraints.y && mouseY < this.confessConstraints.y2) {
         //Boolean system
+        //Hide the icons
+        //Hide the hover method
+        //Display the confession info
         this.iconsHide = true;
         this.heartHovHide = true;
         this.logicPadHovHide = true;
@@ -336,6 +362,9 @@ class Journal extends State {
     if (mouseX > this.detectorConstraints.x && mouseX < this.detectorConstraints.x2) {
       if (mouseY > this.detectorConstraints.y && mouseY < this.detectorConstraints.y2) {
         //Boolean system
+        //Hide the icons
+        //Hide the hover method
+        //Display the detector info
         this.iconsHide = true;
         this.heartHovHide = true;
         this.logicPadHovHide = true;
@@ -353,6 +382,9 @@ class Journal extends State {
     super.keyPressed();
     //If left arrow key is pressed go back to the main page
     if (keyCode === 37) {
+      //The icons get shown again
+      //All the information is hidden
+      //Hover method is active again
       this.iconsHide = false;
       this.heartInfoShow = false;
       this.logicPadInfoShow = false;

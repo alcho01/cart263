@@ -1,14 +1,43 @@
 //This is the task when clicking on the machine - Logic Pad
-//
 //https://p5js.org/reference/#/p5/radians
 //https://p5js.org/reference/#/p5/cos
 //https://p5js.org/reference/#/p5/sin
 //https://editor.p5js.org/pippinbarr/sketches/vHseqXxOh
 //https://p5js.org/examples/math-sine-cosine.html
+
+//Display a loop in the upper right corner
+//Create a user spec which the user controls
+//Create an automated spec controlled by the program
+//The user spec can never intersect with the automated spec or the user loses
+//The specs rotate around the loop
+//Within the loop includes a 35 second timer. If the user can sucessfully survive the 35 seconds they acomplish the task
+//Create a platform and a ball that bounces off of it
+//Create a slider and handle
+//Display walls
+//Add a key pressed function for the mechanics
+
+/*DESCRIPTION OF THE GAME
+
+Difficulty - Hard
+The goal of the game is to not get caught by the automated spec while being able to keep your attention on multiple events going on simultaneously for 35 seconds.
+Use the mouse to control the platform.
+Use the W-S key to control the user spec (Blue Spec).
+The user should keep the red bouncing ball in play to keep reseting the slider handle.
+The slider handle resets every time the red bouncing ball comes in contact with the platform.
+The slider handle enables the movement of the user spec, therefore if the ball drops and the handle reaches the highest capacity there isn't anything the user can do, and will have to restart.
+This task is about coordination and controlling multiple events at once.
+For some this might be easy, for others it might be hard.
+
+This information can be found in the journal along with a simple diagram.
+*/
+
 class LogicPad extends State {
   constructor(w, h, x, y) {
     //Call the super class
     super(w, h, x, y);
+
+    //Set the background colour
+    this.bgColour = 0;
 
     //Radius
     this.radius = 50;
@@ -153,7 +182,7 @@ class LogicPad extends State {
     //Call the super display
     super.display();
     //Set background fill
-    background(0);
+    background(this.bgColour);
 
     //Display the loop
     this.displayLoop();
