@@ -145,6 +145,10 @@ let sceneDImage3;
 let sceneEImage1;
 let sceneEImage2;
 let sceneEImage3;
+//F
+let sceneFImage1;
+let sceneFImage2;
+let sceneFImage3;
 //Load Location images
 //Load the home images
 let home1Image;
@@ -279,6 +283,10 @@ function preload() {
   sceneEImage1 = loadImage("assets/images/scenes/tower1.png");
   sceneEImage2 = loadImage("assets/images/scenes/tower2.png");
   sceneEImage3 = loadImage("assets/images/scenes/tower3.png");
+  //Scene F images
+  sceneFImage1 = loadImage("assets/images/scenes/incar.png");
+  sceneFImage2 = loadImage("assets/images/scenes/incar2.png");
+  sceneFImage3 = loadImage("assets/images/scenes/incar3.png");
   //home animated images
   home1Image = loadImage("assets/images/locations/home.png");
   home2Image = loadImage("assets/images/locations/home2.png");
@@ -392,8 +400,11 @@ function draw() {
 function tasksCompleted() {
   //If all tasks completion is true...
   if (task1Done === true && task2Done === true && task3Done === true && task4Done === true) {
-    //Go to this state
-    //state = new
+    //If all the papers from the four locations are collected also
+    if (paper.paper1.hide === true && paper.paper2.hide === true && paper.paper3.hide === true && paper.paper4.hide === true) {
+      //Go to car state
+      state = new CarScene(1280, 720, 640, 360);
+    }
   }
 }
 

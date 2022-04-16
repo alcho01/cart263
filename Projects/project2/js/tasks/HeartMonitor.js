@@ -35,8 +35,8 @@ class HeartMonitor extends State {
     //Control
     this.control = undefined;
 
-    //Delay after completing task 3.5 seconds
-    this.timeDelay = 3500;
+    //Delay after completing task 1 seconds
+    this.timeDelay = 1000;
 
     //Timer
     this.timer = 10;

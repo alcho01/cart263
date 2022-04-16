@@ -27,8 +27,8 @@ class Confession extends State {
     //Set the background colour
     this.bgColour = 0;
 
-    //Timer delay 2.5 seconds
-    this.timeDelay = 2500;
+    //Timer delay 1 second
+    this.timeDelay = 1000;
 
     //Orbit Parameters
     this.orbParams = {
