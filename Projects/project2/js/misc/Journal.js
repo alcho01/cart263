@@ -412,8 +412,13 @@ class Journal extends State {
     }
     //If escape key is clicked return to the previous state
     if (keyCode === 27 && locationTower === true) {
-      //Return to the home state
+      //Return to the tower state
       state = new Tower(1280, 720, 640, 360);
+    }
+    //If escape key is clicked return to the previous state
+    if (keyCode === 27 && locationDadHome === true) {
+      //Return to the dad home state
+      state = new DadHome(1280, 720, 640, 360);
     }
   }
 }

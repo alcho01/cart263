@@ -135,6 +135,7 @@ class Map extends State {
         locationLab = false;
         locationShrine = false;
         locationTower = false;
+        locationDadHome = false;
         //Play the home sfx
         homeSFX.play();
       }
@@ -149,6 +150,7 @@ class Map extends State {
         locationLab = true;
         locationShrine = false;
         locationTower = false;
+        locationDadHome = false;
         //Stop the theme song
         themeSong.stop();
         //Play the lab sfx
@@ -168,6 +170,7 @@ class Map extends State {
         locationLab = false;
         locationShrine = true;
         locationTower = false;
+        locationDadHome = false;
         //Stop the theme song
         themeSong.stop();
         //Play the shrine sfx
@@ -188,6 +191,7 @@ class Map extends State {
         locationLab = false;
         locationShrine = false;
         locationTower = true;
+        locationDadHome = false;
         //Stop the theme song
         themeSong.stop();
         //Play the tower sfx

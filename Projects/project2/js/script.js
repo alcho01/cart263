@@ -64,10 +64,13 @@ let locationHome = true;
 let locationLab = false;
 let locationShrine = false;
 let locationTower = false;
+let locationDadHome = false;
 
 //=====Setup Classes=====\\
 //Paper
 let paper;
+//Passage book
+let book;
 //Items
 let heartBox;
 let machine;
@@ -162,12 +165,17 @@ let shrine2Image;
 //Load the tower images
 let tower1Image;
 let tower2Image;
+//Load the house of brian's dad
+let dadHomeImage;
 //Load passage images
 let passageImage1;
 let passageImage2;
 let passageImage3;
 let passageImage4;
 //Load Item Images - Hov = Hovered over
+//Book
+let bookImage;
+let bookImageHov;
 //Paper
 let paperImage;
 let paperImageHov;
@@ -299,6 +307,11 @@ function preload() {
   //tower animated images
   tower1Image = loadImage("assets/images/locations/tower.png");
   tower2Image = loadImage("assets/images/locations/tower2.png");
+  //Load dad's home
+  dadHomeImage = loadImage("assets/images/locations/dadhome.png");
+  //Load book images
+  bookImage = loadImage("assets/images/items/bookofpassages.png");
+  bookImageHov = loadImage("assets/images/items/bookofpassages2.png");
   //paper images
   paperImage = loadImage("assets/images/items/paper.png");
   paperImageHov = loadImage("assets/images/items/paper2.png");
@@ -374,9 +387,12 @@ function setup() {
   createCanvas(canvas.width, canvas.height);
 
   //Classes that must be called in setup
-  state = new PreTitle(1280, 720, 640, 360);
+  state = new CarScene(1280, 720, 640, 360);
+  //state = new PreTitle(1280, 720, 640, 360);
   //Papers
   paper = new Paper();
+  //Book
+  book = new Book();
   //Items
   heartBox = new HeartBox();
   machine = new Machine();

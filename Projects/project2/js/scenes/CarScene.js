@@ -1,4 +1,6 @@
 //This class contains the car scene
+//Display the animated car scene
+//Add a key pressed function to go to the next state
 class CarScene extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -34,7 +36,9 @@ class CarScene extends State {
     //If the left arrow key is pressed change states
     if (keyCode === 37) {
       //Go to the dad's house
-      //state = new DadHome(1280, 720, 640, 360);
+      state = new DadHome(1280, 720, 640, 360);
+      //This becomes unlocked
+      locationDadHome = true;
     }
   }
 }

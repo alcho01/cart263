@@ -172,5 +172,15 @@ class Bag extends State {
         }
       }
     }
+    //Check to see if the location dad DadHome is set to true
+    if (locationDadHome === true) {
+      //check to see if the mouse is within the click box
+      if (mouseX > this.exitConstraints.x && mouseX < this.exitConstraints.x2) {
+        if (mouseY > this.exitConstraints.y && mouseY < this.exitConstraints.y2) {
+          //Return to the dad home state
+          state = new DadHome(1280, 720, 640, 360);
+        }
+      }
+    }
   }
 }
