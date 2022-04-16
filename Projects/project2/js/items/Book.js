@@ -1,4 +1,6 @@
 //This class is for the book containing the remaining passages
+//Display the hover and non hover method for the book
+//Add a boolean system to hide or show the book.
 class Book {
   constructor() {
     //dimensions

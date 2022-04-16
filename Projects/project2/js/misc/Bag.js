@@ -102,6 +102,11 @@ class Bag extends State {
       //If it is display it in the bag
       paper.displayInBag4();
     }
+    //Check to see if the passage book is collected
+    if (book.showBook === false) {
+      //Display the remaining pages
+      paper.displayRemainingPapers();
+    }
   }
 
   //Key pressed functionality
@@ -125,6 +130,31 @@ class Bag extends State {
     if (keyCode === 52 && paper.paper4.hide === true) {
       //Go to the passage 4 state
       state = new Passage4(1280, 720, 640, 360);
+    }
+    //If key 5 is pressed... and the book is hidden...
+    if (keyCode === 53 && book.showBook === false) {
+      //Go to the passage 5 state
+      state = new Passage5(1280, 720, 640, 360);
+    }
+    //If key 6 is pressed... and the book is hidden...
+    if (keyCode === 54 && book.showBook === false) {
+      //Go to the passage 6 state
+      state = new Passage6(1280, 720, 640, 360);
+    }
+    //If key 7 is pressed... and the book is hidden...
+    if (keyCode === 55 && book.showBook === false) {
+      //Go to the passage 7 state
+      state = new Passage7(1280, 720, 640, 360);
+    }
+    //If key 8 is pressed... and the book is hidden...
+    if (keyCode === 56 && book.showBook === false) {
+      //Go to the passage 8 state
+      state = new Passage8(1280, 720, 640, 360);
+    }
+    //If key 9 is pressed... and the book is hidden...
+    if (keyCode === 57 && book.showBook === false) {
+      //Go to the passage 9 state
+      state = new Passage9(1280, 720, 640, 360);
     }
   }
 

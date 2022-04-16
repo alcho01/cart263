@@ -172,6 +172,11 @@ let passageImage1;
 let passageImage2;
 let passageImage3;
 let passageImage4;
+let passageImage5;
+let passageImage6;
+let passageImage7;
+let passageImage8;
+let passageImage9;
 //Load Item Images - Hov = Hovered over
 //Book
 let bookImage;
@@ -179,6 +184,7 @@ let bookImageHov;
 //Paper
 let paperImage;
 let paperImageHov;
+let remainingPapersImage;
 //Load the heartBox images
 let heartBoxImage;
 let heartBoxImageHov;
@@ -315,11 +321,17 @@ function preload() {
   //paper images
   paperImage = loadImage("assets/images/items/paper.png");
   paperImageHov = loadImage("assets/images/items/paper2.png");
+  remainingPapersImage = loadImage("assets/images/items/pagesinbag.png");
   //passage images
   passageImage1 = loadImage("assets/images/passages/passage.png");
   passageImage2 = loadImage("assets/images/passages/passage2.png");
   passageImage3 = loadImage("assets/images/passages/passage3.png");
   passageImage4 = loadImage("assets/images/passages/passage4.png");
+  passageImage5 = loadImage("assets/images/passages/passage5.png");
+  passageImage6 = loadImage("assets/images/passages/passage6.png");
+  passageImage7 = loadImage("assets/images/passages/passage7.png");
+  passageImage8 = loadImage("assets/images/passages/passage8.png");
+  passageImage9 = loadImage("assets/images/passages/passage9.png");
   //heartbox images
   heartBoxImage = loadImage("assets/images/items/heartbox.png");
   heartBoxImageHov = loadImage("assets/images/items/heartbox2.png");

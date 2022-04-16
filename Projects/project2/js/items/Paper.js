@@ -2,7 +2,7 @@
 //Display the paper with hover and non-hover methods
 //Add a click box around the pieces of paper
 //When the paper is clicked hide it from the location...
-//Then when hidden, display it in the specified bag slot 
+//Then when hidden, display it in the specified bag slot
 class Paper {
   constructor() {
 
@@ -31,6 +31,13 @@ class Paper {
     this.paperToBag4 = {
       x: 630,
       y: 276,
+      width: 1200,
+      height: 800,
+    };
+    //Remaining slots
+    this.remainingSlots = {
+      x: 650,
+      y: 370,
       width: 1200,
       height: 800,
     };
@@ -100,6 +107,7 @@ class Paper {
     //Images
     this.paperImage = paperImage;
     this.paperImageHov = paperImageHov;
+    this.remainingPapersImage = remainingPapersImage;
   }
 
   //=================DISPLAY THE PAPER IN THE BAG=================\\
@@ -130,6 +138,13 @@ class Paper {
     push();
     imageMode(CENTER);
     image(this.paperImage, this.paperToBag4.x, this.paperToBag4.y, this.paperToBag4.width, this.paperToBag4.height);
+    pop();
+  }
+  //Display the remaining papers in the bag
+  displayRemainingPapers() {
+    push();
+    imageMode(CENTER);
+    image(this.remainingPapersImage, this.remainingSlots.x, this.remainingSlots.y, this.remainingSlots.width, this.remainingSlots.height);
     pop();
   }
 
