@@ -138,16 +138,6 @@ class Map extends State {
         locationDadHome = false;
         //Play the home sfx
         homeSFX.play();
-        //Stop every theme song
-        labThemeSong.stop();
-        shrineThemeSong.stop();
-        towerThemeSong.stop();
-        dadHomeThemeSong.stop();
-        themeSong.stop();
-        //Resume the theme song and loop it
-        homeThemeSong.setVolume(0.2);
-        homeThemeSong.play();
-        homeThemeSong.loop();
       }
     }
     //Check to see if within the clickbox
@@ -161,8 +151,13 @@ class Map extends State {
         locationShrine = false;
         locationTower = false;
         locationDadHome = false;
-        //Stop the theme song
+        //Stop the theme songs
         themeSong.stop();
+        homeThemeSong.stop();
+        labThemeSong.stop();
+        shrineThemeSong.stop();
+        towerThemeSong.stop();
+        dadHomeThemeSong.stop();
         //Play the lab sfx
         labSFX.play();
         //Play the wind sfx
@@ -181,8 +176,13 @@ class Map extends State {
         locationShrine = true;
         locationTower = false;
         locationDadHome = false;
-        //Stop the theme song
+        //Stop the theme songs
         themeSong.stop();
+        homeThemeSong.stop();
+        labThemeSong.stop();
+        shrineThemeSong.stop();
+        towerThemeSong.stop();
+        dadHomeThemeSong.stop();
         //Play the shrine sfx
         shrineSFX.play();
         //Play the wind sfx
@@ -202,8 +202,13 @@ class Map extends State {
         locationShrine = false;
         locationTower = true;
         locationDadHome = false;
-        //Stop the theme song
+        //Stop the theme songs
         themeSong.stop();
+        homeThemeSong.stop();
+        labThemeSong.stop();
+        shrineThemeSong.stop();
+        towerThemeSong.stop();
+        dadHomeThemeSong.stop();
         //Play the tower sfx
         towerSFX.play();
         //Play the ocean sfx
