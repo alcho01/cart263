@@ -1,6 +1,6 @@
 //This is to display passage #9
 //Display the passage
-//Add a key pressed event to exit from the passage
+//Add a timer that counts down from 10 to then display the next state
 class Passage9 extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -8,6 +8,15 @@ class Passage9 extends State {
 
     //Image
     this.passageImage9 = passageImage9;
+
+    //Add a timer 10 sec
+    this.timer = 8;
+    //Add an increment of a second to be deducted
+    this.second = -1;
+    //Minute
+    this.minute = 60;
+    //Timer finished
+    this.timeDone = 0;
   }
 
   //Display the passage
@@ -19,16 +28,20 @@ class Passage9 extends State {
     imageMode(CENTER);
     image(this.passageImage9, this.x, this.y, this.width, this.height);
     pop();
+
+    //Add the timer to the display to activate it
+    this.timerStart();
   }
 
-  //Key pressed functionality
-  keyPressed() {
-    //Call the super key pressed
-    super.keyPressed();
-    //if the escape key is pressed...
-    if (keyCode === 27) {
-      //return to the bag state
-      state = new Bag(1280, 720, 640, 360);
+  //Add a timer to countdown
+  timerStart() {
+    this.timer += this.second / this.minute;
+    //Check for when the time hits 0
+    if (this.timer <= this.timeDone) {
+      this.timer = this.timeDone;
+      //Change states
+      console.log('done');
+      state = new EndingScene(1280, 720, 640, 360);
     }
   }
 }

@@ -65,6 +65,8 @@ class Book {
       if (mouseY > this.bookConstraints.y && mouseY < this.bookConstraints.y2) {
         //Hide the book
         this.showBook = false;
+        //Play a sfx
+        paperSFX.play();
       }
     }
   }

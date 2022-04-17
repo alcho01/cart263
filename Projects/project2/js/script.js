@@ -233,6 +233,9 @@ let selectionBarImage2;
 let selectionBarImage3;
 let selectionBarImage4;
 
+//Load the ending title image
+let endingTitleImage;
+
 //State variable
 let state;
 
@@ -378,6 +381,8 @@ function preload() {
   selectionBarImage2 = loadImage("assets/images/taskItems/selectionbar1.png");
   selectionBarImage3 = loadImage("assets/images/taskItems/selectionbar2.png");
   selectionBarImage4 = loadImage("assets/images/taskItems/selectionbar3.png");
+  //Ending Title image
+  endingTitleImage = loadImage("assets/images/scenes/ending.png");
 }
 
 //What needs to be setup before starting
@@ -399,8 +404,8 @@ function setup() {
   createCanvas(canvas.width, canvas.height);
 
   //Classes that must be called in setup
-  state = new CarScene(1280, 720, 640, 360);
-  //state = new PreTitle(1280, 720, 640, 360);
+  //state = new CarScene(1280, 720, 640, 360);
+  state = new PreTitle(1280, 720, 640, 360);
   //Papers
   paper = new Paper();
   //Book
