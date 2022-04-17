@@ -323,6 +323,9 @@ class Journal extends State {
         this.confessHovHide = true;
         this.detectorHovHide = true;
         this.heartInfoShow = true;
+        this.logicPadInfoShow = false;
+        this.confessionInfoShow = false;
+        this.detectorInfoShow = false;
         this.displayHeartInfo();
       }
     }
@@ -339,6 +342,9 @@ class Journal extends State {
         this.confessHovHide = true;
         this.detectorHovHide = true;
         this.logicPadInfoShow = true;
+        this.heartInfoShow = false;
+        this.confessionInfoShow = false;
+        this.detectorInfoShow = false;
         this.displayLogicPadInfo();
       }
     }
@@ -355,6 +361,9 @@ class Journal extends State {
         this.confessHovHide = true;
         this.detectorHovHide = true;
         this.confessionInfoShow = true;
+        this.heartInfoShow = false;
+        this.logicPadInfoShow = false;
+        this.detectorInfoShow = false;
         this.displayConfessionInfo();
       }
     }
@@ -371,6 +380,9 @@ class Journal extends State {
         this.confessHovHide = true;
         this.detectorHovHide = true;
         this.detectorInfoShow = true;
+        this.heartInfoShow = false;
+        this.logicPadInfoShow = false;
+        this.confessionInfoShow = false;
         this.displayDetectorInfo();
       }
     }
