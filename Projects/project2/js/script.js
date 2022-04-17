@@ -9,11 +9,11 @@ I implemented annyang in the setup.
 I added a function to check when all the tasks are complete (again, more of a universal function - therefore, I decided to use it in the script).
 
 GAME DESCRIPTION
-The game follows a young adult coping with his mother's addiction and sudden death.
+The game follows a young adult named Brian coping with his mother's addiction and sudden death.
 The goal of the game is to complete all the tasks. The tasks are repetitive to reflect the idea of addiction.
 They are also abstract in the sense that these tasks are very random and don't make much sense. Ultimately, they serve as a distraction for the protagonist.
 There is also more of a story-based element if the user decides to collect the notes scattered throughout each location.
-Each note provides a backstory and insight into the protagonist’s life and his mother's life. The storyline takes place over several days.
+Each note provides a backstory and insight into the protagonist’s family life. The storyline takes place over several days.
 Going from one location to another is considered a new day.
 
 Checklist
@@ -37,8 +37,8 @@ Checklist
 [DONE]Map
 [DONE]Passages
 [DONE]Ending
-[]Add sounds
-[]Clean up code
+[DONE]Add sounds
+[DONE]Clean up code
 
 */
 
