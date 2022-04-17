@@ -39,20 +39,32 @@ class ShrineScene extends State {
       //Go to the Shrine state
       state = new Shrine(1280, 720, 640, 360);
       //Resume the theme song
-      themeSong.play();
-      themeSong.loop();
+      shrineThemeSong.setVolume(0.2);
+      shrineThemeSong.play();
+      shrineThemeSong.loop();
       //Stop the wind sfx
       windSFX.stop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      labThemeSong.stop();
+      towerThemeSong.stop();
+      dadHomeThemeSong.stop();
     }
     //If the escape key is pressed
     if (keyCode === 27) {
       //Return to the map
       state = new Map(1280, 720, 640, 360);
       //Resume the theme song
-      themeSong.play();
-      themeSong.loop();
+      shrineThemeSong.setVolume(0.2);
+      shrineThemeSong.play();
+      shrineThemeSong.loop();
       //Stop the wind sfx
       windSFX.stop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      labThemeSong.stop();
+      towerThemeSong.stop();
+      dadHomeThemeSong.stop();
     }
   }
 }

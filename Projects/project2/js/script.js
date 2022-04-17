@@ -35,8 +35,8 @@ Checklist
 [DONE]Journal Info
 [DONE]Bag
 [DONE]Map
-[]Passages
-[]Ending
+[DONE]Passages
+[DONE]Ending
 []Add sounds
 []Clean up code
 
@@ -88,6 +88,12 @@ let dialogueFont;
 //TITLE AND INSTRUCTIONS SOUNDS
 //Title song
 let themeSong;
+//Themed songs for location
+let homeThemeSong;
+let labThemeSong;
+let shrineThemeSong;
+let towerThemeSong;
+let dadHomeThemeSong;
 //Cracking Glass
 let glassCrackSFX;
 //SCENE A, B, C, D SOUND
@@ -271,6 +277,11 @@ function preload() {
   connectedSFX = loadSound("assets/sounds/connected.mp3");
   //preload music
   themeSong = loadSound("assets/sounds/guitarloop.wav");
+  homeThemeSong = loadSound("assets/sounds/guitarloop2.wav");
+  labThemeSong = loadSound("assets/sounds/guitarloop3.wav");
+  shrineThemeSong = loadSound("assets/sounds/guitarloop4.wav");
+  towerThemeSong = loadSound("assets/sounds/guitarloop5.wav");
+  dadHomeThemeSong = loadSound("assets/sounds/guitarloop6.wav");
 
   //=======PRELOAD IMAGES=======\\
   //title images

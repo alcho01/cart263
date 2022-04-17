@@ -138,6 +138,15 @@ class Map extends State {
         locationDadHome = false;
         //Play the home sfx
         homeSFX.play();
+        //Stop every theme song
+        labThemeSong.stop();
+        shrineThemeSong.stop();
+        towerThemeSong.stop();
+        dadHomeThemeSong.stop();
+        //Resume the theme song and loop it
+        homeThemeSong.setVolume(0.2);
+        homeThemeSong.play();
+        homeThemeSong.loop();
       }
     }
     //Check to see if within the clickbox

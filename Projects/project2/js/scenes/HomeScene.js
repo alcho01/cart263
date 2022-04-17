@@ -40,10 +40,10 @@ class HomeScene extends State {
       state = new Home(1280, 720, 640, 360);
       //stop the wind sound
       windSFX.stop();
-      //Resume the theme song and loop it
-      themeSong.setVolume(0.2);
-      themeSong.play();
-      themeSong.loop();
+      //play the home theme song
+      homeThemeSong.setVolume(0.2);
+      homeThemeSong.play();
+      homeThemeSong.loop();
     }
   }
 }

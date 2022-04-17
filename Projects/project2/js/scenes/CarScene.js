@@ -35,10 +35,21 @@ class CarScene extends State {
     super.keyPressed();
     //If the left arrow key is pressed change states
     if (keyCode === 37) {
+      //Turn this task back to false to enable switching states 
+      task4Done = false;
       //Go to the dad's house
       state = new DadHome(1280, 720, 640, 360);
       //This becomes unlocked
       locationDadHome = true;
+      //Play the theme song for this location
+      dadHomeThemeSong.setVolume(0.2);
+      dadHomeThemeSong.play();
+      dadHomeThemeSong.loop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      labThemeSong.stop();
+      shrineThemeSong.stop();
+      towerThemeSong.stop();
     }
   }
 }

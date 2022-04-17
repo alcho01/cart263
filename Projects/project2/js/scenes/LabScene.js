@@ -39,20 +39,32 @@ class LabScene extends State {
       //Go to the Lab state
       state = new Lab(1280, 720, 640, 360);
       //Resume the theme song
-      themeSong.play();
-      themeSong.loop();
+      labThemeSong.setVolume(0.2);
+      labThemeSong.play();
+      labThemeSong.loop();
       //Stop the wind sfx
       windSFX.stop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      shrineThemeSong.stop();
+      towerThemeSong.stop();
+      dadHomeThemeSong.stop();
     }
     //If the escape key is pressed
     if (keyCode === 27) {
       //Return to the map
       state = new Map(1280, 720, 640, 360);
       //Resume the theme song
-      themeSong.play();
-      themeSong.loop();
+      labThemeSong.setVolume(0.2);
+      labThemeSong.play();
+      labThemeSong.loop();
       //Stop the wind sfx
       windSFX.stop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      shrineThemeSong.stop();
+      towerThemeSong.stop();
+      dadHomeThemeSong.stop();
     }
   }
 }

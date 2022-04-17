@@ -1,7 +1,7 @@
 //Contains the cinematic shot for the tower scene
 //Display the images in an animated way due to framecount
 //Add a key pressed event to change the current state
-//The key pressed will also impact the sound fx system 
+//The key pressed will also impact the sound fx system
 class TowerScene extends State {
   constructor(w, h, x, y) {
     //Call the super class
@@ -39,20 +39,32 @@ class TowerScene extends State {
       //Go to the Tower state
       state = new Tower(1280, 720, 640, 360);
       //Resume the theme song
-      themeSong.play();
-      themeSong.loop();
+      towerThemeSong.setVolume(0.2);
+      towerThemeSong.play();
+      towerThemeSong.loop();
       //Stop the ocean sfx
       oceanSFX.stop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      labThemeSong.stop();
+      shrineThemeSong.stop();
+      dadHomeThemeSong.stop();
     }
     //If the escape key is pressed
     if (keyCode === 27) {
       //Return to the map
       state = new Map(1280, 720, 640, 360);
       //Resume the theme song
-      themeSong.play();
-      themeSong.loop();
+      towerThemeSong.setVolume(0.2);
+      towerThemeSong.play();
+      towerThemeSong.loop();
       //Stop the ocean sfx
       oceanSFX.stop();
+      //Stop the theme songs
+      homeThemeSong.stop();
+      labThemeSong.stop();
+      shrineThemeSong.stop();
+      dadHomeThemeSong.stop();
     }
   }
 }
