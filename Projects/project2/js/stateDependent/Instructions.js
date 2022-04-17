@@ -45,8 +45,6 @@ class Instructions extends State {
     super.keyPressed();
     //Go to the opening scene
     state = new ForestScene(1280, 720, 640, 360);
-    //Stop the theme song
-    themeSong.stop();
     //Add  a wind sound for the forest scene
     //Loop it
     windSFX.play();

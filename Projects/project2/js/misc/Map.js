@@ -143,6 +143,7 @@ class Map extends State {
         shrineThemeSong.stop();
         towerThemeSong.stop();
         dadHomeThemeSong.stop();
+        themeSong.stop();
         //Resume the theme song and loop it
         homeThemeSong.setVolume(0.2);
         homeThemeSong.play();
