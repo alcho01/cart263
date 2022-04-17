@@ -55,7 +55,7 @@ Ends with the title displaying once more.
 ### TASK DESCRIPTION
 ***
 #### HEART MONITOR
----
+
 Difficulty - Intermediate
 
 The heart monitor task involves the user to rapidly use the mouse and zig zag from top to bottom / bottom to top and reach the goal before times run out.
@@ -64,9 +64,9 @@ The goal is 80 points. 2 points per "touch". The user has 10 seconds.
 If the user successfully completes the task the stroke will turn green.
 
 This information can be found in the journal along with a simple diagram.
-
-#### LOGIC PAD
 ---
+#### LOGIC PAD
+
 Difficulty - Hard
 The goal of the game is to not get caught by the automated spec while being able to keep your attention on multiple events going on simultaneously for 35 seconds.
 Use the mouse to control the platform.
@@ -78,9 +78,9 @@ This task is about coordination and controlling multiple events at once.
 For some this might be easy, for others it might be hard.
 
 This information can be found in the journal along with a simple diagram.
-
-#### CONFESSION
 ---
+#### CONFESSION
+
 Difficulty - Easy (TO ME)
 The goal of the game is to unscramble the words to formulate a sentence.
 The user should start by clicking on the 4 nodes surrounding the orbit.
@@ -90,9 +90,9 @@ Once all surrounding nodes are guessed correctly(Hidden), the user can click the
 When the final sentence is guessed correctly it will revert to the previous state.
 
 This information can be found in the journal along with a simple diagram.
-
-#### Detector
 ---
+#### Detector
+
 Difficulty - Easy to Intermediate
 
 The goal of the task is to find the hidden target.
@@ -105,18 +105,18 @@ When they display, the user will need to click the intersecting point of the lin
 A sound will go off and the user will be brought back to the previous state.
 
 This information can be found in the journal along with a simple diagram.
-
+---
 ### REFERENCES USED
 ---
 EVERYTHING NOT CREDITED IS CREATED BY ME.
 
 #### SOUNDS
----
+
 ALL SOUND FX PROVIDED FROM
 https://freesound.org/
-
-#### CODE IDEAS
 ---
+#### CODE IDEAS
+
 P5 REFERENCE GUIDE - https://p5js.org/reference/
 
 HAPPY CODING - ARRAY PUSH - https://happycoding.io/tutorials/p5js/array-functions#push.
@@ -138,3 +138,4 @@ PIPPIN BARR - ROTATOR - https://editor.p5js.org/pippinbarr/sketches/vHseqXxOh
 LOGIC PAD TASK INSPIRED BY THE JUGGLE GARDEN EXERCISE
 
 VANAWY - RADAR - https://editor.p5js.org/Vanawy/sketches/uyjdyJ4hL
+---
