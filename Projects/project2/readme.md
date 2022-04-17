@@ -115,6 +115,44 @@ EVERYTHING NOT CREDITED IS CREATED BY ME.
 ALL SOUND FX PROVIDED FROM
 
 https://freesound.org/
+
+THEGREATPERSON - HEART MONITOR - https://freesound.org/people/thegreatperson/sounds/210793/
+
+INSPECTOR J - JOURNAL - https://freesound.org/people/InspectorJ/sounds/416179/
+
+KYNIKOSSDRAGON - DETECTED BEEP - https://freesound.org/search/?q=radar&f=&w=&s=Automatic+by+relevance&advanced=0&g=1
+
+INSPECTOR J - GLASS CRACK - https://freesound.org/people/InspectorJ/sounds/344271/
+
+HAPPYFLAPPYGUY - WIND - https://freesound.org/people/HappyFlappyGuy/sounds/521228/
+
+TRIQYSTUDIO - BAG - https://freesound.org/people/TriqyStudio/sounds/467605/
+
+BREVICEPS - MAP - https://freesound.org/people/Breviceps/sounds/447931/
+
+BASH360 - PAPER - https://freesound.org/people/Bash360/sounds/214854/
+
+EMINYILDIRIM - HEARTBOX - https://freesound.org/people/EminYILDIRIM/sounds/536074/
+
+ANAGAR - HOME - https://freesound.org/people/anagar/sounds/267931/
+
+USER 7146007 - LAB - https://freesound.org/people/deleted_user_7146007/sounds/383760/
+
+ROBINHOOD76 - SHRINE - https://freesound.org/people/Robinhood76/sounds/537464/
+
+SOPHRONSINESOUNDDESIGN- TOWER - https://freesound.org/people/SophronsineSoundDesign/sounds/320307/
+
+AMHOLMA - OCEAN - https://freesound.org/people/amholma/sounds/372181/
+
+RICKPLAYER - MACHINE - https://freesound.org/people/Rickplayer/sounds/530486/
+
+SPACEJOE - CONFESS - https://freesound.org/people/SpaceJoe/sounds/484901/
+
+WUBITOG - DETECTOR - https://freesound.org/people/wubitog/sounds/188386/
+
+RICHERLANDTV - CONNECTED - https://freesound.org/people/RICHERlandTV/sounds/351556/
+
+
 ---
 #### CODE IDEAS
 
